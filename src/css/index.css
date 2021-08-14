@@ -6,17 +6,61 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#container {
-  width: 100vw;
-  height: 100vh;
+#header {
+  background-color: white;
+  height: 66px;
+  padding-top: 15px;
+  padding-left: 50px;
 }
-div {
-  text-align: center;
+
+.title1 {
+  display: block;
+  font-size: 22px;
+  line-height: 24px;
 }
-.title {
-  font-size: 100px;
-  padding-top: 50px;
+
+.title2 {
+  display: block;
+  font-size: 22px;
+  line-height: 24px;
 }
-.name {
-  font-size: 30px;
+
+.title3 {
+  float: left;
+  text-align: right;
+}
+
+.title4 {
+  font-weight: bold;
+  padding-left: 10px;
+  font-size: 24px;
+  line-height: 48px;
+  float: left;
+}
+
+html {
+  background-color: blue;
+}
+
+#menu {
+  padding-top: 15px;
+  padding-right: 70px;
+}
+
+.menu1 {
+  float: left;
+  padding-left: 40px;
+}
+
+.menu2 {
+  float: right;
+  padding-left: 100px;
+}
+
+.menu1 a {
+  padding: 0 20px;
+}
+
+a {
+  padding: 0 10px;
 }
