@@ -44,8 +44,7 @@ function getValue() {
       erro.classList.add("verde");
       textoerro.textContent="Você está logado";
     }
-
-    if(this.status == 400) {
+    else {
       erro.classList.remove("azul");
       erro.classList.remove("verde");
       erro.classList.add("vermelho");

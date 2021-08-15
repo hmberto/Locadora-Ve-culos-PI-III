@@ -1,0 +1,160 @@
+#cadastro {
+  margin-top: 50px;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.inputs {
+  width: 80%;
+  height: auto;
+  background: #fff;
+}
+
+.loginText {
+  line-height: 50px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.loginText2 {
+  line-height: 0px;
+  font-weight: bold;
+  width: 100%;
+  font-size: 24px;
+}
+
+.loginText3 {
+  margin-top: 50px;
+  display: block;
+  text-align: left;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 100%;
+}
+
+.loginText4 {
+  border-bottom: solid 2px #337ab7;
+  width: 80%;
+  margin-top: 5px;
+}
+
+.estrela {
+  color: red;
+  font-weight: bold;
+}
+
+.textoerro {
+  display: block;
+}
+
+.cont {
+  width: 80%;
+  margin-left:  10%;
+  margin-right:  10%;
+}
+
+.cont3 {
+  display: block;
+}
+
+.log1 {
+  width: 47%;
+  float: left;
+}
+
+.log2 {
+  width: 47%;
+  float: right;
+}
+
+.botao{
+  line-height: 50px;
+  text-align: right;
+  margin: 0 10% 0 10%;
+  margin-top: 20px;
+}
+
+button {
+  width: 100%;
+  padding: 10px 0px;
+  border: none;
+  font-weight: bold;
+  margin-bottom: 25px;
+  margin-top: 30px;
+  background-color: #337ab7;
+  color: white;
+}
+
+.txt{
+  margin-top: 20px;
+  text-align: left;
+}
+
+input {
+  height: 30px;
+  width: 100%;
+  font-size: 18px;
+  border-bottom: solid 2px black;
+  padding-left: 5px;
+  background-color: none;
+}
+
+#sexo {
+  height: 32px;
+  width: 100%;
+  font-size: 18px;
+  padding-left: 5px;
+  box-shadow: 0 0 10px 2px #fff inset;
+  transition: all .2s ease-in-out;
+}
+
+#erro{
+  color: white;
+  border-radius: 5px;
+  margin: 0 9% 0 10%;
+  text-align: center;
+}
+
+.azul {
+  background-color: #337ab7;
+}
+
+.vermelho {
+  background-color: #ff6347;
+}
+
+.verde {
+  background-color: #00a65a;
+}
+
+#textoerro {
+  line-height: 50px;
+  font-size: 16px;
+}
+
+.t1 {
+  font-weight: bold;
+}
+
+.legenda {
+  float: right;
+  font-size: 14px;
+}
+
+.dividir {
+  width: 100%;
+}
+
+.dividir1 {
+  width: 46%;
+  float: left;
+}
+
+.dividir2 {
+  width: 46%;
+  float: right;
+}
