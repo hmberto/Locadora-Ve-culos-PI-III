@@ -74,6 +74,15 @@ function buscarCep() {
 }
 
 function getValue() {
+  document.getElementById("form").classList.add("hide");
+
+  if(telefone.value == ""){
+    telefone.value = "0000000000";
+  }
+  if(complemento.value == ""){
+    complemento.value = "null";
+  }
+
   var url = "http://localhost:8186/LocadoraVeiculos/clientes/cadastro";
   var json = '{"nome":"' + nome.value +'","cpf":"' + cpf.value +'","rg":"' + rg.value +'","dataNascimento":"' + dataNascimento.value +'","sexo":"' + sexo.value +'","email":"' + email.value +'","telefone":"' + telefone.value +'","celular":"' + celular.value +'","rua":"' + rua.value +'","numero":"' + numero.value +'","complemento":"' + complemento.value +'","bairro":"' + bairro.value +'","cep":"' + cep.value +'","cidade":"' + cidade.value +'","estado":"' + estado.value +'","login":"' + login.value +'","senha":"' + senha.value +'","numeroCnh":"' + numeroCnh.value +'","registroCnh":"' + registroCnh.value +'","validadeCnh":"' + validadeCnh.value + '","categoriaCnh":"' + categoriaCnh.value + '"}'
 
@@ -91,8 +100,13 @@ function getValue() {
       erro.classList.remove("vermelho");
       erro.classList.add("verde");
       textoerro.textContent="Usuário Cadastrado";
+
+      document.getElementById("redirect").classList.remove("hide");
+      document.getElementById("redirect").classList.add("show");
     }
     else {
+      document.getElementById("form").classList.remove("hide");
+
       erro.classList.remove("azul");
       erro.classList.remove("verde");
       erro.classList.add("vermelho");

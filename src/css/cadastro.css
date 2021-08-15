@@ -21,7 +21,7 @@
 }
 
 .loginText2 {
-  line-height: 0px;
+  line-height: 20px;
   font-weight: bold;
   width: 100%;
   font-size: 24px;
@@ -29,6 +29,14 @@
 
 .loginText3 {
   margin-top: 50px;
+  display: block;
+  text-align: left;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 100%;
+}
+
+.loginText10 {
   display: block;
   text-align: left;
   margin-left: 10%;
@@ -157,4 +165,57 @@ input {
 .dividir2 {
   width: 46%;
   float: right;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: unset;
+}
+
+.goLogin {
+  cursor: pointer;
+  margin-left: -10px;
+}
+
+#err {
+  margin-bottom: 20px;
+}
+
+@media(max-width: 800px) {
+  .legenda {
+    display: block;
+    float: none;
+    font-size: 14px;
+  }
+}
+
+@media(max-width: 550px) {
+  .legenda {
+    display: block;
+    float: none;
+    font-size: 14px;
+  }
+}
+
+@media(max-width: 600px) {
+  .log1 {
+    width: 100%;
+    float: none;
+  }
+  
+  .log2 {
+    width: 100%;
+    float: none;
+  }
+
+  .cont5 {
+    display: none;
+  }
+
+  .inputs {
+    width: 100%;
+  }
 }

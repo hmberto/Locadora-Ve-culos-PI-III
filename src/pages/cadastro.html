@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" href="/src/css/index.css">
   <link rel="stylesheet" href="/src/css/cadastro.css">
   <title>Cadastro - Locadora de Veículos</title>
@@ -39,158 +39,148 @@
   <div>
     <div id="cadastro">
       <div class="inputs">
-        <div>
+        <div id="err">
           <span class="loginText">CADASTRAR</span>
           <div id="erro" class="azul">
             <span id="textoerro">Faça seu cadastro</span>
           </div>
         </div>
-        <div class="loginText3">
-          <span class="loginText2">• Dados Pessoais</span>
-          <div class="loginText4"></div>
-        </div>
-        <div class="cont3">
-          <div class="cont">
-            <div class="log1">
-              <div class="txt"><span class="t1">Nome</span><span class="estrela"> *</span></div>
-              <input id="nome" placeholder="Nome" type="text">
-            </div>
-            <div class="log2">
-              <div class="txt"><span class="t1">E-mail</span><span class="estrela"> *</span></div>
-              <input id="email" placeholder="E-mail" type="text">
-            </div>
-            <div class="log1">
-              <div class="txt"><span class="t1">CPF</span><span class="legenda legenda2">(Apenas Números)</span><span class="estrela"> *</span></div>
-              <input id="cpf" placeholder="CPF" type="text">
-            </div>
-            <div class="log2">
-              <div class="txt"><span class="t1">RG</span><span class="legenda legenda2">(Apenas Números)</span><span class="estrela"> *</span></div>
-              <input id="rg" placeholder="RG" type="text">
-            </div>
-          </div>
-          <div class="cont">
-            <div class="log1">
-              <div class="txt"><span class="t1">DDD + Celular</span><span class="legenda legenda2">(Apenas Números)</span><span class="estrela"> *</span></div>
-              <input id="celular" placeholder="11999999999" type="text">
-            </div>
-            <div class="log2">
-              <div class="txt"><span class="t1">DDD + Telefone</span><span class="legenda legenda2">(Apenas Números)</span></div>
-              <input id="telefone" placeholder="1199999999" type="text">
-            </div>
-          </div>
-          <div class="cont">
-            <div class="log1">
-              <div class="txt"><span class="t1">Data de Nascimento</span><span class="estrela"> *</span></div>
-              <input id="dataNascimento" type="date">
-            </div>
-            <div class="log2">
-              <div class="txt"><span class="t1">Sexo</span><span class="legenda legenda1"></span><span class="estrela"> *</span></div>
-              <select id="sexo">
-                <option value="Não informar" selected>Não informar</option>
-                <option value="Masculino">Masculino</option>
-                <option value="Feminino">Feminino</option>
-                <option value="Outros">Outros</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="cont4">
+        <div id="form">
           <div class="loginText3">
-            <span class="loginText2">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-
-            </span>
-          </div>
-        </div>
-        <div class="cont4">
-          <div class="loginText3">
-            <span class="loginText2">• Endereço</span>
+            <span class="loginText2">• Dados Pessoais</span>
             <div class="loginText4"></div>
           </div>
-        </div>
-        <div class="cont3">
-          <div class="cont">
-            <div class="log1">
-              <div class="txt"><span class="t1">CEP</span><span class="legenda legenda1">(Apenas Números)</span><span class="estrela"> *</span></div>
-              <input id="cep" placeholder="CEP" onkeyup="buscarCep()" type="text">
-              <div class="txt"><span class="t1">Número</span><span class="estrela"> *</span></div>
-              <input id="numero" placeholder="Número" type="text">
-              <div class="dividir">
-                <div class="dividir1">
-                  <div class="txt"><span class="t1">Cidade</span><span class="estrela"> *</span></div>
-                  <input id="cidade" placeholder="Cidade" type="text" disabled>
-                </div>
-                <div class="dividir2">
-                  <div class="txt"><span class="t1">Bairro</span><span class="estrela"> *</span></div>
-                  <input id="bairro" placeholder="Bairro" type="text" disabled>
-                </div>
+          <div class="cont3">
+            <div class="cont">
+              <div class="log1">
+                <div class="txt"><span class="t1">Nome</span><span class="estrela"> *</span></div>
+                <input id="nome" placeholder="Nome" type="text">
+              </div>
+              <div class="log2">
+                <div class="txt"><span class="t1">E-mail</span><span class="estrela"> *</span></div>
+                <input id="email" placeholder="E-mail" type="text">
+              </div>
+              <div class="log1">
+                <div class="txt"><span class="t1">CPF</span><span class="estrela"> *</span><span class="legenda legenda2">(Apenas Números)</span></div>
+                <input id="cpf" placeholder="CPF" type="text">
+              </div>
+              <div class="log2">
+                <div class="txt"><span class="t1">RG</span><span class="estrela"> *</span><span class="legenda legenda2">(Apenas Números)</span></div>
+                <input id="rg" placeholder="RG" type="text">
               </div>
             </div>
-            <div class="log2">
-              <div class="txt"><span class="t1">Logradouro</span><span class="estrela"> *</span></div>
-              <input id="rua" placeholder="Rua" type="text" disabled>
-              <div class="txt"><span class="t1">Complemento</span></div>
-              <input id="complemento" placeholder="Complemento" type="text">
-              <div class="txt"><span class="t1">Estado</span><span class="estrela"> *</span></div>
-              <input id="estado" placeholder="Estado" type="text" disabled>
+            <div class="cont">
+              <div class="log1">
+                <div class="txt"><span class="t1">DDD + Celular</span><span class="estrela"> *</span><span class="legenda legenda2">(Apenas Números)</span></div>
+                <input id="celular" placeholder="11999999999" type="text">
+              </div>
+              <div class="log2">
+                <div class="txt"><span class="t1">DDD + Telefone</span><span class="legenda legenda2">(Apenas Números)</span></div>
+                <input id="telefone" placeholder="1199999999" type="text">
+              </div>
+            </div>
+            <div class="cont">
+              <div class="log1">
+                <div class="txt"><span class="t1">Data de Nascimento</span><span class="estrela"> *</span></div>
+                <input id="dataNascimento" type="date">
+              </div>
+              <div class="log2">
+                <div class="txt"><span class="t1">Sexo</span><span class="estrela"> *</span></div>
+                <select id="sexo">
+                  <option value="Não informar" selected>Não informar</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Feminino">Feminino</option>
+                  <option value="Outros">Outros</option>
+                </select>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="cont4">
-          <div class="loginText3">
-            <span class="loginText2">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-
-            </span>
+          <div class="cont4">
+            <div class="loginText3">
+              <span class="loginText2">• Endereço</span>
+              <div class="loginText4"></div>
+            </div>
+          </div>
+          <div class="cont3">
+            <div class="cont">
+              <div class="log1">
+                <div class="txt"><span class="t1">CEP</span><span class="estrela"> *</span><span class="legenda legenda1">(Apenas Números)</span></div>
+                <input id="cep" placeholder="CEP" onkeyup="buscarCep()" type="text">
+                <div class="txt"><span class="t1">Número</span><span class="estrela"> *</span></div>
+                <input id="numero" placeholder="Número" type="text">
+                <div class="dividir">
+                  <div class="dividir1">
+                    <div class="txt"><span class="t1">Cidade</span><span class="estrela"> *</span></div>
+                    <input id="cidade" placeholder="Cidade" type="text" disabled>
+                  </div>
+                  <div class="dividir2">
+                    <div class="txt"><span class="t1">Bairro</span><span class="estrela"> *</span></div>
+                    <input id="bairro" placeholder="Bairro" type="text" disabled>
+                  </div>
+                </div>
+              </div>
+              <div class="log2">
+                <div class="txt"><span class="t1 t20">Logradouro</span><span class="estrela"> *</span><span class="legenda legenda1">⠀</span></div>
+                <input id="rua" placeholder="Rua" type="text" disabled>
+                <div class="txt"><span class="t1">Complemento</span></div>
+                <input id="complemento" placeholder="Complemento" type="text">
+                <div class="txt"><span class="t1">Estado</span><span class="estrela"> *</span></div>
+                <input id="estado" placeholder="Estado" type="text" disabled>
+              </div>
+            </div>
+          </div>
+          <div class="cont4">
+            <div class="loginText3">
+              <span class="loginText2">• Login</span>
+              <div class="loginText4"></div>
+            </div>
+          </div>
+          <div class="cont">
+            <div class="log1">
+              <div class="txt"><span class="t1">Usuário</span><span class="estrela"> *</span><span class="legenda legenda2">(Letras e números)</span></div>
+              <input id="login" placeholder="Username" type="text">
+            </div>
+            <div class="log2">
+              <div class="txt"><span class="t1">Senha</span><span class="estrela"> *</span><span class="legenda legenda2">(aA9!@#_-.)</span></div>
+              <input id="senha" placeholder="Senha" type="text">
+            </div>
+          </div>
+          <div class="cont4">
+            <div class="loginText3">
+              <span class="loginText2">• CNH</span>
+              <div class="loginText4"></div>
+            </div>
+          </div>
+          <div class="cont">
+            <div class="log1">
+              <div class="txt"><span class="t1">Número CNH</span><span class="estrela"> *</span></div>
+              <input id="numeroCnh" placeholder="Número CNH" type="text">
+            </div>
+            <div class="log2">
+              <div class="txt"><span class="t1">Registro CNH</span><span class="estrela"> *</span></div>
+              <input id="registroCnh" placeholder="Registro CNH" type="text">
+            </div>
+            <div class="log1">
+              <div class="txt"><span class="t1">Validade CNH</span><span class="estrela"> *</span><span class="legenda legenda1">⠀</span></div>
+              <input id="validadeCnh" type="date">
+            </div>
+            <div class="log2">
+              <div class="txt"><span class="t1">Categoria</span><span class="estrela"> *</span><span class="legenda legenda2">(Apenas Letra)</span></div>
+              <input id="categoriaCnh" placeholder="Categoria" type="text">
+            </div>
+          </div>
+          <div class="botao">
+            <button id="button" onclick="getValue()">CADASTRAR</button>
           </div>
         </div>
-        <div class="cont4">
-          <div class="loginText3">
-            <span class="loginText2">• Login</span>
+        <div id="redirect" class="hide">
+          <div class="loginText10">
+            <span class="loginText2">• Faça Login</span>
             <div class="loginText4"></div>
           </div>
-        </div>
-        <div class="cont">
-          <div class="log1">
-            <div class="txt"><span class="t1">Usuário</span><span class="legenda legenda2">((Letras e números)</span><span class="estrela"> *</span></div>
-            <input id="login" placeholder="Username" type="text">
+          <div class="botao">
+            <a href="/src/pages/login.html"><button class="goLogin" id="button" >LOGIN</button></a>
           </div>
-          <div class="log2">
-            <div class="txt"><span class="t1">Senha</span><span class="legenda legenda2">(aA9!@#_-.)</span><span class="estrela"> *</span></div>
-            <input id="senha" placeholder="Senha" type="text">
-          </div>
-        </div>
-        <div class="cont4">
-          <div class="loginText3">
-            <span class="loginText2">⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-
-            </span>
-          </div>
-        </div>
-        <div class="cont4">
-          <div class="loginText3">
-            <span class="loginText2">• CNH</span>
-            <div class="loginText4"></div>
-          </div>
-        </div>
-        <div class="cont">
-          <div class="log1">
-            <div class="txt"><span class="t1">Número CNH</span><span class="estrela"> *</span></div>
-            <input id="numeroCnh" placeholder="Número CNH" type="text">
-          </div>
-          <div class="log2">
-            <div class="txt"><span class="t1">Registro CNH</span><span class="estrela"> *</span></div>
-            <input id="registroCnh" placeholder="Registro CNH" type="text">
-          </div>
-          <div class="log1">
-            <div class="txt"><span class="t1">Validade CNH</span><span class="estrela"> *</span></div>
-            <input id="validadeCnh" type="date">
-          </div>
-          <div class="log2">
-            <div class="txt"><span class="t1">Categoria</span><span class="legenda legenda2">(Apenas Letra)</span><span class="estrela"> *</span></div>
-            <input id="categoriaCnh" placeholder="Categoria" type="text">
-          </div>
-        </div>
-        <div class="botao">
-          <button id="button" onclick="getValue()">CADASTRAR</button>
         </div>
       </div>
     </div>
