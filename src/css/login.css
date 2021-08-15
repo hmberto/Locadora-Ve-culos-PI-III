@@ -1,0 +1,93 @@
+#login {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.inputs {
+  width: 300px;
+  height: auto;
+  background: #fff;
+}
+
+.loginText {
+  line-height: 50px;
+  font-weight: bold;
+}
+
+.log {
+}
+
+.botao{
+  line-height: 50px;
+  text-align: right;
+  margin: 0 10% 0 9%;
+  margin-top:20px;
+}
+
+button {
+  width: 100%;
+  padding: 10px 0px;
+  border: none;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.txt{
+  margin-top: 30px;
+  text-align: left;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+input {
+  height: 30px;
+  width: 80%;
+  font-size: 18px;
+}
+
+#user {
+  border-bottom: solid 2px black;
+  padding-left: 5px;
+}
+
+#pass {
+  border-bottom: solid 2px black;
+  padding-left: 5px;
+}
+
+#erro{
+  color: white;
+  border-radius: 5px;
+  margin: 0 9% 0 10%;
+  text-align: center;
+}
+
+.azul {
+  background-color: #337ab7;
+}
+
+.vermelho {
+  background-color: #ff6347;
+}
+
+.verde {
+  background-color: #00a65a;
+}
+
+#textoerro {
+  line-height: 50px;
+  font-size: 16px;
+}
+
+.t1 {
+  font-weight: bold;
+}
+
+.legenda {
+  float: right;
+  font-size: 14px;
+}
