@@ -36,13 +36,24 @@ function getValue() {
   xhttp.send(json);
 
   xhttp.onreadystatechange = function() {
-    console.log(this.status);
-
     if(this.status == 200) {
+      var resp = JSON.parse(this.responseText);
+
+      console.log(resp)
+
       erro.classList.remove("azul");
       erro.classList.remove("vermelho");
       erro.classList.add("verde");
-      textoerro.textContent="Você está logado";
+
+      if(resp['sexo'] == 2){
+        textoerro.textContent="Bem vindo, " + resp['nome'];
+      }
+      else if(resp['sexo'] == 3){
+        textoerro.textContent="Bem vinda, " + resp['nome'];
+      }
+      else {
+        textoerro.textContent="Bem vindx, " + resp['nome'];
+      }
     }
     else {
       erro.classList.remove("azul");
