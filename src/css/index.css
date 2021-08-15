@@ -4,6 +4,8 @@
   list-style: none;
   text-decoration: none;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  outline: none;
+  border: none;
 }
 
 #header {
@@ -39,7 +41,7 @@
 }
 
 html {
-  background-color: blue;
+  background-color: rgb(224, 224, 224);
 }
 
 #menu {
@@ -63,4 +65,6 @@ html {
 
 a {
   padding: 0 10px;
+  color: black;
+  font-weight: bold;
 }
