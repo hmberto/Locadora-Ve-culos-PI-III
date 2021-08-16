@@ -54,35 +54,35 @@
             <div class="cont">
               <div class="log1">
                 <div class="txt"><span class="t1">Nome</span><span class="estrela"> *</span></div>
-                <input id="nome" placeholder="Nome" type="text">
+                <input class="border-black" id="nome" placeholder="Nome" maxlength="250" onkeyup="validate()" type="text">
               </div>
               <div class="log2">
                 <div class="txt"><span class="t1">E-mail</span><span class="estrela"> *</span></div>
-                <input id="email" placeholder="E-mail" type="text">
+                <input class="border-black" id="email" placeholder="E-mail" maxlength="99" onkeyup="validate()" type="text">
               </div>
               <div class="log1">
                 <div class="txt"><span class="t1">CPF</span><span class="estrela"> *</span><span class="legenda legenda2">(Apenas Números)</span></div>
-                <input id="cpf" placeholder="CPF" type="text">
+                <input class="border-black" id="cpf" placeholder="CPF" onkeyup="validate()" type="text">
               </div>
               <div class="log2">
                 <div class="txt"><span class="t1">RG</span><span class="estrela"> *</span><span class="legenda legenda2">(Apenas Números)</span></div>
-                <input id="rg" placeholder="RG" type="text">
+                <input class="border-black" id="rg" placeholder="RG" onkeyup="validate()" type="text">
               </div>
             </div>
             <div class="cont">
               <div class="log1">
-                <div class="txt"><span class="t1">DDD + Celular</span><span class="estrela"> *</span><span class="legenda legenda2">(Apenas Números)</span></div>
-                <input id="celular" placeholder="11999999999" type="text">
+                <div class="txt"><span class="t1">Celular</span><span class="estrela"> *</span><span class="legenda legenda2">(Apenas Números)</span></div>
+                <input class="border-black" id="celular" placeholder="DDD + Celular" onkeyup="validate()" type="text">
               </div>
               <div class="log2">
-                <div class="txt"><span class="t1">DDD + Telefone</span><span class="legenda legenda2">(Apenas Números)</span></div>
-                <input id="telefone" placeholder="1199999999" type="text">
+                <div class="txt"><span class="t1">Telefone</span><span class="legenda legenda2">(Apenas Números)</span></div>
+                <input class="border-black" id="telefone" placeholder="DDD + Telefone" onkeyup="validate()" type="text">
               </div>
             </div>
             <div class="cont">
               <div class="log1">
                 <div class="txt"><span class="t1">Data de Nascimento</span><span class="estrela"> *</span></div>
-                <input id="dataNascimento" type="date">
+                <input class="border-black" id="dataNascimento" max="2005-01-01" onkeyup="validate()" min="1922-01-01" type="date">
               </div>
               <div class="log2">
                 <div class="txt"><span class="t1">Sexo</span><span class="estrela"> *</span></div>
@@ -105,27 +105,27 @@
             <div class="cont">
               <div class="log1">
                 <div class="txt"><span class="t1">CEP</span><span class="estrela"> *</span><span class="legenda legenda1">(Apenas Números)</span></div>
-                <input id="cep" placeholder="CEP" onkeyup="buscarCep()" type="text">
+                <input class="border-black" id="cep" placeholder="CEP" maxlength="9" onkeyup="buscarCep()" type="text">
                 <div class="txt"><span class="t1">Número</span><span class="estrela"> *</span></div>
-                <input id="numero" placeholder="Número" type="text">
+                <input class="border-black" id="numero" placeholder="Número" onkeyup="validate()" type="text">
                 <div class="dividir">
                   <div class="dividir1">
                     <div class="txt"><span class="t1">Cidade</span><span class="estrela"> *</span></div>
-                    <input id="cidade" placeholder="Cidade" type="text" disabled>
+                    <input class="border-black" id="cidade" placeholder="Cidade" onkeyup="validate()" type="text" disabled>
                   </div>
                   <div class="dividir2">
                     <div class="txt"><span class="t1">Bairro</span><span class="estrela"> *</span></div>
-                    <input id="bairro" placeholder="Bairro" type="text" disabled>
+                    <input class="border-black" id="bairro" placeholder="Bairro" onkeyup="validate()" type="text" disabled>
                   </div>
                 </div>
               </div>
               <div class="log2">
                 <div class="txt"><span class="t1 t20">Logradouro</span><span class="estrela"> *</span><span class="legenda legenda1">⠀</span></div>
-                <input id="rua" placeholder="Rua" type="text" disabled>
+                <input class="border-black" id="rua" placeholder="Rua" type="text" onkeyup="validate()" disabled>
                 <div class="txt"><span class="t1">Complemento</span></div>
-                <input id="complemento" placeholder="Complemento" type="text">
+                <input class="border-black" id="complemento" placeholder="Complemento" onkeyup="validate()" maxlength="99" type="text">
                 <div class="txt"><span class="t1">Estado</span><span class="estrela"> *</span></div>
-                <input id="estado" placeholder="Estado" type="text" disabled>
+                <input class="border-black" id="estado" placeholder="Estado" onkeyup="validate()" type="text" disabled>
               </div>
             </div>
           </div>
@@ -138,11 +138,11 @@
           <div class="cont">
             <div class="log1">
               <div class="txt"><span class="t1">Usuário</span><span class="estrela"> *</span><span class="legenda legenda2">(Letras e números)</span></div>
-              <input id="login" placeholder="Username" type="text">
+              <input class="border-black" id="login" placeholder="Username" onkeyup="validate()" maxlength="19" type="text">
             </div>
             <div class="log2">
               <div class="txt"><span class="t1">Senha</span><span class="estrela"> *</span><span class="legenda legenda2">(aA9!@#_-.)</span></div>
-              <input id="senha" placeholder="Senha" type="text">
+              <input class="border-black" id="senha" placeholder="Senha" onkeyup="validate()" maxlength="19" type="text">
             </div>
           </div>
           <div class="cont4">
@@ -154,19 +154,19 @@
           <div class="cont">
             <div class="log1">
               <div class="txt"><span class="t1">Número CNH</span><span class="estrela"> *</span></div>
-              <input id="numeroCnh" placeholder="Número CNH" type="text">
+              <input class="border-black" id="numeroCnh" placeholder="Número CNH" onkeyup="validate()" type="text">
             </div>
             <div class="log2">
               <div class="txt"><span class="t1">Registro CNH</span><span class="estrela"> *</span></div>
-              <input id="registroCnh" placeholder="Registro CNH" type="text">
+              <input class="border-black" id="registroCnh" placeholder="Registro CNH" onkeyup="validate()" type="text">
             </div>
             <div class="log1">
               <div class="txt"><span class="t1">Validade CNH</span><span class="estrela"> *</span><span class="legenda legenda1">⠀</span></div>
-              <input id="validadeCnh" type="date">
+              <input class="border-black" id="validadeCnh" max="2032-01-01" min="2011-01-01" type="date">
             </div>
             <div class="log2">
               <div class="txt"><span class="t1">Categoria</span><span class="estrela"> *</span><span class="legenda legenda2">(Apenas Letra)</span></div>
-              <input id="categoriaCnh" placeholder="Categoria" type="text">
+              <input class="border-black" id="categoriaCnh" placeholder="Categoria" onkeyup="validate()" maxlength="5" type="text">
             </div>
           </div>
           <div class="botao">
@@ -189,5 +189,7 @@
 
   <script src="/front-end/src/js/index.js"></script>
   <script src="/front-end/src/js/cadastro.js"></script>
+  <script src="/front-end/src/js/validacaoCadastro.js"></script>
+  <script src="/front-end/src/js/validacaoCadastro2.js"></script>
 </body>
 </html>

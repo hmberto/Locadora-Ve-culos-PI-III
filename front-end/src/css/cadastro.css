@@ -106,10 +106,18 @@ input {
   height: 30px;
   width: 100%;
   font-size: 18px;
-  border-bottom: solid 2px black;
   padding-left: 5px;
   background-color: none;
 }
+
+.border-black {
+  border-bottom: solid 2px black;
+}
+
+.border-vermelho {
+  border-bottom: solid 2px #ff6347;
+}
+
 
 #sexo {
   height: 32px;

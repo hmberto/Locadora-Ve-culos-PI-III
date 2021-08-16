@@ -23,7 +23,6 @@ var numeroCnh = document.getElementById('numeroCnh');
 var registroCnh = document.getElementById('registroCnh');
 var validadeCnh = document.getElementById('validadeCnh');
 var categoriaCnh = document.getElementById('categoriaCnh');
-var locatarioAtivo = document.getElementById('locatarioAtivo');
 
 nome.focus();
 
@@ -44,6 +43,8 @@ function buscarCep() {
         var endereco = JSON.parse(this.responseText);
 
         if(endereco['cep'] != undefined) {
+          cep.disabled = false;
+
           var newCep = endereco['cep'];
           var rua = endereco['logradouro'];
           var bairro = endereco['bairro'];
@@ -56,24 +57,46 @@ function buscarCep() {
           document.getElementById("cidade").value = cidade;
           document.getElementById("estado").value = estado;
           document.getElementById("bairro").value = bairro;
+
+          erro.classList.remove("verde");
+          erro.classList.remove("vermelho");
+          erro.classList.add("azul");
+          textoerro.textContent="Faça seu cadastro";
         }
         else {
           cep.disabled = false;
-        }
 
-        // cep.disabled = false;
+          erro.classList.remove("azul");
+          erro.classList.remove("verde");
+          erro.classList.add("vermelho");
+          textoerro.textContent="CEP inválido";
+        }
       }
       else {
         cep.disabled = false;
+
+        erro.classList.remove("azul");
+        erro.classList.remove("verde");
+        erro.classList.add("vermelho");
+        textoerro.textContent="CEP inválido";
       }
     };
   }
   if(cep.value.length > 8) {
     cep.value = "";
+
+    erro.classList.remove("azul");
+    erro.classList.remove("verde");
+    erro.classList.add("vermelho");
+    textoerro.textContent="CEP inválido";
   }
 }
 
 function getValue() {
+  if(!validate() || !validadeA()) {
+    return;
+  }
+  
   document.getElementById("form").classList.add("hide");
 
   if(telefone.value == ""){
