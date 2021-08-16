@@ -22,7 +22,7 @@ user.focus();
 
 
 function getValue() {
-  var url = "http://localhost:8186/LocadoraVeiculos/clientes/login";
+  var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/clientes/login";
   // var url = "http://localhost:8186/LocadoraVeiculos/clientes/cadastro";
   var usuario = user.value;
   var senha = pass.value;
