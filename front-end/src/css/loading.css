@@ -1,0 +1,27 @@
+#loading {
+  z-index: 5;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#load {
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  
+}
+
+#imagemloading {
+  width: 195px;
+  height: 195px;
+}
+
+.hideloading {
+  display: none;
+}

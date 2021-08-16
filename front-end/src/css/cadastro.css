@@ -192,6 +192,25 @@ input {
   margin-bottom: 20px;
 }
 
+#passimg {
+  float: right;
+  display: block;
+  margin-top: -30px;
+}
+
+.pass-png {
+  width: 35px;
+  cursor: pointer;
+}
+
+#senhabox {
+  text-align: left;
+}
+
+#senha {
+  width: 88%;
+}
+
 @media(max-width: 800px) {
   .legenda {
     display: block;

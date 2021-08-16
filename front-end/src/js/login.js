@@ -3,6 +3,7 @@ var pass = document.getElementById("pass");
 var button = document.getElementById("button");
 var erro = document.getElementById("erro");
 var textoerro = document.getElementById("textoerro");
+var loading = document.getElementById("lding");
 
 user.focus();
 
@@ -22,6 +23,8 @@ user.focus();
 
 
 function getValue() {
+  loading.classList.remove("hideloading");
+  
   var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/clientes/login";
   // var url = "http://localhost:8186/LocadoraVeiculos/clientes/cadastro";
   var usuario = user.value;
@@ -36,6 +39,7 @@ function getValue() {
   xhttp.send(json);
 
   xhttp.onreadystatechange = function() {
+    loading.classList.add("hideloading");
     if(this.status == 200) {
       var resp = JSON.parse(this.responseText);
 

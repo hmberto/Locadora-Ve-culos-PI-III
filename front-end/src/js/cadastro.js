@@ -1,5 +1,6 @@
 var erro = document.getElementById("erro");
 var textoerro = document.getElementById("textoerro");
+var loading = document.getElementById("lding");
 
 // campos form
 var nome = document.getElementById('nome');
@@ -93,6 +94,8 @@ function buscarCep() {
 }
 
 function getValue() {
+  loading.classList.remove("hideloading");
+
   document.getElementById("form").classList.add("hide");
   
   if(telefone.value == ""){
@@ -118,6 +121,7 @@ function getValue() {
   xhttp.send(json);
 
   xhttp.onreadystatechange = function() {
+    loading.classList.add("hideloading");
     if(this.status == 201) {
       erro.classList.remove("azul");
       erro.classList.remove("vermelho");

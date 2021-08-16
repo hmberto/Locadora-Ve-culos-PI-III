@@ -93,3 +93,25 @@ input {
   float: right;
   font-size: 14px;
 }
+
+#passinput {
+  width: 100%;
+  text-align: left;
+}
+
+#passimg {
+  float: right;
+  display: block;
+  margin-top: -30px;
+  margin-right: 10%;
+}
+
+.pass-png {
+  width: 35px;
+  cursor: pointer;
+}
+
+#pass {
+  width: 64%;
+  margin-left: 10%;
+}

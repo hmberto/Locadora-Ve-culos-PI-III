@@ -7,10 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" href="/src/css/index.css">
   <link rel="stylesheet" href="/src/css/cadastro.css">
+  <link rel="stylesheet" href="/src/css/loading.css">
   <title>Cadastro - Locadora de Veículos</title>
 </head>
 <body>
   
+  <div class="hideloading" id="lding">
+    <div id="loading">
+      <div id="load">
+        <img id="imagemloading" src="/src/img/loading2.gif" alt="">
+      </div>
+    </div>
+  </div>
   <div>
     <div id="header">
       <div id="title">
@@ -142,8 +150,13 @@
               <input class="border-black" id="login" placeholder="Username" onkeyup="validate()" maxlength="19" type="text">
             </div>
             <div class="log2">
-              <div class="txt"><span class="t1">Senha</span><span class="estrela"> *</span><span class="legenda legenda2">(aA9!@#_-.)</span></div>
-              <input class="border-black" id="senha" placeholder="Senha" onkeyup="validate()" maxlength="19" type="text">
+              <div id="senhabox">
+                <div class="txt"><span class="t1">Senha</span><span class="estrela"> *</span><span class="legenda legenda2">(aA9!@#_-.)</span></div>
+                <input class="border-black" id="senha" placeholder="Senha" onkeyup="validate()" maxlength="19" type="password">
+              </div>
+              <div id="passimg">
+                <img id="passshow" class="pass-png" src="/src/img/pass.png" alt="">
+              </div>
             </div>
           </div>
           <div class="cont4">
@@ -192,5 +205,6 @@
   <script src="/src/js/cadastro.js"></script>
   <script src="/src/js/validacaoCadastro.js"></script>
   <script src="/src/js/validacaoCadastro2.js"></script>
+  <script src="/src/js/showPass.js"></script>
 </body>
 </html>
