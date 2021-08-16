@@ -93,17 +93,17 @@ function buscarCep() {
 }
 
 function getValue() {
-  if(!validate() || !validadeA()) {
-    return;
-  }
-  
   document.getElementById("form").classList.add("hide");
-
+  
   if(telefone.value == ""){
     telefone.value = "0000000000";
   }
   if(complemento.value == ""){
     complemento.value = "null";
+  }
+
+  if(!validate() || !validadeA()) {
+    return;
   }
 
   var url = "http://localhost:8186/LocadoraVeiculos/clientes/cadastro";

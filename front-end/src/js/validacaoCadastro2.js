@@ -36,15 +36,6 @@ function validadeA() {
     return false;
   }
 
-  if(telefone.value.length != 10) {
-    erro.classList.remove("azul");
-    erro.classList.remove("verde");
-    erro.classList.add("vermelho");
-    textoerro.textContent="Telefone inválido";
-
-    return false;
-  }
-
   if(celular.value.length != 11) {
     erro.classList.remove("azul");
     erro.classList.remove("verde");
