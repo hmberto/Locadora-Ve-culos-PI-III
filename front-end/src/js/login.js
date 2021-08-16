@@ -1,5 +1,5 @@
 var user = document.getElementById("user");
-var pass = document.getElementById("pass");
+var pass = document.getElementById("senha");
 var button = document.getElementById("button");
 var erro = document.getElementById("erro");
 var textoerro = document.getElementById("textoerro");

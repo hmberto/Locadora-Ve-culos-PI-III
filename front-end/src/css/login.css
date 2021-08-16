@@ -56,9 +56,10 @@ input {
   padding-left: 5px;
 }
 
-#pass {
+#senha {
   border-bottom: solid 2px black;
-  padding-left: 5px;
+  width: 67%;
+  margin-left: 10%;
 }
 
 #erro{
@@ -109,9 +110,4 @@ input {
 .pass-png {
   width: 35px;
   cursor: pointer;
-}
-
-#pass {
-  width: 64%;
-  margin-left: 10%;
 }
