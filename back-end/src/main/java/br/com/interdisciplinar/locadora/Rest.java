@@ -1,6 +1,7 @@
 package br.com.interdisciplinar.locadora;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.OPTIONS;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -12,8 +13,11 @@ import br.com.interdisciplinar.locadora.clients.CheckData;
 import br.com.interdisciplinar.locadora.clients.CreateUser;
 import br.com.interdisciplinar.locadora.clients.GenerateClients;
 import br.com.interdisciplinar.locadora.clients.SexoVerify;
+import br.com.interdisciplinar.locadora.database.GetCarFromDB;
 import br.com.interdisciplinar.locadora.database.GetUserFromDB;
 import br.com.interdisciplinar.locadora.database.SendUserToDB;
+import br.com.interdisciplinar.locadora.veiculos.CreateVehicle;
+import br.com.interdisciplinar.locadora.veiculos.GenerateCars;
 
 import java.util.Map;
 
@@ -22,7 +26,7 @@ import java.util.Map;
 public class Rest {
 	@POST
 	@Path("/clientes/login")
-	public Response getClients(AuthUser login) {
+	public Response postLogin(AuthUser login) {
 		try {
 			if(login.getUser().length() > 1 && login.getPass().length() > 1) {
 				GetUserFromDB userFromDb = new GetUserFromDB();				
@@ -43,9 +47,10 @@ public class Rest {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 	}
+	
 	@POST
 	@Path("/clientes/cadastro")
-	public Response postGame(CreateUser user) throws Exception {
+	public Response postCadastro(CreateUser user) throws Exception {
 		try {
 			new SexoVerify().verify(user);
 			
@@ -65,6 +70,45 @@ public class Rest {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 	}
+	
+	@POST
+	@Path("/veiculos/consulta")
+	public Response postCar(CreateVehicle vehicle) throws Exception {
+		try {
+			GetCarFromDB carFromDb = new GetCarFromDB();				
+			Map<Integer, String> car = carFromDb.GetCar(vehicle.getCarId());
+			
+			if(car.get(1) != null) {
+				return Response.ok(new GenerateCars(car)).build();
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		}
+		catch(Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
+	@GET
+	@Path("/veiculos/todos")
+	public Response postCars() throws Exception {
+		try {
+			GetCarFromDB carFromDb = new GetCarFromDB();				
+			String cars = carFromDb.GetCars();
+						
+			if(cars.length() > 0) {
+				return Response.ok(cars).build();
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		}
+		catch(Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
 	@OPTIONS
 	@Path("{path : .*}")
 	public Response options() {
