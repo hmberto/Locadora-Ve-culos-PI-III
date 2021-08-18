@@ -1,0 +1,59 @@
+#titlehoome{
+  text-align: center;
+  margin: 40px 0;
+}
+
+.spntitle {
+  font-size: 30px;
+  font-weight: bold;
+  color: #005032;
+}
+
+#cars {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 30px;
+  margin: 0 10%;
+}
+
+.showcar {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.showcar p {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.showcar span {
+  font-size: 20px;
+  font-weight: bold;color: #005032;
+}
+
+.car {
+  width: 100%;
+}
+
+.titlecar {
+
+}
+
+.subcar {
+
+}
+
+.detalhes {
+  width: 100%;
+  background-color: #005032;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+#home {
+  margin-bottom: 100px;
+}

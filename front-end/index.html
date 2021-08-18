@@ -6,6 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" href="/src/css/index.css">
+  <link rel="stylesheet" href="/src/css/search.css">
+  <link rel="stylesheet" href="/src/css/autocomplete.css">
+  <link rel="stylesheet" href="/src/css/carviewer.css">
   <title>Locadora de Veículos</title>
 </head>
 <body>
@@ -36,6 +39,64 @@
     </div>
   </div>
 
+  <div id="search">
+    <div id="subt">
+      <span>Faça sua Locação</span>
+    </div>
+    <div id="header2">
+      <div id="box">
+        <div id="box1">
+          <div class="div1">
+            <span class="subtitles">Local para retirada</span>
+            <div class="autocomplete">
+              <input id="retirada" autocomplete="off" placeholder="Ex.: São Paulo" type="text">
+            </div>
+          </div>
+          <div class="div2">
+            <span class="subtitles">Data</span>
+            <input id="dataretirada" type="date">
+          </div>
+          <div class="div3">
+            <span class="subtitles">Hora</span>
+            <input id="horaretirada" type="time">
+          </div>
+        </div>
+        <div id="box2">
+          <div class="div1">
+            <span class="subtitles">Local para entrega</span>
+            <div class="autocomplete">
+              <input id="entrega" autocomplete="off" placeholder="Ex.: São Paulo" type="text">
+            </div>
+          </div>
+          <div class="div2">
+            <span class="subtitles">Data</span>
+            <input id="dataentrega" type="date">
+          </div>
+          <div class="div3">
+            <span class="subtitles">Hora</span>
+            <input id="horaentrega" type="time">
+          </div>
+        </div>
+      </div>
+      <div id="carimg">
+        <div class="backgr">
+          <div class="backg"></div>
+          <img class="img-car" src="/src/img/Car-Image.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div id="home">
+      <div id="titlehoome">
+        <span class="spntitle">Conheça nossa frota</span>
+        <p>Sujeito a disponibilidade</p>
+      </div>
+      <div id="cars">
+      </div>
+    </div>
+  </div>
 
   <script src="/src/js/index.js"></script>
 </body>

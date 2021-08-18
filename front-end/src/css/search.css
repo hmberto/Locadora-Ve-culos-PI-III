@@ -1,0 +1,175 @@
+.subtitles {
+  display: block;
+}
+
+#search {
+  background-color: #005032;
+}
+
+#subt {
+  color: #005032;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+  font-size: 30px;
+  padding-top: 10px;
+}
+
+#subt span {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px 20px;
+}
+
+#box {
+  width: 700px;
+  margin-left: 50px;
+  margin-top: 70px;
+  margin-bottom: 0px;
+  color: #fff;
+  font-weight: bold;
+  z-index: 9;
+  position: absolute;
+}
+
+#box1 {
+  display: flex;
+}
+
+#box2 {
+  display: flex;
+}
+
+.div1 {
+  width: 100%;
+  padding: 5px;
+}
+
+.div2 {
+  margin-left: 10px;
+  width: 55%;
+  padding: 5px;
+}
+
+.div3 {
+  margin-left: 10px;
+  width: 45%;
+  padding: 5px;
+}
+
+input {
+  height: 40px;
+  width: 100%;
+  font-size: 18px;
+  padding-left: 5px;
+  background-color: none;
+  border-radius: 5px ;
+}
+
+#header2 {
+  height: 300px;
+  overflow: hidden;
+}
+
+#carimg {
+  float: right;
+  margin-top: -0px;
+  margin-right: 20px;
+  display: block;
+  overflow: hidden;
+}
+
+.backgr {
+  display: block;
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+  top: 0;
+  margin-top: -10px;
+  overflow: hidden;
+}
+
+.backg {
+  background-color: #fff;
+  height: 300px;
+  display: block;
+  margin-top: 0px;
+  border-radius: 50%;
+}
+
+.img-car {
+  padding-right: 30px;
+  width: 480px;
+  margin-top: -280px;
+  -webkit-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+@media(max-width: 1150px) {
+  #box {
+    width: 500px;
+  }
+}
+
+@media(max-width: 1000px) {
+  #box {
+    margin-left: 7%;
+    width: 86%;
+  }
+
+  .div1 {
+    width: 100%;
+    padding: 5px;
+  }
+
+  #carimg {
+    display: none;
+  }
+}
+
+@media(max-width: 650px) {
+  #subt {
+    line-height: 50px;
+    font-size: 24px;
+    padding-top: 30px;
+  }
+
+  #box {
+    margin-top: 20px;
+  }
+
+  #box span {
+    margin-top: 15px;
+  }
+
+  #header2 {
+    height: 570px;
+  }
+
+  #box1 {
+    display: block;
+  }
+
+  #box2 {
+    display: block;
+    margin-top: 35px;
+  }
+
+  .div1 {
+    width: 100%;
+    padding: 0px;
+  }
+
+  .div2 {
+    width: 100%;
+    padding: 0px;
+    margin-left: 0px;
+  }
+
+  .div3 {
+    width: 100%;
+    padding: 0px;
+    margin-left: 0;
+  }
+}
