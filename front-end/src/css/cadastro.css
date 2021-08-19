@@ -220,6 +220,10 @@ input {
     float: none;
     font-size: 14px;
   }
+
+  #senha {
+    width: 80%;
+  }
 }
 
 @media(max-width: 550px) {
@@ -227,6 +231,9 @@ input {
     display: block;
     float: none;
     font-size: 14px;
+  }
+  #senha {
+    width: 88%;
   }
 }
 

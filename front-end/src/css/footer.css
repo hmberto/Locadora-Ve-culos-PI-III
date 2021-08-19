@@ -1,0 +1,47 @@
+#footer {
+  background-color: #005032;
+  padding-left: 50px;
+}
+
+#footer span {
+  color: #fff;
+  line-height: 70px;
+  display: block;
+}
+
+.names {
+  text-align: right;
+  float: right;
+  margin-top: -45px;
+  padding-right: 50px;
+}
+
+.names a {
+  color: #fff;
+  padding-left: 30px;
+}
+
+@media(max-width: 700px) {
+  .names {
+    display: block;
+    float: unset;
+    margin-top: 0px;
+    padding-right: 0px;
+    text-align: left;
+    padding-bottom: 25px;
+  }  
+
+  .names a {
+    padding-left: 0;
+    padding-right: 30px;
+  }
+
+  #footer span {
+    line-height: normal;
+    padding: 20px 0px;
+  }
+
+  #footer {
+    padding-right: 50px;
+  }
+}

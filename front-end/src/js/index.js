@@ -1,3 +1,4 @@
+var loading = document.getElementById("lding");
 var cidades = [ "Sé", "Bela Vista", "Bom Retiro", "Cambuci", "Consolação", "Liberdade", "República", "Santa Cecília", "Aricanduva", "Carrão", "Vila Formosa", "Cidade Tiradentes", "Ermelino Matarazzo", "Ponte Rasa", "Guaianases", "Lajeado", "Itaim Paulista", "Vila Curuçá", "Itaquera", "Cidade Líder", "José Bonifácio", "Parque do Carmo", "Mooca Água Rasa", "Belém", "Brás", "Moóca", "Pari", "Tatuapé", "Penha", "Artur Alvim", "Cangaíba", "Penha", "Vila Matilde", "São Mateus", "São Rafael", "São Miguel ", "Jardim Helena", "Vila Jacuí", "Sapopemba", "Vila Prudente", "São Lucas", "Casa Verde", "Cachoeirinha", "Limão", "Brasilândia", " Freguesia do Ó", "Jaçanã", "Tremembé", "Perus", "Anhanguera", "Pirituba", "Jaraguá", "São Domingos", "Santana", "Tucuruvi", "Mandaqui", "Vila Maria", "Vila Guilherme", "Vila Medeiros", "Butantã", "Morumbi", "Raposo Tavares", "Rio Pequeno", "Vila Sônia", "Lapa", "Barra Funda", "Jaguara", "Jaguaré", "Perdizes", "Vila Leopoldina", "Pinheiros", "Alto de Pinheiros", "Itaim Bibi", "Jardim Paulista", "Pinheiros", "Campo Limpo", "Capão Redondo", "Vila Andrade", "Capela do Socorro Cidade Dutra", "Grajaú", "Socorro", "Cidade Ademar", "Pedreira", "Ipiranga", "Sacomã", "Jabaquara", "M'Boi Mirim", "Jardim Ângela", "Jardim São Luís", "Parelheiros", "Marsilac", "Santo Amaro", "Campo Belo", "Campo Grande", "Santo Amaro", "Moema", "Saúde", "Vila Mariana" ];
 
 function autocomplete(inp, arr) {
@@ -93,7 +94,9 @@ autocomplete(document.getElementById("retirada"), cidades);
 autocomplete(document.getElementById("entrega"), cidades);
 
 function getCars() {
-  var url = "http://localhost:8186/LocadoraVeiculos/veiculos/todos";
+  loading.classList.remove("hideloading");
+
+  var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/veiculos/todos";
     
   var xhttp = new XMLHttpRequest();
   xhttp.open("GET", url, true);
@@ -101,6 +104,8 @@ function getCars() {
 
   xhttp.addEventListener('loadend', () => {
     if (xhttp.status == 200) {
+      loading.classList.add("hideloading");
+      
       var root = document.getElementById("cars");
       var json = JSON.parse(xhttp.response);
       var tamanho = Object.keys(json['data']).length;
@@ -133,12 +138,16 @@ function getCars() {
         var a = document.createElement("a");
         a.classList.add("detalhes");
         a.textContent="DETALHES"
+        a.setAttribute('href', "/src/pages/car.html?carId=" + data['idCarro'])
         div.appendChild(a);
 
         root.appendChild(div)
 
         if(i+1 == tamanho) { return; }
       }
+    }
+    else {
+      document.getElementById("erro").classList.remove("esconde-erro")
     }
   });
 
