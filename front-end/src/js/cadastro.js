@@ -39,9 +39,9 @@ function buscarCep() {
     xhttp.open("GET", url, true);
     xhttp.send();
 
-    xhttp.onreadystatechange = function() {
-      if(this.status == 200) {
-        var endereco = JSON.parse(this.responseText);
+    xhttp.addEventListener('loadend', () => {
+      if(xhttp.status == 200) {
+        var endereco = JSON.parse(xhttp.response);
 
         if(endereco['cep'] != undefined) {
           cep.disabled = false;
@@ -81,7 +81,7 @@ function buscarCep() {
         erro.classList.add("vermelho");
         textoerro.textContent="CEP inválido";
       }
-    };
+    });
   }
   if(cep.value.length > 8) {
     cep.value = "";
@@ -120,9 +120,9 @@ function getValue() {
   console.log(JSON.parse(json));
   xhttp.send(json);
 
-  xhttp.onreadystatechange = function() {
+  xhttp.addEventListener('loadend', () => {
     loading.classList.add("hideloading");
-    if(this.status == 201) {
+    if(xhttp.status == 201) {
       erro.classList.remove("azul");
       erro.classList.remove("vermelho");
       erro.classList.add("verde");
@@ -139,7 +139,7 @@ function getValue() {
       erro.classList.add("vermelho");
       textoerro.textContent="Revise os dados informados";
     }
-  };
+  });
 
   nome.focus();
 }
