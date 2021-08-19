@@ -109,8 +109,6 @@ function getCars() {
       var root = document.getElementById("cars");
       var json = JSON.parse(xhttp.response);
       var tamanho = Object.keys(json['data']).length;
-
-      console.log(tamanho)
       
       for(i = 0; i < tamanho; i++) {
         var div = document.createElement("div");
@@ -131,9 +129,12 @@ function getCars() {
 
         var p = document.createElement("p");
         p.classList.add("subcar");
-        p.textContent="Testando testando testando testando testando testando testando"
-        // p.textContent=data['subtitles'];
+        // p.textContent="Testando testando testando testando testando testando testando"
+        p.innerHTML=data['subtitles'];
         div.appendChild(p);
+
+        console.log(data['subtitles']);
+        console.log(json);
 
         var a = document.createElement("a");
         a.classList.add("detalhes");
