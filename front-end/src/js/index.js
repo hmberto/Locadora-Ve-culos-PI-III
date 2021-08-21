@@ -96,7 +96,7 @@ autocomplete(document.getElementById("entrega"), cidades);
 function getCars() {
   loading.classList.remove("hideloading");
 
-  var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/veiculos/todos";
+  var url = "http://localhost:8186/LocadoraVeiculos/veiculos/todos";
     
   var xhttp = new XMLHttpRequest();
   xhttp.open("GET", url, true);
@@ -132,9 +132,6 @@ function getCars() {
         // p.textContent="Testando testando testando testando testando testando testando"
         p.innerHTML=data['subtitles'];
         div.appendChild(p);
-
-        console.log(data['subtitles']);
-        console.log(json);
 
         var a = document.createElement("a");
         a.classList.add("detalhes");

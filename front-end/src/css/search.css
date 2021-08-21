@@ -24,7 +24,7 @@
 #box {
   width: 700px;
   margin-left: 50px;
-  margin-top: 70px;
+  margin-top: 50px;
   margin-bottom: 0px;
   color: #fff;
   font-weight: bold;
@@ -38,6 +38,7 @@
 
 #box2 {
   display: flex;
+  margin-bottom: 15px;
 }
 
 .div1 {
@@ -73,10 +74,9 @@ input {
 
 #carimg {
   float: right;
-  margin-top: -0px;
+  margin-top: 0px;
   margin-right: 20px;
   display: block;
-  overflow: hidden;
 }
 
 .backgr {
@@ -86,7 +86,6 @@ input {
   transform: rotate(135deg);
   top: 0;
   margin-top: -10px;
-  overflow: hidden;
 }
 
 .backg {
@@ -98,12 +97,34 @@ input {
 }
 
 .img-car {
-  padding-right: 30px;
+  padding-right: 0px;
   width: 480px;
   margin-top: -280px;
   -webkit-transform: rotate(-135deg);
   -ms-transform: rotate(-135deg);
   transform: rotate(-135deg);
+}
+
+#searchbutton {
+  color: #005032;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-left: 5px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.showerr {
+  padding-left: 20px;
+}
+
+.hideerr {
+  display: none;
+}
+
+.blck {
+  display: flex;
 }
 
 @media(max-width: 1150px) {
@@ -144,7 +165,7 @@ input {
   }
 
   #header2 {
-    height: 570px;
+    height: 600px;
   }
 
   #box1 {
@@ -171,5 +192,31 @@ input {
     width: 100%;
     padding: 0px;
     margin-left: 0;
+  }
+
+  #searchbutton {
+    color: #005032;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-left: 0px;
+    margin-bottom: 17px;
+  }
+
+  #box2 {
+    margin-bottom: 25px;
+  }
+
+  .btnsearch {
+    text-align: center;
+  }
+
+  .blck {
+    display: block;
+    text-align: center;
+  }
+
+  .showerr {
+    padding-left: 0;
   }
 }
