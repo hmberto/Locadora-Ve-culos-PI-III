@@ -117,7 +117,7 @@ public class Rest {
 			GetCarFromDB carFromDb = new GetCarFromDB();
 			String cars = carFromDb.GetCarsSearch(vehicle);
 			
-			if(cars.length() > 0) {
+			if(cars.length() > 5) {
 				return Response.ok(cars).build();
 			}
 			else {

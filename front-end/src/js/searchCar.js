@@ -14,10 +14,18 @@ function searchCar() {
     dataDevolucao.value != null && dataDevolucao.value != "" &&
     horaDevolucao.value != null && horaDevolucao.value != "") {
 
-    var json = '{ "localRetirada":"' + localRetirada.value + '", "dataRetirada": "' +  dataRetirada.value + '", "horaRetirada": "' + horaRetirada.value + '", "localDevolucao":"' + localDevolucao.value + '", "dataDevolucao": "' +  dataDevolucao.value + '", "horaDevolucao": "' + horaDevolucao.value + '" }';
-    var parse = btoa(json);
+    var v1 = cidades.indexOf(localRetirada.value);
+    var v2 = cidades.indexOf(localDevolucao.value);
 
-    submitbtn.setAttribute('href', "/src/pages/search.html?search=" + parse)
+    if(v1 >= 0 && v2 >= 0) {
+      var json = '{ "localRetirada":"' + localRetirada.value + '", "dataRetirada": "' +  dataRetirada.value + '", "horaRetirada": "' + horaRetirada.value + '", "localDevolucao":"' + localDevolucao.value + '", "dataDevolucao": "' +  dataDevolucao.value + '", "horaDevolucao": "' + horaDevolucao.value + '" }';
+      var parse = btoa(json);
+
+      submitbtn.setAttribute('href', "/src/pages/search.html?search=" + parse)
+    }
+    else {
+      document.querySelector(".showerr").classList.remove("hideerr");
+    }
   }
   else {
     document.querySelector(".showerr").classList.remove("hideerr");

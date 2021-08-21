@@ -1,5 +1,5 @@
 var loading = document.getElementById("lding");
-var cidades = [ "Sé", "Bela Vista", "Bom Retiro", "Cambuci", "Consolação", "Liberdade", "República", "Santa Cecília", "Aricanduva", "Carrão", "Vila Formosa", "Cidade Tiradentes", "Ermelino Matarazzo", "Ponte Rasa", "Guaianases", "Lajeado", "Itaim Paulista", "Vila Curuçá", "Itaquera", "Cidade Líder", "José Bonifácio", "Parque do Carmo", "Mooca Água Rasa", "Belém", "Brás", "Moóca", "Pari", "Tatuapé", "Penha", "Artur Alvim", "Cangaíba", "Penha", "Vila Matilde", "São Mateus", "São Rafael", "São Miguel ", "Jardim Helena", "Vila Jacuí", "Sapopemba", "Vila Prudente", "São Lucas", "Casa Verde", "Cachoeirinha", "Limão", "Brasilândia", " Freguesia do Ó", "Jaçanã", "Tremembé", "Perus", "Anhanguera", "Pirituba", "Jaraguá", "São Domingos", "Santana", "Tucuruvi", "Mandaqui", "Vila Maria", "Vila Guilherme", "Vila Medeiros", "Butantã", "Morumbi", "Raposo Tavares", "Rio Pequeno", "Vila Sônia", "Lapa", "Barra Funda", "Jaguara", "Jaguaré", "Perdizes", "Vila Leopoldina", "Pinheiros", "Alto de Pinheiros", "Itaim Bibi", "Jardim Paulista", "Pinheiros", "Campo Limpo", "Capão Redondo", "Vila Andrade", "Capela do Socorro Cidade Dutra", "Grajaú", "Socorro", "Cidade Ademar", "Pedreira", "Ipiranga", "Sacomã", "Jabaquara", "M'Boi Mirim", "Jardim Ângela", "Jardim São Luís", "Parelheiros", "Marsilac", "Santo Amaro", "Campo Belo", "Campo Grande", "Santo Amaro", "Moema", "Saúde", "Vila Mariana" ];
+var cidades = [ "Bela Vista", "Bom Retiro", "Cambuci", "Liberdade", "Aricanduva", "Vila Formosa", "Cidade Tiradentes", "Ermelino Matarazzo", "Ponte Rasa", "Guaianases", "Lajeado", "Itaim Paulista", "Itaquera", "Parque do Carmo", "Pari", "Penha", "Artur Alvim", "Penha", "Vila Matilde", "Jardim Helena", "Sapopemba", "Vila Prudente", "Casa Verde", "Cachoeirinha", "Perus", "Anhanguera", "Pirituba", "Santana", "Tucuruvi", "Mandaqui", "Vila Maria", "Vila Guilherme", "Vila Medeiros", "Morumbi", "Raposo Tavares", "Rio Pequeno", "Lapa", "Barra Funda", "Jaguara", "Perdizes", "Vila Leopoldina", "Pinheiros", "Alto de Pinheiros", "Itaim Bibi", "Jardim Paulista", "Pinheiros", "Campo Limpo", "Vila Andrade", "Socorro", "Cidade Ademar", "Pedreira", "Ipiranga", "Jabaquara", "Parelheiros", "Marsilac", "Campo Belo", "Campo Grande", "Santo Amaro", "Moema", "Vila Mariana" ];
 
 function autocomplete(inp, arr) {
   var currentFocus;
@@ -16,12 +16,14 @@ function autocomplete(inp, arr) {
       
       this.parentNode.appendChild(a);
       
+      f = 0;
       t = 0;
       for (i = 0; i < arr.length; i++) {
         
         if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
           t++;
           if(t < 6){
+            f++;
             b = document.createElement("DIV");
             
             b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
@@ -33,10 +35,22 @@ function autocomplete(inp, arr) {
               inp.value = this.getElementsByTagName("input")[0].value;
               
               closeAllLists();
-            });
+              });
             a.appendChild(b);
           }
         }
+      }
+
+      if(f == 0){
+        b = document.createElement("DIV");
+        
+        b.innerHTML += "Nenhum resultado";
+          b.addEventListener("click", function(e) {
+          
+            inp.value = "";
+            closeAllLists();
+        });
+        a.appendChild(b);
       }
   });
 
@@ -96,7 +110,7 @@ autocomplete(document.getElementById("entrega"), cidades);
 function getCars() {
   loading.classList.remove("hideloading");
 
-  var url = "http://localhost:8186/LocadoraVeiculos/veiculos/todos";
+  var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/veiculos/todos";
     
   var xhttp = new XMLHttpRequest();
   xhttp.open("GET", url, true);

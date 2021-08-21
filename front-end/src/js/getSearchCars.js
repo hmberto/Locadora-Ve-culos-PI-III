@@ -2,13 +2,15 @@ const urlParams = new URLSearchParams(window.location.search);
 function searchCar() {
   const urlParamCars = urlParams.get('search');
 
+  console.log(urlParamCars)
+
   var parseBack = atob(urlParamCars);
   var param = JSON.parse(parseBack);
 
   var text = document.querySelector(".txt");
   var txt = "Carros encontrados para o local de retirada: " + param['localRetirada'];
   text.innerHTML=txt;
-  var url = "http://localhost:8186/LocadoraVeiculos/veiculos/disponibilidade";
+  var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/veiculos/disponibilidade";
   
   var consulta = new XMLHttpRequest();
   consulta.open("POST", url, true);
@@ -18,6 +20,9 @@ function searchCar() {
   consulta.addEventListener('loadend', () => {
     if (consulta.status == 200) {
       loading.classList.add("hideloading");
+      
+      console.log(consulta.status);
+      console.log(consulta.response);
       
       var root = document.getElementById("cars");
       var json = JSON.parse(consulta.response);
