@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import br.com.interdisciplinar.locadora.dt.EnvVariables;
+import br.com.interdisciplinar.locadora.veiculos.AvailableCars;
 
 public class GetCarFromDB {
 	public static String NAME = GetCarFromDB.class.getSimpleName();
@@ -65,7 +66,7 @@ public class GetCarFromDB {
 				if(i == 0) {
 					resp = resp + "{ \"data\": {\"car" + i + "\":" + " { \"idCarro\": \"" + f.getString(1) + "\", \"renavam\": \"" + f.getString(2) + "\", \"placa\": \"" + f.getString(3) + "\", \"chassi\": \"" + f.getString(4) + "\", \"marca\": \"" + f.getString(5) + "\", \"modelo\": \"" + f.getString(6) + "\", \"ano\": \"" + f.getString(7) + "\", \"numeroPortas\": \"" + f.getString(8) + "\", \"motor\": \"" + f.getString(9) + "\", \"cambioAutomatico\": \"" + f.getString(10) + "\", \"combustivel\": \"" + f.getString(11) + "\", \"subtitles\": \"" + f.getString(13) + "\", \"imgPath\": \"" + f.getString(12) + "\" }";
 				}
-				else {
+				else if(i < 9) {
 					resp = resp + ", \"car" + i + "\":" + "{ \"idCarro\": \"" + f.getString(1) + "\", \"renavam\": \"" + f.getString(2) + "\", \"placa\": \"" + f.getString(3) + "\", \"chassi\": \"" + f.getString(4) + "\", \"marca\": \"" + f.getString(5) + "\", \"modelo\": \"" + f.getString(6) + "\", \"ano\": \"" + f.getString(7) + "\", \"numeroPortas\": \"" + f.getString(8) + "\", \"motor\": \"" + f.getString(9) + "\", \"cambioAutomatico\": \"" + f.getString(10) + "\", \"combustivel\": \"" + f.getString(11) + "\", \"subtitles\": \"" + f.getString(13) + "\", \"imgPath\": \"" + f.getString(12) + "\" }";
 				}
 				i++;
@@ -81,6 +82,43 @@ public class GetCarFromDB {
 		}
 		
 		LOG.exiting(NAME, "GetCar");
+		return resp + " }}";
+	}
+	
+	public String GetCarsSearch(AvailableCars vehicle) {
+		LOG.entering(NAME, "GetCarsSearch");
+				
+		String sql = EnvVariables.getEnvVariable("DATABASE_GET_CARS_SEARCH");
+		
+		String resp = "";
+		
+		try {
+			PreparedStatement statement = Database.connect().prepareStatement(sql);
+			statement.setString(1, vehicle.getLocalRetirada());
+			
+			ResultSet f = statement.executeQuery();
+			
+			int i = 0;
+			while(f.next()) {
+				if(i == 0) {
+					resp = resp + "{ \"data\": {\"car" + i + "\":" + " { \"idCarro\": \"" + f.getString(1) + "\", \"renavam\": \"" + f.getString(2) + "\", \"placa\": \"" + f.getString(3) + "\", \"chassi\": \"" + f.getString(4) + "\", \"marca\": \"" + f.getString(5) + "\", \"modelo\": \"" + f.getString(6) + "\", \"ano\": \"" + f.getString(7) + "\", \"numeroPortas\": \"" + f.getString(8) + "\", \"motor\": \"" + f.getString(9) + "\", \"cambioAutomatico\": \"" + f.getString(10) + "\", \"combustivel\": \"" + f.getString(11) + "\", \"subtitles\": \"" + f.getString(13) + "\", \"imgPath\": \"" + f.getString(12) + "\" }";
+				}
+				else {
+					resp = resp + ", \"car" + i + "\":" + "{ \"idCarro\": \"" + f.getString(1) + "\", \"renavam\": \"" + f.getString(2) + "\", \"placa\": \"" + f.getString(3) + "\", \"chassi\": \"" + f.getString(4) + "\", \"marca\": \"" + f.getString(5) + "\", \"modelo\": \"" + f.getString(6) + "\", \"ano\": \"" + f.getString(7) + "\", \"numeroPortas\": \"" + f.getString(8) + "\", \"motor\": \"" + f.getString(9) + "\", \"cambioAutomatico\": \"" + f.getString(10) + "\", \"combustivel\": \"" + f.getString(11) + "\", \"subtitles\": \"" + f.getString(13) + "\", \"imgPath\": \"" + f.getString(12) + "\" }";
+				}
+				i++;
+			}
+						
+			statement.close();
+		}
+		catch (SQLException e) {
+			LOG.log(Level.SEVERE, "Data not geted from the database: ", e);
+		}
+		finally {
+			Database.disconnect();
+		}
+		
+		LOG.exiting(NAME, "GetCarsSearch");
 		return resp + " }}";
 	}
 }

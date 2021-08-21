@@ -16,6 +16,7 @@ import br.com.interdisciplinar.locadora.clients.SexoVerify;
 import br.com.interdisciplinar.locadora.database.GetCarFromDB;
 import br.com.interdisciplinar.locadora.database.GetUserFromDB;
 import br.com.interdisciplinar.locadora.database.SendUserToDB;
+import br.com.interdisciplinar.locadora.veiculos.AvailableCars;
 import br.com.interdisciplinar.locadora.veiculos.CreateVehicle;
 import br.com.interdisciplinar.locadora.veiculos.GenerateCars;
 
@@ -97,6 +98,25 @@ public class Rest {
 			GetCarFromDB carFromDb = new GetCarFromDB();				
 			String cars = carFromDb.GetCars();
 						
+			if(cars.length() > 0) {
+				return Response.ok(cars).build();
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		}
+		catch(Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
+	@POST
+	@Path("/veiculos/disponibilidade")
+	public Response availableCars(AvailableCars vehicle) throws Exception {
+		try {
+			GetCarFromDB carFromDb = new GetCarFromDB();
+			String cars = carFromDb.GetCarsSearch(vehicle);
+			
 			if(cars.length() > 0) {
 				return Response.ok(cars).build();
 			}
