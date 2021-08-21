@@ -87,19 +87,7 @@ a {
   }
 }
 
-@media(max-width: 1000px) {
-  .menu1 {
-    display: none;
-  }
-}
-
 @media(max-width: 550px) {
-  #header {
-    height: 50px;
-    padding-top: 15px;
-    padding-left: 20px;
-  }
-
   .title1 {
     font-size: 16px;
     line-height: 18px;
@@ -144,8 +132,13 @@ a {
   display: none;
 }
 
-@media (max-width: 300px) {
-  #menu {
+@media (max-width: 400px) {
+  .menu2 {
     display: none;
+  }
+
+  #title {
+    float: right;
+    margin-right: 20px;
   }
 }

@@ -159,6 +159,7 @@ function getCars() {
       }
     }
     else {
+      loading.classList.add("hideloading");
       document.getElementById("erro").classList.remove("esconde-erro")
     }
   });
