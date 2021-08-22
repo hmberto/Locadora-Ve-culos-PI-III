@@ -107,3 +107,32 @@
     padding-right: 20px;
   }
 }
+
+@media (max-width: 400px) {
+  .menu1 {
+    margin-top: 86px;
+  }
+
+  .menu2 {
+    background-color: #fff;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    margin-top: 60px;
+    margin-left: 0;
+    margin-right: 0;
+    float: unset;
+    padding: 0px;
+    z-index: 4;
+  }
+
+  .menu2 a {
+    padding: 30px 7px;
+    font-size: 22px;
+  }
+
+  #title {
+    float: right;
+    margin-right: 20px;
+  }
+}

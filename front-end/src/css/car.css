@@ -1,7 +1,6 @@
 #showCar {
   padding-top: 81px;
   /* background-color: #fff; */
-  height: 100vh;
 }
 
 #carimg {
@@ -10,15 +9,22 @@
 }
 
 .info {
-  display: flex;
   margin: 30px 7%;
   background-color: #fff;
   padding: 20px;
   border-radius: 7px;
 }
 
+.info2 {
+  display: flex;
+}
+
 .showinfo {
   margin-left: 30px;
+  width: 100%;
+}
+
+.showinfo2 {
   width: 100%;
 }
 
@@ -38,10 +44,6 @@
   margin-top: 20px;
 }
 
-.marca {
-  width: 50%;
-}
-
 .boxinfo img {
   float: left;
   width: 22px;
@@ -52,21 +54,68 @@
   font-size: 19px;
 }
 
-.modelo {
+.modelo, .portas, .ano, .marca, .motor, .cambio, .combustivel {
   width: 50%;
 }
 
-.portas {
-  width: 50%;
+.infoadicionais {
+  margin-top: 30px;
+  background-color: #005032;
+  color: #fff;
+  padding: 20px 30px 20px 50px;
+  border-radius: 7px;
 }
 
-.ano {
-  width: 50%;
+.infoadicionais li {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 18px;
 }
 
+@media(max-width: 900px) {
+  .description {
+    margin-top: 5px;
+    margin-bottom: 25px;
+  }
+
+  #carimg {
+    width: 100%;
+    border-radius: 7px;
+    margin-bottom: 15px;
+  }
+
+  .info2 {
+    display: block;
+  }
+
+  .showinfo {
+    margin-left: 0px;
+  }
+
+  .boxinfo {
+    display: block;
+    width: 100%;
+  }
+
+  .boxinfo div {
+    margin-top: 20px;
+  }
+
+  .modelo, .portas, .ano, .marca, .motor, .cambio, .combustivel {
+    width: 100%;
+  }
+}
 
 @media(max-width: 550px) {
   #showCar {
     padding-top: 60px;
+  }
+
+  .infoadicionais {
+    padding: 10px 10px 10px 30px;
+  }
+
+  .infoadicionais li {
+    font-size: 16px;
   }
 }

@@ -2,13 +2,17 @@ var menubtn = document.getElementById("imgmenu");
 var fixedmenu = document.getElementById("header");
 
 menubtn.addEventListener('click', () => {
-  var showmenu = document.querySelector(".menu1");
-  var verifyclass = showmenu.classList.contains("hidemenu")
+  var showmenu1 = document.querySelector(".menu1");
+  var showmenu2 = document.querySelector(".menu2");
+
+  var verifyclass = showmenu1.classList.contains("hidemenu")
 
   if(verifyclass) {
-    showmenu.classList.remove("hidemenu");
+    showmenu1.classList.remove("hidemenu");
+    showmenu2.classList.remove("hidemenu");
   }
   else {
-    showmenu.classList.add("hidemenu");
+    showmenu1.classList.add("hidemenu");
+    showmenu2.classList.add("hidemenu");
   }
 });
