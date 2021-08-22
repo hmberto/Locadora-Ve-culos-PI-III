@@ -87,6 +87,13 @@ public class GenerateCars {
 	public void setCombustivel(String combustivel) {
 		this.combustivel = combustivel;
 	}
+	
+	public String getSubtitles() {
+		return subtitles;
+	}
+	public void setSubtitles(String subtitles) {
+		this.subtitles = subtitles;
+	}
 
 	public String getImgPath() {
 		return imgPath;
@@ -105,6 +112,7 @@ public class GenerateCars {
 	String motor;
 	String cambioAutomatico;
 	String combustivel;
+	String subtitles;
 	String imgPath;
 		
 	public GenerateCars(Map<Integer, String> vehicle) {
@@ -123,6 +131,7 @@ public class GenerateCars {
 		this.motor = vehicle.get(9);
 		this.cambioAutomatico = vehicle.get(10);
 		this.combustivel = vehicle.get(11);
+		this.subtitles = vehicle.get(13);
 		this.imgPath = vehicle.get(12);
 		
 		LOG.exiting(NAME, "GenerateCars");
