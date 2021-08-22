@@ -1,0 +1,27 @@
+#setabaixo {
+  width: 100%;
+  text-align: center;
+  display: none;
+}
+
+.setabaixo1 {
+  border: #fff solid 2px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: auto;
+  cursor: pointer;
+}
+
+#seta {
+  margin: auto;
+  width: 50px;
+  margin-top: -58px;
+  cursor: pointer;
+}
+
+@media(max-width: 650px) {
+  #setabaixo {
+    display: unset;
+  }
+}

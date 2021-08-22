@@ -214,6 +214,10 @@ input {
   width: 88%;
 }
 
+.menu1 {
+  left: 0;
+}
+
 @media(max-width: 800px) {
   .legenda {
     display: block;

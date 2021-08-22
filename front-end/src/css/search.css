@@ -13,6 +13,7 @@
   line-height: 50px;
   font-size: 30px;
   padding-top: 10px;
+  display: block;
 }
 
 #subt span {
@@ -32,12 +33,15 @@
   position: absolute;
 }
 
-#box1 {
+.boxflex {
   display: flex;
 }
 
+#box1 {
+  
+}
+
 #box2 {
-  display: flex;
   margin-bottom: 20px;
 }
 
@@ -68,8 +72,15 @@ input {
 }
 
 #header2 {
-  height: 300px;
   overflow: hidden;
+}
+
+.tamanhoA {
+  height: 300px;
+}
+
+.tamanhoB {
+  height: 300px;
 }
 
 #carimg {
@@ -125,7 +136,6 @@ input {
 }
 
 .blck {
-  display: flex;
 }
 
 @media(max-width: 1150px) {
@@ -165,17 +175,36 @@ input {
     margin-top: 15px;
   }
 
-  #header2 {
+  .tamanhoA {
+    height: 135px;
+  }
+
+  .tamanhoB {
     height: 600px;
   }
 
-  #box1 {
+  .boxflex {
     display: block;
   }
 
-  #box2 {
+  .showsearch {
     display: block;
+  }
+
+  .hidesearch {
+    display: none;
+  }
+
+  #box1 {
+  }
+
+  #box2 {
     margin-top: 35px;
+    margin-bottom: 35px;
+  }
+
+  .blck {
+    text-align: center;
   }
 
   .div1 {
@@ -204,18 +233,9 @@ input {
     margin-bottom: 17px;
   }
 
-  #box2 {
-    margin-bottom: 35px;
-  }
-
   .btnsearch {
     text-align: center;
     margin-bottom: 25px;
-  }
-
-  .blck {
-    display: block;
-    text-align: center;
   }
 
   .showerr {

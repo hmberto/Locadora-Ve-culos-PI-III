@@ -6,6 +6,37 @@ var dataDevolucao = document.getElementById("dataentrega");
 var horaDevolucao = document.getElementById("horaentrega");
 var submitbtn = document.getElementById("searchbutton");
 
+var showSearchBox1 = document.getElementById("setaabaixo");
+var showSearchBox = document.getElementById("seta");
+showSearchBox.addEventListener('click', () => {
+  hideShowBox()
+});
+
+showSearchBox1.addEventListener('click', () => {
+  hideShowBox()
+});
+
+function hideShowBox() {
+  var box1 = document.getElementById("box1");
+  var box2 = document.getElementById("box2");
+  var btnsrc = document.querySelector(".blck");
+
+  var allSearch = document.getElementById("header2");
+
+  if(box1.classList.contains("hidesearch")) {
+    allSearch.classList.remove("tamanhoA");
+    allSearch.classList.add("tamanhoB");
+
+    box1.classList.remove("hidesearch");
+    box2.classList.remove("hidesearch");
+    btnsrc.classList.remove("hidesearch");
+
+    showSearchBox.classList.remove("showsearch");
+    showSearchBox.classList.add("hidesearch");
+    showSearchBox1.classList.add("hidesearch");
+  }
+}
+
 function searchCar() {
   if(localRetirada.value != null && localRetirada.value != "" &&
     dataRetirada.value != null &&  dataRetirada.value != "" &&

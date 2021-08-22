@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/src/css/loading.css">
   <link rel="stylesheet" href="/src/css/footer.css">
   <link rel="stylesheet" href="/src/css/menu.css">
+  <link rel="stylesheet" href="/src/css/setaBaixo.css">
   <title>Locadora de Veículos</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
     </div>
   </div>
   <div>
-    <div id="header">
+    <div id="header" class="fixedmenu">
       <div id="menuimg">
         <img id="imgmenu" src="/src/img/img-manu.png" alt="">
       </div>
@@ -56,9 +57,9 @@
     <div id="subt">
       <span>Faça sua Locação</span>
     </div>
-    <div id="header2">
+    <div id="header2" class="tamanhoA">
       <div id="box">
-        <div id="box1">
+        <div id="box1" class="boxflex hidesearch">
           <div class="div1">
             <span class="subtitles">Local para retirada</span>
             <div class="autocomplete">
@@ -74,7 +75,7 @@
             <input id="horaretirada" type="time">
           </div>
         </div>
-        <div id="box2">
+        <div id="box2" class="boxflex hidesearch">
           <div class="div1">
             <span class="subtitles">Local para entrega</span>
             <div class="autocomplete">
@@ -90,11 +91,16 @@
             <input id="horaentrega" type="time">
           </div>
         </div>
-        <div class="blck">
+        <div class="blck boxflex hidesearch">
           <div class="btnsearch">
             <a id="searchbutton" onclick="searchCar()">PESQUISAR</a>
           </div>
             <span class="showerr hideerr">* Preencha corretamente</span>
+        </div>
+        <div id="setabaixo">
+          <div id="setaabaixo" class="setabaixo1">
+          </div>
+          <img id="seta" class="showsearch" src="/src/img/seta.png" alt="">
         </div>
       </div>
       <div id="carimg">
