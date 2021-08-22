@@ -7,10 +7,8 @@ menubtn.addEventListener('click', () => {
 
   if(verifyclass) {
     showmenu.classList.remove("hidemenu");
-    fixedmenu.classList.add("fixedmenu");
   }
   else {
     showmenu.classList.add("hidemenu");
-    fixedmenu.classList.remove("fixedmenu");
   }
 });
