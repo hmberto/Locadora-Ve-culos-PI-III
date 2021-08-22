@@ -237,8 +237,8 @@ public class GetCarFromDB {
 			while(f.next()) {
 				boolean verifyAgencia = agencias.contains(f.getString(14));
 				if(!verifyAgencia){
-					agencias.add(f.getString(6));
-					
+					agencias.add(f.getString(14));
+				
 					if(i == 0) {
 						resp = resp + "{ \"data\": {\"agencia" + i + "\":" + " { \"agencia\": \"" + f.getString(14) + "\" }";
 					}
