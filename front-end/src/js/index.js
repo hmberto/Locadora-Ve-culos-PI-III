@@ -1,5 +1,5 @@
 var loading = document.getElementById("lding");
-var cidades = [ "Bela Vista", "Bom Retiro", "Cambuci", "Liberdade", "Aricanduva", "Vila Formosa", "Cidade Tiradentes", "Ermelino Matarazzo", "Ponte Rasa", "Guaianases", "Lajeado", "Itaim Paulista", "Itaquera", "Parque do Carmo", "Pari", "Penha", "Artur Alvim", "Penha", "Vila Matilde", "Jardim Helena", "Sapopemba", "Vila Prudente", "Casa Verde", "Cachoeirinha", "Perus", "Anhanguera", "Pirituba", "Santana", "Tucuruvi", "Mandaqui", "Vila Maria", "Vila Guilherme", "Vila Medeiros", "Morumbi", "Raposo Tavares", "Rio Pequeno", "Lapa", "Barra Funda", "Jaguara", "Perdizes", "Vila Leopoldina", "Pinheiros", "Alto de Pinheiros", "Itaim Bibi", "Jardim Paulista", "Pinheiros", "Campo Limpo", "Vila Andrade", "Socorro", "Cidade Ademar", "Pedreira", "Ipiranga", "Jabaquara", "Parelheiros", "Marsilac", "Campo Belo", "Campo Grande", "Santo Amaro", "Moema", "Vila Mariana" ];
+var cidades = [ "Bela Vista", "Bom Retiro", "Cambuci", "Liberdade", "Aricanduva", "Vila Formosa", "Cidade Tiradentes", "Ermelino Matarazzo", "Ponte Rasa", "Guaianases", "Lajeado", "Itaim Paulista", "Itaquera", "Parque do Carmo", "Pari", "Penha", "Artur Alvim", "Vila Matilde", "Jardim Helena", "Sapopemba", "Vila Prudente", "Casa Verde", "Cachoeirinha", "Perus", "Anhanguera", "Pirituba", "Santana", "Tucuruvi", "Mandaqui", "Vila Maria", "Vila Guilherme", "Vila Medeiros", "Morumbi", "Raposo Tavares", "Rio Pequeno", "Lapa", "Barra Funda", "Jaguara", "Perdizes", "Vila Leopoldina", "Pinheiros", "Alto de Pinheiros", "Itaim Bibi", "Jardim Paulista", "Campo Limpo", "Vila Andrade", "Socorro", "Cidade Ademar", "Pedreira", "Ipiranga", "Jabaquara", "Parelheiros", "Marsilac", "Campo Belo", "Campo Grande", "Santo Amaro", "Moema", "Vila Mariana" ];
 
 function autocomplete(inp, arr) {
   var currentFocus;
@@ -111,7 +111,7 @@ function getCars() {
   loading.classList.remove("hideloading");
 
   var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/veiculos/todos";
-    
+  
   var xhttp = new XMLHttpRequest();
   xhttp.open("GET", url, true);
   xhttp.send();
