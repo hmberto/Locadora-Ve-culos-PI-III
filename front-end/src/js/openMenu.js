@@ -9,10 +9,10 @@ menubtn.addEventListener('click', () => {
 
   if(verifyclass) {
     showmenu1.classList.remove("hidemenu");
-    showmenu2.classList.remove("hidemenu");
+    showmenu2.classList.remove("hidemenu2");
   }
   else {
     showmenu1.classList.add("hidemenu");
-    showmenu2.classList.add("hidemenu");
+    showmenu2.classList.add("hidemenu2");
   }
 });
