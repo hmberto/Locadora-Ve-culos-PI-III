@@ -1,0 +1,26 @@
+#home {
+  padding-top: 81px;
+}
+
+#agencias {
+  background-color: #fff;
+  margin: 0 7%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#agencias li {
+  font-size: 22px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+@media(max-width: 550px) {
+  #home {
+    padding-top: 60px;
+  }
+
+  #agencias li {
+    font-size: 16px;
+  }
+}
