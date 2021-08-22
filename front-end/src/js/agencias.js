@@ -1,4 +1,7 @@
-function searchCar() {
+var loading = document.getElementById("lding");
+
+function searchAgencias() {
+  loading.classList.remove("hideloading");
   var text = document.querySelector(".txt");
   var txt = "Agências encontradas";
   text.innerHTML=txt;
@@ -9,10 +12,9 @@ function searchCar() {
   agencias.send();
 
   agencias.addEventListener('loadend', () => {
+    loading.classList.add("hideloading");
     var div = document.getElementById("agencias");
     if (agencias.status == 200) {
-      loading.classList.add("hideloading");
-
       var json = JSON.parse(agencias.response);
       var tamanho = Object.keys(Object.keys(json['data'])).length;
       
@@ -26,10 +28,9 @@ function searchCar() {
       }
     }
     else {
-      loading.classList.add("hideloading");
       document.getElementById("erro").classList.remove("esconde-erro")
     }
   });
 }
 
-searchCar();
+searchAgencias();

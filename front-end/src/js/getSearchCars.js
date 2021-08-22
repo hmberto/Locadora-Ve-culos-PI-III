@@ -1,5 +1,8 @@
+var loading = document.getElementById("lding");
+
 const urlParams = new URLSearchParams(window.location.search);
 function searchCar() {
+  loading.classList.remove("hideloading");
   const urlParamCars = urlParams.get('search');
 
   console.log(urlParamCars)
@@ -18,9 +21,8 @@ function searchCar() {
   consulta.send(parseBack);
 
   consulta.addEventListener('loadend', () => {
-    if (consulta.status == 200) {
-      loading.classList.add("hideloading");
-      
+    loading.classList.add("hideloading");
+    if (consulta.status == 200) {      
       console.log(consulta.status);
       console.log(consulta.response);
       

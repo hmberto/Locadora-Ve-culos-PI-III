@@ -117,9 +117,8 @@ function getCars() {
   xhttp.send();
 
   xhttp.addEventListener('loadend', () => {
-    if (xhttp.status == 200) {
-      loading.classList.add("hideloading");
-      
+    loading.classList.add("hideloading");
+    if (xhttp.status == 200) {      
       var root = document.getElementById("cars");
       var json = JSON.parse(xhttp.response);
       var tamanho = Object.keys(json['data']).length;
@@ -159,7 +158,6 @@ function getCars() {
       }
     }
     else {
-      loading.classList.add("hideloading");
       document.getElementById("erro").classList.remove("esconde-erro")
     }
   });

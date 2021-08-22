@@ -1,4 +1,7 @@
-function searchCar() {
+var loading = document.getElementById("lding");
+
+function searchFabricantes() {
+  loading.classList.remove("hideloading");
   var text = document.querySelector(".txt");
   var txt = "Fabricantes encontradas: ";
   text.innerHTML=txt;
@@ -9,10 +12,9 @@ function searchCar() {
   marcas.send();
 
   marcas.addEventListener('loadend', () => {
+    loading.classList.add("hideloading");
     var div = document.getElementById("marcas");
     if (marcas.status == 200) {
-      loading.classList.add("hideloading");
-
       var json = JSON.parse(marcas.response);
       var tamanho = Object.keys(Object.keys(json['data'])).length;
       
@@ -31,10 +33,9 @@ function searchCar() {
       }
     }
     else {
-      loading.classList.add("hideloading");
       document.getElementById("erro").classList.remove("esconde-erro")
     }
   });
 }
 
-searchCar();
+searchFabricantes();

@@ -1,5 +1,8 @@
+var loading = document.getElementById("lding");
+
 const urlParams = new URLSearchParams(window.location.search);
-function searchCar() {
+function searchCarMarca() {
+  loading.classList.remove("hideloading");
   const urlParamCars = urlParams.get('marca');
 
   jsonMarca = '{ "marca": "' + urlParamCars + '" }';
@@ -15,9 +18,8 @@ function searchCar() {
   consulta.send(jsonMarca);
 
   consulta.addEventListener('loadend', () => {
-    if (consulta.status == 200) {
-      loading.classList.add("hideloading");
-      
+    loading.classList.add("hideloading");
+    if (consulta.status == 200) {      
       var root = document.getElementById("cars");
       var json = JSON.parse(consulta.response);
       var tamanho = Object.keys(json['data']).length;
@@ -62,4 +64,4 @@ function searchCar() {
   });
 }
 
-searchCar();
+searchCarMarca();
