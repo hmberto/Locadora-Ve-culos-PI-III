@@ -3,7 +3,10 @@ package br.com.interdisciplinar.locadora.database;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import java.util.logging.Level;
@@ -54,6 +57,9 @@ public class GetCarFromDB {
 		
 		String sql = EnvVariables.getEnvVariable("DATABASE_GET_ALL_CARS");
 		
+		String[] ids = { "123456", "234567", "345678", "456789", "567890", "678901", "789012", "890123", "901234", "102345", "923456", "934567", "945678", "956789", "967890" };
+		List<String> tmpids = new ArrayList<String>(Arrays.asList(ids));
+
 		String resp = "";
 		
 		try {
@@ -63,13 +69,17 @@ public class GetCarFromDB {
 			
 			int i = 0;
 			while(f.next()) {
-				if(i == 0) {
-					resp = resp + "{ \"data\": {\"car" + i + "\":" + " { \"idCarro\": \"" + f.getString(1) + "\", \"renavam\": \"" + f.getString(2) + "\", \"placa\": \"" + f.getString(3) + "\", \"chassi\": \"" + f.getString(4) + "\", \"marca\": \"" + f.getString(5) + "\", \"modelo\": \"" + f.getString(6) + "\", \"ano\": \"" + f.getString(7) + "\", \"numeroPortas\": \"" + f.getString(8) + "\", \"motor\": \"" + f.getString(9) + "\", \"cambioAutomatico\": \"" + f.getString(10) + "\", \"combustivel\": \"" + f.getString(11) + "\", \"subtitles\": \"" + f.getString(13) + "\", \"imgPath\": \"" + f.getString(12) + "\" }";
+				LOG.log(Level.INFO, "\n\n\nTESTE1");
+				if(tmpids.contains(f.getString(1))){
+					LOG.log(Level.INFO, "\n\n\nTESTE2");
+					if(i == 0) {
+						resp = resp + "{ \"data\": {\"car" + i + "\":" + " { \"idCarro\": \"" + f.getString(1) + "\", \"renavam\": \"" + f.getString(2) + "\", \"placa\": \"" + f.getString(3) + "\", \"chassi\": \"" + f.getString(4) + "\", \"marca\": \"" + f.getString(5) + "\", \"modelo\": \"" + f.getString(6) + "\", \"ano\": \"" + f.getString(7) + "\", \"numeroPortas\": \"" + f.getString(8) + "\", \"motor\": \"" + f.getString(9) + "\", \"cambioAutomatico\": \"" + f.getString(10) + "\", \"combustivel\": \"" + f.getString(11) + "\", \"subtitles\": \"" + f.getString(13) + "\", \"imgPath\": \"" + f.getString(12) + "\" }";
+					}
+					else if(i < 9) {
+						resp = resp + ", \"car" + i + "\":" + "{ \"idCarro\": \"" + f.getString(1) + "\", \"renavam\": \"" + f.getString(2) + "\", \"placa\": \"" + f.getString(3) + "\", \"chassi\": \"" + f.getString(4) + "\", \"marca\": \"" + f.getString(5) + "\", \"modelo\": \"" + f.getString(6) + "\", \"ano\": \"" + f.getString(7) + "\", \"numeroPortas\": \"" + f.getString(8) + "\", \"motor\": \"" + f.getString(9) + "\", \"cambioAutomatico\": \"" + f.getString(10) + "\", \"combustivel\": \"" + f.getString(11) + "\", \"subtitles\": \"" + f.getString(13) + "\", \"imgPath\": \"" + f.getString(12) + "\" }";
+					}
+					i++;
 				}
-				else if(i < 9) {
-					resp = resp + ", \"car" + i + "\":" + "{ \"idCarro\": \"" + f.getString(1) + "\", \"renavam\": \"" + f.getString(2) + "\", \"placa\": \"" + f.getString(3) + "\", \"chassi\": \"" + f.getString(4) + "\", \"marca\": \"" + f.getString(5) + "\", \"modelo\": \"" + f.getString(6) + "\", \"ano\": \"" + f.getString(7) + "\", \"numeroPortas\": \"" + f.getString(8) + "\", \"motor\": \"" + f.getString(9) + "\", \"cambioAutomatico\": \"" + f.getString(10) + "\", \"combustivel\": \"" + f.getString(11) + "\", \"subtitles\": \"" + f.getString(13) + "\", \"imgPath\": \"" + f.getString(12) + "\" }";
-				}
-				i++;
 			}
 						
 			statement.close();
