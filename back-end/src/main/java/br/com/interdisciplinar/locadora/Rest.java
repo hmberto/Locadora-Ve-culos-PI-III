@@ -17,6 +17,7 @@ import br.com.interdisciplinar.locadora.database.GetCarFromDB;
 import br.com.interdisciplinar.locadora.database.GetUserFromDB;
 import br.com.interdisciplinar.locadora.database.SendUserToDB;
 import br.com.interdisciplinar.locadora.veiculos.AvailableCars;
+import br.com.interdisciplinar.locadora.veiculos.CreateModels;
 import br.com.interdisciplinar.locadora.veiculos.CreateVehicle;
 import br.com.interdisciplinar.locadora.veiculos.GenerateCars;
 
@@ -98,7 +99,7 @@ public class Rest {
 			GetCarFromDB carFromDb = new GetCarFromDB();				
 			String cars = carFromDb.GetCars();
 						
-			if(cars.length() > 0) {
+			if(cars.length() > 5) {
 				return Response.ok(cars).build();
 			}
 			else {
@@ -117,6 +118,63 @@ public class Rest {
 			GetCarFromDB carFromDb = new GetCarFromDB();
 			String cars = carFromDb.GetCarsSearch(vehicle);
 			
+			if(cars.length() > 5) {
+				return Response.ok(cars).build();
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		}
+		catch(Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
+	@GET
+	@Path("/veiculos/marcas")
+	public Response getMarcas() throws Exception {
+		try {
+			GetCarFromDB carFromDb = new GetCarFromDB();
+			String cars = carFromDb.GetMarcas();
+						
+			if(cars.length() > 5) {
+				return Response.ok(cars).build();
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		}
+		catch(Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
+	@POST
+	@Path("/veiculos/modelos")
+	public Response getModelos(CreateModels marca) throws Exception {
+		try {
+			GetCarFromDB carFromDb = new GetCarFromDB();
+			String cars = carFromDb.GetModelos(marca);
+						
+			if(cars.length() > 5) {
+				return Response.ok(cars).build();
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		}
+		catch(Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
+	@GET
+	@Path("/veiculos/agencias")
+	public Response getAgencias() throws Exception {
+		try {
+			GetCarFromDB carFromDb = new GetCarFromDB();
+			String cars = carFromDb.GetAgencias();
+						
 			if(cars.length() > 5) {
 				return Response.ok(cars).build();
 			}

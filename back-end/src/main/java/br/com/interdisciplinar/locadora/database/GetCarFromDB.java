@@ -6,14 +6,16 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import br.com.interdisciplinar.locadora.dt.EnvVariables;
 import br.com.interdisciplinar.locadora.veiculos.AvailableCars;
+import br.com.interdisciplinar.locadora.veiculos.CreateModels;
 
 public class GetCarFromDB {
 	public static String NAME = GetCarFromDB.class.getSimpleName();
@@ -69,9 +71,7 @@ public class GetCarFromDB {
 			
 			int i = 0;
 			while(f.next()) {
-				LOG.log(Level.INFO, "\n\n\nTESTE1");
 				if(tmpids.contains(f.getString(1))){
-					LOG.log(Level.INFO, "\n\n\nTESTE2");
 					if(i == 0) {
 						resp = resp + "{ \"data\": {\"car" + i + "\":" + " { \"idCarro\": \"" + f.getString(1) + "\", \"renavam\": \"" + f.getString(2) + "\", \"placa\": \"" + f.getString(3) + "\", \"chassi\": \"" + f.getString(4) + "\", \"marca\": \"" + f.getString(5) + "\", \"modelo\": \"" + f.getString(6) + "\", \"ano\": \"" + f.getString(7) + "\", \"numeroPortas\": \"" + f.getString(8) + "\", \"motor\": \"" + f.getString(9) + "\", \"cambioAutomatico\": \"" + f.getString(10) + "\", \"combustivel\": \"" + f.getString(11) + "\", \"subtitles\": \"" + f.getString(13) + "\", \"imgPath\": \"" + f.getString(12) + "\" }";
 					}
@@ -129,6 +129,136 @@ public class GetCarFromDB {
 		}
 		
 		LOG.exiting(NAME, "GetCarsSearch");
+		return resp + " }}";
+	}
+	
+	public String GetMarcas() {
+		LOG.entering(NAME, "GetMarcas");
+		
+		String sql = EnvVariables.getEnvVariable("DATABASE_GET_ALL_CARS");
+		
+		Set<String> marcas = new HashSet<String>();
+
+		String resp = "";
+		
+		try {
+			PreparedStatement statement = Database.connect().prepareStatement(sql);
+			
+			ResultSet f = statement.executeQuery();
+			
+			int i = 0;
+			while(f.next()) {
+				boolean verifyMarca = marcas.contains(f.getString(5));
+				if(!verifyMarca){
+					marcas.add(f.getString(5));
+					
+					if(i == 0) {
+						resp = resp + "{ \"data\": {\"marca" + i + "\":" + " { \"marca\": \"" + f.getString(5) + "\" }";
+					}
+					else {
+						resp = resp + ", \"marca" + i + "\":" + "{ \"marca\": \"" + f.getString(5) + "\" }";
+					}
+					i++;
+				}
+			}
+						
+			statement.close();
+		}
+		catch (SQLException e) {
+			LOG.log(Level.SEVERE, "Data not geted from the database: ", e);
+		}
+		finally {
+			Database.disconnect();
+		}
+		
+		LOG.exiting(NAME, "GetMarcas");
+		return resp + " }}";
+	}
+	
+	public String GetModelos(CreateModels marca) {
+		LOG.entering(NAME, "GetModelos");
+		
+		String sql = EnvVariables.getEnvVariable("DATABASE_GET_ALL_CARS");
+		
+		Set<String> modelos = new HashSet<String>();
+
+		String resp = "";
+		
+		try {
+			PreparedStatement statement = Database.connect().prepareStatement(sql);
+			
+			ResultSet f = statement.executeQuery();
+			
+			int i = 0;
+			while(f.next()) {
+				boolean verifyMarca = modelos.contains(f.getString(6));
+				boolean verifyModelo = marca.getMarca().equals(f.getString(5));
+				if(!verifyMarca && verifyModelo){
+					modelos.add(f.getString(6));
+					
+					if(i == 0) {
+						resp = resp + "{ \"data\": {\"car" + i + "\":" + " { \"idCarro\": \"" + f.getString(1) + "\", \"renavam\": \"" + f.getString(2) + "\", \"placa\": \"" + f.getString(3) + "\", \"chassi\": \"" + f.getString(4) + "\", \"marca\": \"" + f.getString(5) + "\", \"modelo\": \"" + f.getString(6) + "\", \"ano\": \"" + f.getString(7) + "\", \"numeroPortas\": \"" + f.getString(8) + "\", \"motor\": \"" + f.getString(9) + "\", \"cambioAutomatico\": \"" + f.getString(10) + "\", \"combustivel\": \"" + f.getString(11) + "\", \"subtitles\": \"" + f.getString(13) + "\", \"imgPath\": \"" + f.getString(12) + "\" }";
+					}
+					else {
+						resp = resp + ", \"car" + i + "\":" + "{ \"idCarro\": \"" + f.getString(1) + "\", \"renavam\": \"" + f.getString(2) + "\", \"placa\": \"" + f.getString(3) + "\", \"chassi\": \"" + f.getString(4) + "\", \"marca\": \"" + f.getString(5) + "\", \"modelo\": \"" + f.getString(6) + "\", \"ano\": \"" + f.getString(7) + "\", \"numeroPortas\": \"" + f.getString(8) + "\", \"motor\": \"" + f.getString(9) + "\", \"cambioAutomatico\": \"" + f.getString(10) + "\", \"combustivel\": \"" + f.getString(11) + "\", \"subtitles\": \"" + f.getString(13) + "\", \"imgPath\": \"" + f.getString(12) + "\" }";
+					}
+					i++;
+				}
+			}
+						
+			statement.close();
+		}
+		catch (SQLException e) {
+			LOG.log(Level.SEVERE, "Data not geted from the database: ", e);
+		}
+		finally {
+			Database.disconnect();
+		}
+		
+		LOG.exiting(NAME, "GetModelos");
+		return resp + " }}";
+	}
+	
+	public String GetAgencias() {
+		LOG.entering(NAME, "GetAgencias");
+		
+		String sql = EnvVariables.getEnvVariable("DATABASE_GET_ALL_CARS");
+		
+		Set<String> agencias = new HashSet<String>();
+
+		String resp = "";
+		
+		try {
+			PreparedStatement statement = Database.connect().prepareStatement(sql);
+			
+			ResultSet f = statement.executeQuery();
+			
+			int i = 0;
+			while(f.next()) {
+				boolean verifyAgencia = agencias.contains(f.getString(14));
+				if(!verifyAgencia){
+					agencias.add(f.getString(6));
+					
+					if(i == 0) {
+						resp = resp + "{ \"data\": {\"agencia" + i + "\":" + " { \"agencia\": \"" + f.getString(14) + "\" }";
+					}
+					else {
+						resp = resp + ", \"agencia" + i + "\":" + "{ \"agencia\": \"" + f.getString(14) + "\" }";
+					}
+					i++;
+				}
+			}
+						
+			statement.close();
+		}
+		catch (SQLException e) {
+			LOG.log(Level.SEVERE, "Data not geted from the database: ", e);
+		}
+		finally {
+			Database.disconnect();
+		}
+		
+		LOG.exiting(NAME, "GetAgencias");
 		return resp + " }}";
 	}
 }
