@@ -18,19 +18,26 @@ function getCars() {
       loading.classList.add("hideloading");
 
       var resp = JSON.parse(xhttp.response);
+      console.log(resp)
 
+      document.getElementById("carimg").setAttribute("src", resp['imgPath']);
+
+      document.querySelector(".description").innerHTML="Teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste teste.";
+      // document.querySelector("description").innerHTML=resp['subtitles'];
+      
       document.getElementById("name").textContent=resp['modelo'];
+      document.querySelector(".showmodelo").textContent=resp['modelo'];
+
+      document.querySelector(".showmarca").textContent=resp['marca'];
+
+      document.querySelector(".showportas").textContent=resp['numeroPortas'];
+
+      document.querySelector(".showano").textContent=resp['ano'];
     }
     else {
       document.getElementById("erro").classList.remove("esconde-erro")
     }
   });
-
-  xhttp.onreadystatechange = function() {
-    if(this.status == 200) {
-      
-    }
-  }
 }
 
 getCars();
