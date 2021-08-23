@@ -136,6 +136,8 @@ input {
 }
 
 .blck {
+  text-align: left;
+  position: absolute;
 }
 
 @media(max-width: 1150px) {
@@ -205,6 +207,7 @@ input {
 
   .blck {
     text-align: center;
+    position: unset;
   }
 
   .div1 {

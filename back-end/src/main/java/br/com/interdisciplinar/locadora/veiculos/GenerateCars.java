@@ -101,6 +101,20 @@ public class GenerateCars {
 	public void setImgPath(String imgPath) {
 		this.imgPath = imgPath;
 	}
+	
+	public String getLocalRetirada() {
+		return localRetirada;
+	}
+	public void setLocalRetirada(String localRetirada) {
+		this.localRetirada = localRetirada;
+	}
+	
+	public String getAvailableCar() {
+		return availableCar;
+	}
+	public void setAvailableCar(String availableCar) {
+		this.availableCar = availableCar;
+	}
 
 	String renavam;
 	String placa;
@@ -114,6 +128,8 @@ public class GenerateCars {
 	String combustivel;
 	String subtitles;
 	String imgPath;
+	String localRetirada;
+	String availableCar;
 		
 	public GenerateCars(Map<Integer, String> vehicle) {
 		super();
@@ -133,6 +149,8 @@ public class GenerateCars {
 		this.combustivel = vehicle.get(11);
 		this.subtitles = vehicle.get(13);
 		this.imgPath = vehicle.get(12);
+		this.localRetirada = vehicle.get(14);
+		this.availableCar = vehicle.get(15);
 		
 		LOG.exiting(NAME, "GenerateCars");
 	}

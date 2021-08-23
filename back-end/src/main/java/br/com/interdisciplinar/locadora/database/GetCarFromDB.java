@@ -34,7 +34,7 @@ public class GetCarFromDB {
 			ResultSet f = statement.executeQuery();
 			
 			while(f.next()) {
-				for(int i = 1; i < 14; i++) {
+				for(int i = 1; i < 16; i++) {
 					car.put(i, f.getString(i));
 				}
 				

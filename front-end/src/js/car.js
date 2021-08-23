@@ -21,8 +21,10 @@ function getCars() {
     loading.classList.add("hideloading");
     if (xhttp.status == 200) {
       loading.classList.add("hideloading");
-
+      
       var resp = JSON.parse(xhttp.response);
+      
+      document.title = resp['modelo'] + ' - Locadora de Veículos';
 
       var cambio = "";
 

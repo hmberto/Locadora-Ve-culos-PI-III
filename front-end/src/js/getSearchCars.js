@@ -13,6 +13,8 @@ function searchCar() {
   var text = document.querySelector(".txt");
   var txt = "Carros encontrados para o local de retirada: " + param['localRetirada'];
   text.innerHTML=txt;
+  document.title = param['localRetirada'] + ' - Carros encontrados';
+
   var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/veiculos/disponibilidade";
   
   var consulta = new XMLHttpRequest();

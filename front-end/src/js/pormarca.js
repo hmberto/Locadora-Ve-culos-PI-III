@@ -5,6 +5,8 @@ function searchCarMarca() {
   loading.classList.remove("hideloading");
   const urlParamCars = urlParams.get('marca');
 
+  document.title = urlParamCars + ' - Carros encontrados';
+
   jsonMarca = '{ "marca": "' + urlParamCars + '" }';
 
   var text = document.querySelector(".txt");
