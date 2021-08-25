@@ -12,7 +12,7 @@ public class CheckData {
 		boolean test = true;
 
 		// Verifica Nome
-		boolean searchForCharactersA = user.getNome().matches("[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+");
+		boolean searchForCharactersA = user.getNome().matches("[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ \s]+");
 		if(user.getNome().length() < 250 && searchForCharactersA) {}
 		else { test = false; }
 		
@@ -115,7 +115,7 @@ public class CheckData {
 		boolean searchForCharactersT = user.getCategoriaCnh().matches("[a-z A-Z -]+");
 		if(user.getCategoriaCnh().length() < 6 && searchForCharactersT) {}
 		else { test = false; }
-				
+		
 		LOG.exiting(NAME, "CreateUser");
 		return test;
 	}
