@@ -12,9 +12,13 @@ import br.com.interdisciplinar.locadora.clients.AuthUser;
 import br.com.interdisciplinar.locadora.clients.CheckData;
 import br.com.interdisciplinar.locadora.clients.CreateUser;
 import br.com.interdisciplinar.locadora.clients.GenerateClients;
+import br.com.interdisciplinar.locadora.clients.GenerateClientsA;
+import br.com.interdisciplinar.locadora.clients.LogoutUser;
 import br.com.interdisciplinar.locadora.clients.SexoVerify;
 import br.com.interdisciplinar.locadora.database.GetCarFromDB;
 import br.com.interdisciplinar.locadora.database.GetUserFromDB;
+import br.com.interdisciplinar.locadora.database.LoginUserFromDB;
+import br.com.interdisciplinar.locadora.database.LogoutUserFromDB;
 import br.com.interdisciplinar.locadora.database.SendUserToDB;
 import br.com.interdisciplinar.locadora.veiculos.AvailableCars;
 import br.com.interdisciplinar.locadora.veiculos.CreateModels;
@@ -31,16 +35,56 @@ public class Rest {
 	public Response postLogin(AuthUser login) {
 		try {
 			if(login.getUser().length() > 1 && login.getPass().length() > 1) {
+				LoginUserFromDB userFromDb = new LoginUserFromDB();				
+				Map<Integer, String> session = userFromDb.LoginUser(login.getUser(), login.getPass());
+				
+				if(session.get(1).length() == 50) {
+					return Response.ok(new GenerateClients(session)).build();
+				}
+				else {
+					return Response.status(Response.Status.BAD_REQUEST).build();
+				}
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		} catch (Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
+	@POST
+	@Path("/clientes/logout")
+	public Response postLogout(LogoutUser login) {
+		try {
+			if(login.getSession().length() == 50) {
+				LogoutUserFromDB userFromDb = new LogoutUserFromDB();				
+				Map<Integer, String> session = userFromDb.LogoutUser(login.getSession());
+				
+				return Response.ok(new GenerateClients(session)).build();
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		} catch (Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
+	@POST
+	@Path("/clientes/user")
+	public Response postGetUser(LogoutUser login) {
+		try {
+			if(login.getSession().length() == 50) {
 				GetUserFromDB userFromDb = new GetUserFromDB();				
-				Map<Integer, String> user = userFromDb.GetUser(login.getUser(), login.getPass());
+				Map<Integer, String> user = userFromDb.GetUser(login.getSession());
 				
 				if(user.get(2) == null || user.get(2).equals("null")) {
 					return Response.status(Response.Status.BAD_REQUEST).build();
 				}
 				else {
-					return Response.ok(new GenerateClients(user)).build();
+					return Response.ok(new GenerateClientsA(user)).build();
 				}
-				// return Response.ok(new GenerateClients(nome, cpf, rg, dataNascimento, sexo, email, telefone, celular, rua, numero, complemento, bairro, cep, cidade, estado, login, senha, numeroCnh, registroCnh, validadeCnh, categoriaCnh, locatarioAtivo)).build();
 			}
 			else {
 				return Response.status(Response.Status.BAD_REQUEST).build();

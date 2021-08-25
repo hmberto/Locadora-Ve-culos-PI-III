@@ -9,8 +9,8 @@ import br.com.interdisciplinar.locadora.clients.CreateUser;
 import br.com.interdisciplinar.locadora.dt.EnvVariables;
 
 public class SendUserToDB {
-	public static String NAME = GetUserFromDB.class.getSimpleName();
-	private static Logger LOG = Logger.getLogger(GetUserFromDB.class.getName());
+	public static String NAME = LoginUserFromDB.class.getSimpleName();
+	private static Logger LOG = Logger.getLogger(LoginUserFromDB.class.getName());
 	
 	public boolean CreateUserDB(CreateUser user) {
 		LOG.entering(NAME, "CreateUserDB");

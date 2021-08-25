@@ -11,25 +11,22 @@ import java.util.logging.Logger;
 
 import br.com.interdisciplinar.locadora.dt.EnvVariables;
 
-public class LoginUserFromDB {
-	public static String NAME = LoginUserFromDB.class.getSimpleName();
-	private static Logger LOG = Logger.getLogger(LoginUserFromDB.class.getName());
+public class LogoutUserFromDB {
+	public static String NAME = LogoutUserFromDB.class.getSimpleName();
+	private static Logger LOG = Logger.getLogger(LogoutUserFromDB.class.getName());
 	
-	public Map<Integer, String> LoginUser(String login, String pass) {
-		LOG.entering(NAME, "LoginUser");
+	public Map<Integer, String> LogoutUser(String sessionId) {
+		LOG.entering(NAME, "LogoutUser");
 		
-		String sql = EnvVariables.getEnvVariable("DATABASE_GET_USER");
+		String sql = EnvVariables.getEnvVariable("DATABASE_GET_USER_2");
 		String sql2 = EnvVariables.getEnvVariable("DATABASE_INSERT_USER_SESSION");
 		
 		Map<Integer, String> user = new HashMap<Integer, String>();
 		Map<Integer, String> session = new HashMap<Integer, String>();
-		
-		String alphaNumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-		
+				
 		try {
 			PreparedStatement statement = Database.connect().prepareStatement(sql);
-			statement.setString(1, login);
-			statement.setString(2, pass);
+			statement.setString(1, sessionId);
 			
 			ResultSet f = statement.executeQuery();
 			
@@ -38,22 +35,14 @@ public class LoginUserFromDB {
 					user.put(i, f.getString(i));
 				}
 				
-				LOG.log(Level.INFO, "Data geted from the database. Login: " + login);
+				LOG.log(Level.INFO, "Data geted from the database. Login: " + f.getString(16));
 			}
 			
 			String userSession = "";
-			if(user.get(2) == null || user.get(2).equals("null")) {}
-			else {
-				for(int i = 0; i < 50; i++) {
-					int myindex = (int)(alphaNumeric.length() * Math.random());
-					
-					userSession = userSession + alphaNumeric.charAt(myindex);
-				}
-			}
 			
 			PreparedStatement statement2 = Database.connect().prepareStatement(sql2);
-			statement2.setString(1, userSession);
-			statement2.setString(2, login);
+			statement2.setString(1, "");
+			statement2.setString(2, user.get(16));
 			
 			statement2.execute();
 			
@@ -68,7 +57,7 @@ public class LoginUserFromDB {
 			Database.disconnect();
 		}
 		
-		LOG.exiting(NAME, "LoginUser");
+		LOG.exiting(NAME, "LogoutUser");
 		return session;
 	}
 }
