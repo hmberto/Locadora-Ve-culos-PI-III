@@ -114,6 +114,10 @@
   padding: 150px 0px;
 }
 
+#localret {
+  padding-left: 15px;
+}
+
 @media(max-width: 900px) {
   .description {
     margin-top: 5px;

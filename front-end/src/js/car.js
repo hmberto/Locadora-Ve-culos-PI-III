@@ -53,6 +53,7 @@ function getCars() {
       document.querySelector(".showmotor").textContent=resp['motor'];
       document.querySelector(".showcambio").textContent=cambio;
       document.querySelector(".showcombustivel").textContent=resp['combustivel'];
+      document.getElementById("localret").textContent="(" + resp['localRetirada'] + ")";
     }
     else {
       document.getElementById("erro").classList.remove("esconde-erro");
