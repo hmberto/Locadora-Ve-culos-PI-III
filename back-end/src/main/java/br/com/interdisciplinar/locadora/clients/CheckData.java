@@ -12,7 +12,7 @@ public class CheckData {
 		boolean test = true;
 
 		// Verifica Nome
-		boolean searchForCharactersA = user.getNome().matches("[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ \s]+");
+		boolean searchForCharactersA = user.getNome().matches("[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ \\s]+");
 		if(user.getNome().length() < 250 && searchForCharactersA) {}
 		else { test = false; }
 		
