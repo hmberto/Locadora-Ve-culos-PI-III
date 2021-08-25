@@ -11,7 +11,7 @@ function validate() {
     return false;
   }
   
-  let nomeRegex = nome.value.match(/[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ\s]/gi);
+  let nomeRegex = nome.value.match(/[^A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ \\s]/gi);
   if(nomeRegex != null) {
     erro.classList.remove("azul");
     erro.classList.remove("verde");
