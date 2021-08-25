@@ -110,7 +110,11 @@ function getValue() {
   }
 
   var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/clientes/cadastro";
-  var json = '{"nome":"' + nome.value +'","cpf":"' + cpf.value +'","rg":"' + rg.value +'","dataNascimento":"' + dataNascimento.value +'","sexo":"' + sexo.value +'","email":"' + email.value +'","telefone":"' + telefone.value +'","celular":"' + celular.value +'","rua":"' + rua.value +'","numero":"' + numero.value +'","complemento":"' + complemento.value +'","bairro":"' + bairro.value +'","cep":"' + cep.value +'","cidade":"' + cidade.value +'","estado":"' + estado.value +'","login":"' + login.value +'","senha":"' + senha.value +'","numeroCnh":"' + numeroCnh.value +'","registroCnh":"' + registroCnh.value +'","validadeCnh":"' + validadeCnh.value + '","categoriaCnh":"' + categoriaCnh.value + '"}'
+
+  var parseUser = btoa(login.value);
+  var parsePass = btoa(senha.value);
+
+  var json = '{"nome":"' + nome.value +'","cpf":"' + cpf.value +'","rg":"' + rg.value +'","dataNascimento":"' + dataNascimento.value +'","sexo":"' + sexo.value +'","email":"' + email.value +'","telefone":"' + telefone.value +'","celular":"' + celular.value +'","rua":"' + rua.value +'","numero":"' + numero.value +'","complemento":"' + complemento.value +'","bairro":"' + bairro.value +'","cep":"' + cep.value +'","cidade":"' + cidade.value +'","estado":"' + estado.value +'","login":"' + parseUser +'","senha":"' + parsePass +'","numeroCnh":"' + numeroCnh.value +'","registroCnh":"' + registroCnh.value +'","validadeCnh":"' + validadeCnh.value + '","categoriaCnh":"' + categoriaCnh.value + '"}'
 
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", url, true);

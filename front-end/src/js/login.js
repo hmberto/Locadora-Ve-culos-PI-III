@@ -11,8 +11,13 @@ function getValue() {
   loading.classList.remove("hideloading");
   
   var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/clientes/login";
-  var usuario = user.value;
-  var senha = pass.value;
+  
+  var parseUser = btoa(user.value);
+  var parsePass = btoa(pass.value);
+  
+  var usuario = parseUser;
+  var senha = parsePass;
+
   var json = '{"user":"' + usuario + '","pass":"' + senha + '"}'
 
   var xhttp = new XMLHttpRequest();
