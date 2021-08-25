@@ -87,14 +87,14 @@ public class CheckData {
 		else { test = false; }
 		
 		// Verifica Login
-		boolean searchForCharactersO = user.getLogin().matches("[0-9 a-z A-Z]+");
-		if(user.getLogin().length() < 21 && searchForCharactersO) {}
-		else { test = false; }
+		// boolean searchForCharactersO = user.getLogin().matches("[0-9 a-z A-Z]+");
+		// if(user.getLogin().length() < 21 && searchForCharactersO) {}
+		// else { test = false; }
 		
 		// Verifica Senha
-		boolean searchForCharactersP = user.getSenha().matches("[0-9 a-z A-Z ! @ # _ - .]+");
-		if(user.getSenha().length() < 21 && searchForCharactersP) {}
-		else { test = false; }
+		// boolean searchForCharactersP = user.getSenha().matches("[0-9 a-z A-Z ! @ # _ - .]+");
+		// if(user.getSenha().length() < 21 && searchForCharactersP) {}
+		// else { test = false; }
 		
 		// Verifica Número CNH
 		boolean searchForCharactersQ = user.getNumero().matches("[0-9 - .]+");
