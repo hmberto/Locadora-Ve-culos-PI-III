@@ -1,12 +1,10 @@
 var loading = document.getElementById("lding");
+var check = document.getElementById("check");
 
 const urlParams = new URLSearchParams(window.location.search);
-
 const urlParam = urlParams.get('carId');
 
 function getCars() {
-  loading.classList.remove("hideloading");
-
   loading.classList.remove("hideloading");
 
   var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/veiculos/consulta";
@@ -38,6 +36,13 @@ function getCars() {
         cambio = resp['cambioAutomatico'];
       }
 
+      if(resp['availableCar'] == 1) {
+        document.querySelector(".disp").classList.add("hideloading");
+      }
+      else {
+        document.querySelector(".disp").textContent="Veículo Indisponível";
+      }
+
       document.getElementById("carimg").setAttribute("src", resp['imgPath']);
       document.querySelector(".description").innerHTML=resp['subtitles'];
       document.getElementById("name").textContent=resp['modelo'];
@@ -50,9 +55,22 @@ function getCars() {
       document.querySelector(".showcombustivel").textContent=resp['combustivel'];
     }
     else {
-      document.getElementById("erro").classList.remove("esconde-erro")
+      document.getElementById("erro").classList.remove("esconde-erro");
+      document.getElementById("showCar").classList.add("hideloading");
     }
   });
 }
 
 getCars();
+
+check.addEventListener("click", () => {
+  var verify1 = check.checked;
+  var verify2 = document.querySelector(".disp").textContent;
+
+  if(!verify1 || verify2 == "Veículo Indisponível") {
+    document.getElementById("reservar").disabled = true;
+  }
+  else {
+    document.getElementById("reservar").disabled = false;
+  }
+})

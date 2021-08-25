@@ -22,6 +22,7 @@
 .showinfo {
   margin-left: 30px;
   width: 100%;
+  margin-top: 0;
 }
 
 .showinfo2 {
@@ -72,6 +73,47 @@
   font-size: 18px;
 }
 
+.locar {
+  text-align: right;
+  padding-top: 30px;
+  padding-bottom: 15px;
+}
+
+.termos {
+  padding-right: 20px;
+}
+
+.locar span {
+  font-size: 18px;
+}
+
+.locar button {
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: #005032;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.locar button:disabled {
+  background-color: #00a769;
+}
+
+.divdisp {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #ff6347;
+}
+
+.disp {
+  padding: 0px;
+}
+
+#erro {
+  min-height: 50vh;
+  padding: 150px 0px;
+}
+
 @media(max-width: 900px) {
   .description {
     margin-top: 5px;
@@ -117,5 +159,17 @@
 
   .infoadicionais li {
     font-size: 16px;
+  }
+
+  .locar {
+    text-align: center;
+  }
+
+  .locar button {
+    display: block;
+  }
+
+  .locar span {
+    padding-right: 0px;
   }
 }
