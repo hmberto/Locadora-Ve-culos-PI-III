@@ -106,6 +106,7 @@ function getValue() {
   }
 
   if(!validate() || !validadeA()) {
+    loading.classList.add("hideloading");
     return;
   }
 
