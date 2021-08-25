@@ -2,11 +2,9 @@ package br.com.interdisciplinar.locadora.clients;
 
 import java.util.logging.Logger;
 
-import br.com.interdisciplinar.locadora.database.GetUserFromDB;
-
 public class CheckData {
-	public static String NAME = GetUserFromDB.class.getSimpleName();
-	private static Logger LOG = Logger.getLogger(GetUserFromDB.class.getName());
+	public static String NAME = CheckData.class.getSimpleName();
+	private static Logger LOG = Logger.getLogger(CheckData.class.getName());
 	
 	public boolean checkData(CreateUser user) {
 		LOG.entering(NAME, "CreateUser");
