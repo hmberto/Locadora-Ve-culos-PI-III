@@ -1,6 +1,13 @@
 var loading = document.getElementById("lding");
 
 function searchAgencias() {
+  var session = sessionStorage.getItem("session");
+  if(session != null) {
+    if(session.length == 50) {
+      ifLogged(session);
+    }
+  }
+  
   loading.classList.remove("hideloading");
   var text = document.querySelector(".txt");
   var txt = "Agências encontradas";

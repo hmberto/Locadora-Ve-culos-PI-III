@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="/src/img/favicon.ico" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="/src/css/user.css">
+  <link rel="stylesheet" href="/src/css/index.css">
+  <link rel="stylesheet" href="/src/css/loading.css">
+  <link rel="stylesheet" href="/src/css/footer.css">
+  <link rel="stylesheet" href="/src/css/menu.css">
+  <title>Locadora de Veículos - Encontre seu Carro</title>
+</head>
+<body>
+  
+  <div class="hideloading" id="lding">
+    <div id="loading">
+      <div id="load">
+        <img id="imagemloading" src="/src/img/loading2.gif" alt="">
+      </div>
+    </div>
+  </div>
+  <div>
+    <div id="header">
+      <div id="menuimg">
+        <img id="imgmenu" src="/src/img/img-manu.png" alt="">
+      </div>
+      <div id="title">
+        <div class="title3">
+          <span class="title1">Locadora de</span>
+          <span class="title2">Veículos</span>
+        </div>
+        <span class="title4">BH</span>
+      </div>
+      <div id="menu">
+        <div class="menu1 hidemenu">
+          <a href="/index.html">Início</a>
+          <a href="/src/pages/fabricantes.html">Fabricantes</a>
+          <a href="/src/pages/agencias.html">Agências</a>
+          <a href="#">Reservas</a>
+        </div>
+        <div class="menu2 hidemenu2">
+          <a class="btn1" href="/src/pages/login.html">Login</a>
+          <span>/</span>
+          <a class="btn2" href="/src/pages/cadastro.html">Cadastrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="erro" class="esconde-erro">
+    <div class="404">
+      <img src="/src/img/404.png" alt="">
+    </div>
+  </div>
+  
+  <div>
+    <div id="userInfo">
+      <div class="info">
+        <div class="showinfo">
+          <span class="userName"></span>
+
+          <div class="loginText3">
+            <span class="loginText2">• Dados Pessoais</span>
+            <div class="loginText4"></div>
+          </div>
+
+          <div class="boxinfo">
+            <div class="infodiv">
+              <span class="spn1">E-mail: </span>
+              <span class="email"></span>
+            </div>
+            <div class="infodiv">
+              <span class="spn1">CPF: </span>
+              <span class="cpf"></span>
+            </div>
+            <div class="infodiv">
+              <span class="spn1">RG: </span>
+              <span class="rg"></span>
+            </div>
+            <div class="infodiv">
+              <span class="spn1">Celular: </span>
+              <span class="celular"></span>
+            </div>
+            <div class="infodiv tell">
+              <span class="spn1">Telefone: </span>
+              <span class="telefone"></span>
+            </div>
+            <div class="infodiv">
+              <span class="spn1">Data de Nascimento: </span>
+              <span class="dataNascimento"></span>
+            </div>
+            <div class="infodiv">
+              <span class="spn1">Sexo: </span>
+              <span class="sexo"></span>
+            </div>
+          </div>
+
+          <div class="loginText3">
+            <span class="loginText2">• Endereço</span>
+            <div class="loginText4"></div>
+          </div>
+
+          <div class="boxinfo">
+            <div class="infodiv">
+              <span class="spn1">CEP: </span>
+              <span class="cep"></span>
+            </div>
+            <div class="infodiv">
+              <span class="spn1">Logradouro: </span>
+              <span class="rua"></span>
+            </div>
+            <div class="infodiv">
+              <span class="spn1">Casa: </span>
+              <span class="casa"></span>
+            </div>
+            <div class="infodiv">
+              <span class="spn1">Bairro: </span>
+              <span class="bairro"></span>
+            </div>
+            <div class="infodiv">
+              <span class="spn1">Cidade: </span>
+              <span class="cidade"></span>
+            </div>
+            <div class="infodiv">
+              <span class="spn1">Estado: </span>
+              <span class="estado"></span>
+            </div>
+          </div>
+
+          <div class="loginText3">
+            <span class="loginText2">• Login</span>
+            <div class="loginText4"></div>
+          </div>
+
+          <div class="boxinfo">
+            <div class="infodiv">
+              <span class="spn1">Login: </span>
+              <span class="login"></span>
+            </div>
+            <div class="infodiv">
+              <span class="spn1">Senha: </span>
+              <a class="senha" href="#">alterar</a>
+            </div>
+          </div>
+
+          <div class="loginText3">
+            <span class="loginText2">• CNH</span>
+            <div class="loginText4"></div>
+          </div>
+
+          <div class="boxinfo">
+            <div class="infodiv">
+              <span class="spn1">Número CNH: </span>
+              <span class="numeroCnh"></span>
+            </div>
+            <div class="infodiv">
+              <span class="spn1">Registro CNH: </span>
+              <span class="registroCnh"></span>
+            </div>
+            <div class="infodiv">
+              <span class="spn1">Categoria CNH: </span>
+              <span class="categoriaCnh"></span>
+            </div>
+            <div class="infodiv">
+              <span class="spn1">Validade CNH: </span>
+              <span class="validadeCnh"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <input id="userInfoInpt" type="text">
+
+  <div>
+    <div id="footer">
+      <div>
+        <span>© Copyright 2021 Locadora de Veículos BH S.A.</span>
+      </div>
+      <div class="names">
+        <a target="blank_" href="https://www.linkedin.com/in/humbertoo/">Humberto</a>
+        <a href="">Barbara</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/src/js/ifLogged.js"></script>
+  <script src="/src/js/openMenu.js"></script>
+  <script src="/src/js/user.js"></script>
+</body>
+</html>

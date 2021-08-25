@@ -2,6 +2,13 @@ var loading = document.getElementById("lding");
 
 const urlParams = new URLSearchParams(window.location.search);
 function searchCarMarca() {
+  var session = sessionStorage.getItem("session");
+  if(session != null) {
+    if(session.length == 50) {
+      ifLogged(session);
+    }
+  }
+  
   loading.classList.remove("hideloading");
   const urlParamCars = urlParams.get('marca');
 

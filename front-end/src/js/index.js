@@ -108,6 +108,13 @@ autocomplete(document.getElementById("retirada"), cidades);
 autocomplete(document.getElementById("entrega"), cidades);
 
 function getCars() {
+  var session = sessionStorage.getItem("session");
+  if(session != null) {
+    if(session.length == 50) {
+      ifLogged(session);
+    }
+  }
+
   loading.classList.remove("hideloading");
 
   var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/veiculos/todos";

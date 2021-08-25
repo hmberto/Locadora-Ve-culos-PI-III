@@ -30,15 +30,14 @@ function getValue() {
       erro.classList.remove("vermelho");
       erro.classList.add("verde");
 
-      if(resp['sexo'] == 2){
-        textoerro.textContent="Bem vindo, " + resp['nome'];
-      }
-      else if(resp['sexo'] == 3){
-        textoerro.textContent="Bem vinda, " + resp['nome'];
-      }
-      else {
-        textoerro.textContent="Bem vindx, " + resp['nome'];
-      }
+      textoerro.textContent="Bem vindo!";
+
+      var session = JSON.parse(xhttp.response);
+
+      sessionStorage.setItem("session", session['session']);
+      
+      // console.log(sessionStorage.getItem("session"));
+      window.location.replace("/");
     }
     else {
       erro.classList.remove("azul");

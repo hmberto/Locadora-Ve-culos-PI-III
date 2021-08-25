@@ -1,0 +1,142 @@
+#userInfo {
+  padding-top: 81px;
+}
+
+.userName {
+  font-size: 22px;
+  font-weight: bold;
+  color: #005032;
+}
+
+.motor, .cambio, .combustivel {
+  width: 50%;
+}
+
+.info {
+  margin: 30px 7%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 7px;
+}
+
+.showinfo {
+  width: 100%;
+}
+
+.boxinfo {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.boxinfo img {
+  float: left;
+  width: 22px;
+  margin-right: 10px;
+}
+
+#erro {
+  min-height: 50vh;
+  padding: 150px 0px;
+}
+
+#userInfoInpt {
+  display: none;
+}
+
+.hidecampo {
+  display: none;
+}
+
+.infodiv {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.loginText2 {
+  line-height: 20px;
+  font-weight: bold;
+  width: 100%;
+  font-size: 24px;
+}
+
+.senha {
+  color: #337ab7;
+}
+
+.spn1 {
+  font-weight: bold;
+}
+
+.loginText3 {
+  margin-top: 50px;
+  display: block;
+  text-align: left;
+  width: 100%;
+}
+
+.loginText4 {
+  border-bottom: solid 2px #337ab7;
+  margin-top: 5px;
+  margin-left: 0;
+}
+
+@media(max-width: 900px) {
+  .description {
+    margin-top: 5px;
+    margin-bottom: 25px;
+  }
+
+  #carimg {
+    width: 100%;
+    border-radius: 7px;
+    margin-bottom: 15px;
+  }
+
+  .info2 {
+    display: block;
+  }
+
+  .showinfo {
+    margin-left: 0px;
+  }
+
+  .boxinfo {
+    display: block;
+    width: 100%;
+  }
+
+  .boxinfo div {
+    margin-top: 20px;
+  }
+
+  .modelo, .portas, .ano, .marca, .motor, .cambio, .combustivel {
+    width: 100%;
+  }
+}
+
+@media(max-width: 550px) {
+  #userInfo {
+    padding-top: 60px;
+  }
+
+  .infoadicionais {
+    padding: 10px 10px 10px 30px;
+  }
+
+  .infoadicionais li {
+    font-size: 16px;
+  }
+
+  .locar {
+    text-align: center;
+  }
+
+  .locar button {
+    display: block;
+  }
+
+  .locar span {
+    padding-right: 0px;
+  }
+}
