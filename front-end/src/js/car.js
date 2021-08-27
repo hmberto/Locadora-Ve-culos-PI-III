@@ -4,6 +4,8 @@ var check = document.getElementById("check");
 const urlParams = new URLSearchParams(window.location.search);
 const urlParam = urlParams.get('carId');
 
+var localRetiradDB = "";
+
 function getCars() {
   var session = sessionStorage.getItem("session");
   if(session != null) {
@@ -50,6 +52,8 @@ function getCars() {
         document.querySelector(".disp").textContent="Veículo Indisponível";
       }
 
+      localRetiradDB = resp['localRetirada'];
+
       document.getElementById("carimg").setAttribute("src", resp['imgPath']);
       document.querySelector(".description").innerHTML=resp['subtitles'];
       document.getElementById("name").textContent=resp['modelo'];
@@ -79,6 +83,55 @@ check.addEventListener("click", () => {
     document.getElementById("reservar").disabled = true;
   }
   else {
-    document.getElementById("reservar").disabled = false;
+    var localRetirada = sessionStorage.getItem("localRetirada");
+    var dataRetirada = sessionStorage.getItem("dataRetirada");
+    var horaRetirada = sessionStorage.getItem("horaRetirada");
+    var localDevolucao = sessionStorage.getItem("localDevolucao");
+    var dataDevolucao = sessionStorage.getItem("dataDevolucao");
+    var horaDevolucao = sessionStorage.getItem("horaDevolucao");
+
+    if(localRetirada != null && dataRetirada != null && horaRetirada != null && localDevolucao != null && dataDevolucao != null && horaDevolucao != null) {
+      var button = document.getElementById("reservar");
+
+      if(localRetiradDB != localRetirada) {
+        var button = document.getElementById("reservar");
+
+        var json = '{ "localRetirada":"' + localRetirada + '", "dataRetirada": "' +  dataRetirada + '", "horaRetirada": "' + horaRetirada + '", "localDevolucao":"' + localDevolucao + '", "dataDevolucao": "' +  dataDevolucao + '", "horaDevolucao": "' + horaDevolucao + '" }';
+        var parse = btoa(json);
+
+        document.querySelector(".disp").textContent="Veículo disponível em um local diferente do que você buscou. Clique no botão para ver carros em " + localRetirada + ".";
+        document.querySelector(".disp").classList.remove("hideloading");
+        
+        button.textContent="ENCONTRAR";
+  
+        button.addEventListener("click", () => {
+          window.location.replace("/src/pages/search.html?search=" + parse);
+        });
+  
+        button.disabled = false;
+      }
+      else  {
+        var url = "/src/pages/reserva.html?carId=" + urlParam;
+        button.addEventListener("click", () => {
+          window.location.replace(url);
+        });
+
+        button.disabled = false;
+      }
+    }
+    else {
+      var button = document.getElementById("reservar");
+
+      document.querySelector(".disp").textContent="Você não selecionou local para retirada. Clique no botão para buscar.";
+      document.querySelector(".disp").classList.remove("hideloading");
+      
+      button.textContent="BUSCAR";
+
+      button.addEventListener("click", () => {
+        window.location.replace("/");
+      });
+
+      button.disabled = false;
+    }
   }
 })

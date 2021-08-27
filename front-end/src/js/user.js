@@ -45,7 +45,7 @@ function getUser() {
       document.querySelector(".dataNascimento").innerHTML=usrJson['dataNascimento'];
       document.querySelector(".email").innerHTML=usrJson['email'];
       document.querySelector(".estado").innerHTML=usrJson['estado'];
-      document.querySelector(".login").innerHTML=usrJson['login'];
+      document.querySelector(".login").innerHTML=atob(usrJson['login']);
       document.querySelector(".numeroCnh").innerHTML=usrJson['numeroCnh'];
       document.querySelector(".registroCnh").innerHTML=usrJson['registroCnh'];
       document.querySelector(".rg").innerHTML=usrJson['rg'];

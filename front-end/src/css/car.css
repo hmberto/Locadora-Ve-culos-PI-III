@@ -97,6 +97,7 @@
 
 .locar button:disabled {
   background-color: #00a769;
+  cursor: default;
 }
 
 .divdisp {

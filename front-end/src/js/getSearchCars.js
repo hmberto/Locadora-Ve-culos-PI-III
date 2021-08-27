@@ -12,8 +12,6 @@ function searchCar() {
   loading.classList.remove("hideloading");
   const urlParamCars = urlParams.get('search');
 
-  console.log(urlParamCars)
-
   var parseBack = atob(urlParamCars);
   var param = JSON.parse(parseBack);
 
@@ -31,10 +29,7 @@ function searchCar() {
 
   consulta.addEventListener('loadend', () => {
     loading.classList.add("hideloading");
-    if (consulta.status == 200) {      
-      console.log(consulta.status);
-      console.log(consulta.response);
-      
+    if (consulta.status == 200) {
       var root = document.getElementById("cars");
       var json = JSON.parse(consulta.response);
       var tamanho = Object.keys(json['data']).length;

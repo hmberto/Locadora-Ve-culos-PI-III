@@ -95,8 +95,6 @@ function buscarCep() {
 
 function getValue() {
   loading.classList.remove("hideloading");
-
-  document.getElementById("form").classList.add("hide");
   
   if(telefone.value == ""){
     telefone.value = "0000000000";
@@ -109,6 +107,8 @@ function getValue() {
     loading.classList.add("hideloading");
     return;
   }
+
+  document.getElementById("form").classList.add("hide");
 
   var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/clientes/cadastro";
 
