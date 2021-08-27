@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="/src/img/favicon.ico" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="/src/css/reserva.css">
+  <link rel="stylesheet" href="/src/css/index.css">
+  <link rel="stylesheet" href="/src/css/loading.css">
+  <link rel="stylesheet" href="/src/css/footer.css">
+  <link rel="stylesheet" href="/src/css/menu.css">
+  <title>Locadora de Veículos</title>
+</head>
+<body>
+  
+  <div class="hideloading" id="lding">
+    <div id="loading">
+      <div id="load">
+        <img id="imagemloading" src="/src/img/loading2.gif" alt="">
+      </div>
+    </div>
+  </div>
+  <div>
+    <div id="header">
+      <div id="menuimg">
+        <img id="imgmenu" src="/src/img/img-manu.png" alt="">
+      </div>
+      <div id="title">
+        <div class="title3">
+          <span class="title1">Locadora de</span>
+          <span class="title2">Veículos</span>
+        </div>
+        <span class="title4">BH</span>
+      </div>
+      <div id="menu">
+        <div class="menu1 hidemenu">
+          <a href="/">Início</a>
+          <a href="/src/pages/fabricantes.html">Fabricantes</a>
+          <a href="/src/pages/agencias.html">Agências</a>
+          <a href="#">Reservas</a>
+        </div>
+        <div class="menu2 hidemenu2">
+          <a class="btn1" href="/src/pages/login.html">Login</a>
+          <span>/</span>
+          <a class="btn2" href="/src/pages/cadastro.html">Cadastrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="erro" class="esconde-erro">
+    <div class="404">
+      <img src="/src/img/404.png" alt="">
+    </div>
+  </div>
+  
+  <div>
+    <div id="reserva">
+      <div class="info">
+        <div class="links">
+          <a href="/">home</a>
+          <span> / </span>
+          <span>reserva</span>
+        </div>
+
+        <div class="inforeserva">
+          <div class="map">
+            <div class="circle1"></div>
+            <div class="line1"></div>
+            <div class="circle2"></div>
+            <div class="line2"></div>
+            <div class="circle3"></div>
+          </div>
+
+          <div class="maptxt">
+            <span>Escolha do <br>Veículo</span>
+            <span>Conferir <br>Detalhes</span>
+            <span>Reserva <br>Realizada</span>
+          </div>
+
+          <div class="separa"></div>
+
+          <div class="resumo">
+            <span>Resumo da Reserva</span>
+          </div>
+
+          <div class="resumoreserva">
+            <div class="cardata">
+              <span class="carname"></span>
+              <span class="legenda"></span>
+              <div class="value">
+                <div class="box1">
+                  <img class="carimg" alt="">
+                </div>
+                <div class="box2">
+                  <div class="valor1">
+                    <span>Oferta padrão</span>
+                    <p>Diária</p>
+                    <p class="valorfull"></p>
+                    <p>Mínimo 3 diárias</p>
+                  </div>
+                  <div class="valor2">
+                    <span>Oferta premium</span>
+                    <p>Diária</p>
+                    <p class="valor3meses"></p>
+                    <p>Mínimo 3 meses</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="reservadata">
+              <div class="titlelocal">
+                <span>Locais</span>
+              </div>
+              <div class="retirada">
+                <div class="pdd">
+                  <span class="tlt">Retirada: </span>
+                  <span class="localvalue1 dispblock"></span>
+                </div>
+                <div class="pdd">
+                  <span class="tlt">Data: </span>
+                  <span class="datavalue2 dispblock"></span>
+                </div>
+                <div class="pdd">
+                  <span class="tlt">Hora: </span>
+                  <span class="horalvalue3 dispblock"></span>
+                </div>
+              </div>
+              <div class="retirada">
+                <div class="pdd">
+                  <span class="tlt">Devolução: </span>
+                  <span class="localvalue4 dispblock"></span>
+                </div>
+                <div class="pdd">
+                  <span class="tlt">Data: </span>
+                  <span class="datavalue5 dispblock"></span>
+                </div>
+                <div class="pdd">
+                  <span class="tlt">Hora: </span>
+                  <span class="horalvalue6 dispblock"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="additional">
+            <li>Sua reserva garante um dos carros desse grupo.</li>
+            <li>Modelo sujeito à disponibilidade da agência.</li>
+          </div>
+
+          <div class="separa"></div>
+
+          <div class="resumo">
+            <span>Total a Pagar</span>
+          </div>
+
+          <div>
+            <div id="totalPagar">
+              <div>
+                <span>TOTAL: </span>
+                <span class="valorLocacao"></span>
+              </div>
+              <div class="show-dados-cupom hide-dados-cupom">
+                <div>
+                  <span>CUPOM: </span>
+                  <span class="cupomvalue"></span>
+                </div>
+                <div>
+                  <span>DESCONTOS: </span>
+                  <span class="valordescontos"></span>
+                </div>
+                <div>
+                  <span>TOTAL A PAGAR: </span>
+                  <span class="totalvalorLocacao"></span>
+                </div>
+              </div>
+              <div id="cupom">
+                <span class="txtcupom">CUPOM: </span>
+                <div class="iptcupom">
+                  <input class="cupom" type="text">
+                  <button class="btncupom" onclick="validaCupom()">INSERIR</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <input id="checkvalor1" type="checkbox">
+  <input id="checkvalor2" type="checkbox">
+
+  <div>
+    <div id="footer">
+      <div>
+        <span>© Copyright 2021 Locadora de Veículos BH S.A.</span>
+      </div>
+      <div class="names">
+        <a target="blank_" href="https://www.linkedin.com/in/humbertoo/">Humberto</a>
+        <a href="">Barbara</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/src/js/validarCupom.js"></script>
+  <script src="/src/js/ifLogged.js"></script>
+  <script src="/src/js/openMenu.js"></script>
+  <script src="/src/js/reserva.js"></script>
+</body>
+</html>

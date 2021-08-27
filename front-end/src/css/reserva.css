@@ -1,0 +1,417 @@
+#reserva {
+  padding-top: 81px;
+}
+
+.info {
+  margin: 12px 10% 35px 10%;
+}
+
+.inforeserva {
+  border-radius: 10px;
+  background-color: #fff;
+  margin-top: 10px;
+  padding: 20px;
+}
+
+.map {
+  display: flex;
+  width: 450px;
+}
+
+.circle1 {
+  background-color: #005032;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+.line1 {
+  background-color: #005032;
+  height: 10px;
+  width: 175px;
+  margin: auto -5px;
+}
+
+.circle2 {
+  background-color: #005032;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+.line2 {
+  background-color: rgb(182, 182, 182);
+  height: 10px;
+  width: 175px;
+  margin: auto -5px;
+}
+
+.circle3 {
+  background-color: rgb(182, 182, 182);
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+.maptxt {
+  text-align: center;
+  display: flex;
+  margin-top: 20px;
+  width: 600px;
+}
+
+.separa {
+  height: 2px;
+  background-color: #005032;
+  margin: 25px 0;
+}
+
+.resumo {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.carname {
+  font-size: 30px;
+  color: #005032;
+  font-weight: bold;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.resumoreserva {
+  display: flex;
+  width: 100%;
+}
+
+.cardata {
+  width: 70%;
+}
+
+.retirada {
+  margin-bottom: 30px;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+.tlt {
+  font-weight: bold;
+}
+
+.pdd {
+  margin-bottom: 6px;
+}
+
+.reservadata {
+  width: 30%;
+}
+
+.titlelocal {
+  background-color: #005032;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px 0;
+  margin-bottom: 15px;
+}
+
+.value {
+  display: flex;
+  max-height: 200px;
+}
+
+.carimg {
+  width: 330px;
+  border-radius: 5px;
+}
+
+.box1 {
+  width: 330px;
+  padding-right: 20px;
+}
+
+.box2 {
+  width: 50%;
+  margin: auto;
+  padding-right: 20px;
+  display: block;
+  margin: 0;
+}
+
+.valor1 {
+  border-radius: 5px;
+  height: 47%;
+  margin-bottom: 3%;
+  cursor: pointer;
+  padding-bottom: 26px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.308);
+}
+
+.valor2 {
+  border-radius: 5px;
+  height: 47%;
+  cursor: pointer;
+  padding-bottom: 25px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.295);
+}
+
+.valorbg {
+  background-color: #00915c;
+  color: #fff;
+}
+
+.valor1:hover {
+  background-color: #005032;
+  color: #fff;
+}
+
+.valor2:hover {
+  background-color: #005032;
+  color: #fff;
+}
+
+.valor2 span {
+  padding-left: 20px;
+  display: block;
+  padding-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.valor1 span {
+  padding-left: 20px;
+  display: block;
+  padding-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.valor1 p {
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+.valor2 p {
+  padding-left: 20px;
+  padding-top: 5px;
+}
+
+.additional {
+  display: block;
+  margin-top: 100px;
+}
+
+#checkvalor1 {
+  display: none;
+}
+
+#checkvalor2 {
+  display: none;
+}
+
+#cupom {
+  margin-top: 15px;
+}
+
+.iptcupom {
+  margin-top: 5px;
+}
+
+.cupom {
+  font-size: 18px;
+  color: #000;
+  border: #005032 2px solid;
+  border-radius: 5px;
+  padding: 7px 10px;
+  width: 120px;
+}
+
+.btncupom {
+  background-color: #005032;
+  color: #fff;
+  font-size: 18px;
+  padding: 9px 20px;
+  border-radius: 5px;
+}
+
+.hide-dados-cupom {
+  display: none;
+}
+
+@media(max-width: 1000px) {
+  .resumoreserva {
+    display: block;
+    width: 100%;
+  }
+
+  .cardata {
+    width: 100%;
+  }
+
+  .carimg {
+    width: 330px;
+    border-radius: 5px;
+  }
+  
+  .reservadata {
+    width: 100%;
+    margin-top: 80px;
+  }
+
+  .box1 {
+    width: 330px;
+    padding-right: 0px;
+  }
+  
+  .box2 {
+    padding-right: 0px;
+    padding-left: 20px;
+    width: 100%;
+  }
+
+  .additional {
+    display: block;
+    margin-top: 0px;
+  }
+}
+
+@media(max-width: 800px) {
+  .map {
+    display: flex;
+    width: 300px;
+  }
+  
+  .circle1 {
+    background-color: #005032;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+  }
+  
+  .line1 {
+    background-color: #005032;
+    height: 7px;
+    width: 100px;
+    margin: auto -10px;
+  }
+  
+  .circle2 {
+    background-color: #005032;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+  }
+  
+  .line2 {
+    background-color: #005032;
+    height: 7px;
+    width: 100px;
+    margin: auto -10px;
+  }
+  
+  .circle3 {
+    background-color: #005032;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+  }
+
+  .maptxt {
+    margin-top: 20px;
+    width: 330px;
+    font-size: 12px;
+  }
+}
+
+@media(max-width: 700px) {
+  .value {
+    display: block;
+    max-height: none;
+  }
+
+  .carimg {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .box1 {
+    width: 100%;
+    padding-right: 0px;
+  }
+  
+  .box2 {
+    padding-top: 10px;
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 100%;
+  }
+
+  .reservadata {
+    margin-top: 15px;
+  }
+}
+
+@media(max-width: 550px) {
+  #reserva {
+    padding-top: 60px;
+  }
+}
+
+@media(max-width: 450px) {
+  .info {
+    margin: 15px 0 40px 0;
+  }
+
+  .inforeserva {
+    border-radius: 0px;
+  }
+
+  .map {
+    display: flex;
+    width: 200px;
+  }
+  
+  .circle1 {
+    background-color: #005032;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+  }
+  
+  .line1 {
+    background-color: #005032;
+    height: 7px;
+    width: 65px;
+    margin: auto -10px;
+  }
+  
+  .circle2 {
+    background-color: #005032;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+  }
+  
+  .line2 {
+    background-color: #005032;
+    height: 7px;
+    width: 65px;
+    margin: auto -10px;
+  }
+  
+  .circle3 {
+    background-color: #005032;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+  }
+
+  .maptxt {
+    margin-top: 20px;
+    width: 200px;
+    font-size: 10px;
+  }
+}
