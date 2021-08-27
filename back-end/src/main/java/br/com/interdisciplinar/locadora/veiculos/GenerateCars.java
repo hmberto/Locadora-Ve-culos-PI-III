@@ -10,7 +10,6 @@ public class GenerateCars {
 	public static String NAME = GenerateCars.class.getSimpleName();
 	private static Logger LOG = Logger.getLogger(GenerateCars.class.getName());
 	
-	String idCarro;
 	public String getIdCarro() {
 		return idCarro;
 	}
@@ -115,7 +114,15 @@ public class GenerateCars {
 	public void setAvailableCar(String availableCar) {
 		this.availableCar = availableCar;
 	}
+	
+	public String getValorDiaria() {
+		return valorDiaria;
+	}
+	public void setValorDiaria(String valorDiaria) {
+		this.valorDiaria = valorDiaria;
+	}
 
+	String idCarro;
 	String renavam;
 	String placa;
 	String chassi;
@@ -130,6 +137,7 @@ public class GenerateCars {
 	String imgPath;
 	String localRetirada;
 	String availableCar;
+	String valorDiaria;
 		
 	public GenerateCars(Map<Integer, String> vehicle) {
 		super();
@@ -151,6 +159,7 @@ public class GenerateCars {
 		this.imgPath = vehicle.get(12);
 		this.localRetirada = vehicle.get(14);
 		this.availableCar = vehicle.get(15);
+		this.valorDiaria = vehicle.get(16);
 		
 		LOG.exiting(NAME, "GenerateCars");
 	}
