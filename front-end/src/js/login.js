@@ -63,11 +63,11 @@ function getValue() {
       erro.classList.remove("verde");
       erro.classList.add("vermelho");
       textoerro.textContent="Login inválido";
+      
+      user.focus();
     }
   });
 
   user.value = "";
   pass.value = "";
-
-  user.focus();
 }
