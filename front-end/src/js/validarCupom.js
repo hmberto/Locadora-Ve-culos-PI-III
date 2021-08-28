@@ -19,8 +19,6 @@ function validaCupom(t) {
   }
 
   if(cupom != "") {
-    var porcentagemdescontos = document.querySelector(".porcentagemdescontos");
-
     loading.classList.remove("hideloading");
 
     var urlCupom = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/cupons/validate";
@@ -38,6 +36,8 @@ function validaCupom(t) {
       if(xhttpCupom.status == 200) {
         var respCupom = JSON.parse(xhttpCupom.response);
         var cupomdesconto = respCupom['cupom'];
+
+        var porcentagemdescontos = document.querySelector(".porcentagemdescontos");
 
         sessionStorage.setItem("cupom", cupom);
 
@@ -61,6 +61,8 @@ function validaCupom(t) {
           document.querySelector(".cupomvalue").innerHTML=cupom;
           document.querySelector(".valordescontos").innerHTML="- R$ " + newValorDescontos3meses;
           document.querySelector(".totalvalorLocacao").innerHTML="R$ " + newValor3meses;
+
+          porcentagemdescontos.innerHTML=cupomdesconto + "%";
 
           document.querySelector(".show-dados-cupom ").classList.remove("hide-dados-cupom");
           document.querySelector(".txtcupominvalid").classList.add("hidecupominvalid");
