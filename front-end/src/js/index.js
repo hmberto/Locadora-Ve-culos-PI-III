@@ -35,6 +35,7 @@ function autocomplete(inp, arr) {
               inp.value = this.getElementsByTagName("input")[0].value;
               
               closeAllLists();
+              document.getElementById("entrega").focus();
               });
             a.appendChild(b);
           }

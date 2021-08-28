@@ -37,32 +37,42 @@ function hideShowBox() {
   }
 }
 
+horaRetirada.addEventListener("change", () => {
+  horaDevolucao.value = horaRetirada.value;
+});
+
 function searchCar() {
   if(localRetirada.value != null && localRetirada.value != "" &&
     dataRetirada.value != null &&  dataRetirada.value != "" &&
     horaRetirada.value != null &&  horaRetirada.value != "" &&
     localDevolucao.value != null && localDevolucao.value != "" &&
     dataDevolucao.value != null && dataDevolucao.value != "" &&
-    horaDevolucao.value != null && horaDevolucao.value != "") {
-
-    var v1 = cidades.indexOf(localRetirada.value);
-    var v2 = cidades.indexOf(localDevolucao.value);
-
-    if(v1 >= 0 && v2 >= 0) {
-      sessionStorage.setItem("localRetirada", localRetirada.value);
-      sessionStorage.setItem("dataRetirada", dataRetirada.value);
-      sessionStorage.setItem("horaRetirada", horaRetirada.value);
-      sessionStorage.setItem("localDevolucao", localDevolucao.value);
-      sessionStorage.setItem("dataDevolucao", dataDevolucao.value);
-      sessionStorage.setItem("horaDevolucao", horaDevolucao.value);
-
-      var json = '{ "localRetirada":"' + localRetirada.value + '", "dataRetirada": "' +  dataRetirada.value + '", "horaRetirada": "' + horaRetirada.value + '", "localDevolucao":"' + localDevolucao.value + '", "dataDevolucao": "' +  dataDevolucao.value + '", "horaDevolucao": "' + horaDevolucao.value + '" }';
-      var parse = btoa(json);
-
-      submitbtn.setAttribute('href', "/src/pages/search.html?search=" + parse)
+    horaDevolucao.value != null && horaDevolucao.value != "") 
+  {
+    if(dataRetirada.value == dataDevolucao.value) {
+      document.querySelector(".showerr").innerHTML="* Mínimo três diárias"
+      document.querySelector(".showerr").classList.remove("hideerr");
     }
     else {
-      document.querySelector(".showerr").classList.remove("hideerr");
+      var v1 = cidades.indexOf(localRetirada.value);
+      var v2 = cidades.indexOf(localDevolucao.value);
+
+      if(v1 >= 0 && v2 >= 0) {
+        sessionStorage.setItem("localRetirada", localRetirada.value);
+        sessionStorage.setItem("dataRetirada", dataRetirada.value);
+        sessionStorage.setItem("horaRetirada", horaRetirada.value);
+        sessionStorage.setItem("localDevolucao", localDevolucao.value);
+        sessionStorage.setItem("dataDevolucao", dataDevolucao.value);
+        sessionStorage.setItem("horaDevolucao", horaDevolucao.value);
+
+        var json = '{ "localRetirada":"' + localRetirada.value + '", "dataRetirada": "' +  dataRetirada.value + '", "horaRetirada": "' + horaRetirada.value + '", "localDevolucao":"' + localDevolucao.value + '", "dataDevolucao": "' +  dataDevolucao.value + '", "horaDevolucao": "' + horaDevolucao.value + '" }';
+        var parse = btoa(json);
+
+        submitbtn.setAttribute('href', "/src/pages/search.html?search=" + parse)
+      }
+      else {
+        document.querySelector(".showerr").classList.remove("hideerr");
+      }
     }
   }
   else {
