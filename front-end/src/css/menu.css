@@ -118,7 +118,7 @@
   }
 
   .menu1 {
-    margin-top: 110px;
+    margin-top: 135px;
   }
 
   .menu2 {
@@ -132,6 +132,7 @@
     float: unset;
     padding: 20px 0px;
     z-index: 4;
+    height: 40px;
   }
 
   .menu2 a {
