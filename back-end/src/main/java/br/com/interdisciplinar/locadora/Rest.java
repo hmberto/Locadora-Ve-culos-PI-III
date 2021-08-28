@@ -15,7 +15,10 @@ import br.com.interdisciplinar.locadora.clients.GenerateClients;
 import br.com.interdisciplinar.locadora.clients.GenerateClientsA;
 import br.com.interdisciplinar.locadora.clients.LogoutUser;
 import br.com.interdisciplinar.locadora.clients.SexoVerify;
+import br.com.interdisciplinar.locadora.cupom.CreateCupom;
+import br.com.interdisciplinar.locadora.cupom.GenerateCupom;
 import br.com.interdisciplinar.locadora.database.GetCarFromDB;
+import br.com.interdisciplinar.locadora.database.GetCupomFromDB;
 import br.com.interdisciplinar.locadora.database.GetUserFromDB;
 import br.com.interdisciplinar.locadora.database.LoginUserFromDB;
 import br.com.interdisciplinar.locadora.database.LogoutUserFromDB;
@@ -180,7 +183,7 @@ public class Rest {
 		try {
 			GetCarFromDB carFromDb = new GetCarFromDB();
 			String cars = carFromDb.GetMarcas();
-						
+			
 			if(cars.length() > 5) {
 				return Response.ok(cars).build();
 			}
@@ -199,7 +202,7 @@ public class Rest {
 		try {
 			GetCarFromDB carFromDb = new GetCarFromDB();
 			String cars = carFromDb.GetModelos(marca);
-						
+			
 			if(cars.length() > 5) {
 				return Response.ok(cars).build();
 			}
@@ -218,9 +221,33 @@ public class Rest {
 		try {
 			GetCarFromDB carFromDb = new GetCarFromDB();
 			String cars = carFromDb.GetAgencias();
-						
+			
 			if(cars.length() > 5) {
 				return Response.ok(cars).build();
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		}
+		catch(Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
+	@POST
+	@Path("/cupons/validate")
+	public Response postCupom(CreateCupom cupom) throws Exception {
+		try {
+			if(cupom.getCupom().length() > 1) {
+				GetCupomFromDB cupomFromDb = new GetCupomFromDB();
+				Map<Integer, String> cupomMap = cupomFromDb.GetCupom(cupom);
+				
+				if(cupomMap.get(2).length() > 1) {
+					return Response.ok(new GenerateCupom(cupomMap)).build();
+				}
+				else {
+					return Response.status(Response.Status.BAD_REQUEST).build();
+				}
 			}
 			else {
 				return Response.status(Response.Status.BAD_REQUEST).build();
