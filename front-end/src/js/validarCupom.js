@@ -1,38 +1,80 @@
-function validaCupom() {
+var loading = document.getElementById("lding");
+
+function validaCupom(t) {
+  var getCupomFE = sessionStorage.getItem("cupom");
+
   var checkvalor1 = document.getElementById("checkvalor1");
   var checkvalor2 = document.getElementById("checkvalor2");
 
-  var cupom = document.querySelector(".cupom").value.toUpperCase();
+  var cupomvalue = document.querySelector(".cupom");
+  var cupom = "";
 
-  var valorLocacao = document.querySelector(".valorLocacao");
-
-  if(cupom.length > 1) {
-    if(checkvalor1.checked) {
-      newValorDescontos = (parseFloat(getValorfull.replace(',', '.') * 10 / 100)).toFixed(2).replace('.', ',');
-      newValorfull = (parseFloat(getValorfull.replace(',', '.')) - (parseFloat(getValorfull.replace(',', '.')) * 10 / 100)).toFixed(2).replace('.', ',');
-
-      document.querySelector(".cupomvalue").innerHTML=cupom;
-      document.querySelector(".valordescontos").innerHTML="R$ " + newValorDescontos;
-      document.querySelector(".totalvalorLocacao").innerHTML="R$ " + newValorfull;
-
-      document.querySelector(".show-dados-cupom ").classList.remove("hide-dados-cupom");
+  if(t == 1) {
+    cupom = cupomvalue.value.toUpperCase();
+  }
+  else if(t == 2) {
+    if(getCupomFE != null && getCupomFE != "") {
+      cupom = getCupomFE;
     }
-    else if(checkvalor2.checked) {
-      newValorDescontos3meses = (parseFloat(getValor3meses.replace(',', '.') * 10 / 100)).toFixed(2).replace('.', ',');
-      newValor3meses = (parseFloat(getValor3meses.replace(',', '.')) - (parseFloat(getValor3meses.replace(',', '.')) * 10 / 100)).toFixed(2).replace('.', ',');
+  }
 
-      document.querySelector(".cupomvalue").innerHTML=cupom;
-      document.querySelector(".valordescontos").innerHTML="R$ " + newValorDescontos3meses;
-      document.querySelector(".totalvalorLocacao").innerHTML="R$ " + newValor3meses;
+  var porcentagemdescontos = document.querySelector(".porcentagemdescontos");
 
-      document.querySelector(".show-dados-cupom ").classList.remove("hide-dados-cupom");
+  loading.classList.remove("hideloading");
+
+  var urlCupom = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/cupons/validate";
+  
+  var jsonCupom = '{"cupom": "' + cupom + '"}'
+
+  var xhttpCupom = new XMLHttpRequest();
+  xhttpCupom.open("POST", urlCupom, true);
+  xhttpCupom.setRequestHeader("Content-Type", "application/json");
+
+  xhttpCupom.send(jsonCupom);
+
+  xhttpCupom.addEventListener('loadend', () => {
+    loading.classList.add("hideloading");
+    if(xhttpCupom.status == 200) {
+      var respCupom = JSON.parse(xhttpCupom.response);
+      var cupomdesconto = respCupom['cupom'];
+
+      sessionStorage.setItem("cupom", cupom);
+
+      if(checkvalor1.checked) {
+        newValorDescontos = (parseFloat(getValorfull.replace(',', '.') * cupomdesconto / 100)).toFixed(2).replace('.', ',');
+        newValorfull = (parseFloat(getValorfull.replace(',', '.')) - (parseFloat(getValorfull.replace(',', '.')) * cupomdesconto / 100)).toFixed(2).replace('.', ',');
+
+        document.querySelector(".cupomvalue").innerHTML=cupom;
+        document.querySelector(".valordescontos").innerHTML="- R$ " + newValorDescontos;
+        document.querySelector(".totalvalorLocacao").innerHTML="R$ " + newValorfull;
+
+        porcentagemdescontos.innerHTML=cupomdesconto + "%";
+
+        document.querySelector(".show-dados-cupom ").classList.remove("hide-dados-cupom");
+        document.querySelector(".txtcupominvalid").classList.add("hidecupominvalid");
+      }
+      else if(checkvalor2.checked) {
+        newValorDescontos3meses = (parseFloat(getValor3meses.replace(',', '.') * cupomdesconto / 100)).toFixed(2).replace('.', ',');
+        newValor3meses = (parseFloat(getValor3meses.replace(',', '.')) - (parseFloat(getValor3meses.replace(',', '.')) * cupomdesconto / 100)).toFixed(2).replace('.', ',');
+
+        document.querySelector(".cupomvalue").innerHTML=cupom;
+        document.querySelector(".valordescontos").innerHTML="- R$ " + newValorDescontos3meses;
+        document.querySelector(".totalvalorLocacao").innerHTML="R$ " + newValor3meses;
+
+        document.querySelector(".show-dados-cupom ").classList.remove("hide-dados-cupom");
+        document.querySelector(".txtcupominvalid").classList.add("hidecupominvalid");
+      }
+      else {
+        document.querySelector(".show-dados-cupom ").classList.add("hide-dados-cupom");
+        document.querySelector(".txtcupominvalid").classList.remove("hidecupominvalid");
+      }
     }
     else {
+      sessionStorage.setItem("cupom", "");
+
       document.querySelector(".show-dados-cupom ").classList.add("hide-dados-cupom");
+      document.querySelector(".txtcupominvalid").classList.remove("hidecupominvalid");
     }
-  }
-  else {
-    document.querySelector(".show-dados-cupom ").classList.add("hide-dados-cupom");
-  }
-  cupom = "";
+    cupomvalue.value = "";
+  });
 }

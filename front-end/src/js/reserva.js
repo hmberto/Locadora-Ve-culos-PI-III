@@ -59,10 +59,10 @@ function getCars() {
       document.querySelector(".valor3meses").innerHTML="<b>R$</b> " + getValor3meses;
 
       if(checkvalor1.checked) {
-        document.querySelector(".valorLocacao").innerHTML="<b>R$</b> " + getValorfull;
+        document.querySelector(".valorLocacao").innerHTML="R$ " + getValorfull;
       }
       if(checkvalor2.checked) {
-        document.querySelector(".valorLocacao").innerHTML="<b>R$</b> " + getValor3meses;
+        document.querySelector(".valorLocacao").innerHTML="R$ " + getValor3meses;
       }
 
       if(json['availableCar'] != 1) {
@@ -104,7 +104,9 @@ valor1.addEventListener("click", () => {
     valor1.classList.add("valorbg");
     valor2.classList.remove("valorbg");
 
-    document.querySelector(".valorLocacao").innerHTML="<b>R$</b> " + getValorfull;
+    document.querySelector(".valorLocacao").innerHTML="R$ " + getValorfull;
+
+    validaCupom(2);
   }
 });
 
@@ -123,6 +125,8 @@ valor2.addEventListener("click", () => {
     valor1.classList.remove("valorbg");
     valor2.classList.add("valorbg");
 
-    document.querySelector(".valorLocacao").innerHTML="<b>R$</b> " + getValor3meses;
+    document.querySelector(".valorLocacao").innerHTML="R$ " + getValor3meses;
+
+    validaCupom(2);
   }
 });
