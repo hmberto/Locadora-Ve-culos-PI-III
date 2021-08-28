@@ -156,21 +156,25 @@
 
           <div>
             <div id="totalPagar">
-              <div>
-                <span>TOTAL: </span>
+              <div class="itensnocupom">
+                <span class="spn-tlt-cupom">TOTAL: </span>
                 <span class="valorLocacao"></span>
               </div>
               <div class="show-dados-cupom hide-dados-cupom">
-                <div>
-                  <span>CUPOM: </span>
+                <div class="itenscupom">
+                  <span class="spn-tlt-cupom">CUPOM: </span>
                   <span class="cupomvalue"></span>
                 </div>
-                <div>
-                  <span>DESCONTOS: </span>
+                <div class="itenscupom">
+                  <span class="spn-tlt-cupom">DESCONTO: </span>
+                  <span class="porcentagemdescontos"></span>
+                </div>
+                <div class="itenscupom">
+                  <span class="spn-tlt-cupom-desconto">OFF: </span>
                   <span class="valordescontos"></span>
                 </div>
-                <div>
-                  <span>TOTAL A PAGAR: </span>
+                <div class="itenscupom itenscupom2">
+                  <span class="spn-tlt-cupom">TOTAL A PAGAR: </span>
                   <span class="totalvalorLocacao"></span>
                 </div>
               </div>
@@ -178,8 +182,9 @@
                 <span class="txtcupom">CUPOM: </span>
                 <div class="iptcupom">
                   <input class="cupom" type="text">
-                  <button class="btncupom" onclick="validaCupom()">INSERIR</button>
+                  <button class="btncupom" onclick="validaCupom(1)">INSERIR</button>
                 </div>
+                <span class="txtcupominvalid hidecupominvalid">Cupom Inválido</span>
               </div>
             </div>
           </div>
