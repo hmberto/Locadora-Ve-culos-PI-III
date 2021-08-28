@@ -5,6 +5,9 @@ var erro = document.getElementById("erro");
 var textoerro = document.getElementById("textoerro");
 var loading = document.getElementById("lding");
 
+const urlParams2 = new URLSearchParams(window.location.search);
+const urlParam2 = urlParams2.get('carId');
+
 user.focus();
 
 function getValue() {
@@ -41,8 +44,19 @@ function getValue() {
 
       sessionStorage.setItem("session", session['session']);
       
-      // console.log(sessionStorage.getItem("session"));
-      window.location.replace("/");
+      console.log(urlParam2);
+
+      if(urlParam2 != null) {
+        if(urlParam2.length > 3) {
+          window.location.replace("/src/pages/car.html?carId=" + urlParam2);
+        }
+        else {
+          window.location.replace("/");
+        }
+      }
+      else {
+        window.location.replace("/");
+      }
     }
     else {
       erro.classList.remove("azul");
