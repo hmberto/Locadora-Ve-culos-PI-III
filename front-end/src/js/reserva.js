@@ -12,12 +12,21 @@ var localDevolucao = sessionStorage.getItem("localDevolucao");
 var dataDevolucao = sessionStorage.getItem("dataDevolucao");
 var horaDevolucao = sessionStorage.getItem("horaDevolucao");
 
+var splitData1 = dataRetirada.split("-");
+var splitData2 = dataDevolucao.split("-");
+
+dataRetirada = splitData1[2] + "/" + splitData1[1] + "/" +splitData1[0];
+dataDevolucao = splitData2[2] + "/" + splitData2[1] + "/" +splitData2[0];
+
 document.querySelector(".localvalue1").innerHTML=localRetirada;
 document.querySelector(".datavalue2").innerHTML=dataRetirada;
 document.querySelector(".horalvalue3").innerHTML=horaRetirada;
 document.querySelector(".localvalue4").innerHTML=localDevolucao;
 document.querySelector(".datavalue5").innerHTML=dataDevolucao;
 document.querySelector(".horalvalue6").innerHTML=horaDevolucao;
+
+var dias3meses = parseInt(sessionStorage.getItem("dias3meses"));
+var diffDays = parseInt(sessionStorage.getItem("diffDays"));
 
 const urlParams = new URLSearchParams(window.location.search);
 const urlParam = urlParams.get('carId');
@@ -51,7 +60,10 @@ function getCars() {
       
       valorDiaria = json['valorDiaria'];
       getValorfull = json['valorDiaria'];
-      getValor3meses = (parseFloat(valorDiaria.replace(',', '.')) - (parseFloat(valorDiaria.replace(',', '.')) * 10 / 100)).toFixed(2).replace('.', ',');
+      getValor3meses = (parseFloat(valorDiaria.replace(',', '.')) - (parseFloat(valorDiaria.replace(',', '.')) * 20 / 100)).toFixed(2).replace('.', ',');
+
+      var calcDiarias = (parseFloat(getValorfull.replace(',', '.')) * diffDays).toFixed(2).replace('.', ',');
+      var calc3meses = (parseFloat(getValor3meses.replace(',', '.')) * diffDays).toFixed(2).replace('.', ',');
 
       document.querySelector(".carname").innerHTML=json['modelo'];
       document.querySelector(".carimg").setAttribute("src", json['imgPath']);
@@ -59,14 +71,17 @@ function getCars() {
       document.querySelector(".valor3meses").innerHTML="<b>R$</b> " + getValor3meses;
 
       if(checkvalor1.checked) {
-        document.querySelector(".valorLocacao").innerHTML="R$ " + getValorfull;
+        document.querySelector(".valorLocacao").innerHTML="R$ " + calcDiarias;
       }
       if(checkvalor2.checked) {
-        document.querySelector(".valorLocacao").innerHTML="R$ " + getValor3meses;
+        document.querySelector(".valorLocacao").innerHTML="R$ " + calc3meses;
       }
 
       if(json['availableCar'] != 1) {
         console.log("Veículo Indisponivel");
+      }
+      else if(localRetirada == null) {
+        window.location.replace("/");
       }
       else if(json['localRetirada'] != localRetirada) {
         var json = '{ "localRetirada":"' + localRetirada + '", "dataRetirada": "' +  dataRetirada + '", "horaRetirada": "' + horaRetirada + '", "localDevolucao":"' + localDevolucao + '", "dataDevolucao": "' +  dataDevolucao + '", "horaDevolucao": "' + horaDevolucao + '" }';
@@ -80,53 +95,65 @@ function getCars() {
 
 getCars();
 
-checkvalor1.checked = true;
-
-if(checkvalor1.checked) {
+if(diffDays > dias3meses) {
+  checkvalor2.checked = true;
+  valor2.classList.add("valorbg");
+  eventListenerA();
+  eventListenerB();
+}
+else {
+  checkvalor1.checked = true;
   valor1.classList.add("valorbg");
 }
-if(checkvalor2.checked) {
-  valor2.classList.add("valorbg");
+
+document.querySelector(".diariasLocacao").innerHTML=diffDays + " Dias";
+
+function eventListenerA() {
+  valor1.addEventListener("click", () => {
+    var calcDiarias = (parseFloat(getValorfull.replace(',', '.')) * diffDays).toFixed(2).replace('.', ',');
+
+    if(checkvalor1.checked) {
+      checkvalor1.checked = false;
+      checkvalor2.checked = false;
+
+      valor1.classList.remove("valorbg");
+      valor2.classList.remove("valorbg");
+    }
+    else {
+      checkvalor1.checked = true;
+      checkvalor2.checked = false;
+
+      valor1.classList.add("valorbg");
+      valor2.classList.remove("valorbg");
+
+      document.querySelector(".valorLocacao").innerHTML="R$ " + calcDiarias;
+
+      validaCupom(2);
+    }
+  });
 }
 
-valor1.addEventListener("click", () => {
-  if(checkvalor1.checked) {
-    checkvalor1.checked = false;
-    checkvalor2.checked = false;
+function eventListenerB() {
+  valor2.addEventListener("click", () => {
+    var calc3meses = (parseFloat(getValor3meses.replace(',', '.')) * diffDays).toFixed(2).replace('.', ',');
 
-    valor1.classList.remove("valorbg");
-    valor2.classList.remove("valorbg");
-  }
-  else {
-    checkvalor1.checked = true;
-    checkvalor2.checked = false;
+    if(checkvalor2.checked) {
+      checkvalor2.checked = false;
+      checkvalor1.checked = false;
 
-    valor1.classList.add("valorbg");
-    valor2.classList.remove("valorbg");
+      valor1.classList.remove("valorbg");
+      valor2.classList.remove("valorbg");
+    }
+    else {
+      checkvalor2.checked = true;
+      checkvalor1.checked = false;
 
-    document.querySelector(".valorLocacao").innerHTML="R$ " + getValorfull;
+      valor1.classList.remove("valorbg");
+      valor2.classList.add("valorbg");
 
-    validaCupom(2);
-  }
-});
+      document.querySelector(".valorLocacao").innerHTML="R$ " + calc3meses;
 
-valor2.addEventListener("click", () => {
-  if(checkvalor2.checked) {
-    checkvalor2.checked = false;
-    checkvalor1.checked = false;
-
-    valor1.classList.remove("valorbg");
-    valor2.classList.remove("valorbg");
-  }
-  else {
-    checkvalor2.checked = true;
-    checkvalor1.checked = false;
-
-    valor1.classList.remove("valorbg");
-    valor2.classList.add("valorbg");
-
-    document.querySelector(".valorLocacao").innerHTML="R$ " + getValor3meses;
-
-    validaCupom(2);
-  }
-});
+      validaCupom(2);
+    }
+  });
+}

@@ -8,6 +8,13 @@ var loading = document.getElementById("lding");
 const urlParams2 = new URLSearchParams(window.location.search);
 const urlParam2 = urlParams2.get('carId');
 
+var session = sessionStorage.getItem("session");
+if(session != null) {
+  if(session.length == 50) {
+    window.location.replace("/");
+  }
+}
+
 user.focus();
 
 function getValue() {
@@ -43,20 +50,21 @@ function getValue() {
       var session = JSON.parse(xhttp.response);
 
       sessionStorage.setItem("session", session['session']);
-      
-      console.log(urlParam2);
 
-      if(urlParam2 != null) {
-        if(urlParam2.length > 3) {
-          window.location.replace("/src/pages/car.html?carId=" + urlParam2);
+      var xhttp2 = ifLogged(session['session'], 1);
+      xhttp2.addEventListener('loadend', () => {
+        if(urlParam2 != null) {
+          if(urlParam2.length > 3) {
+            window.location.replace("/src/pages/car.html?carId=" + urlParam2);
+          }
+          else {
+            window.location.replace("/");
+          }
         }
         else {
           window.location.replace("/");
         }
-      }
-      else {
-        window.location.replace("/");
-      }
+      });
     }
     else {
       erro.classList.remove("azul");

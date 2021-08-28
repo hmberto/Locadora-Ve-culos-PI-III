@@ -247,7 +247,7 @@
   display: none;
 }
 
-.itenscupom {
+.itenscupom, .itensnocupom {
   padding: 3px 0;
 }
 
@@ -401,7 +401,7 @@
     width: 100%;
   }
 
-  .valorLocacao, .valordescontos, .totalvalorLocacao {
+  .valorLocacao, .valordescontos, .totalvalorLocacao, .diariasLocacao {
     white-space: nowrap;
   }
 }

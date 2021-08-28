@@ -41,6 +41,26 @@ horaRetirada.addEventListener("change", () => {
   horaDevolucao.value = horaRetirada.value;
 });
 
+function calcData() {
+  var dataretirada = document.getElementById("dataretirada");
+  var dataentrega = document.getElementById("dataentrega");
+
+  var dataAtaul = new Date();
+  var mesAtual = String(dataAtaul. getMonth() + 1). padStart(2, '0');
+  var anoAtual = dataAtaul. getFullYear();
+
+  var dias3meses = new Date(anoAtual, mesAtual, 0).getDate() + new Date(anoAtual, mesAtual + 1, 0).getDate() + new Date(anoAtual, mesAtual + 2, 0).getDate();
+
+  var newDate1 = new Date(dataRetirada.value);
+  var newDate2 = new Date(dataDevolucao.value);
+  
+  var timeDiff = Math.abs(newDate1.getTime() - newDate2.getTime());
+  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+
+  sessionStorage.setItem("dias3meses", dias3meses);
+  sessionStorage.setItem("diffDays", diffDays);
+}
+
 function searchCar() {
   if(localRetirada.value != null && localRetirada.value != "" &&
     dataRetirada.value != null &&  dataRetirada.value != "" &&
@@ -68,7 +88,8 @@ function searchCar() {
         var json = '{ "localRetirada":"' + localRetirada.value + '", "dataRetirada": "' +  dataRetirada.value + '", "horaRetirada": "' + horaRetirada.value + '", "localDevolucao":"' + localDevolucao.value + '", "dataDevolucao": "' +  dataDevolucao.value + '", "horaDevolucao": "' + horaDevolucao.value + '" }';
         var parse = btoa(json);
 
-        submitbtn.setAttribute('href', "/src/pages/search.html?search=" + parse)
+        calcData();
+        submitbtn.setAttribute('href', "/src/pages/search.html?search=" + parse);
       }
       else {
         document.querySelector(".showerr").classList.remove("hideerr");

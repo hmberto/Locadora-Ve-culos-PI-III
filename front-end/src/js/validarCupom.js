@@ -1,5 +1,8 @@
 var loading = document.getElementById("lding");
 
+var dias3meses = parseInt(sessionStorage.getItem("dias3meses"));
+var diffDays = parseInt(sessionStorage.getItem("diffDays"));
+
 function validaCupom(t) {
   var getCupomFE = sessionStorage.getItem("cupom");
 
@@ -42,8 +45,10 @@ function validaCupom(t) {
         sessionStorage.setItem("cupom", cupom);
 
         if(checkvalor1.checked) {
-          newValorDescontos = (parseFloat(getValorfull.replace(',', '.') * cupomdesconto / 100)).toFixed(2).replace('.', ',');
-          newValorfull = (parseFloat(getValorfull.replace(',', '.')) - (parseFloat(getValorfull.replace(',', '.')) * cupomdesconto / 100)).toFixed(2).replace('.', ',');
+          var calcDiarias = (parseFloat(getValorfull.replace(',', '.')) * diffDays).toFixed(2).replace('.', ',');
+
+          newValorDescontos = (parseFloat(calcDiarias.replace(',', '.') * cupomdesconto / 100)).toFixed(2).replace('.', ',');
+          newValorfull = (parseFloat(calcDiarias.replace(',', '.')) - (parseFloat(calcDiarias.replace(',', '.')) * cupomdesconto / 100)).toFixed(2).replace('.', ',');
 
           document.querySelector(".cupomvalue").innerHTML=cupom;
           document.querySelector(".valordescontos").innerHTML="- R$ " + newValorDescontos;
@@ -55,8 +60,10 @@ function validaCupom(t) {
           document.querySelector(".txtcupominvalid").classList.add("hidecupominvalid");
         }
         else if(checkvalor2.checked) {
-          newValorDescontos3meses = (parseFloat(getValor3meses.replace(',', '.') * cupomdesconto / 100)).toFixed(2).replace('.', ',');
-          newValor3meses = (parseFloat(getValor3meses.replace(',', '.')) - (parseFloat(getValor3meses.replace(',', '.')) * cupomdesconto / 100)).toFixed(2).replace('.', ',');
+          var calc3meses = (parseFloat(getValor3meses.replace(',', '.')) * diffDays).toFixed(2).replace('.', ',');
+
+          newValorDescontos3meses = (parseFloat(calc3meses.replace(',', '.') * cupomdesconto / 100)).toFixed(2).replace('.', ',');
+          newValor3meses = (parseFloat(calc3meses.replace(',', '.')) - (parseFloat(calc3meses.replace(',', '.')) * cupomdesconto / 100)).toFixed(2).replace('.', ',');
 
           document.querySelector(".cupomvalue").innerHTML=cupom;
           document.querySelector(".valordescontos").innerHTML="- R$ " + newValorDescontos3meses;

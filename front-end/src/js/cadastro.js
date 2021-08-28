@@ -25,6 +25,13 @@ var registroCnh = document.getElementById('registroCnh');
 var validadeCnh = document.getElementById('validadeCnh');
 var categoriaCnh = document.getElementById('categoriaCnh');
 
+var session = sessionStorage.getItem("session");
+if(session != null) {
+  if(session.length == 50) {
+    window.location.replace("/");
+  }
+}
+
 nome.focus();
 
 function buscarCep() {
