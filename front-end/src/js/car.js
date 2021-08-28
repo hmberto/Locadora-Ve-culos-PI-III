@@ -111,12 +111,41 @@ check.addEventListener("click", () => {
         button.disabled = false;
       }
       else  {
-        var url = "/src/pages/reserva.html?carId=" + urlParam;
-        button.addEventListener("click", () => {
-          window.location.replace(url);
-        });
+        var session = sessionStorage.getItem("session");
+        if(session != null) {
+          if(session.length == 50) {
+            var url = "/src/pages/reserva.html?carId=" + urlParam;
+            button.addEventListener("click", () => {
+              window.location.replace(url);
+            });
 
-        button.disabled = false;
+            button.disabled = false;
+          }
+          else {
+            document.querySelector(".disp").textContent="Você não está logado. Clique para fazer login.";
+            document.querySelector(".disp").classList.remove("hideloading");
+            
+            button.textContent="LOGIN";
+      
+            button.addEventListener("click", () => {
+              window.location.replace("/src/pages/login.html?carId=" + urlParam);
+            });
+      
+            button.disabled = false;
+          }
+        }
+        else {
+          document.querySelector(".disp").textContent="Você não está logado. Clique para fazer login.";
+          document.querySelector(".disp").classList.remove("hideloading");
+          
+          button.textContent="LOGIN";
+    
+          button.addEventListener("click", () => {
+            window.location.replace("/src/pages/login.html?carId=" + urlParam);
+          });
+    
+          button.disabled = false;
+        }
       }
     }
     else {
