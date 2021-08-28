@@ -18,63 +18,65 @@ function validaCupom(t) {
     }
   }
 
-  var porcentagemdescontos = document.querySelector(".porcentagemdescontos");
+  if(cupom != "") {
+    var porcentagemdescontos = document.querySelector(".porcentagemdescontos");
 
-  loading.classList.remove("hideloading");
+    loading.classList.remove("hideloading");
 
-  var urlCupom = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/cupons/validate";
-  
-  var jsonCupom = '{"cupom": "' + cupom + '"}'
+    var urlCupom = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/cupons/validate";
+    
+    var jsonCupom = '{"cupom": "' + cupom + '"}'
 
-  var xhttpCupom = new XMLHttpRequest();
-  xhttpCupom.open("POST", urlCupom, true);
-  xhttpCupom.setRequestHeader("Content-Type", "application/json");
+    var xhttpCupom = new XMLHttpRequest();
+    xhttpCupom.open("POST", urlCupom, true);
+    xhttpCupom.setRequestHeader("Content-Type", "application/json");
 
-  xhttpCupom.send(jsonCupom);
+    xhttpCupom.send(jsonCupom);
 
-  xhttpCupom.addEventListener('loadend', () => {
-    loading.classList.add("hideloading");
-    if(xhttpCupom.status == 200) {
-      var respCupom = JSON.parse(xhttpCupom.response);
-      var cupomdesconto = respCupom['cupom'];
+    xhttpCupom.addEventListener('loadend', () => {
+      loading.classList.add("hideloading");
+      if(xhttpCupom.status == 200) {
+        var respCupom = JSON.parse(xhttpCupom.response);
+        var cupomdesconto = respCupom['cupom'];
 
-      sessionStorage.setItem("cupom", cupom);
+        sessionStorage.setItem("cupom", cupom);
 
-      if(checkvalor1.checked) {
-        newValorDescontos = (parseFloat(getValorfull.replace(',', '.') * cupomdesconto / 100)).toFixed(2).replace('.', ',');
-        newValorfull = (parseFloat(getValorfull.replace(',', '.')) - (parseFloat(getValorfull.replace(',', '.')) * cupomdesconto / 100)).toFixed(2).replace('.', ',');
+        if(checkvalor1.checked) {
+          newValorDescontos = (parseFloat(getValorfull.replace(',', '.') * cupomdesconto / 100)).toFixed(2).replace('.', ',');
+          newValorfull = (parseFloat(getValorfull.replace(',', '.')) - (parseFloat(getValorfull.replace(',', '.')) * cupomdesconto / 100)).toFixed(2).replace('.', ',');
 
-        document.querySelector(".cupomvalue").innerHTML=cupom;
-        document.querySelector(".valordescontos").innerHTML="- R$ " + newValorDescontos;
-        document.querySelector(".totalvalorLocacao").innerHTML="R$ " + newValorfull;
+          document.querySelector(".cupomvalue").innerHTML=cupom;
+          document.querySelector(".valordescontos").innerHTML="- R$ " + newValorDescontos;
+          document.querySelector(".totalvalorLocacao").innerHTML="R$ " + newValorfull;
 
-        porcentagemdescontos.innerHTML=cupomdesconto + "%";
+          porcentagemdescontos.innerHTML=cupomdesconto + "%";
 
-        document.querySelector(".show-dados-cupom ").classList.remove("hide-dados-cupom");
-        document.querySelector(".txtcupominvalid").classList.add("hidecupominvalid");
-      }
-      else if(checkvalor2.checked) {
-        newValorDescontos3meses = (parseFloat(getValor3meses.replace(',', '.') * cupomdesconto / 100)).toFixed(2).replace('.', ',');
-        newValor3meses = (parseFloat(getValor3meses.replace(',', '.')) - (parseFloat(getValor3meses.replace(',', '.')) * cupomdesconto / 100)).toFixed(2).replace('.', ',');
+          document.querySelector(".show-dados-cupom ").classList.remove("hide-dados-cupom");
+          document.querySelector(".txtcupominvalid").classList.add("hidecupominvalid");
+        }
+        else if(checkvalor2.checked) {
+          newValorDescontos3meses = (parseFloat(getValor3meses.replace(',', '.') * cupomdesconto / 100)).toFixed(2).replace('.', ',');
+          newValor3meses = (parseFloat(getValor3meses.replace(',', '.')) - (parseFloat(getValor3meses.replace(',', '.')) * cupomdesconto / 100)).toFixed(2).replace('.', ',');
 
-        document.querySelector(".cupomvalue").innerHTML=cupom;
-        document.querySelector(".valordescontos").innerHTML="- R$ " + newValorDescontos3meses;
-        document.querySelector(".totalvalorLocacao").innerHTML="R$ " + newValor3meses;
+          document.querySelector(".cupomvalue").innerHTML=cupom;
+          document.querySelector(".valordescontos").innerHTML="- R$ " + newValorDescontos3meses;
+          document.querySelector(".totalvalorLocacao").innerHTML="R$ " + newValor3meses;
 
-        document.querySelector(".show-dados-cupom ").classList.remove("hide-dados-cupom");
-        document.querySelector(".txtcupominvalid").classList.add("hidecupominvalid");
+          document.querySelector(".show-dados-cupom ").classList.remove("hide-dados-cupom");
+          document.querySelector(".txtcupominvalid").classList.add("hidecupominvalid");
+        }
+        else {
+          document.querySelector(".show-dados-cupom ").classList.add("hide-dados-cupom");
+          document.querySelector(".txtcupominvalid").classList.remove("hidecupominvalid");
+        }
       }
       else {
+        sessionStorage.setItem("cupom", "");
+
         document.querySelector(".show-dados-cupom ").classList.add("hide-dados-cupom");
         document.querySelector(".txtcupominvalid").classList.remove("hidecupominvalid");
       }
-    }
-    else {
-      sessionStorage.setItem("cupom", "");
-
-      document.querySelector(".show-dados-cupom ").classList.add("hide-dados-cupom");
-      document.querySelector(".txtcupominvalid").classList.remove("hidecupominvalid");
-    }
-    cupomvalue.value = "";
-  });
+      cupomvalue.value = "";
+    });
+  }
 }
