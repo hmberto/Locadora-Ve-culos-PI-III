@@ -21,6 +21,7 @@ credtcard.addEventListener("change", () => {
   if(credtcard.checked) {
     pagarloja.checked = false;
     dadoscartao.classList.remove("hidepagamento");
+    document.querySelector(".box-bnt2").classList.add("hidepagamento");
   }
   else {
     dadoscartao.classList.add("hidepagamento");
@@ -31,6 +32,10 @@ pagarloja.addEventListener("change", () => {
   if(pagarloja.checked) {
     credtcard.checked = false;
     dadoscartao.classList.add("hidepagamento");
+    document.querySelector(".box-bnt2").classList.remove("hidepagamento");
+  }
+  else {
+    document.querySelector(".box-bnt2").classList.add("hidepagamento");
   }
 });
 
@@ -43,17 +48,20 @@ classcredtcard.addEventListener("click", () => {
     pagarloja.checked = false;
     credtcard.checked = true;
     dadoscartao.classList.remove("hidepagamento");
+    document.querySelector(".box-bnt2").classList.add("hidepagamento");
   }
 });
 
 classpagarloja.addEventListener("click", () => {
   if(pagarloja.checked) {
     pagarloja.checked = false;
+    document.querySelector(".box-bnt2").classList.add("hidepagamento");
   }
   else {
     credtcard.checked = false;
     pagarloja.checked = true;
     dadoscartao.classList.add("hidepagamento");
+    document.querySelector(".box-bnt2").classList.remove("hidepagamento");
   }
 });
 

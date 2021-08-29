@@ -408,6 +408,11 @@
   margin-top: 10px;
 }
 
+.box-bnt2 {
+  text-align: right;
+  margin-top: 10px;
+}
+
 .box-card {
   padding: 20px;
   width: 300px;
@@ -649,6 +654,10 @@
 @media(max-width: 550px) {
   #reserva {
     padding-top: 60px;
+  }
+
+  .box-card {
+    width: 80%;
   }
 }
 
