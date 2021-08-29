@@ -193,6 +193,80 @@
             </div>
           </div>
 
+          <div class="separa"></div>
+
+          <div class="resumo">
+            <span>Forma de Pagamento</span>
+          </div>
+
+          <div class="loading2 hidepagamento">
+            <img id="loading2" src="/src/img/loading1.gif" alt="">
+          </div>
+
+          <div id="pay">
+            <div id="escolhermetodo">
+              <div class="divescolher1">
+                <input id="credtcard" type="checkbox">
+                <span class="credtcard">Cartão de Crédito</span>
+              </div>
+              <div class="divescolher1">
+                <input id="pagarloja" type="checkbox">
+                <span class="pagarloja">Pagar na Loja</span>
+              </div>
+            </div>
+            <div>
+              <div id="dadoscartao" class="hidepagamento">
+                <input placeholder="Número do Cartão" maxlength="20" id="numerocartao" type="text">
+                <div class="imgcard">
+                  <img class="cardimg" src="/src/img/creditcard.png" alt="">
+                </div>
+                <input placeholder="Nome no Cartão" maxlength="100" id="nomecartao" type="text">
+                <div class="datacartao">
+                  <input placeholder="Mês" id="mescartao" maxlength="2" type="text">
+                  <input placeholder="Ano" id="anocartao" maxlength="4" type="text">
+                  <input placeholder="CVV" id="cvvcartao" maxlength="3" type="text">
+                </div>
+                <div class="imgcvv">
+                  <img class="cvvimg" src="/src/img/cvv.png" alt="">
+                </div>
+                <div class="divbtn">
+                  <span class="invalid-card hidepagamento">Cartão Inválido</span>
+                  <button id="payreserva" onclick="addCard()">Adicionar Cartão</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="showcarddata hidepagamento">
+              <div class="box-card">
+                <div class="showcartao">
+                  <span class="tltcard">Cartão: </span>
+                  <span class="card1"></span>
+                </div>
+                <div class="showcartao">
+                  <span class="tltcard">Nome: </span>
+                  <span class="card2"></span>
+                </div>
+                <div class="showcartao">
+                  <span class="tltcard">Vencimento: </span>
+                  <span class="card3"></span>
+                </div>
+                <div class="showcartao">
+                  <span class="tltcard">CVV: </span>
+                  <span class="card4"></span>
+                </div>
+
+                <div class="box-edit">
+                  <a class="edit-card">Editar</a>
+                </div>
+              </div>
+
+              <div class="box-bnt">
+                <button id="payreserva" onclick="FinalizarReserva()">Finalizar Reserva</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -213,6 +287,7 @@
     </div>
   </div>
 
+  <script src="/src/js/pagamento.js"></script>
   <script src="/src/js/validarCupom.js"></script>
   <script src="/src/js/ifLogged.js"></script>
   <script src="/src/js/openMenu.js"></script>

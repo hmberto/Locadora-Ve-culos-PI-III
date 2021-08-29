@@ -1,5 +1,10 @@
 var loading = document.getElementById("lding");
 
+var session = sessionStorage.getItem("session");
+if(session == null || session.length != 50) {
+    window.location.replace("/");
+}
+
 var checkvalor1 = document.getElementById("checkvalor1");
 var checkvalor2 = document.getElementById("checkvalor2");
 var valor1 = document.querySelector(".valor1");

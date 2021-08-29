@@ -159,7 +159,7 @@
 }
 
 .valorbg {
-  background-color: #00915c;
+  background-color: #00a65a;
   color: #fff;
 }
 
@@ -281,6 +281,150 @@
   display: none;
 }
 
+#escolhermetodo {
+  font-size: 18px;
+  display: flex;
+  width: 400px;
+}
+
+#pagarloja {
+  margin-left: 30px;
+}
+
+#pay {
+  text-align: center;
+}
+
+#dadoscartao {
+  width: 400px;
+}
+
+.datacartao {
+  display: flex;
+  width: 400px;
+}
+
+#dadoscartao input {
+  height: 40px;
+  font-size: 18px;
+  padding-left: 10px;
+  background-color: none;
+  border-radius: 10px ;
+  background-color: #fff;
+  border: rgba(0, 0, 0, 0.637) 2px solid;
+  margin-top: 15px;
+}
+
+#numerocartao {
+  width: 316px;
+  padding-right: 70px;
+}
+
+#nomecartao {
+  width: 386px;
+}
+
+#mescartao {
+  width: 100%;
+  margin-right: 15px;
+}
+
+#anocartao {
+  width: 100%;
+  margin-right: 15px;
+}
+
+#cvvcartao {
+  width: 100%;
+}
+
+.imgcard {
+  text-align: right;
+}
+
+.cardimg {
+  width: 50px;
+  float: right;
+  position: absolute;
+  margin-top: -39px;
+  margin-left: -59px;
+}
+
+.imgcvv {
+  text-align: right;
+}
+
+.cvvimg {
+  width: 55px;
+  float: right;
+  position: absolute;
+  margin-top: -41px;
+  border-radius: 5px;
+  margin-left: -62px;
+}
+
+.divbtn {
+  text-align: right;
+}
+
+#payreserva {
+  margin-top: 20px;
+  background-color: #005032;
+  color: #fff;
+  border-radius: 7px;
+  margin-right: 3px;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+.hidepagamento {
+  display: none;
+}
+
+.loading2 {
+  text-align: center;
+}
+
+#loading2 {
+  width: 40%;
+}
+
+.showcartao {
+  margin-top: 5px;
+}
+
+.tltcard {
+  font-weight: bold;
+}
+
+.invalid-card {
+  font-weight: bold;
+  color: #ff6347;
+  margin-right: 10px;
+}
+
+.box-bnt {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.box-card {
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.308);
+}
+
+.box-edit {
+  margin-top: 15px;
+}
+
+.edit-card {
+  padding: 0;
+  color: #337ab7;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 @media(max-width: 1000px) {
   .resumoreserva {
     display: block;
@@ -359,6 +503,10 @@
     width: 330px;
     font-size: 12px;
   }
+
+  #loading2 {
+    width: 60%;
+  }
 }
 
 @media(max-width: 700px) {
@@ -403,6 +551,98 @@
 
   .valorLocacao, .valordescontos, .totalvalorLocacao, .diariasLocacao {
     white-space: nowrap;
+  }
+}
+
+@media(max-width: 600px) {
+  #dadoscartao {
+    width: 100%;
+  }
+  
+  .datacartao {
+    width: 100%;
+  }
+  
+  #dadoscartao input {
+    font-size: 18px;
+    padding-left: 10px;
+  }
+  
+  #numerocartao {
+    width: 97%;
+    padding-right: 0px;
+  }
+  
+  #nomecartao {
+    width: 97%;
+  }
+  
+  .imgcard {
+    text-align: right;
+  }
+  
+  .cardimg {
+    width: 50px;
+    float: right;
+    position: absolute;
+    margin-top: -39px;
+    margin-left: -59px;
+  }
+  
+  .imgcvv {
+    text-align: right;
+  }
+  
+  .cvvimg {
+    width: 55px;
+    float: right;
+    position: absolute;
+    margin-top: -41px;
+    border-radius: 5px;
+    margin-left: -62px;
+  }
+  
+  .divbtn {
+    text-align: right;
+  }
+  
+  #payreserva {
+    margin-top: 20px;
+    background-color: #005032;
+    color: #fff;
+    border-radius: 7px;
+    margin-right: 3px;
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+
+  #escolhermetodo {
+    font-size: 16px;
+    text-align: left;
+    display: block;
+    width: 100%;
+  }
+
+  #pagarloja {
+    margin-left: 0px;
+  }
+
+  .divescolher1 {
+    margin-top: 15px;
+  }
+
+  #mescartao {
+    width: 30%;
+    margin-right: 15px;
+  }
+  
+  #anocartao {
+    width: 30%;
+    margin-right: 15px;
+  }
+  
+  #cvvcartao {
+    width: 40%;
   }
 }
 
@@ -485,5 +725,65 @@
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
+  }
+
+  #mescartao {
+    width: 25%;
+    margin-right: 5px;
+  }
+  
+  #anocartao {
+    width: 25%;
+    margin-right: 5px;
+  }
+  
+  #cvvcartao {
+    width: 50%;
+  }
+
+  #dadoscartao input {
+    font-size: 14px;
+  }
+
+  #numerocartao {
+    width: 95%;
+    padding-right: 0px;
+  }
+  
+  #nomecartao {
+    width: 95%;
+  }
+
+  .addblock {
+    display: block;
+  }
+
+  .divbtn span {
+    margin-top: 15px;
+  }
+
+  #loading2 {
+    width: 70%;
+  }
+}
+
+@media(max-width: 300px) {
+  .datacartao {
+    display: block;
+    width: 100%;
+  }
+
+  #mescartao {
+    width: 95%;
+    margin-right: 0px;
+  }
+  
+  #anocartao {
+    width: 95%;
+    margin-right: 0px;
+  }
+  
+  #cvvcartao {
+    width: 95%;
   }
 }
