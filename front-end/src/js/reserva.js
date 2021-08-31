@@ -25,10 +25,10 @@ dataDevolucao = splitData2[2] + "/" + splitData2[1] + "/" +splitData2[0];
 
 document.querySelector(".localvalue1").innerHTML=localRetirada;
 document.querySelector(".datavalue2").innerHTML=dataRetirada;
-document.querySelector(".horalvalue3").innerHTML=horaRetirada;
+document.querySelector(".horalvalue3").innerHTML=horaRetirada + "h";
 document.querySelector(".localvalue4").innerHTML=localDevolucao;
 document.querySelector(".datavalue5").innerHTML=dataDevolucao;
-document.querySelector(".horalvalue6").innerHTML=horaDevolucao;
+document.querySelector(".horalvalue6").innerHTML=horaDevolucao + "h";
 
 var dias3meses = parseInt(window.localStorage.getItem("dias3meses"));
 var diffDays = parseInt(window.localStorage.getItem("diffDays"));

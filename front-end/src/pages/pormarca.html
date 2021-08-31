@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="/src/css/menu.css">
   <link rel="stylesheet" href="/src/css/pormarca.css">
   <link id="changeTheme" rel="stylesheet" href="/src/css/themeColor.css">
+  <link rel="stylesheet" href="/src/css/change-theme.css">
+  <link rel="stylesheet" href="/src/css/chatbox.css">
   <title>Locadora de Veículos</title>
 </head>
 <body class="grey-color-bg">
@@ -68,6 +70,44 @@
   </div>
 
   <div>
+    <div id="chatbox" class="chathide">
+      <div>
+        <div><img id="chatboximg" src="/src/img/favicon.png" alt=""></div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div id="showchatbox" class="chathide">
+      <div class="tituloxhatbox">
+        <div id="closechatdiv">
+          <img id="closechat" src="/src/img/close-chat.png" alt="">
+        </div>
+        <span class="spntlt1">Locadora Veículos BH</span>
+        <div class="onlinechat">
+          <div class="bolinhaverde verde"></div>
+          <span class="spntlt2">Online</span>
+        </div>
+      </div>
+      <div id="contentchat">
+        <div id="escolhertemachat">
+          <span class="spndark">Dark Theme: </span>
+          <label class="switch">
+            <input id="changethemecheck" type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="linhasepara"></div>
+        <div id="chatcontentbox"></div>
+        <div class="divinput">
+          <input placeholder="Digite a mensagem..." id="inputchatbox" type="text">
+          <button class="azul" onclick="sendMensagem()" id="buttonchatbox">>></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
     <div id="footer" class="black-green-color-bg">
       <div>
         <span>© Copyright 2021 Locadora de Veículos BH S.A.</span>
@@ -83,5 +123,6 @@
   <script src="/src/js//pormarca.js"></script>
   <script src="/src/js/openMenu.js"></script>
   <script src="/src/js/changeTheme.js"></script>
+  <script src="/src/js/chatbox.js"></script>
 </body>
 </html>

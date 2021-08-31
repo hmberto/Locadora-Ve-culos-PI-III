@@ -66,6 +66,9 @@
   <div>
     <div id="showchatbox" class="chathide">
       <div class="tituloxhatbox">
+        <div id="closechatdiv">
+          <img id="closechat" src="/src/img/close-chat.png" alt="">
+        </div>
         <span class="spntlt1">Locadora Veículos BH</span>
         <div class="onlinechat">
           <div class="bolinhaverde verde"></div>
@@ -81,9 +84,10 @@
           </label>
         </div>
         <div class="linhasepara"></div>
+        <div id="chatcontentbox"></div>
         <div class="divinput">
-          <input placeholder="Qual sua dúvida?" id="inputchatbox" type="text">
-          <button class="azul" id="buttonchatbox">>></button>
+          <input placeholder="Digite a mensagem..." id="inputchatbox" type="text">
+          <button class="azul" onclick="sendMensagem()" id="buttonchatbox">>></button>
         </div>
       </div>
     </div>
