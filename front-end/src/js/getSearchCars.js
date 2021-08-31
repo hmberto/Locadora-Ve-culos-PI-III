@@ -37,6 +37,7 @@ function searchCar() {
       for(i = 0; i < tamanho; i++) {
         var div = document.createElement("div");
         div.classList.add("showcar");
+        div.classList.add("white-color-bg");
     
         var name = "car" + i;
         var data = json['data'][name];
@@ -49,16 +50,19 @@ function searchCar() {
         var span = document.createElement("span");
         span.classList.add("titlecar");
         span.textContent=data['modelo'];
+        span.classList.add("font-green");
         div.appendChild(span);
     
         var p = document.createElement("p");
         p.classList.add("subcar");
-        // p.textContent="Testando testando testando testando testando testando testando"
         p.innerHTML=data['subtitles'];
+        p.classList.add("font-black");
         div.appendChild(p);
     
         var a = document.createElement("a");
         a.classList.add("detalhes");
+        a.classList.add("font-white1");
+        a.classList.add("black-green-color-bg");
         a.textContent="DETALHES"
         a.setAttribute('href', "/src/pages/car.html?carId=" + data['idCarro'])
         div.appendChild(a);

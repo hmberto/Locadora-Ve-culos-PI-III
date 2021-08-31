@@ -102,13 +102,15 @@ getCars();
 
 if(diffDays > dias3meses) {
   checkvalor2.checked = true;
-  valor2.classList.add("valorbg");
+  valor2.classList.add("verde");
+  valor2.classList.add("font-white");
   eventListenerA();
   eventListenerB();
 }
 else {
   checkvalor1.checked = true;
-  valor1.classList.add("valorbg");
+  valor1.classList.add("verde");
+  valor1.classList.add("font-white");
 }
 
 document.querySelector(".diariasLocacao").innerHTML=diffDays + " Dias";
@@ -121,15 +123,19 @@ function eventListenerA() {
       checkvalor1.checked = false;
       checkvalor2.checked = false;
 
-      valor1.classList.remove("valorbg");
-      valor2.classList.remove("valorbg");
+      valor1.classList.remove("verde");
+      valor2.classList.remove("verde");
+      valor1.classList.remove("font-white");
+      valor2.classList.remove("font-white");
     }
     else {
       checkvalor1.checked = true;
       checkvalor2.checked = false;
 
-      valor1.classList.add("valorbg");
-      valor2.classList.remove("valorbg");
+      valor1.classList.add("verde");
+      valor2.classList.remove("verde");
+      valor1.classList.add("font-white");
+      valor2.classList.remove("font-white");
 
       document.querySelector(".valorLocacao").innerHTML="R$ " + calcDiarias;
 
@@ -146,15 +152,19 @@ function eventListenerB() {
       checkvalor2.checked = false;
       checkvalor1.checked = false;
 
-      valor1.classList.remove("valorbg");
-      valor2.classList.remove("valorbg");
+      valor1.classList.remove("verde");
+      valor2.classList.remove("verde");
+      valor1.classList.remove("font-white");
+      valor2.classList.remove("font-white");
     }
     else {
       checkvalor2.checked = true;
       checkvalor1.checked = false;
 
-      valor1.classList.remove("valorbg");
-      valor2.classList.add("valorbg");
+      valor1.classList.remove("verde");
+      valor2.classList.add("verde");
+      valor1.classList.remove("font-white");
+      valor2.classList.add("font-white");
 
       document.querySelector(".valorLocacao").innerHTML="R$ " + calc3meses;
 

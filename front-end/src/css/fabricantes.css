@@ -3,7 +3,6 @@
 }
 
 #marcas {
-  background-color: #fff;
   margin: 0 7%;
   padding: 20px;
   border-radius: 10px;
@@ -18,7 +17,6 @@
   font-size: 18px;
   padding-bottom: 15px;
   display: block;
-  color: #005032;
   margin-left: 20px;
 }
 

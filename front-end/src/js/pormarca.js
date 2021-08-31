@@ -36,6 +36,7 @@ function searchCarMarca() {
       for(i = 0; i < tamanho; i++) {
         var div = document.createElement("div");
         div.classList.add("showcar");
+        div.classList.add("white-color-bg");
     
         var name = "car" + i;
         var data = json['data'][name];
@@ -58,6 +59,8 @@ function searchCarMarca() {
     
         var a = document.createElement("a");
         a.classList.add("detalhes");
+        a.classList.add("font-white");
+        a.classList.add("black-green-color-bg");
         a.textContent="DETALHES"
         a.setAttribute('href', "/src/pages/car.html?carId=" + data['idCarro'])
         div.appendChild(a);

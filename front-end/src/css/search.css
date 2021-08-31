@@ -2,12 +2,7 @@
   display: block;
 }
 
-#search {
-  background-color: #005032;
-}
-
 #subt {
-  color: #005032;
   font-weight: bold;
   text-align: center;
   line-height: 50px;
@@ -17,7 +12,6 @@
 }
 
 #subt span {
-  background-color: #fff;
   border-radius: 10px;
   padding: 5px 20px;
 }
@@ -27,7 +21,6 @@
   margin-left: 50px;
   margin-top: 50px;
   margin-bottom: 0px;
-  color: #fff;
   font-weight: bold;
   z-index: 3;
   position: absolute;
@@ -35,10 +28,6 @@
 
 .boxflex {
   display: flex;
-}
-
-#box1 {
-  
 }
 
 #box2 {
@@ -100,7 +89,7 @@ input {
 }
 
 .backg {
-  background-color: #fff;
+  background-color: white;
   height: 300px;
   display: block;
   margin-top: 0px;
@@ -117,8 +106,6 @@ input {
 }
 
 #searchbutton {
-  color: #005032;
-  background-color: #fff;
   border-radius: 10px;
   padding: 10px 20px;
   margin-left: 5px;
@@ -197,9 +184,6 @@ input {
     display: none;
   }
 
-  #box1 {
-  }
-
   #box2 {
     margin-top: 35px;
     margin-bottom: 35px;
@@ -228,8 +212,6 @@ input {
   }
 
   #searchbutton {
-    color: #005032;
-    background-color: #fff;
     border-radius: 10px;
     padding: 10px 20px;
     margin-left: 0px;

@@ -10,9 +10,10 @@
   <link rel="stylesheet" href="/src/css/loading.css">
   <link rel="stylesheet" href="/src/css/footer.css">
   <link rel="stylesheet" href="/src/css/menu.css">
+  <link id="changeTheme" rel="stylesheet" href="/src/css/themeColor.css">
   <title>Locadora de Veículos</title>
 </head>
-<body>
+<body class="grey-color-bg">
   
   <div class="hideloading" id="lding">
     <div id="loading">
@@ -22,28 +23,28 @@
     </div>
   </div>
   <div>
-    <div id="header">
+    <div id="header" class="white-color-bg">
       <div id="menuimg">
         <img id="imgmenu" src="/src/img/img-manu.png" alt="">
       </div>
       <div id="title">
         <div class="title3">
-          <span class="title1">Locadora de</span>
-          <span class="title2">Veículos</span>
+          <span class="title1 font-black">Locadora de</span>
+          <span class="title2 font-black">Veículos</span>
         </div>
-        <span class="title4">BH</span>
+        <span class="title4 font-black">BH</span>
       </div>
       <div id="menu">
-        <div class="menu1 hidemenu">
-          <a href="/index.html">Início</a>
-          <a href="/src/pages/fabricantes.html">Fabricantes</a>
-          <a href="/src/pages/agencias.html">Agências</a>
-          <a href="#">Reservas</a>
+        <div class="menu1 hidemenu white-color-bg">
+          <a class="font-black" href="/index.html">Início</a>
+          <a class="font-black" href="/src/pages/fabricantes.html">Fabricantes</a>
+          <a class="font-black" href="/src/pages/agencias.html">Agências</a>
+          <a class="font-black" href="#">Reservas</a>
         </div>
-        <div class="menu2 hidemenu2">
-          <a class="btn1" href="/src/pages/login.html">Login</a>
+        <div class="menu2 hidemenu2 white-color-bg">
+          <a class="btn1 font-black" href="/src/pages/login.html">Login</a>
           <span>/</span>
-          <a class="btn2" href="/src/pages/cadastro.html">Cadastrar</a>
+          <a class="btn2 font-black" href="/src/pages/cadastro.html">Cadastrar</a>
         </div>
       </div>
     </div>
@@ -57,32 +58,32 @@
   
   <div>
     <div id="showCar">
-      <div class="info">
+      <div class="info white-color-bg">
         <div class="info2">
           <div class="showimg">
             <img id="carimg" alt="">
           </div>
           <div class="showinfo">
-            <span id="name"></span><span id="localret">Teste</span>
-            <p class="description"></p>
+            <span id="name" class="font-green"></span><span id="localret" class="font-black"></span>
+            <p class="description font-black"></p>
             <div class="boxinfo">
               <div class="marca">
                 <img class="imgicon" src="/src/img/marca.png" alt="">
-                <span class="showmarca"></span>
+                <span class="showmarca font-black"></span>
               </div>
               <div class="modelo">
                 <img class="imgicon" src="/src/img/modelo.png" alt="">
-                <span class="showmodelo"></span>
+                <span class="showmodelo font-black"></span>
               </div>
             </div>
             <div class="boxinfo">
               <div class="portas">
                 <img class="imgicon" src="/src/img/portas.png" alt="">
-                <span class="showportas"></span>
+                <span class="showportas font-black"></span>
               </div>
               <div class="ano">
                 <img class="imgicon" src="/src/img/ano.png" alt="">
-                <span class="showano"></span>
+                <span class="showano font-black"></span>
               </div>
             </div>
           </div>
@@ -91,20 +92,20 @@
           <div class="boxinfo">
             <div class="motor">
               <img class="imgicon" src="/src/img/motor.png" alt="">
-              <span class="showmotor"></span>
+              <span class="showmotor font-black"></span>
             </div>
             <div class="cambio">
               <img class="imgicon" src="/src/img/cambio.png" alt="">
-              <span class="showcambio"></span>
+              <span class="showcambio font-black"></span>
             </div>
             <div class="combustivel">
               <img class="imgicon" src="/src/img/combustivel.png" alt="">
-              <span class="showcombustivel"></span>
+              <span class="showcombustivel font-black"></span>
             </div>
           </div>
         </div>
         <div>
-          <div class="infoadicionais">
+          <div class="infoadicionais black-green-color-bg font-white1">
             <ul>
               <li>Você pode fazer a sua reserva diretamente no site.</li>
               <li>As reservas de carros feitas no site podem ser consultadas na página principal do próprio site. Nele, informando o local da reserva, é possível consultar e realizar uma reserva.</li>
@@ -113,13 +114,13 @@
           </div>
         </div>
         <div class="locar">
-          <div class="divdisp">
+          <div class="divdisp font-red">
             <span class="disp"></span>
           </div>
           <div>
             <input id="check" type="checkbox">
-            <span class="termos">Li e concordo com os termos</span>
-            <button id="reservar" disabled>RESERVAR</button>
+            <span class="termos font-black">Li e concordo com os termos</span>
+            <button id="reservar" class="font-white1 black-green-color-bg " disabled>RESERVAR</button>
           </div>
         </div>
       </div>
@@ -127,7 +128,7 @@
   </div>
 
   <div>
-    <div id="footer">
+    <div id="footer" class="black-green-color-bg">
       <div>
         <span>© Copyright 2021 Locadora de Veículos BH S.A.</span>
       </div>
@@ -141,5 +142,6 @@
   <script src="/src/js/ifLogged.js"></script>
   <script src="/src/js/car.js"></script>
   <script src="/src/js/openMenu.js"></script>
+  <script src="/src/js/changeTheme.js"></script>
 </body>
 </html>

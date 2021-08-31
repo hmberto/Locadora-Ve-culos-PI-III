@@ -98,7 +98,7 @@ function addCard() {
         loading2.classList.add("hidepagamento");
 
         document.querySelector(".showcarddata").classList.remove("hidepagamento");
-      }, 2000);
+      }, 1000);
     }
     else {
       document.querySelector(".invalid-card").classList.remove("hidepagamento");

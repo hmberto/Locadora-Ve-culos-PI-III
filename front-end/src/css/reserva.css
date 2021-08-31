@@ -8,7 +8,6 @@
 
 .inforeserva {
   border-radius: 10px;
-  background-color: #fff;
   margin-top: 10px;
   padding: 20px;
 }
@@ -19,35 +18,30 @@
 }
 
 .circle1 {
-  background-color: #005032;
   border-radius: 50%;
   height: 30px;
   width: 30px;
 }
 
 .line1 {
-  background-color: #005032;
   height: 10px;
   width: 175px;
   margin: auto -5px;
 }
 
 .circle2 {
-  background-color: #005032;
   border-radius: 50%;
   height: 30px;
   width: 30px;
 }
 
 .line2 {
-  background-color: rgb(182, 182, 182);
   height: 10px;
   width: 175px;
   margin: auto -5px;
 }
 
 .circle3 {
-  background-color: rgb(182, 182, 182);
   border-radius: 50%;
   height: 30px;
   width: 30px;
@@ -62,7 +56,6 @@
 
 .separa {
   height: 2px;
-  background-color: #005032;
   margin: 25px 0;
 }
 
@@ -75,7 +68,6 @@
 
 .carname {
   font-size: 30px;
-  color: #005032;
   font-weight: bold;
   margin-bottom: 15px;
   display: block;
@@ -109,8 +101,6 @@
 }
 
 .titlelocal {
-  background-color: #005032;
-  color: #fff;
   font-weight: bold;
   font-size: 18px;
   text-align: center;
@@ -156,21 +146,6 @@
   cursor: pointer;
   padding-bottom: 25px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.295);
-}
-
-.valorbg {
-  background-color: #00a65a;
-  color: #fff;
-}
-
-.valor1:hover {
-  background-color: #005032;
-  color: #fff;
-}
-
-.valor2:hover {
-  background-color: #005032;
-  color: #fff;
 }
 
 .valor2 span {
@@ -223,7 +198,6 @@
 
 .cupom {
   font-size: 18px;
-  color: #000;
   border: #005032 2px solid;
   border-radius: 5px;
   padding: 7px 10px;
@@ -231,8 +205,6 @@
 }
 
 .btncupom {
-  background-color: #005032;
-  color: #fff;
   font-size: 18px;
   padding: 9px 20px;
   border-radius: 5px;
@@ -261,11 +233,6 @@
 
 .spn-tlt-cupom-desconto {
   font-weight: bold;
-  color: #005032;
-}
-
-.valordescontos {
-  color: #005032;
 }
 
 .itenscupom2 {
@@ -273,7 +240,6 @@
 }
 
 .txtcupominvalid {
-  color: #ff6347;
   font-weight: bold;
 }
 
@@ -369,8 +335,6 @@
 
 #payreserva {
   margin-top: 20px;
-  background-color: #005032;
-  color: #fff;
   border-radius: 7px;
   margin-right: 3px;
   padding: 10px 20px;
@@ -399,7 +363,6 @@
 
 .invalid-card {
   font-weight: bold;
-  color: #ff6347;
   margin-right: 10px;
 }
 
@@ -425,7 +388,6 @@
 
 .edit-card {
   padding: 0;
-  color: #337ab7;
   font-weight: bold;
   cursor: pointer;
 }
@@ -613,8 +575,6 @@
   
   #payreserva {
     margin-top: 20px;
-    background-color: #005032;
-    color: #fff;
     border-radius: 7px;
     margin-right: 3px;
     padding: 10px 20px;
@@ -721,7 +681,6 @@
 
   .cupom {
     font-size: 18px;
-    color: #000;
     border: #005032 2px solid;
     border-radius: 5px;
     padding: 5px 10px;
@@ -731,7 +690,6 @@
   
   .btncupom {
     font-size: 14px;
-    color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
   }

@@ -13,9 +13,11 @@
   <link rel="stylesheet" href="/src/css/footer.css">
   <link rel="stylesheet" href="/src/css/menu.css">
   <link rel="stylesheet" href="/src/css/setaBaixo.css">
+  <link id="changeTheme" rel="stylesheet" href="/src/css/themeColor.css">
+  <link rel="stylesheet" href="/src/css/change-theme.css">
   <title>Locadora de Veículos - Encontre seu Carro</title>
 </head>
-<body>
+<body class="grey-color-bg">
   
   <div class="hideloading" id="lding">
     <div id="loading">
@@ -25,76 +27,76 @@
     </div>
   </div>
   <div>
-    <div id="header">
+    <div id="header" class="white-color-bg">
       <div id="menuimg">
         <img id="imgmenu" src="/src/img/img-manu.png" alt="">
       </div>
       <div id="title">
         <div class="title3">
-          <span class="title1">Locadora de</span>
-          <span class="title2">Veículos</span>
+          <span class="title1 font-black">Locadora de</span>
+          <span class="title2 font-black">Veículos</span>
         </div>
-        <span class="title4">BH</span>
+        <span class="title4 font-black">BH</span>
       </div>
       <div id="menu">
-        <div class="menu1 hidemenu">
-          <a href="/index.html">Início</a>
-          <a href="/src/pages/fabricantes.html">Fabricantes</a>
-          <a href="/src/pages/agencias.html">Agências</a>
-          <a href="#">Reservas</a>
+        <div class="menu1 hidemenu white-color-bg">
+          <a class="font-black" href="/index.html">Início</a>
+          <a class="font-black" href="/src/pages/fabricantes.html">Fabricantes</a>
+          <a class="font-black" href="/src/pages/agencias.html">Agências</a>
+          <a class="font-black" href="#">Reservas</a>
         </div>
-        <div class="menu2 hidemenu2">
-          <a class="btn1" href="/src/pages/login.html">Login</a>
+        <div class="menu2 hidemenu2 white-color-bg">
+          <a class="btn1 font-black" href="/src/pages/login.html">Login</a>
           <span>/</span>
-          <a class="btn2" href="/src/pages/cadastro.html">Cadastrar</a>
+          <a class="btn2 font-black" href="/src/pages/cadastro.html">Cadastrar</a>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="search">
-    <div id="subt">
-      <span>Faça sua Locação</span>
+  <div id="search" class="black-green-color-bg">
+    <div id="subt" class="font-green">
+      <span class="white-color-bg1">Faça sua Locação</span>
     </div>
     <div id="header2" class="tamanhoA">
-      <div id="box">
+      <div id="box" class="font-white">
         <div id="box1" class="boxflex hidesearch">
           <div class="div1">
-            <span class="subtitles">Local para retirada</span>
+            <span class="subtitles font-white1">Local para retirada</span>
             <div class="autocomplete">
               <input id="retirada" autocomplete="off" placeholder="Ex.: Campo Limpo" type="text">
             </div>
           </div>
           <div class="div2">
-            <span class="subtitles">Data</span>
+            <span class="subtitles font-white1">Data</span>
             <input id="dataretirada" type="date">
           </div>
           <div class="div3">
-            <span class="subtitles">Hora</span>
+            <span class="subtitles font-white1">Hora</span>
             <input id="horaretirada" type="time">
           </div>
         </div>
         <div id="box2" class="boxflex hidesearch">
           <div class="div1">
-            <span class="subtitles">Local para entrega</span>
+            <span class="subtitles font-white1">Local para entrega</span>
             <div class="autocomplete">
               <input id="entrega" autocomplete="off" placeholder="Ex.: Campo Limpo" type="text">
             </div>
           </div>
           <div class="div2">
-            <span class="subtitles">Data</span>
+            <span class="subtitles font-white1">Data</span>
             <input id="dataentrega" type="date">
           </div>
           <div class="div3">
-            <span class="subtitles">Hora</span>
+            <span class="subtitles font-white1">Hora</span>
             <input id="horaentrega" type="time">
           </div>
         </div>
         <div class="blck boxflex hidesearch">
           <div class="btnsearch">
-            <a id="searchbutton" onclick="searchCar()">PESQUISAR</a>
+            <a id="searchbutton" class="white-color-bg1 font-green" onclick="searchCar()">PESQUISAR</a>
           </div>
-            <span class="showerr hideerr">* Preencha corretamente</span>
+            <span class="showerr hideerr font-white1">* Preencha corretamente</span>
         </div>
         <div id="setabaixo">
           <div id="setaabaixo" class="setabaixo1">
@@ -111,11 +113,16 @@
     </div>
   </div>
 
+  <label class="switch">
+    <input id="changethemecheck" type="checkbox">
+    <span class="slider round"></span>
+  </label>
+
   <div>
     <div id="home">
       <div id="titlehoome">
-        <span class="spntitle">Conheça nossa frota</span>
-        <p>Sujeito a disponibilidade</p>
+        <span class="spntitle font-green">Conheça nossa frota</span>
+        <p class="font-black">Sujeito a disponibilidade</p>
       </div>
       <div id="cars">
       </div>
@@ -128,7 +135,7 @@
   </div>
 
   <div>
-    <div id="footer">
+    <div id="footer" class="black-green-color-bg">
       <div>
         <span>© Copyright 2021 Locadora de Veículos BH S.A.</span>
       </div>
@@ -144,5 +151,6 @@
   <script src="/src/js/searchCar.js"></script>
   <script src="/src/js/openMenu.js"></script>
   <script src="/src/js/index.js"></script>
+  <script src="/src/js/changeTheme.js"></script>
 </body>
 </html>

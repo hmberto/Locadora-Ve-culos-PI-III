@@ -11,9 +11,10 @@
   <link rel="stylesheet" href="/src/css/carviewer.css">
   <link rel="stylesheet" href="/src/css/menu.css">
   <link rel="stylesheet" href="/src/css/searchPage.css">
+  <link id="changeTheme" rel="stylesheet" href="/src/css/themeColor.css">
   <title>Locadora de Veículos</title>
 </head>
-<body>
+<body class="grey-color-bg">
   
   <div class="hideloading" id="lding">
     <div id="loading">
@@ -23,28 +24,28 @@
     </div>
   </div>
   <div>
-    <div id="header">
+    <div id="header" class="white-color-bg">
       <div id="menuimg">
         <img id="imgmenu" src="/src/img/img-manu.png" alt="">
       </div>
       <div id="title">
         <div class="title3">
-          <span class="title1">Locadora de</span>
-          <span class="title2">Veículos</span>
+          <span class="title1 font-black">Locadora de</span>
+          <span class="title2 font-black">Veículos</span>
         </div>
-        <span class="title4">BH</span>
+        <span class="title4 font-black">BH</span>
       </div>
       <div id="menu">
-        <div class="menu1 hidemenu">
-          <a href="/index.html">Início</a>
-          <a href="/src/pages/fabricantes.html">Fabricantes</a>
-          <a href="/src/pages/agencias.html">Agências</a>
-          <a href="#">Reservas</a>
+        <div class="menu1 hidemenu white-color-bg">
+          <a class="font-black" href="/index.html">Início</a>
+          <a class="font-black" href="/src/pages/fabricantes.html">Fabricantes</a>
+          <a class="font-black" href="/src/pages/agencias.html">Agências</a>
+          <a class="font-black" href="#">Reservas</a>
         </div>
-        <div class="menu2 hidemenu2">
-          <a class="btn1" href="/src/pages/login.html">Login</a>
+        <div class="menu2 hidemenu2 white-color-bg">
+          <a class="btn1 font-black" href="/src/pages/login.html">Login</a>
           <span>/</span>
-          <a class="btn2" href="/src/pages/cadastro.html">Cadastrar</a>
+          <a class="btn2 font-black" href="/src/pages/cadastro.html">Cadastrar</a>
         </div>
       </div>
     </div>
@@ -53,8 +54,8 @@
   <div>
     <div id="home">
       <div id="titlehoome">
-        <span class="spntitle">Conheça nossa frota</span>
-        <p class="txt"></p>
+        <span class="spntitle font-green">Conheça nossa frota</span>
+        <p class="txt font-black"></p>
       </div>
       <div id="cars">
       </div>
@@ -67,7 +68,7 @@
   </div>
 
   <div>
-    <div id="footer">
+    <div id="footer" class="black-green-color-bg">
       <div>
         <span>© Copyright 2021 Locadora de Veículos BH S.A.</span>
       </div>
@@ -81,5 +82,6 @@
   <script src="/src/js/ifLogged.js"></script>
   <script src="/src/js/getSearchCars.js"></script>
   <script src="/src/js/openMenu.js"></script>
+  <script src="/src/js/changeTheme.js"></script>
 </body>
 </html>

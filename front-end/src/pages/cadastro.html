@@ -10,9 +10,10 @@
   <link rel="stylesheet" href="/src/css/loading.css">
   <link rel="stylesheet" href="/src/css/menu.css">
   <link rel="stylesheet" href="/src/css/footer.css">
+  <link id="changeTheme" rel="stylesheet" href="/src/css/themeColor.css">
   <title>Cadastro - Locadora de Veículos</title>
 </head>
-<body>
+<body class="grey-color-bg">
   
   <div class="hideloading" id="lding">
     <div id="loading">
@@ -22,28 +23,28 @@
     </div>
   </div>
   <div>
-    <div id="header">
+    <div id="header" class="white-color-bg">
       <div id="menuimg">
         <img id="imgmenu" src="/src/img/img-manu.png" alt="">
       </div>
       <div id="title">
         <div class="title3">
-          <span class="title1">Locadora de</span>
-          <span class="title2">Veículos</span>
+          <span class="title1 font-black">Locadora de</span>
+          <span class="title2 font-black">Veículos</span>
         </div>
-        <span class="title4">BH</span>
+        <span class="title4 font-black">BH</span>
       </div>
       <div id="menu">
-        <div class="menu1 hidemenu">
-          <a href="/index.html">Início</a>
-          <a href="/src/pages/fabricantes.html">Fabricantes</a>
-          <a href="/src/pages/agencias.html">Agências</a>
-          <a href="#">Reservas</a>
+        <div class="menu1 hidemenu white-color-bg">
+          <a class="font-black" href="/index.html">Início</a>
+          <a class="font-black" href="/src/pages/fabricantes.html">Fabricantes</a>
+          <a class="font-black" href="/src/pages/agencias.html">Agências</a>
+          <a class="font-black" href="#">Reservas</a>
         </div>
-        <div class="menu2 hidemenu2">
-          <a href="/src/pages/login.html">Login</a>
+        <div class="menu2 hidemenu2 white-color-bg">
+          <a class="font-black" href="/src/pages/login.html">Login</a>
           <span>/</span>
-          <a href="/src/pages/cadastro.html">Cadastrar</a>
+          <a class="font-black" href="/src/pages/cadastro.html">Cadastrar</a>
         </div>
       </div>
     </div>
@@ -51,54 +52,54 @@
 
   <div>
     <div id="cadastro">
-      <div class="inputs">
+      <div class="inputs white-color-bg">
         <div id="err">
-          <span class="loginText">CADASTRAR</span>
+          <span class="loginText font-black">CADASTRAR</span>
           <div id="erro" class="azul">
             <span id="textoerro">Faça seu cadastro</span>
           </div>
         </div>
         <div id="form">
           <div class="loginText3">
-            <span class="loginText2">• Dados Pessoais</span>
+            <span class="loginText2  font-black">• Dados Pessoais</span>
             <div class="loginText4"></div>
           </div>
           <div class="cont3">
             <div class="cont">
               <div class="log1">
-                <div class="txt"><span class="t1">Nome</span><span class="estrela"> *</span></div>
+                <div class="txt"><span class="t1  font-black">Nome</span><span class="estrela"> *</span></div>
                 <input autocomplete="off" class="border-black" id="nome" placeholder="Nome" maxlength="250" onkeyup="validate()" type="text">
               </div>
               <div class="log2">
-                <div class="txt"><span class="t1">E-mail</span><span class="estrela"> *</span></div>
+                <div class="txt"><span class="t1  font-black">E-mail</span><span class="estrela"> *</span></div>
                 <input autocomplete="off" class="border-black" id="email" placeholder="E-mail" maxlength="99" onkeyup="validate()" type="text">
               </div>
               <div class="log1">
-                <div class="txt"><span class="t1">CPF</span><span class="estrela"> *</span><span class="legenda legenda2">(Apenas Números)</span></div>
+                <div class="txt"><span class="t1  font-black">CPF</span><span class="estrela"> *</span><span class="legenda legenda2  font-black">(Apenas Números)</span></div>
                 <input autocomplete="off" class="border-black" id="cpf" placeholder="CPF" onkeyup="validate()" type="text">
               </div>
               <div class="log2">
-                <div class="txt"><span class="t1">RG</span><span class="estrela"> *</span><span class="legenda legenda2">(Apenas Números)</span></div>
+                <div class="txt"><span class="t1  font-black">RG</span><span class="estrela"> *</span><span class="legenda legenda2  font-black">(Apenas Números)</span></div>
                 <input autocomplete="off" class="border-black" id="rg" placeholder="RG" onkeyup="validate()" type="text">
               </div>
             </div>
             <div class="cont">
               <div class="log1">
-                <div class="txt"><span class="t1">Celular</span><span class="estrela"> *</span><span class="legenda legenda2">(Apenas Números)</span></div>
+                <div class="txt"><span class="t1  font-black">Celular</span><span class="estrela"> *</span><span class="legenda legenda2  font-black">(Apenas Números)</span></div>
                 <input autocomplete="off" class="border-black" id="celular" placeholder="DDD + Celular" onkeyup="validate()" type="text">
               </div>
               <div class="log2">
-                <div class="txt"><span class="t1">Telefone</span><span class="legenda legenda2">(Apenas Números)</span></div>
+                <div class="txt"><span class="t1  font-black">Telefone</span><span class="legenda legenda2  font-black">(Apenas Números)</span></div>
                 <input autocomplete="off" class="border-black" id="telefone" placeholder="DDD + Telefone" onkeyup="validate()" type="text">
               </div>
             </div>
             <div class="cont">
               <div class="log1">
-                <div class="txt"><span class="t1">Data de Nascimento</span><span class="estrela"> *</span></div>
+                <div class="txt"><span class="t1  font-black">Data de Nascimento</span><span class="estrela"> *</span></div>
                 <input class="border-black" id="dataNascimento" max="2005-01-01" onkeyup="validate()" min="1922-01-01" type="date">
               </div>
               <div class="log2">
-                <div class="txt"><span class="t1">Sexo</span><span class="estrela"> *</span></div>
+                <div class="txt"><span class="t1  font-black">Sexo</span><span class="estrela"> *</span></div>
                 <select id="sexo">
                   <option value="Não informar" selected>Não informar</option>
                   <option value="Masculino">Masculino</option>
@@ -110,52 +111,52 @@
           </div>
           <div class="cont4">
             <div class="loginText3">
-              <span class="loginText2">• Endereço</span>
+              <span class="loginText2 font-black">• Endereço</span>
               <div class="loginText4"></div>
             </div>
           </div>
           <div class="cont3">
             <div class="cont">
               <div class="log1">
-                <div class="txt"><span class="t1">CEP</span><span class="estrela"> *</span><span class="legenda legenda1">(Apenas Números)</span></div>
+                <div class="txt"><span class="t1 font-black">CEP</span><span class="estrela"> *</span><span class="legenda legenda1  font-black">(Apenas Números)</span></div>
                 <input autocomplete="off" class="border-black" id="cep" placeholder="CEP" maxlength="9" onkeyup="buscarCep()" type="text">
-                <div class="txt"><span class="t1">Número</span><span class="estrela"> *</span></div>
+                <div class="txt"><span class="t1 font-black">Número</span><span class="estrela"> *</span></div>
                 <input autocomplete="off" class="border-black" id="numero" placeholder="Número" onkeyup="validate()" type="text">
                 <div class="dividir">
                   <div class="dividir1">
-                    <div class="txt"><span class="t1">Cidade</span><span class="estrela"> *</span></div>
+                    <div class="txt"><span class="t1 font-black">Cidade</span><span class="estrela"> *</span></div>
                     <input class="border-black" id="cidade" placeholder="Cidade" onkeyup="validate()" type="text" disabled>
                   </div>
                   <div class="dividir2">
-                    <div class="txt"><span class="t1">Bairro</span><span class="estrela"> *</span></div>
+                    <div class="txt"><span class="t1 font-black">Bairro</span><span class="estrela"> *</span></div>
                     <input class="border-black" id="bairro" placeholder="Bairro" onkeyup="validate()" type="text" disabled>
                   </div>
                 </div>
               </div>
               <div class="log2">
-                <div class="txt"><span class="t1 t20">Logradouro</span><span class="estrela"> *</span><span class="legenda legenda1">⠀</span></div>
+                <div class="txt"><span class="t1 t20 font-black">Logradouro</span><span class="estrela"> *</span><span class="legenda legenda1">⠀</span></div>
                 <input class="border-black" id="rua" placeholder="Rua" type="text" onkeyup="validate()" disabled>
-                <div class="txt"><span class="t1">Complemento</span></div>
+                <div class="txt"><span class="t1 font-black">Complemento</span></div>
                 <input autocomplete="off" class="border-black" id="complemento" placeholder="Complemento" onkeyup="validate()" maxlength="99" type="text">
-                <div class="txt"><span class="t1">Estado</span><span class="estrela"> *</span></div>
+                <div class="txt"><span class="t1 font-black">Estado</span><span class="estrela"> *</span></div>
                 <input class="border-black" id="estado" placeholder="Estado" onkeyup="validate()" type="text" disabled>
               </div>
             </div>
           </div>
           <div class="cont4">
             <div class="loginText3">
-              <span class="loginText2">• Login</span>
+              <span class="loginText2  font-black">• Login</span>
               <div class="loginText4"></div>
             </div>
           </div>
           <div class="cont">
             <div class="log1">
-              <div class="txt"><span class="t1">Usuário</span><span class="estrela"> *</span><span class="legenda legenda2">(Letras e números)</span></div>
+              <div class="txt"><span class="t1  font-black">Usuário</span><span class="estrela"> *</span><span class="legenda legenda2  font-black">(Letras e números)</span></div>
               <input autocomplete="off" class="border-black" id="login" placeholder="Username" onkeyup="validate()" maxlength="19" type="text">
             </div>
             <div class="log2">
               <div id="senhabox">
-                <div class="txt"><span class="t1">Senha</span><span class="estrela"> *</span><span class="legenda legenda2">(aA9!@#_-.)</span></div>
+                <div class="txt"><span class="t1  font-black">Senha</span><span class="estrela"> *</span><span class="legenda legenda2  font-black">(aA9!@#_-.)</span></div>
                 <input autocomplete="off" class="border-black" id="senha" placeholder="Senha" onkeyup="validate()" maxlength="19" type="password">
               </div>
               <div id="passimg">
@@ -165,30 +166,30 @@
           </div>
           <div class="cont4">
             <div class="loginText3">
-              <span class="loginText2">• CNH</span>
+              <span class="loginText2  font-black">• CNH</span>
               <div class="loginText4"></div>
             </div>
           </div>
           <div class="cont">
             <div class="log1">
-              <div class="txt"><span class="t1">Número CNH</span><span class="estrela"> *</span></div>
+              <div class="txt"><span class="t1 font-black">Número CNH</span><span class="estrela"> *</span></div>
               <input autocomplete="off" class="border-black" id="numeroCnh" placeholder="Número CNH" onkeyup="validate()" type="text">
             </div>
             <div class="log2">
-              <div class="txt"><span class="t1">Registro CNH</span><span class="estrela"> *</span></div>
+              <div class="txt"><span class="t1  font-black">Registro CNH</span><span class="estrela"> *</span></div>
               <input autocomplete="off" class="border-black" id="registroCnh" placeholder="Registro CNH" onkeyup="validate()" type="text">
             </div>
             <div class="log1">
-              <div class="txt"><span class="t1">Validade CNH</span><span class="estrela"> *</span><span class="legenda legenda1">⠀</span></div>
+              <div class="txt"><span class="t1 font-black">Validade CNH</span><span class="estrela"> *</span><span class="legenda legenda1">⠀</span></div>
               <input class="border-black" id="validadeCnh" max="2032-01-01" min="2011-01-01" type="date">
             </div>
             <div class="log2">
-              <div class="txt"><span class="t1">Categoria</span><span class="estrela"> *</span><span class="legenda legenda2">(Apenas Letra)</span></div>
+              <div class="txt"><span class="t1 font-black">Categoria</span><span class="estrela"> *</span><span class="legenda legenda2  font-black">(Apenas Letra)</span></div>
               <input autocomplete="off" class="border-black" id="categoriaCnh" placeholder="Categoria" onkeyup="validate()" maxlength="5" type="text">
             </div>
           </div>
           <div class="botao">
-            <button id="button" onclick="getValue()">CADASTRAR</button>
+            <button id="button" class="azul" onclick="getValue()">CADASTRAR</button>
           </div>
         </div>
         <div id="redirect" class="hide">
@@ -205,7 +206,7 @@
   </div>
 
   <div>
-    <div id="footer">
+    <div id="footer" class="black-green-color-bg">
       <div>
         <span>© Copyright 2021 Locadora de Veículos BH S.A.</span>
       </div>
@@ -221,5 +222,6 @@
   <script src="/src/js/validacaoCadastro2.js"></script>
   <script src="/src/js/showPass.js"></script>
   <script src="/src/js/openMenu.js"></script>
+  <script src="/src/js/changeTheme.js"></script>
 </body>
 </html>

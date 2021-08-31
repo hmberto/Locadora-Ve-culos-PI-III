@@ -29,11 +29,13 @@ function searchFabricantes() {
         var marca = json['data']['marca' + i]['marca'];
 
         var li = document.createElement("li");
+        li.classList.add("font-black");
         li.innerHTML=marca
 
         var a = document.createElement("a");
         a.setAttribute("href", "/src/pages/pormarca.html?marca=" + marca);
         a.innerHTML="Ver carros"
+        a.classList.add("font-green");
 
         div.appendChild(li);
         div.appendChild(a);

@@ -30,6 +30,7 @@ function searchAgencias() {
 
         var li = document.createElement("li");
         li.innerHTML=agencia
+        li.classList.add("font-black");
 
         div.appendChild(li);
       }

@@ -75,7 +75,7 @@ function getCars() {
 
 getCars();
 
-check.addEventListener("click", () => {
+function validateCheckTermo() {
   var verify1 = check.checked;
   var verify2 = document.querySelector(".disp").textContent;
 
@@ -163,4 +163,19 @@ check.addEventListener("click", () => {
       button.disabled = false;
     }
   }
+}
+
+document.querySelector(".termos").addEventListener("click", () => {
+  if(check.checked) {
+    check.checked = false;
+    validateCheckTermo();
+  }
+  else {
+    check.checked = true;
+    validateCheckTermo();
+  }
+});
+
+check.addEventListener("click", () => {
+  validateCheckTermo();
 })

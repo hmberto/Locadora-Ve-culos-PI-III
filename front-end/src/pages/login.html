@@ -9,9 +9,10 @@
   <link rel="stylesheet" href="/src/css/login.css">
   <link rel="stylesheet" href="/src/css/loading.css">
   <link rel="stylesheet" href="/src/css/menu.css">
+  <link id="changeTheme" rel="stylesheet" href="/src/css/themeColor.css">
   <title>Login - Locadora de Veículos</title>
 </head>
-<body>
+<body class="grey-color-bg">
   
   <div class="hideloading" id="lding">
     <div id="loading">
@@ -21,28 +22,28 @@
     </div>
   </div>
   <div>
-    <div id="header">
+    <div id="header" class="white-color-bg">
       <div id="menuimg">
         <img id="imgmenu" src="/src/img/img-manu.png" alt="">
       </div>
       <div id="title">
         <div class="title3">
-          <span class="title1">Locadora de</span>
-          <span class="title2">Veículos</span>
+          <span class="title1 font-black">Locadora de</span>
+          <span class="title2 font-black">Veículos</span>
         </div>
-        <span class="title4">BH</span>
+        <span class="title4 font-black">BH</span>
       </div>
       <div id="menu">
-        <div class="menu1 hidemenu">
-          <a href="/index.html">Início</a>
-          <a href="/src/pages/fabricantes.html">Fabricantes</a>
-          <a href="/src/pages/agencias.html">Agências</a>
-          <a href="#">Reservas</a>
+        <div class="menu1 hidemenu white-color-bg">
+          <a class="font-black" href="/index.html">Início</a>
+          <a class="font-black" href="/src/pages/fabricantes.html">Fabricantes</a>
+          <a class="font-black" href="/src/pages/agencias.html">Agências</a>
+          <a class="font-black" href="#">Reservas</a>
         </div>
-        <div class="menu2 hidemenu2">
-          <a class="btn1" href="/src/pages/login.html">Login</a>
+        <div class="menu2 hidemenu2 white-color-bg">
+          <a class="btn1 font-black" href="/src/pages/login.html">Login</a>
           <span>/</span>
-          <a class="btn2" href="/src/pages/cadastro.html">Cadastrar</a>
+          <a class="btn2 font-black" href="/src/pages/cadastro.html">Cadastrar</a>
         </div>
       </div>
     </div>
@@ -50,19 +51,19 @@
 
   <div>
     <div id="login">
-      <div class="inputs">
+      <div class="inputs white-color-bg">
         <div>
-          <span class="loginText">LOGIN</span>
+          <span class="loginText font-black">LOGIN</span>
           <div id="erro" class="azul">
             <span id="textoerro">Faça seu login</span>
           </div>
         </div>
         <div class="log">
-          <div class="txt"><span class="t1">Usuário</span><span class="legenda legenda1">(Letras e números)</span></div>
+          <div class="txt"><span class="t1 font-black">Usuário</span><span class="legenda legenda1 font-black">(Letras e números)</span></div>
           <input id="user" placeholder="Username" type="text">
           <div>
             <div id="passinput">
-              <div class="txt"><span class="t1">Senha</span><span class="legenda legenda2">(aA9!@#_-.)</span></div>
+              <div class="txt font-black"><span class="t1">Senha</span><span class="legenda legenda2">(aA9!@#_-.)</span></div>
               <input id="senha" placeholder="Senha" type="password">
             </div>
             <div id="passimg">
@@ -71,7 +72,7 @@
           </div>
         </div>
         <div class="botao">
-          <button id="button" onclick="getValue()">LOGIN</button>
+          <button id="button" class="azul" onclick="getValue()">LOGIN</button>
         </div>
       </div>
     </div>
@@ -82,5 +83,6 @@
   <script src="/src/js/login.js"></script>
   <script src="/src/js/showPass.js"></script>
   <script src="/src/js/openMenu.js"></script>
+  <script src="/src/js/changeTheme.js"></script>
 </body>
 </html>

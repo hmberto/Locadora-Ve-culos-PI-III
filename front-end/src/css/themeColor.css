@@ -1,0 +1,70 @@
+.white-color-bg {
+  background-color: #fff;
+}
+
+.grey-color-bg {
+  background-color: rgba(224, 224, 224)
+}
+
+.azul {
+  background-color: #337ab7;
+}
+
+.vermelho {
+  background-color: #ff6347;
+}
+
+.verde {
+  background-color: #00a65a;
+}
+
+.black-green-color-bg  {
+  background-color: #005032;
+}
+
+.font-white {
+  color: #fff;
+}
+
+.font-black {
+  color: #000;
+}
+
+.font-green {
+  color: #005032;
+}
+
+.font-blue {
+  color: #337ab7;
+}
+
+.font-red {
+  color: #ff6347;
+}
+
+.valor1:hover {
+  background-color: #005032;
+  color: #fff;
+}
+
+.valor2:hover {
+  background-color: #005032;
+  color: #fff;
+}
+
+.locar button:disabled {
+  background-color: #00a65a;
+}
+
+/* Dont Change */
+.white-color-bg1 {
+  background-color: white;
+}
+
+.font-white1 {
+  color: #fff;
+}
+
+.font-black1 {
+  color: #000;
+}

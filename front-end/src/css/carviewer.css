@@ -6,7 +6,6 @@
 .spntitle {
   font-size: 30px;
   font-weight: bold;
-  color: #005032;
 }
 
 #cars {
@@ -17,7 +16,6 @@
 }
 
 .showcar {
-  background-color: #fff;
   padding: 15px;
   border-radius: 10px;
   text-align: center;
@@ -31,7 +29,7 @@
 
 .showcar span {
   font-size: 20px;
-  font-weight: bold;color: #005032;
+  font-weight: bold;
 }
 
 .car {
@@ -39,18 +37,8 @@
   border-radius: 5px;
 }
 
-.titlecar {
-
-}
-
-.subcar {
-
-}
-
 .detalhes {
   width: 100%;
-  background-color: #005032;
-  color: #fff;
   padding: 5px 20px;
   border-radius: 5px;
   margin-top: 5px;
