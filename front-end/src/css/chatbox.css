@@ -1,0 +1,104 @@
+.chathide {
+  display: none;
+}
+
+#chatbox {
+  position: fixed;
+  z-index: 8;
+  bottom: 30px;
+  right: 50px;
+  border: 3px solid black;
+  border-radius: 50%;
+}
+
+#chatboximg {
+  width: 50px;
+}
+
+#showchatbox {
+  position: fixed;
+  z-index: 8;
+  bottom: 100px;
+  right: 50px;
+  background-color: #fff;
+  border: 15px solid black;
+  border-radius: 10px;
+  width: 250px;
+  height: 350px;
+}
+
+.tituloxhatbox {
+  background-color: #000;
+  color: #fff;
+}
+
+.spntlt1 {
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.onlinechat {
+  padding-top: 5px;
+  padding-bottom: 10px;
+  display: flex;
+  text-align: left;
+  width: 65px;
+  margin-left: -5px;
+}
+
+.bolinhaverde {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.spntlt2 {
+  background-color: #000;
+  color: #fff;
+  font-size: 14px;
+  display: block;
+}
+
+#contentchat {
+  padding: 10px;
+}
+
+#escolhertemachat {
+  display: flex;
+  width: 100%;
+}
+
+.spndark {
+  white-space: nowrap;
+  width: 150px;
+  font-weight: bold;
+}
+
+.linhasepara {
+  height: 2px;
+  width: 100%;
+  background-color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#inputchatbox {
+  background-color: none;
+  border-top: solid 2px black;
+  position: absolute;
+  bottom: 0;
+  margin-left: -10px;
+  width: 246px;
+}
+
+@media(max-width: 400px) {
+  #chatbox {
+    display: none;
+  }
+
+  #showchatbox {
+    display: none;
+  }
+}

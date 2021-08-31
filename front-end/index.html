@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="/src/css/setaBaixo.css">
   <link id="changeTheme" rel="stylesheet" href="/src/css/themeColor.css">
   <link rel="stylesheet" href="/src/css/change-theme.css">
+  <link rel="stylesheet" href="/src/css/chatbox.css">
   <title>Locadora de Veículos - Encontre seu Carro</title>
 </head>
 <body class="grey-color-bg">
@@ -50,6 +51,37 @@
           <span>/</span>
           <a class="btn2 font-black" href="/src/pages/cadastro.html">Cadastrar</a>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div id="chatbox">
+      <div>
+        <div><img id="chatboximg" src="/src/img/favicon.png" alt=""></div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div id="showchatbox" class="chathide">
+      <div class="tituloxhatbox">
+        <span class="spntlt1">Locadora Veículos BH</span>
+        <div class="onlinechat">
+          <div class="bolinhaverde verde"></div>
+          <span class="spntlt2">Online</span>
+        </div>
+      </div>
+      <div id="contentchat">
+        <div id="escolhertemachat">
+          <span class="spndark">Dark Theme: </span>
+          <label class="switch">
+            <input id="changethemecheck" type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="linhasepara"></div>
+        <input placeholder="Qual sua dúvida?" id="inputchatbox" type="text">
       </div>
     </div>
   </div>
@@ -113,11 +145,6 @@
     </div>
   </div>
 
-  <label class="switch">
-    <input id="changethemecheck" type="checkbox">
-    <span class="slider round"></span>
-  </label>
-
   <div>
     <div id="home">
       <div id="titlehoome">
@@ -152,5 +179,6 @@
   <script src="/src/js/openMenu.js"></script>
   <script src="/src/js/index.js"></script>
   <script src="/src/js/changeTheme.js"></script>
+  <script src="/src/js/chatbox.js"></script>
 </body>
 </html>
