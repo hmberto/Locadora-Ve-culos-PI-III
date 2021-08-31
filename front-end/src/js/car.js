@@ -83,12 +83,12 @@ function validateCheckTermo() {
     document.getElementById("reservar").disabled = true;
   }
   else {
-    var localRetirada = sessionStorage.getItem("localRetirada");
-    var dataRetirada = sessionStorage.getItem("dataRetirada");
-    var horaRetirada = sessionStorage.getItem("horaRetirada");
-    var localDevolucao = sessionStorage.getItem("localDevolucao");
-    var dataDevolucao = sessionStorage.getItem("dataDevolucao");
-    var horaDevolucao = sessionStorage.getItem("horaDevolucao");
+    var localRetirada = window.localStorage.getItem("localRetirada");
+    var dataRetirada = window.localStorage.getItem("dataRetirada");
+    var horaRetirada = window.localStorage.getItem("horaRetirada");
+    var localDevolucao = window.localStorage.getItem("localDevolucao");
+    var dataDevolucao = window.localStorage.getItem("dataDevolucao");
+    var horaDevolucao = window.localStorage.getItem("horaDevolucao");
 
     if(localRetirada != null && dataRetirada != null && horaRetirada != null && localDevolucao != null && dataDevolucao != null && horaDevolucao != null) {
       var button = document.getElementById("reservar");

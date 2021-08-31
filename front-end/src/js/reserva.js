@@ -10,12 +10,12 @@ var checkvalor2 = document.getElementById("checkvalor2");
 var valor1 = document.querySelector(".valor1");
 var valor2 = document.querySelector(".valor2");
 
-var localRetirada = sessionStorage.getItem("localRetirada");
-var dataRetirada = sessionStorage.getItem("dataRetirada");
-var horaRetirada = sessionStorage.getItem("horaRetirada");
-var localDevolucao = sessionStorage.getItem("localDevolucao");
-var dataDevolucao = sessionStorage.getItem("dataDevolucao");
-var horaDevolucao = sessionStorage.getItem("horaDevolucao");
+var localRetirada = window.localStorage.getItem("localRetirada");
+var dataRetirada = window.localStorage.getItem("dataRetirada");
+var horaRetirada = window.localStorage.getItem("horaRetirada");
+var localDevolucao = window.localStorage.getItem("localDevolucao");
+var dataDevolucao = window.localStorage.getItem("dataDevolucao");
+var horaDevolucao = window.localStorage.getItem("horaDevolucao");
 
 var splitData1 = dataRetirada.split("-");
 var splitData2 = dataDevolucao.split("-");
@@ -30,8 +30,8 @@ document.querySelector(".localvalue4").innerHTML=localDevolucao;
 document.querySelector(".datavalue5").innerHTML=dataDevolucao;
 document.querySelector(".horalvalue6").innerHTML=horaDevolucao;
 
-var dias3meses = parseInt(sessionStorage.getItem("dias3meses"));
-var diffDays = parseInt(sessionStorage.getItem("diffDays"));
+var dias3meses = parseInt(window.localStorage.getItem("dias3meses"));
+var diffDays = parseInt(window.localStorage.getItem("diffDays"));
 
 const urlParams = new URLSearchParams(window.location.search);
 const urlParam = urlParams.get('carId');

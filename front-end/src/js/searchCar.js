@@ -6,6 +6,16 @@ var dataDevolucao = document.getElementById("dataentrega");
 var horaDevolucao = document.getElementById("horaentrega");
 var submitbtn = document.getElementById("searchbutton");
 
+var localRetiradaCar = window.localStorage.getItem("localRetirada");
+if(localRetiradaCar != null && localRetiradaCar.length > 1) {
+  localRetirada.value = window.localStorage.getItem("localRetirada");
+  dataRetirada.value = window.localStorage.getItem("dataRetirada");
+  horaRetirada.value = window.localStorage.getItem("horaRetirada");
+  localDevolucao.value = window.localStorage.getItem("localDevolucao");
+  dataDevolucao.value = window.localStorage.getItem("dataDevolucao");
+  horaDevolucao.value = window.localStorage.getItem("horaDevolucao");
+}
+
 var showSearchBox1 = document.getElementById("setaabaixo");
 var showSearchBox = document.getElementById("seta");
 showSearchBox.addEventListener('click', () => {
@@ -57,8 +67,8 @@ function calcData() {
   var timeDiff = Math.abs(newDate1.getTime() - newDate2.getTime());
   var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
 
-  sessionStorage.setItem("dias3meses", dias3meses);
-  sessionStorage.setItem("diffDays", diffDays);
+  window.localStorage.setItem("dias3meses", dias3meses);
+  window.localStorage.setItem("diffDays", diffDays);
 }
 
 function searchCar() {
@@ -78,12 +88,12 @@ function searchCar() {
       var v2 = cidades.indexOf(localDevolucao.value);
 
       if(v1 >= 0 && v2 >= 0) {
-        sessionStorage.setItem("localRetirada", localRetirada.value);
-        sessionStorage.setItem("dataRetirada", dataRetirada.value);
-        sessionStorage.setItem("horaRetirada", horaRetirada.value);
-        sessionStorage.setItem("localDevolucao", localDevolucao.value);
-        sessionStorage.setItem("dataDevolucao", dataDevolucao.value);
-        sessionStorage.setItem("horaDevolucao", horaDevolucao.value);
+        window.localStorage.setItem("localRetirada", localRetirada.value);
+        window.localStorage.setItem("dataRetirada", dataRetirada.value);
+        window.localStorage.setItem("horaRetirada", horaRetirada.value);
+        window.localStorage.setItem("localDevolucao", localDevolucao.value);
+        window.localStorage.setItem("dataDevolucao", dataDevolucao.value);
+        window.localStorage.setItem("horaDevolucao", horaDevolucao.value);
 
         var json = '{ "localRetirada":"' + localRetirada.value + '", "dataRetirada": "' +  dataRetirada.value + '", "horaRetirada": "' + horaRetirada.value + '", "localDevolucao":"' + localDevolucao.value + '", "dataDevolucao": "' +  dataDevolucao.value + '", "horaDevolucao": "' + horaDevolucao.value + '" }';
         var parse = btoa(json);
