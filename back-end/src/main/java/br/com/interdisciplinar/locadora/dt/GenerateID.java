@@ -8,7 +8,7 @@ public class GenerateID {
 	public static String NAME = GenerateID.class.getSimpleName();
 	private static Logger LOG = Logger.getLogger(GenerateID.class.getName());
 	
-	public int getId(int size) {
+	public String getId(int size) {
 		LOG.entering(NAME, "getId");
 		String newIdString = "";
 	  
@@ -23,6 +23,6 @@ public class GenerateID {
 		LOG.log(Level.INFO, "Generated id: " + newIdString);
 		
 		LOG.exiting(NAME, "getId");
-		return Integer.parseInt(newIdString);
+		return newIdString;
 	}
 }
