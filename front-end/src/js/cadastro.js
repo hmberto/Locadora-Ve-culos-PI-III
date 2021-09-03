@@ -2,6 +2,12 @@ var erro = document.getElementById("erro");
 var textoerro = document.getElementById("textoerro");
 var loading = document.getElementById("lding");
 
+var themeColor = window.localStorage.getItem("sessionColor");
+var passimg = document.getElementById("passshow");
+if(themeColor == "dark") {
+  passimg.setAttribute("src", "/src/img/pass-dark.png");
+}
+
 // campos form
 var nome = document.getElementById('nome');
 var cpf = document.getElementById('cpf');

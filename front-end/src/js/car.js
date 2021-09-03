@@ -6,6 +6,24 @@ const urlParam = urlParams.get('carId');
 
 var localRetiradDB = "";
 
+var themeColor = window.localStorage.getItem("sessionColor");
+var marcaimg = document.querySelector(".icon1");
+var modeloimg = document.querySelector(".icon2");
+var portasimg = document.querySelector(".icon3");
+var anoimg = document.querySelector(".icon4");
+var motorimg = document.querySelector(".icon5");
+var cambioimg = document.querySelector(".icon6");
+var combustivelimg = document.querySelector(".icon7");
+if(themeColor == "dark") {
+  marcaimg.setAttribute("src", "/src/img/marca-dark.png");
+  modeloimg.setAttribute("src", "/src/img/modelo-dark.png");
+  portasimg.setAttribute("src", "/src/img/portas-dark.png");
+  anoimg.setAttribute("src", "/src/img/ano-dark.png");
+  motorimg.setAttribute("src", "/src/img/motor-dark.png");
+  cambioimg.setAttribute("src", "/src/img/cambio-dark.png");
+  combustivelimg.setAttribute("src", "/src/img/combustivel-dark.png");
+}
+
 function getCars() {
   var session = sessionStorage.getItem("session");
   if(session != null) {

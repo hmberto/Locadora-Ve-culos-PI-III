@@ -8,6 +8,12 @@ var loading = document.getElementById("lding");
 const urlParams2 = new URLSearchParams(window.location.search);
 const urlParam2 = urlParams2.get('carId');
 
+var themeColor = window.localStorage.getItem("sessionColor");
+var passimg = document.getElementById("passshow");
+if(themeColor == "dark") {
+  passimg.setAttribute("src", "/src/img/pass-dark.png");
+}
+
 var session = sessionStorage.getItem("session");
 if(session != null) {
   if(session.length == 50) {
