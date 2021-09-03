@@ -8,6 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
+import br.com.interdisciplinar.locadora.clients.AuthChangePass;
 import br.com.interdisciplinar.locadora.clients.AuthUser;
 import br.com.interdisciplinar.locadora.clients.CheckData;
 import br.com.interdisciplinar.locadora.clients.CreateUser;
@@ -24,6 +25,7 @@ import br.com.interdisciplinar.locadora.database.GetUserFromDB;
 import br.com.interdisciplinar.locadora.database.LoginUserFromDB;
 import br.com.interdisciplinar.locadora.database.LogoutUserFromDB;
 import br.com.interdisciplinar.locadora.database.SendUserToDB;
+import br.com.interdisciplinar.locadora.database.UpdatePassFromDB;
 import br.com.interdisciplinar.locadora.locacao.CreateConsult;
 import br.com.interdisciplinar.locadora.locacao.CreateLocacao;
 import br.com.interdisciplinar.locadora.locacao.GenerateConsult;
@@ -39,14 +41,14 @@ import java.util.Map;
 public class Rest {
 	@POST
 	@Path("/clientes/pwdReset")
-	public Response postPwdReset(AuthUser login) {
+	public Response postPwdReset(AuthChangePass login) {
 		try {
-			if(login.getUser().length() > 1 && login.getPass().length() > 1) {
-				LoginUserFromDB userFromDb = new LoginUserFromDB();				
-				Map<Integer, String> session = userFromDb.LoginUser(login.getUser(), login.getPass());
+			if(login.getUser().length() > 1 && login.getCpf().length() > 1 && login.getNewPass().length() > 1) {
+				UpdatePassFromDB userFromDb = new UpdatePassFromDB();				
+				boolean updatePass = userFromDb.updatePass(login);
 				
-				if(session.get(1).length() == 50) {
-					return Response.ok(new GenerateClients(session)).build();
+				if(updatePass) {
+					return Response.status(Response.Status.OK).build();
 				}
 				else {
 					return Response.status(Response.Status.BAD_REQUEST).build();
