@@ -38,6 +38,29 @@ import java.util.Map;
 @Consumes("application/json")
 public class Rest {
 	@POST
+	@Path("/clientes/pwdReset")
+	public Response postPwdReset(AuthUser login) {
+		try {
+			if(login.getUser().length() > 1 && login.getPass().length() > 1) {
+				LoginUserFromDB userFromDb = new LoginUserFromDB();				
+				Map<Integer, String> session = userFromDb.LoginUser(login.getUser(), login.getPass());
+				
+				if(session.get(1).length() == 50) {
+					return Response.ok(new GenerateClients(session)).build();
+				}
+				else {
+					return Response.status(Response.Status.BAD_REQUEST).build();
+				}
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		} catch (Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
+	@POST
 	@Path("/clientes/login")
 	public Response postLogin(AuthUser login) {
 		try {

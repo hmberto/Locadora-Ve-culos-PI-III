@@ -20,22 +20,6 @@ public class CreateLocacao {
 		this.id_veiculo = id_veiculo;
 	}
 
-	public String getData_locacao() {
-		return data_locacao;
-	}
-
-	public void setData_locacao(String data_locacao) {
-		this.data_locacao = data_locacao;
-	}
-
-	public String getHora_locacao() {
-		return hora_locacao;
-	}
-
-	public void setHora_locacao(String hora_locacao) {
-		this.hora_locacao = hora_locacao;
-	}
-
 	public String getData_retirada() {
 		return data_retirada;
 	}
@@ -150,8 +134,6 @@ public class CreateLocacao {
 
 	String cpf_locatario;
 	String id_veiculo;
-	String data_locacao;
-	String hora_locacao;
 	String data_retirada;
 	String hora_retirada;
 	String data_devolucao;

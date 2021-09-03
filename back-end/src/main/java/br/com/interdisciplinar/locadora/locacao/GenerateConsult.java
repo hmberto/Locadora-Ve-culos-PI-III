@@ -199,6 +199,6 @@ public class GenerateConsult {
 		this.local_retirada = consult.get(16);
 		this.local_devolucao = consult.get(17);
 		this.cadeirinha = consult.get(18);
-		this.capa_cinto_animais = consult.get(18);
+		this.capa_cinto_animais = consult.get(19);
 	}
 }
