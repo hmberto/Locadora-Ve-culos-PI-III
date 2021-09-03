@@ -17,12 +17,16 @@ import br.com.interdisciplinar.locadora.clients.LogoutUser;
 import br.com.interdisciplinar.locadora.clients.SexoVerify;
 import br.com.interdisciplinar.locadora.cupom.CreateCupom;
 import br.com.interdisciplinar.locadora.cupom.GenerateCupom;
+import br.com.interdisciplinar.locadora.database.LocacaoFromDB;
 import br.com.interdisciplinar.locadora.database.GetCarFromDB;
 import br.com.interdisciplinar.locadora.database.GetCupomFromDB;
 import br.com.interdisciplinar.locadora.database.GetUserFromDB;
 import br.com.interdisciplinar.locadora.database.LoginUserFromDB;
 import br.com.interdisciplinar.locadora.database.LogoutUserFromDB;
 import br.com.interdisciplinar.locadora.database.SendUserToDB;
+import br.com.interdisciplinar.locadora.locacao.CreateConsult;
+import br.com.interdisciplinar.locadora.locacao.CreateLocacao;
+import br.com.interdisciplinar.locadora.locacao.GenerateConsult;
 import br.com.interdisciplinar.locadora.veiculos.AvailableCars;
 import br.com.interdisciplinar.locadora.veiculos.CreateModels;
 import br.com.interdisciplinar.locadora.veiculos.CreateVehicle;
@@ -244,6 +248,54 @@ public class Rest {
 				
 				if(cupomMap.get(2).length() > 1) {
 					return Response.ok(new GenerateCupom(cupomMap)).build();
+				}
+				else {
+					return Response.status(Response.Status.BAD_REQUEST).build();
+				}
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		}
+		catch(Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
+	@POST
+	@Path("/location/create")
+	public Response postLocation(CreateLocacao locacao) throws Exception {
+		try {
+			if(locacao.getCpf_locatario().length() > 1) {
+				LocacaoFromDB createLocacao = new LocacaoFromDB();
+				boolean check = createLocacao.newLocation(locacao);
+				
+				if(check) {
+					return Response.status(Response.Status.CREATED).build();
+				}
+				else {
+					return Response.status(Response.Status.BAD_REQUEST).build();
+				}
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		}
+		catch(Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
+	@POST
+	@Path("/location/consult")
+	public Response postCheckLocation(CreateConsult consult) throws Exception {
+		try {
+			if(consult.getIdOrCpf().length() > 1) {
+				LocacaoFromDB createConsult = new LocacaoFromDB();
+				Map<Integer, String> consultMap = createConsult.consultLocation(consult);
+				
+				if(consultMap.get(2).length() > 1) {
+					return Response.ok(new GenerateConsult(consultMap)).build();
 				}
 				else {
 					return Response.status(Response.Status.BAD_REQUEST).build();
