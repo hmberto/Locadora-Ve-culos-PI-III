@@ -83,6 +83,7 @@ function usermensagens(horaatual, mensagem) {
 }
 
 chatbox.addEventListener("click", () => {
+  document.getElementById("chatcontentbox").innerHTML="";
   var teste = showchatbox.classList.contains("chathide");
 
   if(teste) {
