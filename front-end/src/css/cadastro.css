@@ -116,10 +116,13 @@ input {
   border-bottom: solid 2px black;
 }
 
+.border-black1 {
+  border-bottom: solid 2px #337ab7;
+}
+
 .border-vermelho {
   border-bottom: solid 2px #ff6347;
 }
-
 
 #sexo {
   height: 32px;
@@ -203,6 +206,26 @@ input {
 
 .menu1, .menu2 {
   left: 0;
+}
+
+.color-black {
+  color: #fff;
+}
+
+.color-black::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.color-black:-moz-placeholder {
+  color: #fff;  
+}
+
+.color-black::-moz-placeholder {
+  color: #fff;  
+}
+
+.color-black:-ms-input-placeholder {  
+  color: #fff;  
 }
 
 @media(max-width: 1050px) {
