@@ -12,6 +12,10 @@ var themeColor = window.localStorage.getItem("sessionColor");
 var passimg = document.getElementById("passshow");
 if(themeColor == "dark") {
   passimg.setAttribute("src", "/src/img/pass-dark.png");
+  user.classList.remove("inpt-light");
+  user.classList.add("inpt-dark");
+  pass.classList.remove("inpt-light");
+  pass.classList.add("inpt-dark");
 }
 
 var session = sessionStorage.getItem("session");
