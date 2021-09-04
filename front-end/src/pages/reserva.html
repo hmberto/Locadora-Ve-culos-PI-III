@@ -41,7 +41,7 @@
           <a class="font-black" href="/">Início</a>
           <a class="font-black" href="/src/pages/fabricantes.html">Fabricantes</a>
           <a class="font-black" href="/src/pages/agencias.html">Agências</a>
-          <a class="font-black" href="#">Reservas</a>
+          <a class="font-black" href="/src/pages/buscar.html">Reservas</a>
         </div>
         <div class="menu2 hidemenu2 white-color-bg">
           <a class="btn1 font-black" href="/src/pages/login.html">Login</a>
@@ -187,6 +187,31 @@
           <div class="additional">
             <li class="font-black">Sua reserva garante um dos carros desse grupo.</li>
             <li class="font-black">Modelo sujeito à disponibilidade da agência.</li>
+
+            <div id="allmark">
+              <div id="showask">
+                <div class="markask">
+                  <label class="switch">
+                    <input id="cadeirinha" type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div class="tltdiv">
+                  <span class="tltask font-black">Adcionar cadeirinha/assento de elevação para crianças</span>
+                </div>
+              </div>
+              <div id="showask">
+                <div class="markask">
+                  <label class="switch">
+                    <input id="animais" type="checkbox">
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <div class="tltdiv">
+                  <span class="tltask font-black">Adcionar capa com cinto para animais</span>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="separa black-green-color-bg"></div>
@@ -304,13 +329,13 @@
               </div>
 
               <div class="box-bnt">
-                <button id="payreserva" class="black-green-color-bg font-white1" onclick="FinalizarReserva()">Finalizar Reserva</button>
+                <button id="payreserva" class="black-green-color-bg font-white1" onclick="createReserva()">Finalizar Reserva</button>
               </div>
             </div>
           </div>
           
           <div class="box-bnt2 hidepagamento">
-            <button id="payreserva" class="black-green-color-bg font-white1" onclick="FinalizarReserva()">Finalizar Reserva</button>
+            <button id="payreserva" class="black-green-color-bg font-white1" onclick="createReserva()">Finalizar Reserva</button>
           </div>
         </div>
       </div>
@@ -339,5 +364,6 @@
   <script src="/src/js/reserva.js"></script>
   <script src="/src/js/changeTheme.js"></script>
   <script src="/src/js/chatbox.js"></script>
+  <script src="/src/js/createReserva.js"></script>
 </body>
 </html>
