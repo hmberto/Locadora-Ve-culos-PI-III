@@ -392,6 +392,23 @@
   cursor: pointer;
 }
 
+#showask {
+  text-align: left;
+  margin-top: 30px;
+  display: flex;
+  margin-left: 0px;
+  width: 100%;
+}
+
+.markask {
+  width: 30px;
+}
+
+.tltdiv {
+  width: 100%;
+  margin-left: 50px;
+}
+
 @media(max-width: 1000px) {
   .resumoreserva {
     display: block;
