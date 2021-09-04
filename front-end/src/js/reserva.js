@@ -61,6 +61,7 @@ function getCars() {
     loading.classList.add("hideloading");
 
     if(xhttp.status == 200) {
+      validaCupom(2);
       var json = JSON.parse(xhttp.response);
       
       valorDiaria = json['valorDiaria'];
