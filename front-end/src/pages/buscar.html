@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="/src/img/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="/src/css/index.css">
+  <link rel="stylesheet" href="/src/css/buscar.css">
+  <link rel="stylesheet" href="/src/css/loading.css">
+  <link rel="stylesheet" href="/src/css/menu.css">
+  <link id="changeTheme" rel="stylesheet" href="/src/css/themeColor.css">
+  <link rel="stylesheet" href="/src/css/change-theme.css">
+  <link rel="stylesheet" href="/src/css/chatbox.css">
+  <title>Login - Locadora de Veículos</title>
+</head>
+<body class="grey-color-bg">
+  
+  <div class="hideloading" id="lding">
+    <div id="loading">
+      <div id="load">
+        <img id="imagemloading" src="/src/img/loading2.gif" alt="">
+      </div>
+    </div>
+  </div>
+  <div>
+    <div id="header" class="white-color-bg">
+      <div id="menuimg">
+        <img id="imgmenu" src="/src/img/img-manu.png" alt="">
+      </div>
+      <div id="title">
+        <div class="title3">
+          <span class="title1 font-black">Locadora de</span>
+          <span class="title2 font-black">Veículos</span>
+        </div>
+        <span class="title4 font-black">BH</span>
+      </div>
+      <div id="menu">
+        <div class="menu1 hidemenu white-color-bg">
+          <a class="font-black" href="/index.html">Início</a>
+          <a class="font-black" href="/src/pages/fabricantes.html">Fabricantes</a>
+          <a class="font-black" href="/src/pages/agencias.html">Agências</a>
+          <a class="font-black" href="/src/pages/buscar.html">Reservas</a>
+        </div>
+        <div class="menu2 hidemenu2 white-color-bg">
+          <a class="btn1 font-black" href="/src/pages/login.html">Login</a>
+          <span class="font-black">/</span>
+          <a class="btn2 font-black" href="/src/pages/cadastro.html">Cadastrar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div id="chatbox" class="chathide">
+      <div>
+        <div><img id="chatboximg" src="/src/img/favicon.png" alt=""></div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div id="showchatbox" class="chathide">
+      <div class="tituloxhatbox">
+        <div id="closechatdiv">
+          <img id="closechat" src="/src/img/close-chat.png" alt="">
+        </div>
+        <span class="spntlt1">Locadora Veículos BH</span>
+        <div class="onlinechat">
+          <div class="bolinhaverde verde"></div>
+          <span class="spntlt2">Online</span>
+        </div>
+      </div>
+      <div id="contentchat">
+        <div id="escolhertemachat">
+          <span class="spndark">Dark Theme: </span>
+          <label class="switch">
+            <input id="changethemecheck" type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="linhasepara"></div>
+        <div id="chatcontentbox"></div>
+        <div class="divinput">
+          <input placeholder="Digite a mensagem..." id="inputchatbox" type="text">
+          <button class="azul" onclick="sendMensagem()" id="buttonchatbox">>></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div id="login">
+      <div class="inputs white-color-bg">
+        <div>
+          <span class="loginText font-black">RESERVAS</span>
+          <div id="erro" class="azul">
+            <span id="textoerro">Encontre sua reserva</span>
+          </div>
+        </div>
+        <div class="log">
+          <div class="txt"><span class="t1 font-black">Número da reserva</span></div>
+          <input id="numreserva" class="inptuser inpt-light" placeholder="Reserva" type="text">
+          <div>
+            <span class="loginText font-black">OU</span>
+          </div>
+          <div>
+            <div id="passinput">
+              <div class="txt2 font-black"><span class="t1">CPF</span></div>
+              <input id="porcpf" class="inptpass inpt-light" placeholder="CPF" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="botao">
+          <button id="button" class="azul" onclick="getValue()">ENCONTRAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/src/js/consultaReserva.js"></script>
+  <script src="/src/js/ifLogged.js"></script>
+  <script src="/src/js/buscar.js"></script>
+  <script src="/src/js/openMenu.js"></script>
+  <script src="/src/js/changeTheme.js"></script>
+  <script src="/src/js/chatbox.js"></script>
+</body>
+</html>

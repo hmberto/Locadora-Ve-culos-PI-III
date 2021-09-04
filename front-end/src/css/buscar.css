@@ -1,0 +1,115 @@
+#login {
+  padding-top: 140px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.inputs {
+  width: 300px;
+  height: auto;
+}
+
+.loginText {
+  line-height: 50px;
+  font-weight: bold;
+}
+
+.botao{
+  line-height: 50px;
+  text-align: right;
+  margin: 0 10% 0 9%;
+  margin-top:20px;
+}
+
+button {
+  width: 100%;
+  padding: 10px 0px;
+  border: none;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: white;
+}
+
+.txt {
+  margin-top: 30px;
+  text-align: left;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.txt2 {
+  margin-top: 0px;
+  text-align: left;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+input {
+  height: 30px;
+  width: 80%;
+  font-size: 18px;
+}
+
+.inptuser {
+  padding-left: 5px;
+}
+
+.inptpass {
+  margin-left: 9%;
+  padding-left: 5px;
+}
+
+.inpt-light {
+  border-bottom: solid 2px #000;
+}
+
+.inpt-dark {
+  border-bottom: solid 2px #337ab7;
+}
+
+#erro{
+  color: white;
+  border-radius: 5px;
+  margin: 0 9% 0 10%;
+  text-align: center;
+}
+
+#textoerro {
+  line-height: 50px;
+  font-size: 16px;
+}
+
+.t1 {
+  font-weight: bold;
+}
+
+.legenda {
+  float: right;
+  font-size: 14px;
+}
+
+#passinput {
+  width: 100%;
+  text-align: left;
+}
+
+#passimg {
+  float: right;
+  display: block;
+  margin-top: -35px;
+  margin-right: 10%;
+}
+
+.pass-png {
+  width: 35px;
+  cursor: pointer;
+}
+
+@media(max-width: 550px) {
+  #login {
+    padding-top: 100px;
+  }
+}
