@@ -2,12 +2,6 @@ var erro = document.getElementById("erro");
 var textoerro = document.getElementById("textoerro");
 var loading = document.getElementById("lding");
 
-var themeColor = window.localStorage.getItem("sessionColor");
-var passimg = document.getElementById("passshow");
-if(themeColor == "dark") {
-  passimg.setAttribute("src", "/src/img/pass-dark.png");
-}
-
 // campos form
 var nome = document.getElementById('nome');
 var cpf = document.getElementById('cpf');
@@ -30,6 +24,59 @@ var numeroCnh = document.getElementById('numeroCnh');
 var registroCnh = document.getElementById('registroCnh');
 var validadeCnh = document.getElementById('validadeCnh');
 var categoriaCnh = document.getElementById('categoriaCnh');
+
+var themeColor = window.localStorage.getItem("sessionColor");
+var passimg = document.getElementById("passshow");
+if(themeColor == "dark") {
+  passimg.setAttribute("src", "/src/img/pass-dark.png");
+  rua.classList.add("color-black");
+  cidade.classList.add("color-black");
+  estado.classList.add("color-black");
+  bairro.classList.add("color-black");
+
+  nome.classList.remove("border-black");
+  nome.classList.add("border-black1");
+  cpf.classList.remove("border-black");
+  cpf.classList.add("border-black1");
+  rg.classList.remove("border-black");
+  rg.classList.add("border-black1");
+  dataNascimento.classList.remove("border-black");
+  dataNascimento.classList.add("border-black1");
+  sexo.classList.remove("border-black");
+  sexo.classList.add("border-black1");
+  email.classList.remove("border-black");
+  email.classList.add("border-black1");
+  telefone.classList.remove("border-black");
+  telefone.classList.add("border-black1");
+  celular.classList.remove("border-black");
+  celular.classList.add("border-black1");
+  rua.classList.remove("border-black");
+  rua.classList.add("border-black1");
+  numero.classList.remove("border-black");
+  numero.classList.add("border-black1");
+  complemento.classList.remove("border-black");
+  complemento.classList.add("border-black1");
+  bairro.classList.remove("border-black");
+  bairro.classList.add("border-black1");
+  cep.classList.remove("border-black");
+  cep.classList.add("border-black1");
+  cidade.classList.remove("border-black");
+  cidade.classList.add("border-black1");
+  estado.classList.remove("border-black");
+  estado.classList.add("border-black1");
+  login.classList.remove("border-black");
+  login.classList.add("border-black1");
+  senha.classList.remove("border-black");
+  senha.classList.add("border-black1");
+  numeroCnh.classList.remove("border-black");
+  numeroCnh.classList.add("border-black1");
+  registroCnh.classList.remove("border-black");
+  registroCnh.classList.add("border-black1");
+  validadeCnh.classList.remove("border-black");
+  validadeCnh.classList.add("border-black1");
+  categoriaCnh.classList.remove("border-black");
+  categoriaCnh.classList.add("border-black1");
+}
 
 var session = sessionStorage.getItem("session");
 if(session != null) {
