@@ -1,7 +1,7 @@
 var loading = document.getElementById("lding");
 
 function searchFabricantes() {
-  var session = sessionStorage.getItem("session");
+  var session = window.localStorage.getItem("session");
   if(session != null) {
     if(session.length == 50) {
       ifLogged(session);
