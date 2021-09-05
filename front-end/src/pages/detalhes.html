@@ -145,6 +145,38 @@
   </div>
 
   <div>
+    <div id="popup1" class="hidepopup">
+      <div class="popup1 black-green-color-bg">
+        <span class="font-white1 ask1">Pague pela sua reserva</span>
+        <div>
+          <div>
+            <div id="dadoscartao">
+              <input placeholder="Número do Cartão" maxlength="20" id="numerocartao" type="text">
+              <div class="imgcard">
+                <img class="cardimg" src="/src/img/creditcard.png" alt="">
+              </div>
+              <input placeholder="Nome no Cartão" maxlength="100" id="nomecartao" type="text">
+              <div class="datacartao">
+                <input placeholder="Mês" id="mescartao" maxlength="2" type="text">
+                <input placeholder="Ano" id="anocartao" maxlength="4" type="text">
+                <input placeholder="CVV" id="cvvcartao" maxlength="3" type="text">
+              </div>
+              <div class="imgcvv">
+                <img class="cvvimg" src="/src/img/cvv.png" alt="">
+              </div>
+              <div class="divbtn">
+                <span class="invalid-card vermelho hidepagamento">Cartão Inválido</span>
+                <button id="payreserva1" class="white-color-bg1 font-green" onclick="poupA()">VOLTAR</button>
+                <button id="payreserva2" class="white-color-bg1 font-green" onclick="payFor()">PAGAR</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
     <div id="footer" class="black-green-color-bg">
       <div>
         <span>© Copyright 2021 Locadora de Veículos BH S.A.</span>

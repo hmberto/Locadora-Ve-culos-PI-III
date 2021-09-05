@@ -2,6 +2,7 @@ var loading = document.getElementById("lding");
 
 var iDLocacao = "";
 var idVeiculo = "";
+var newCpfLocatario = "";
 
 var session = window.localStorage.getItem("session");
 if(session != null) {
@@ -16,6 +17,40 @@ function trueR(number) {
   else {
     return "Não";
   }
+}
+
+var fName = window.localStorage.getItem("fName");
+
+document.getElementById("numerocartao").value = "5162 9207 5761 3268";
+document.getElementById("nomecartao").value = fName;
+document.getElementById("cvvcartao").value = "195";
+document.getElementById("anocartao").value = "2029";
+document.getElementById("mescartao").value = "08";
+
+function poupA() {
+  var popup = document.getElementById("popup1");
+
+  if(popup.classList.contains("hidepopup")) {
+    popup.classList.remove("hidepopup");
+  }
+  else {
+    popup.classList.add("hidepopup");
+  }
+}
+
+function payFor() {
+  var num = document.getElementById("numerocartao").value;
+
+  var number = parseInt(num.split(/\D+/).join(""), 10) + "";
+  var lastfour = "**** " + number.slice(12,16);
+
+  pagamento_no_site = true;
+  cartao_pagamento = lastfour;
+  cpf_locatario = newCpfLocatario;
+
+  json = '{"pagamento_no_site":"' + pagamento_no_site + '","cartao_pagamento":"' + cartao_pagamento + '","cpf_locatario":"' + cpf_locatario + '"}';
+
+  console.log(json);
 }
 
 function detalhes() {
@@ -42,6 +77,7 @@ function detalhes() {
 
       iDLocacao = resp['id_locacao'];
       idVeiculo = resp['id_veiculo'];
+      newCpfLocatario = resp['cpf_locatario'];
 
       var outros = document.querySelector(".outros");
 
@@ -135,8 +171,10 @@ function detalhes() {
         var a11 = document.createElement("a");
         a11.innerHTML="Realizar pagamento";
         a11.classList.add("font-black");
-        a11.classList.add("outroscont1");
-        a11.setAttribute("href", "#")
+        a11.classList.add("outroscont2");
+        a11.addEventListener("click", () => {
+          poupA();
+        });
         document.getElementById("showpay").appendChild(a11);
       }
 

@@ -50,6 +50,14 @@
   display: block;
 }
 
+.outroscont2 {
+  padding: 5px 0;
+  display: block;
+  cursor: pointer;
+  width: min-content;
+  white-space: nowrap;
+}
+
 .blocoinfo {
   margin-top: 30px;
 }
@@ -90,7 +98,7 @@
 #popup {
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.493);
+  background-color: rgba(0, 0, 0, 0.685);
   position: fixed;
   z-index: 15;
   top: 0;
@@ -128,8 +136,149 @@
   display: none;
 }
 
+#popup1 {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.685);
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  left: 0px;
+}
+
+.popup1 {
+  display: block;
+  width: 400px;
+  height: auto;
+  margin: auto;
+  margin-top: 150px;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.ask1 {
+  font-size: 18px;
+}
+
+.buttonspop1 {
+  margin-top: 55px;
+  margin-left: 92px;
+}
+
+.buttonspop1 button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
 #showpay {
   margin-bottom: 40px;
+}
+
+#dadoscartao {
+  width: 400px;
+  margin: auto;
+}
+
+.datacartao {
+  display: flex;
+  width: 400px;
+}
+
+#dadoscartao input {
+  height: 40px;
+  font-size: 18px;
+  padding-left: 10px;
+  background-color: none;
+  border-radius: 10px ;
+  background-color: #fff;
+  border: rgba(0, 0, 0, 0.637) 2px solid;
+  margin-top: 15px;
+}
+
+#numerocartao {
+  width: 316px;
+  padding-right: 70px;
+}
+
+#nomecartao {
+  width: 386px;
+}
+
+#mescartao {
+  width: 100%;
+  margin-right: 15px;
+}
+
+#anocartao {
+  width: 100%;
+  margin-right: 15px;
+}
+
+#cvvcartao {
+  width: 100%;
+}
+
+.imgcard {
+  text-align: right;
+}
+
+.cardimg {
+  width: 50px;
+  float: right;
+  position: absolute;
+  margin-top: -39px;
+  margin-left: -59px;
+}
+
+.imgcvv {
+  text-align: right;
+}
+
+.cvvimg {
+  width: 55px;
+  float: right;
+  position: absolute;
+  margin-top: -41px;
+  border-radius: 5px;
+  margin-left: -62px;
+}
+
+.divbtn {
+  text-align: right;
+}
+
+#payreserva1 {
+  margin-top: 20px;
+  border-radius: 7px;
+  margin-right: 3px;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#payreserva2 {
+  margin-top: 20px;
+  border-radius: 7px;
+  margin-right: 3px;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin-left: 15px;
+  font-weight: bold;
+}
+
+.hidepagamento {
+  display: none;
+}
+
+.loading2 {
+  text-align: center;
+}
+
+#loading2 {
+  width: 40%;
 }
 
 @media(max-width: 800px) {
@@ -139,6 +288,104 @@
 @media(max-width: 550px) {
   #showCar {
     padding-top: 60px;
+  }
+
+  #popup1 {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.685);
+    position: fixed;
+    z-index: 15;
+    top: 0;
+    left: 0px;
+  }
+  
+  .popup1 {
+    display: block;
+    width: 70%;
+    height: auto;
+    margin: auto;
+    margin-top: 150px;
+    border-radius: 5px;
+    padding: 20px;
+  }
+
+  .datacartao {
+    display: flex;
+    width: 100%;
+  }
+
+  #dadoscartao {
+    width: 100%;
+  }
+  
+  .datacartao {
+    width: 100%;
+  }
+  
+  #dadoscartao input {
+    font-size: 18px;
+    padding-left: 10px;
+  }
+  
+  #numerocartao {
+    width: 97%;
+    padding-right: 0px;
+  }
+  
+  #nomecartao {
+    width: 97%;
+  }
+  
+  .imgcard {
+    text-align: right;
+  }
+  
+  .cardimg {
+    width: 50px;
+    float: right;
+    position: absolute;
+    margin-top: -39px;
+    margin-left: -59px;
+  }
+  
+  .imgcvv {
+    text-align: right;
+  }
+  
+  .cvvimg {
+    width: 55px;
+    float: right;
+    position: absolute;
+    margin-top: -41px;
+    border-radius: 5px;
+    margin-left: -62px;
+  }
+  
+  .divbtn {
+    text-align: right;
+  }
+  
+  #payreserva {
+    margin-top: 20px;
+    border-radius: 7px;
+    margin-right: 3px;
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+
+  #mescartao {
+    width: 30%;
+    margin-right: 15px;
+  }
+  
+  #anocartao {
+    width: 30%;
+    margin-right: 15px;
+  }
+  
+  #cvvcartao {
+    width: 40%;
   }
 }
 
@@ -177,5 +424,76 @@
   .buttonspop button {
     margin-left: 0px;
     margin-top: 30px;
+  }
+
+  #mescartao {
+    width: 25%;
+    margin-right: 5px;
+  }
+  
+  #anocartao {
+    width: 25%;
+    margin-right: 5px;
+  }
+  
+  #cvvcartao {
+    width: 50%;
+  }
+
+  #dadoscartao input {
+    font-size: 14px;
+  }
+
+  #numerocartao {
+    width: 95%;
+    padding-right: 0px;
+  }
+  
+  #nomecartao {
+    width: 95%;
+  }
+  
+  #payreserva1 {
+    margin-top: 20px;
+    border-radius: 7px;
+    margin-right: 3px;
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  #payreserva2 {
+    margin-top: 20px;
+    border-radius: 7px;
+    margin-right: 3px;
+    padding: 10px 20px;
+    font-size: 12px;
+    margin-left: 15px;
+    font-weight: bold;
+  }
+}
+
+@media(max-width: 300px) {
+  .popup1 {
+    margin-top: 100px;
+  }
+
+  .datacartao {
+    display: block;
+    width: 100%;
+  }
+
+  #mescartao {
+    width: 95%;
+    margin-right: 0px;
+  }
+  
+  #anocartao {
+    width: 95%;
+    margin-right: 0px;
+  }
+  
+  #cvvcartao {
+    width: 95%;
   }
 }

@@ -15,17 +15,19 @@
 .map {
   display: flex;
   width: 450px;
+  margin: auto;
 }
 
 .circle1 {
   border-radius: 50%;
   height: 30px;
   width: 30px;
+  z-index: 2;
 }
 
 .line1 {
   height: 10px;
-  width: 175px;
+  width: 42%;
   margin: auto -5px;
 }
 
@@ -33,11 +35,12 @@
   border-radius: 50%;
   height: 30px;
   width: 30px;
+  z-index: 2;
 }
 
 .line2 {
   height: 10px;
-  width: 175px;
+  width: 43%;
   margin: auto -5px;
 }
 
@@ -45,13 +48,29 @@
   border-radius: 50%;
   height: 30px;
   width: 30px;
+  z-index: 2;
 }
 
 .maptxt {
   text-align: center;
-  display: flex;
-  margin-top: 20px;
-  width: 600px;
+  width: 450px;
+  margin: 20px auto;
+}
+
+.txt1 {
+  display: block;
+  text-align: left;
+  position: absolute;
+}
+
+.txt2 {
+  display: block;
+}
+
+.txt3 {
+  display: block;
+  text-align: right;
+  margin-top: -36px;
 }
 
 .separa {
@@ -250,7 +269,9 @@
 #escolhermetodo {
   font-size: 18px;
   display: flex;
-  width: 400px;
+  width: min-content;
+  margin: auto;
+  white-space: nowrap;
 }
 
 #pagarloja {
@@ -263,6 +284,7 @@
 
 #dadoscartao {
   width: 400px;
+  margin: auto;
 }
 
 .datacartao {
@@ -380,6 +402,7 @@
   padding: 20px;
   width: 300px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.308);
+  margin: auto;
 }
 
 .box-edit {
@@ -395,18 +418,19 @@
 #showask {
   text-align: left;
   margin-top: 30px;
-  display: flex;
   margin-left: 0px;
   width: 100%;
 }
 
 .markask {
-  width: 30px;
+  width: 70px;
+  float: left;
+  margin-top: -8px;
 }
 
 .tltdiv {
-  width: 100%;
-  margin-left: 50px;
+  width: auto;
+  margin-left: 0px;
 }
 
 @media(max-width: 1000px) {
@@ -451,6 +475,27 @@
     display: flex;
     width: 300px;
   }
+
+  .maptxt {
+    margin-top: 20px;
+    width: 300px;
+    font-size: 12px;
+  }
+
+  .txt1 {
+    display: block;
+    text-align: left;
+  }
+  
+  .txt2 {
+    display: block;
+  }
+  
+  .txt3 {
+    display: block;
+    text-align: right;
+    margin-top: -28px;
+  }
   
   .circle1 {
     border-radius: 50%;
@@ -460,7 +505,7 @@
   
   .line1 {
     height: 7px;
-    width: 100px;
+    width: 44%;
     margin: auto -10px;
   }
   
@@ -472,7 +517,7 @@
   
   .line2 {
     height: 7px;
-    width: 100px;
+    width: 44%;
     margin: auto -10px;
   }
   
@@ -480,12 +525,6 @@
     border-radius: 50%;
     height: 30px;
     width: 30px;
-  }
-
-  .maptxt {
-    margin-top: 20px;
-    width: 330px;
-    font-size: 12px;
   }
 
   #loading2 {
@@ -628,6 +667,19 @@
   }
 }
 
+@media(max-width: 643px) {
+  .markask {
+    width: 70px;
+    float: left;
+    margin-top: 0px;
+  }
+  
+  .tltdiv {
+    width: auto;
+    margin-left: 0px;
+  }
+}
+
 @media(max-width: 550px) {
   #reserva {
     padding-top: 60px;
@@ -663,9 +715,9 @@
   }
   
   .line1 {
+    width: 42%;
     height: 7px;
-    width: 65px;
-    margin: auto -10px;
+    margin: auto;
   }
   
   .circle2 {
@@ -675,9 +727,9 @@
   }
   
   .line2 {
+    width: 42%;
     height: 7px;
-    width: 65px;
-    margin: auto -10px;
+    margin: auto;
   }
   
   .circle3 {
@@ -690,6 +742,21 @@
     margin-top: 20px;
     width: 200px;
     font-size: 10px;
+  }
+
+  .txt1 {
+    display: block;
+    text-align: left;
+  }
+  
+  .txt2 {
+    display: block;
+  }
+  
+  .txt3 {
+    display: block;
+    text-align: right;
+    margin-top: -22px;
   }
 
   .iptcupom {
