@@ -40,7 +40,7 @@ function createReserva(y) {
       var cartao_pagamento = "null"
       if(y == 1) {
         pagamento_no_site = true;
-        cartao_pagamento = document.querySelector(".card1").textContent;
+        var cartao_pagamento = document.querySelector(".card1").textContent;
       }
 
       var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/location/create";

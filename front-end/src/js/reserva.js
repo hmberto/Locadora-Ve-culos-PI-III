@@ -84,7 +84,7 @@ function getCars() {
       }
 
       if(json['availableCar'] != 1) {
-        console.log("Veículo Indisponivel");
+        window.location.replace("/");
       }
       else if(localRetirada == null) {
         window.location.replace("/");

@@ -1,3 +1,5 @@
+var loading = document.getElementById("lding");
+
 var session = sessionStorage.getItem("session");
 if(session != null) {
   if(session.length == 50) {
@@ -6,6 +8,8 @@ if(session != null) {
 }
 
 function updatePass() {
+  loading.classList.remove("hideloading");
+
   var cpfvalue = document.getElementById("cpf")
   var user = document.getElementById("user");
   var senha1 = document.getElementById("senha1");
@@ -59,18 +63,19 @@ function updatePass() {
     xhttp.send(json);
 
     xhttp.addEventListener('loadend', () => {
+      loading.classList.add("hideloading");
       console.log(xhttp.status)
       if(xhttp.status == 200) {
         if(session != null) {
           if(session.length == 50) {
-            window.location.replace("/");
+            window.location.replace("/?p=pu");
           }
           else {
-            window.location.replace("/src/pages/login.html");
+            window.location.replace("/src/pages/login.html?p=pu");
           }
         }
         else {
-          window.location.replace("/src/pages/login.html");
+          window.location.replace("/src/pages/login.html?p=pu");
         }
       }
       else {

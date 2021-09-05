@@ -40,8 +40,6 @@ function detalhes() {
       document.querySelector(".contenttlt").innerHTML="Reserva: #" + resp['id_locacao'];
       document.querySelector(".content1").innerHTML="Guarde este número para futuras consultas. Apresente-o na agência para retirar o veículo."
 
-      console.log(resp);
-
       iDLocacao = resp['id_locacao'];
       idVeiculo = resp['id_veiculo'];
 

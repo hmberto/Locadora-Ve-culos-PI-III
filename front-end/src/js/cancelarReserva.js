@@ -1,3 +1,5 @@
+var loading = document.getElementById("lding");
+
 function hidePopup() {
   var popup = document.getElementById("popup");
 
@@ -10,6 +12,9 @@ function hidePopup() {
 }
 
 function cancelarReserva() {
+  popup.classList.add("hidepopup");
+  loading.classList.remove("hideloading");
+
   var urlParams = new URLSearchParams(window.location.search);
   var cpf = atob(urlParams.get('u'));
 
@@ -22,8 +27,9 @@ function cancelarReserva() {
   xhttp.send(json);
 
   xhttp.addEventListener('loadend', () => {
+    loading.classList.add("hideloading");
     if(xhttp.status == 200) {
-      window.location.replace("/");
+      window.location.replace("/?q=px");
     }
   });
 }
