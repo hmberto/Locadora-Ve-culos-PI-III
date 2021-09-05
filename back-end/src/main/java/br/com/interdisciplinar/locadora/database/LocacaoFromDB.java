@@ -15,6 +15,7 @@ import br.com.interdisciplinar.locadora.dt.EnvVariables;
 import br.com.interdisciplinar.locadora.dt.GenerateID;
 import br.com.interdisciplinar.locadora.locacao.CreateConsult;
 import br.com.interdisciplinar.locadora.locacao.CreateLocacao;
+import br.com.interdisciplinar.locadora.locacao.DeleteLocacao;
 
 public class LocacaoFromDB {
 	public static String NAME = LocacaoFromDB.class.getSimpleName();
@@ -35,9 +36,11 @@ public class LocacaoFromDB {
 		try {
 			PreparedStatement CHECK_LOCATARIO_ACTIVE = Database.connect().prepareStatement(CHECK_LOCATARIO);
 			CHECK_LOCATARIO_ACTIVE.setString(1, locacao.getCpf_locatario());
+			CHECK_LOCATARIO_ACTIVE.setBoolean(2, false);
 			
 			PreparedStatement CHECK_VEHICLE_AVAILABLE = Database.connect().prepareStatement(CHECK_VEHICLE);
 			CHECK_VEHICLE_AVAILABLE.setString(1, locacao.getId_veiculo());
+			CHECK_VEHICLE_AVAILABLE.setBoolean(2, true);
 			
 			ResultSet f1 = CHECK_VEHICLE_AVAILABLE.executeQuery();
 			ResultSet f2 = CHECK_LOCATARIO_ACTIVE.executeQuery();
@@ -57,7 +60,6 @@ public class LocacaoFromDB {
 				}
 			}
 			
-			LOG.log(Level.INFO, "\n\nValicação: " + valid1 + " - " + valid2 + "");
 			if(valid1 && valid2) {
 				GenerateID idLocacao = new GenerateID();
 				String newId = idLocacao.getId(15);
@@ -70,12 +72,17 @@ public class LocacaoFromDB {
 				
 				boolean cadeirinha = false;
 				boolean capa_cinto_animais = false;
+				boolean pagamento_no_site = false;
 				if(locacao.getCadeirinha() == "true") {
 					cadeirinha = true;
 				}
 				
 				if(locacao.getCapa_cinto_animais() == "true") {
 					capa_cinto_animais = true;
+				}
+				
+				if(locacao.getPagamento_no_site() == "true") {
+					pagamento_no_site = true;
 				}
 							
 				PreparedStatement statement = Database.connect().prepareStatement(sql1);
@@ -98,6 +105,8 @@ public class LocacaoFromDB {
 				statement.setString(17, locacao.getLocal_devolucao());
 				statement.setBoolean(18, cadeirinha);
 				statement.setBoolean(19, capa_cinto_animais);
+				statement.setBoolean(20, pagamento_no_site);
+				statement.setString(21, locacao.getCartao_pagamento());
 				
 				PreparedStatement statement_user = Database.connect().prepareStatement(sql2);
 				statement_user.setString(1, locacao.getCpf_locatario());
@@ -171,5 +180,81 @@ public class LocacaoFromDB {
 		
 		LOG.exiting(NAME, "consultLocation");
 		return consultMap;
+	}
+	
+	public boolean deleteLocation(DeleteLocacao location) {
+		LOG.entering(NAME, "newLocation");
+		
+		String CHECK_VEHICLE = EnvVariables.getEnvVariable("CHECK_VEHICLE");
+		String CHECK_LOCATARIO = EnvVariables.getEnvVariable("CHECK_LOCATARIO");
+		
+		String sql1 = EnvVariables.getEnvVariable("DATABASE_CANCEL_LOCATION_1");
+		String sql2 = EnvVariables.getEnvVariable("DATABASE_CANCEL_LOCATION_2");
+		String sql3 = EnvVariables.getEnvVariable("DATABASE_CANCEL_LOCATION_3");
+		
+		boolean check = false;
+		
+		try {
+			PreparedStatement CHECK_LOCATARIO_ACTIVE = Database.connect().prepareStatement(CHECK_LOCATARIO);
+			CHECK_LOCATARIO_ACTIVE.setString(1, location.getCpf());
+			CHECK_LOCATARIO_ACTIVE.setBoolean(2, true);
+			
+			PreparedStatement CHECK_VEHICLE_AVAILABLE = Database.connect().prepareStatement(CHECK_VEHICLE);
+			CHECK_VEHICLE_AVAILABLE.setString(1, location.getIdVeiculo());
+			CHECK_VEHICLE_AVAILABLE.setBoolean(2, false);
+			
+			ResultSet f1 = CHECK_VEHICLE_AVAILABLE.executeQuery();
+			ResultSet f2 = CHECK_LOCATARIO_ACTIVE.executeQuery();
+			
+			boolean valid1 = false;
+			boolean valid2 = false;
+			
+			while(f1.next()) {
+				if(f1.getString(15).equals("0")) {
+					valid1 = true;
+				}
+			}
+			
+			while(f2.next()) {
+				if(f2.getString(22).equals("1")) {
+					valid2 = true;
+				}
+			}
+			
+			if(valid1 && valid2) {
+				PreparedStatement statementDelete = Database.connect().prepareStatement(sql1);
+				statementDelete.setString(1, location.getIdLocacao());
+				
+				PreparedStatement statementVehicle = Database.connect().prepareStatement(sql2);
+				statementVehicle.setBoolean(1, true);
+				statementVehicle.setString(2, location.getIdVeiculo());
+				
+				PreparedStatement statementCliente = Database.connect().prepareStatement(sql3);
+				statementCliente.setBoolean(1, false);
+				statementCliente.setString(2, location.getCpf());
+				
+				statementDelete.execute();
+				statementDelete.close();
+				
+				statementVehicle.execute();
+				statementVehicle.close();
+				
+				statementCliente.execute();
+				statementCliente.close();
+				
+				check = true;
+				LOG.log(Level.INFO, "Location deleted from the database - Location ID: " + location.getIdLocacao() + " - User CPF: " + location.getCpf());
+			}
+		}
+		catch (SQLException e) {
+			check = false;
+			LOG.log(Level.SEVERE, "Location not deleted from the database - Location ID: " + location.getIdLocacao() + " - User CPF: " + location.getCpf() + " - Error: " + e);
+		}
+		finally {
+			Database.disconnect();
+		}
+		
+		LOG.exiting(NAME, "newLocation");
+		return check;
 	}
 }

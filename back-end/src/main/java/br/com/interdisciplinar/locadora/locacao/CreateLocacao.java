@@ -131,6 +131,22 @@ public class CreateLocacao {
 	public void setCapa_cinto_animais(String capa_cinto_animais) {
 		this.capa_cinto_animais = capa_cinto_animais;
 	}
+	
+	public String getPagamento_no_site() {
+		return pagamento_no_site;
+	}
+
+	public void setPagamento_no_site(String pagamento_no_site) {
+		this.pagamento_no_site = pagamento_no_site;
+	}
+	
+	public String getCartao_pagamento() {
+		return cartao_pagamento;
+	}
+
+	public void setCartao_pagamento(String cartao_pagamento) {
+		this.cartao_pagamento = cartao_pagamento;
+	}
 
 	String cpf_locatario;
 	String id_veiculo;
@@ -148,6 +164,8 @@ public class CreateLocacao {
 	String local_devolucao;
 	String cadeirinha;
 	String capa_cinto_animais;
+	String pagamento_no_site;
+	String cartao_pagamento;
 	
 	public CreateLocacao() {}
 }

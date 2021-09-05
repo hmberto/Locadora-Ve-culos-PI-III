@@ -28,6 +28,7 @@ import br.com.interdisciplinar.locadora.database.SendUserToDB;
 import br.com.interdisciplinar.locadora.database.UpdatePassFromDB;
 import br.com.interdisciplinar.locadora.locacao.CreateConsult;
 import br.com.interdisciplinar.locadora.locacao.CreateLocacao;
+import br.com.interdisciplinar.locadora.locacao.DeleteLocacao;
 import br.com.interdisciplinar.locadora.locacao.GenerateConsult;
 import br.com.interdisciplinar.locadora.veiculos.AvailableCars;
 import br.com.interdisciplinar.locadora.veiculos.CreateModels;
@@ -321,6 +322,30 @@ public class Rest {
 				
 				if(consultMap.get(2).length() > 1) {
 					return Response.ok(new GenerateConsult(consultMap)).build();
+				}
+				else {
+					return Response.status(Response.Status.BAD_REQUEST).build();
+				}
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		}
+		catch(Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
+	@POST
+	@Path("/location/delete")
+	public Response postDeleteLocation(DeleteLocacao location) throws Exception {
+		try {
+			if(location.getCpf().length() > 1 && location.getIdLocacao().length() > 1 && location.getIdVeiculo().length() > 1) {
+				LocacaoFromDB createConsult = new LocacaoFromDB();
+				boolean valid = createConsult.deleteLocation(location);
+				
+				if(valid) {
+					return Response.status(Response.Status.OK).build();
 				}
 				else {
 					return Response.status(Response.Status.BAD_REQUEST).build();
