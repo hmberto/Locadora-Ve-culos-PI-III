@@ -63,14 +63,14 @@ function updatePass() {
       if(xhttp.status == 200) {
         if(session != null) {
           if(session.length == 50) {
-            // window.location.replace("/");
+            window.location.replace("/");
           }
           else {
-            // window.location.replace("/src/pages/login.html");
+            window.location.replace("/src/pages/login.html");
           }
         }
         else {
-          // window.location.replace("/src/pages/login.html");
+          window.location.replace("/src/pages/login.html");
         }
       }
       else {
