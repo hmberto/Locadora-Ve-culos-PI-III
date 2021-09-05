@@ -16,6 +16,7 @@ import br.com.interdisciplinar.locadora.dt.GenerateID;
 import br.com.interdisciplinar.locadora.locacao.CreateConsult;
 import br.com.interdisciplinar.locadora.locacao.CreateLocacao;
 import br.com.interdisciplinar.locadora.locacao.DeleteLocacao;
+import br.com.interdisciplinar.locadora.locacao.UpdateLocacao;
 
 public class LocacaoFromDB {
 	public static String NAME = LocacaoFromDB.class.getSimpleName();
@@ -262,6 +263,42 @@ public class LocacaoFromDB {
 		}
 		
 		LOG.exiting(NAME, "newLocation");
+		return check;
+	}
+	
+	public boolean updateLocation(UpdateLocacao location) {
+		LOG.entering(NAME, "updateLocation");
+		
+		String sql = EnvVariables.getEnvVariable("DATABASE_UPDATE_LOCATION");
+		
+		boolean check = false;
+		
+		try {
+			boolean pagamento_no_site = false;
+			if(location.getPagamento_no_site().equals("true")) {
+				pagamento_no_site =  true;
+			}
+			
+			PreparedStatement statement = Database.connect().prepareStatement(sql);
+			statement.setBoolean(1, pagamento_no_site);
+			statement.setString(2, location.getCartao_pagamento());
+			statement.setString(3, location.getCpf_locatario());
+			
+			statement.execute();
+			statement.close();
+			
+			check = true;
+			LOG.log(Level.INFO, "Location updated from the database - User CPF: " + location.getCpf_locatario());
+		}
+		catch (SQLException e) {
+			check = false;
+			LOG.log(Level.SEVERE, "Location not deleted from the database - User CPF: " + location.getCpf_locatario());
+		}
+		finally {
+			Database.disconnect();
+		}
+		
+		LOG.exiting(NAME, "updateLocation");
 		return check;
 	}
 }

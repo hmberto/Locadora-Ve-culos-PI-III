@@ -30,6 +30,7 @@ import br.com.interdisciplinar.locadora.locacao.CreateConsult;
 import br.com.interdisciplinar.locadora.locacao.CreateLocacao;
 import br.com.interdisciplinar.locadora.locacao.DeleteLocacao;
 import br.com.interdisciplinar.locadora.locacao.GenerateConsult;
+import br.com.interdisciplinar.locadora.locacao.UpdateLocacao;
 import br.com.interdisciplinar.locadora.veiculos.AvailableCars;
 import br.com.interdisciplinar.locadora.veiculos.CreateModels;
 import br.com.interdisciplinar.locadora.veiculos.CreateVehicle;
@@ -343,6 +344,30 @@ public class Rest {
 			if(location.getCpf().length() > 1 && location.getIdLocacao().length() > 1 && location.getIdVeiculo().length() > 1) {
 				LocacaoFromDB createConsult = new LocacaoFromDB();
 				boolean valid = createConsult.deleteLocation(location);
+				
+				if(valid) {
+					return Response.status(Response.Status.OK).build();
+				}
+				else {
+					return Response.status(Response.Status.BAD_REQUEST).build();
+				}
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		}
+		catch(Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
+	@POST
+	@Path("/location/update")
+	public Response postUpdateLocation(UpdateLocacao location) throws Exception {
+		try {
+			if(location.getCpf_locatario().length() > 1 && location.getPagamento_no_site().equals("true") && location.getCartao_pagamento().length() > 1) {
+				LocacaoFromDB createConsult = new LocacaoFromDB();
+				boolean valid = createConsult.updateLocation(location);
 				
 				if(valid) {
 					return Response.status(Response.Status.OK).build();
