@@ -78,7 +78,7 @@ if(themeColor == "dark") {
   categoriaCnh.classList.add("border-black1");
 }
 
-var session = sessionStorage.getItem("session");
+var session = window.localStorage.getItem("session");
 if(session != null) {
   if(session.length == 50) {
     window.location.replace("/");
