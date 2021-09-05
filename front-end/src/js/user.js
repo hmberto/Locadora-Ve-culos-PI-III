@@ -1,5 +1,10 @@
-var session = sessionStorage.getItem("session");
+var session = window.localStorage.getItem("session");
 var loading = document.getElementById("lding");
+
+var session = window.localStorage.getItem("session");
+if(session == null || session.length != 50) {
+  window.location.replace("/");
+}
 
 function getUser() {
   if(session != null && session.length == 50) {
