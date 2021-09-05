@@ -1,10 +1,10 @@
 var loading = document.getElementById("lding");
 
-var dias3meses = parseInt(sessionStorage.getItem("dias3meses"));
-var diffDays = parseInt(sessionStorage.getItem("diffDays"));
+var dias3meses = parseInt(window.localStorage.getItem("dias3meses"));
+var diffDays = parseInt(window.localStorage.getItem("diffDays"));
 
 function validaCupom(t) {
-  var getCupomFE = sessionStorage.getItem("cupom");
+  var getCupomFE = window.localStorage.getItem("cupom");
 
   var checkvalor1 = document.getElementById("checkvalor1");
   var checkvalor2 = document.getElementById("checkvalor2");
@@ -42,7 +42,7 @@ function validaCupom(t) {
 
         var porcentagemdescontos = document.querySelector(".porcentagemdescontos");
 
-        sessionStorage.setItem("cupom", cupom);
+        window.localStorage.setItem("cupom", cupom);
 
         if(checkvalor1.checked) {
           var calcDiarias = (parseFloat(getValorfull.replace(',', '.')) * diffDays).toFixed(2).replace('.', ',');
@@ -80,7 +80,7 @@ function validaCupom(t) {
         }
       }
       else {
-        sessionStorage.setItem("cupom", "");
+        window.localStorage.setItem("cupom", "");
 
         document.querySelector(".show-dados-cupom ").classList.add("hide-dados-cupom");
         document.querySelector(".txtcupominvalid").classList.remove("hidecupominvalid");
