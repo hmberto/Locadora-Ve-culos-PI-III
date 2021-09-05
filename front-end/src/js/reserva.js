@@ -1,6 +1,6 @@
 var loading = document.getElementById("lding");
 
-var session = sessionStorage.getItem("session");
+var session = window.localStorage.getItem("session");
 if(session == null || session.length != 50) {
     window.location.replace("/");
 }
@@ -40,7 +40,7 @@ var getValorfull = "";
 var getValor3meses = "";
 
 function getCars() {
-  var session = sessionStorage.getItem("session");
+  var session = window.localStorage.getItem("session");
   if(session != null) {
     if(session.length == 50) {
       ifLogged(session);
