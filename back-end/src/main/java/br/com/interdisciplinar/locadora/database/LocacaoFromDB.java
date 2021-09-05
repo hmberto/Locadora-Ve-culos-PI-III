@@ -162,7 +162,7 @@ public class LocacaoFromDB {
 			ResultSet f = statement.executeQuery();
 			
 			while(f.next()) {
-				for(int i = 1; i < 20; i++) {
+				for(int i = 1; i < 22; i++) {
 					consultMap.put(i, f.getString(i));
 				}
 				

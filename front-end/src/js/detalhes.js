@@ -1,5 +1,8 @@
 var loading = document.getElementById("lding");
 
+var iDLocacao = "";
+var idVeiculo = "";
+
 var session = sessionStorage.getItem("session");
 if(session != null) {
   if(session.length == 50) {
@@ -36,6 +39,11 @@ function detalhes() {
       var resp = JSON.parse(xhttp.response);
       document.querySelector(".contenttlt").innerHTML="Reserva: #" + resp['id_locacao'];
       document.querySelector(".content1").innerHTML="Guarde este número para futuras consultas. Apresente-o na agência para retirar o veículo."
+
+      console.log(resp);
+
+      iDLocacao = resp['id_locacao'];
+      idVeiculo = resp['id_veiculo'];
 
       var outros = document.querySelector(".outros");
 
@@ -107,7 +115,7 @@ function detalhes() {
       outros.appendChild(div1);
 
       var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/veiculos/consulta";
-      var jsonCar = '{ "carId": \"' + resp['id_veiculo'] + '\" }';
+      var jsonCar = '{ "carId": \"' + idVeiculo + '\" }';
 
       var xhttp5 = new XMLHttpRequest();
       xhttp5.open("POST", url, true);
@@ -121,6 +129,7 @@ function detalhes() {
           spam.classList.add("tltreserva");
           spam.classList.add("tltreserva2");
           spam.classList.add("font-black");
+          spam.classList.add("left-align");
           spam.innerHTML="Sobre o veículo";
           document.getElementById("loadingcar").appendChild(spam);
 

@@ -158,6 +158,22 @@ public class GenerateConsult {
 		this.capa_cinto_animais = capa_cinto_animais;
 	}
 	
+	public String getPagamento_no_site() {
+		return pagamento_no_site;
+	}
+
+	public void setPagamento_no_site(String pagamento_no_site) {
+		this.pagamento_no_site = pagamento_no_site;
+	}
+	
+	public String getCartao_pagamento() {
+		return cartao_pagamento;
+	}
+
+	public void setCartao_pagamento(String cartao_pagamento) {
+		this.cartao_pagamento = cartao_pagamento;
+	}
+	
 	String id_locacao;
 	String cpf_locatario;
 	String id_veiculo;
@@ -177,6 +193,8 @@ public class GenerateConsult {
 	String local_devolucao;
 	String cadeirinha;
 	String capa_cinto_animais;
+	String pagamento_no_site;
+	String cartao_pagamento;
 		
 	public GenerateConsult(Map<Integer, String> consult) {
 		super();
@@ -200,5 +218,7 @@ public class GenerateConsult {
 		this.local_devolucao = consult.get(17);
 		this.cadeirinha = consult.get(18);
 		this.capa_cinto_animais = consult.get(19);
+		this.pagamento_no_site = consult.get(20);
+		this.cartao_pagamento = consult.get(21);
 	}
 }

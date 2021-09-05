@@ -181,8 +181,6 @@ function getValue() {
   xhttp.open("POST", url, true);
   xhttp.setRequestHeader("Content-Type", "application/json");
 
-  console.log(json);
-  console.log(JSON.parse(json));
   xhttp.send(json);
 
   xhttp.addEventListener('loadend', () => {

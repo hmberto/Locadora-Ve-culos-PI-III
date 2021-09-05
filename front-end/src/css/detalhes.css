@@ -36,7 +36,7 @@
 }
 
 .outros {
-  padding: 30px 0;
+  padding: 40px 0;
   text-align: left;
 }
 
@@ -67,6 +67,67 @@
   margin: 15px 10% 15px 10%;
 }
 
+.tltreserva3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.left-align {
+  text-align: left;
+}
+
+.divbuttoncancel {
+  margin: 20px 0 50px 0;
+}
+
+.divbuttoncancel button {
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#popup {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.493);
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  left: -10px;
+}
+
+.popup {
+  display: block;
+  width: 300px;
+  height: 120px;
+  margin: auto;
+  margin-top: 150px;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.ask {
+  font-size: 18px;
+}
+
+.buttonspop {
+  margin-top: 55px;
+  margin-left: 92px;
+}
+
+.buttonspop button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.hidepopup {
+  display: none;
+}
+
 @media(max-width: 800px) {
 
 }
@@ -88,5 +149,29 @@
   .links {
     padding-left: 15px;
     margin: 0px 0 20px 0;
+  }
+
+  .popup {
+    display: block;
+    width: 70%;
+    height: 120px;
+    margin: auto;
+    margin-top: 150px;
+    border-radius: 5px;
+    padding: 20px;
+  }
+
+  .popup {
+    height: auto;
+  }
+  
+  .buttonspop {
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .buttonspop button {
+    margin-left: 0px;
+    margin-top: 30px;
   }
 }
