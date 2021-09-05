@@ -73,17 +73,24 @@ public class LocacaoFromDB {
 				boolean cadeirinha = false;
 				boolean capa_cinto_animais = false;
 				boolean pagamento_no_site = false;
-				if(locacao.getCadeirinha() == "true") {
+				
+				LOG.log(Level.INFO, locacao.getCadeirinha());
+				LOG.log(Level.INFO, locacao.getCapa_cinto_animais());
+				if(locacao.getCadeirinha().equals("true")) {
+					LOG.log(Level.INFO, "A " +  cadeirinha + "");
 					cadeirinha = true;
 				}
 				
-				if(locacao.getCapa_cinto_animais() == "true") {
+				if(locacao.getCapa_cinto_animais().equals("true")) {
 					capa_cinto_animais = true;
 				}
 				
-				if(locacao.getPagamento_no_site() == "true") {
+				if(locacao.getPagamento_no_site().equals("true")) {
 					pagamento_no_site = true;
 				}
+				
+				LOG.log(Level.INFO, cadeirinha + "");
+				LOG.log(Level.INFO, capa_cinto_animais + "");
 							
 				PreparedStatement statement = Database.connect().prepareStatement(sql1);
 				statement.setString(1, newId + "-01");
