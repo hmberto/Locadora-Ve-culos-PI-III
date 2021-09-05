@@ -94,7 +94,7 @@
   position: fixed;
   z-index: 15;
   top: 0;
-  left: -10px;
+  left: 0px;
 }
 
 .popup {
@@ -126,6 +126,10 @@
 
 .hidepopup {
   display: none;
+}
+
+#showpay {
+  margin-bottom: 40px;
 }
 
 @media(max-width: 800px) {
