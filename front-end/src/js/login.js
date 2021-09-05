@@ -18,7 +18,7 @@ if(themeColor == "dark") {
   pass.classList.add("inpt-dark");
 }
 
-var session = sessionStorage.getItem("session");
+var session = window.localStorage.getItem("session");
 if(session != null) {
   if(session.length == 50) {
     window.location.replace("/");
@@ -59,7 +59,7 @@ function getValue() {
 
       var session = JSON.parse(xhttp.response);
 
-      sessionStorage.setItem("session", session['session']);
+      window.localStorage.setItem("session", session['session']);
 
       var xhttp2 = ifLogged(session['session'], 1);
       xhttp2.addEventListener('loadend', () => {

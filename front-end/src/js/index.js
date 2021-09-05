@@ -109,7 +109,7 @@ autocomplete(document.getElementById("retirada"), cidades);
 autocomplete(document.getElementById("entrega"), cidades);
 
 function getCars() {
-  var session = sessionStorage.getItem("session");
+  var session = window.localStorage.getItem("session");
   if(session != null) {
     if(session.length == 50) {
       ifLogged(session);

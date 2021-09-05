@@ -1,5 +1,5 @@
 function validateLogin(fName, session, name, logout) {
-  sessionStorage.setItem("fName", fName);
+  window.localStorage.setItem("fName", fName);
   
   name.innerHTML=fName;
   name.setAttribute("href", "#");
@@ -19,8 +19,8 @@ function validateLogin(fName, session, name, logout) {
 
     xhttp2.addEventListener('loadend', () => {
       if(xhttp2.status == 200) {
-        sessionStorage.setItem("session", null);
-        sessionStorage.setItem("fName", null);
+        window.localStorage.setItem("session", null);
+        window.localStorage.setItem("fName", null);
         window.location.replace("/");
       }
     });
@@ -65,8 +65,8 @@ function ifLogged(session, t) {
     var name = document.querySelector(".btn1");
     var logout = document.querySelector(".btn2");
 
-    var session = sessionStorage.getItem("session");
-    var fName = sessionStorage.getItem("fName");
+    var session = window.localStorage.getItem("session");
+    var fName = window.localStorage.getItem("fName");
 
     if(session != null && fName != null) {
       if(session.length == 50 && fName.length > 1) {

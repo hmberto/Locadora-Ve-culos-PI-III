@@ -6,7 +6,7 @@ var classpagarloja = document.querySelector(".pagarloja");
 
 var dadoscartao = document.getElementById("dadoscartao");
 
-var fName = sessionStorage.getItem("fName");
+var fName = window.localStorage.getItem("fName");
 
 document.getElementById("numerocartao").value = "5162 9207 5761 3268";
 document.getElementById("nomecartao").value = fName;
