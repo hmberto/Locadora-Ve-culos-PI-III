@@ -3,7 +3,7 @@ var loading = document.getElementById("lding");
 var iDLocacao = "";
 var idVeiculo = "";
 
-var session = sessionStorage.getItem("session");
+var session = window.localStorage.getItem("session");
 if(session != null) {
   if(session.length == 50) {
     ifLogged(session);
@@ -80,17 +80,19 @@ function detalhes() {
       spam4.classList.add("outroscont1");
       div1.appendChild(spam4);
 
-      var spam5 = document.createElement("span");
-      spam5.innerHTML="<b>Cupom aplicado: </b>" + resp['cupom_aplicado'];
-      spam5.classList.add("font-black");
-      spam5.classList.add("outroscont1");
-      div1.appendChild(spam5);
+      if(resp['cupom_aplicado'] != "null") {
+        var spam5 = document.createElement("span");
+        spam5.innerHTML="<b>Cupom aplicado: </b>" + resp['cupom_aplicado'];
+        spam5.classList.add("font-black");
+        spam5.classList.add("outroscont1");
+        div1.appendChild(spam5);
 
-      var spam6 = document.createElement("span");
-      spam6.innerHTML="<b>Valor do desconto: </b>" + resp['valor_descontos'];
-      spam6.classList.add("font-black");
-      spam6.classList.add("outroscont1");
-      div1.appendChild(spam6);
+        var spam6 = document.createElement("span");
+        spam6.innerHTML="<b>Valor do desconto: </b>" + resp['valor_descontos'];
+        spam6.classList.add("font-black");
+        spam6.classList.add("outroscont1");
+        div1.appendChild(spam6);
+      }
 
       var spam7 = document.createElement("span");
       spam7.innerHTML="<b>Valor pago: </b>" + resp['valor_total_a_pagar'];
@@ -105,10 +107,38 @@ function detalhes() {
       div1.appendChild(spam8);
 
       var spam9 = document.createElement("span");
-      spam9.innerHTML="<b>Valor pago: </b>" + trueR(resp['capa_cinto_animais']);
+      spam9.innerHTML="<b>Capa com cinto para animais: </b>" + trueR(resp['capa_cinto_animais']);
       spam9.classList.add("font-black");
       spam9.classList.add("outroscont1");
       div1.appendChild(spam9);
+
+      if(resp['pagamento_no_site'] == "1") {
+        var spam10 = document.createElement("span");
+        spam10.innerHTML="<b>Você já pagou pela reserva</b>";
+        spam10.classList.add("font-black");
+        spam10.classList.add("outroscont1");
+        document.getElementById("showpay").appendChild(spam10);
+
+        var spam11 = document.createElement("span");
+        spam11.innerHTML="<b>Cartão: </b>" + resp['cartao_pagamento'];
+        spam11.classList.add("font-black");
+        spam11.classList.add("outroscont1");
+        document.getElementById("showpay").appendChild(spam11);
+      }
+      else {
+        var spam10 = document.createElement("span");
+        spam10.innerHTML="<b>Você ainda não pagou pela reserva</b>";
+        spam10.classList.add("font-black");
+        spam10.classList.add("outroscont1");
+        document.getElementById("showpay").appendChild(spam10);
+
+        var a11 = document.createElement("a");
+        a11.innerHTML="Realizar pagamento";
+        a11.classList.add("font-black");
+        a11.classList.add("outroscont1");
+        a11.setAttribute("href", "#")
+        document.getElementById("showpay").appendChild(a11);
+      }
 
       outros.appendChild(div1);
 
