@@ -25,7 +25,7 @@ if(themeColor == "dark") {
 }
 
 function getCars() {
-  var session = sessionStorage.getItem("session");
+  var session = window.localStorage.getItem("session");
   if(session != null) {
     if(session.length == 50) {
       ifLogged(session);
@@ -129,7 +129,7 @@ function validateCheckTermo() {
         button.disabled = false;
       }
       else  {
-        var session = sessionStorage.getItem("session");
+        var session = window.localStorage.getItem("session");
         if(session != null) {
           if(session.length == 50) {
             var url = "/src/pages/reserva.html?carId=" + urlParam;
