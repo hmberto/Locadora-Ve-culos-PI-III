@@ -30,6 +30,7 @@ function cancelarReserva() {
     loading.classList.add("hideloading");
     if(xhttp.status == 200) {
       window.location.replace("/?q=px");
+      window.localStorage.setItem("q", 'px');
     }
   });
 }
