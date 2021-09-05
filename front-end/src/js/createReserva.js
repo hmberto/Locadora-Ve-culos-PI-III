@@ -19,20 +19,22 @@ function createReserva(y) {
       var A = document.querySelector(".valorLocacao").textContent;
       var B = document.querySelector(".valordescontos").textContent;
       var C = document.querySelector(".totalvalorLocacao").textContent;
-      var D = sessionStorage.getItem("cupom");
+      var D = window.localStorage.getItem("cupom");
       var E = document.getElementById("cadeirinha").checked;
       var F = document.getElementById("animais").checked;
 
-      if(A == "" || A == undefined) {
+      if(A == "" || A == undefined || A == null || A == "null") {
         A = null;
       }
-      if(B == "" || B == undefined) {
+      if(B == "" || B == undefined || B == null || B == "null") {
         B = null;
       }
-      if(C == "" || C == undefined) {
+      if(C == "" || C == undefined || C == null || C == "null") {
         C = A;
       }
-      if(D == "" || D == undefined) {
+      if(D == "" || D == undefined || D == null || D == "null") {
+        B = null;
+        C = A;
         D = null;
       }
 
