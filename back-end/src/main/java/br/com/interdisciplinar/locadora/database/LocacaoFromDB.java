@@ -288,7 +288,7 @@ public class LocacaoFromDB {
 			statement.close();
 			
 			check = true;
-			LOG.log(Level.INFO, "Location updated from the database - User CPF: " + location.getCpf_locatario());
+			LOG.log(Level.INFO, "Location updated from the database - User CPF: " + location.getCpf_locatario() + " - Cartão: " + location.getCartao_pagamento() + " - pagamento_no_site: " + pagamento_no_site);
 		}
 		catch (SQLException e) {
 			check = false;
