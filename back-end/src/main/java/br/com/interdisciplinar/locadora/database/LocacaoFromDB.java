@@ -269,7 +269,8 @@ public class LocacaoFromDB {
 	public boolean updateLocation(UpdateLocacao location) {
 		LOG.entering(NAME, "updateLocation");
 		
-		String sql = EnvVariables.getEnvVariable("DATABASE_UPDATE_LOCATION");
+		String sql1 = EnvVariables.getEnvVariable("DATABASE_UPDATE_LOCATION_1");
+		String sql2 = EnvVariables.getEnvVariable("DATABASE_UPDATE_LOCATION_2");
 		
 		boolean check = false;
 		
@@ -279,20 +280,26 @@ public class LocacaoFromDB {
 				pagamento_no_site =  true;
 			}
 			
-			PreparedStatement statement = Database.connect().prepareStatement(sql);
+			PreparedStatement statement = Database.connect().prepareStatement(sql1);
 			statement.setBoolean(1, pagamento_no_site);
-			statement.setString(2, location.getCartao_pagamento());
-			statement.setString(3, location.getCpf_locatario());
+			statement.setString(2, location.getCpf_locatario());
+			
+			PreparedStatement statement1 = Database.connect().prepareStatement(sql2);
+			statement1.setString(1, location.getCartao_pagamento());
+			statement1.setString(1, location.getCpf_locatario());
 			
 			statement.execute();
 			statement.close();
+			
+			statement1.execute();
+			statement1.close();
 			
 			check = true;
 			LOG.log(Level.INFO, "Location updated from the database - User CPF: " + location.getCpf_locatario() + " - Cartão: " + location.getCartao_pagamento() + " - pagamento_no_site: " + pagamento_no_site);
 		}
 		catch (SQLException e) {
 			check = false;
-			LOG.log(Level.SEVERE, "Location not deleted from the database - User CPF: " + location.getCpf_locatario());
+			LOG.log(Level.SEVERE, "Location not updated from the database - User CPF: " + location.getCpf_locatario());
 		}
 		finally {
 			Database.disconnect();

@@ -39,6 +39,9 @@ function poupA() {
 }
 
 function payFor() {
+  loading.classList.remove("hideloading");
+  poupA();
+
   var num = document.getElementById("numerocartao").value;
 
   var number = parseInt(num.split(/\D+/).join(""), 10) + "";
@@ -48,9 +51,23 @@ function payFor() {
   cartao_pagamento = lastfour;
   cpf_locatario = newCpfLocatario;
 
-  json = '{"pagamento_no_site":"' + pagamento_no_site + '","cartao_pagamento":"' + cartao_pagamento + '","cpf_locatario":"' + cpf_locatario + '"}';
+  var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/location/update";
+  var json = '{"pagamento_no_site":"' + pagamento_no_site + '","cartao_pagamento":"' + cartao_pagamento + '","cpf_locatario":"' + cpf_locatario + '"}';
 
-  console.log(json);
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("POST", url, true);
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.send(json);
+
+  xhttp.addEventListener('loadend', () => {
+    loading.classList.add("hideloading");
+    if(xhttp.status == 200) {
+      var urlParams = new URLSearchParams(window.location.search);
+      var number = urlParams.get('u');
+
+      window.location.replace("/src/pages/detalhes.html?u=" + number + "&x=hu");
+    }
+  });
 }
 
 function detalhes() {
