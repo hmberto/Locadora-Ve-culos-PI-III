@@ -19,7 +19,7 @@ public class AuthChangePass {
 	}
 	
 	public String getNewPass() {
-		return cpf;
+		return newPass;
 	}
 	public void setNewPass(String newPass) {
 		this.newPass = newPass;

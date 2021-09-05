@@ -1,6 +1,7 @@
 package br.com.interdisciplinar.locadora.database;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,7 +16,6 @@ public class UpdatePassFromDB {
 	public boolean updatePass(AuthChangePass newPass) {
 		LOG.entering(NAME, "updatePass");
 		
-		boolean validate = false;
 		String sql = EnvVariables.getEnvVariable("DATABASE_VALIDATE_LOGIN_CPF");
 		String sqlPass = EnvVariables.getEnvVariable("DATABASE_UPDATE_PASSWORD");
 				
@@ -24,17 +24,24 @@ public class UpdatePassFromDB {
 			statement.setString(1, newPass.getCpf());
 			statement.setString(2, newPass.getUser());
 			
-			statement.executeQuery();
+			ResultSet f = statement.executeQuery();
 			
-			PreparedStatement statement2 = Database.connect().prepareStatement(sqlPass);
-			statement2.setString(1, newPass.getNewPass());
-			statement2.setString(2, newPass.getCpf());
-			statement2.setString(3, newPass.getUser());
+			boolean validate = false;
+			while(f.next()) {
+				if(f.getString(2).equals(newPass.getCpf())) {
+					validate = true;
+				}
+			}
 			
-			statement2.execute();
+			if(validate) {
+				PreparedStatement statement2 = Database.connect().prepareStatement(sqlPass);
+				statement2.setString(1, newPass.getNewPass());
+				statement2.setString(2, newPass.getCpf());
+				statement2.setString(3, newPass.getUser());
+				
+				statement2.execute();
+			}
 			statement.close();
-			
-			validate = true;
 			
 			LOG.log(Level.INFO, "Pass updated - User: " + newPass.getUser());
 		}
@@ -46,6 +53,6 @@ public class UpdatePassFromDB {
 		}
 		
 		LOG.exiting(NAME, "updatePass");
-		return validate ;
+		return true;
 	}
 }
