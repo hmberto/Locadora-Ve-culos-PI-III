@@ -9,11 +9,16 @@ var submitbtn = document.getElementById("searchbutton");
 var localRetiradaCar = window.localStorage.getItem("localRetirada");
 if(localRetiradaCar != null && localRetiradaCar.length > 1) {
   localRetirada.value = window.localStorage.getItem("localRetirada");
-  dataRetirada.value = window.localStorage.getItem("dataRetirada");
   horaRetirada.value = window.localStorage.getItem("horaRetirada");
   localDevolucao.value = window.localStorage.getItem("localDevolucao");
-  dataDevolucao.value = window.localStorage.getItem("dataDevolucao");
   horaDevolucao.value = window.localStorage.getItem("horaDevolucao");
+
+  if(moment(window.localStorage.getItem("dataRetirada")).isAfter(dataRetirada.value)) {
+    dataRetirada.value = window.localStorage.getItem("dataRetirada");
+  }
+  if(moment(window.localStorage.getItem("dataDevolucao")).isAfter(dataDevolucao.value)) {
+    dataDevolucao.value = window.localStorage.getItem("dataDevolucao");
+  }
 }
 
 var showSearchBox1 = document.getElementById("setaabaixo");
@@ -79,8 +84,63 @@ function searchCar() {
     dataDevolucao.value != null && dataDevolucao.value != "" &&
     horaDevolucao.value != null && horaDevolucao.value != "") 
   {
-    if(dataRetirada.value == dataDevolucao.value) {
-      document.querySelector(".showerr").innerHTML="* Mínimo três diárias"
+    var data = new Date();
+
+    var dia = String(data.getDate()).padStart(2, '0');
+    var mes = String(data.getMonth() + 1).padStart(2, '0');
+    var ano = data.getFullYear();
+
+    var date = ano + "-" + mes + "-" + dia;
+
+    data.setDate(data.getDate() + 1);
+    var diatresdias = String(data.getDate()).padStart(2, '0');
+    var mestresdias = String(data.getMonth() + 1).padStart(2, '0');
+    var anotresdias = data.getFullYear();
+
+    var datetresdias = anotresdias + "-" + mestresdias + "-" + diatresdias;
+
+    data.setDate(data.getDate() + 3);
+    var diatresdias1 = String(data.getDate()).padStart(2, '0');
+    var mestresdias1 = String(data.getMonth() + 1).padStart(2, '0');
+    var anotresdias1 = data.getFullYear();
+
+    var datetresdias1 = anotresdias1 + "-" + mestresdias1 + "-" + diatresdias1;
+
+    var nData = new Date(dataRetirada.value);
+
+    nData.setDate(nData.getDate() + 4);
+    var diatresdias2 = String(nData.getDate()).padStart(2, '0');
+    var mestresdias2 = String(nData.getMonth() + 1).padStart(2, '0');
+    var anotresdias2 = nData.getFullYear();
+
+    var dataFrente = anotresdias2 + "-" + mestresdias2 + "-" + diatresdias2;
+
+    if(moment(date).isAfter(dataRetirada.value)) {
+      document.querySelector(".showerr").innerHTML="* Data já passou";
+      document.querySelector(".showerr").classList.remove("hideerr");
+    }
+    else if(moment(date).isAfter(dataDevolucao.value)) {
+      document.querySelector(".showerr").innerHTML="* Data já passou";
+      document.querySelector(".showerr").classList.remove("hideerr");
+    }
+    else if(moment(datetresdias).isAfter(dataRetirada.value)) {
+      document.querySelector(".showerr").innerHTML="* Nenhum resultado para hoje";
+      document.querySelector(".showerr").classList.remove("hideerr");
+    }
+    else if(moment(datetresdias1).isAfter(dataDevolucao.value)) {
+      document.querySelector(".showerr").innerHTML="* Mínimo três diárias";
+      document.querySelector(".showerr").classList.remove("hideerr");
+    }
+    else if(moment(dataRetirada.value).isAfter(dataDevolucao.value)) {
+      document.querySelector(".showerr").innerHTML="* Mínimo três diárias";
+      document.querySelector(".showerr").classList.remove("hideerr");
+    }
+    else if(moment(dataFrente).isAfter(dataDevolucao.value)) {
+      document.querySelector(".showerr").innerHTML="* Mínimo três diárias";
+      document.querySelector(".showerr").classList.remove("hideerr");
+    }
+    else if(dataRetirada.value == dataDevolucao.value) {
+      document.querySelector(".showerr").innerHTML="* Mínimo três diárias";
       document.querySelector(".showerr").classList.remove("hideerr");
     }
     else {
