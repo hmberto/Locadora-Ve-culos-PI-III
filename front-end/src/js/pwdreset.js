@@ -48,7 +48,7 @@ function updatePass() {
     var parsePass = btoa(senha1.value);
 
     var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/clientes/pwdReset";
-    var json = '{"user": "' + parseUser + '","cpf": "' + cpf.value + '","newPass": "' + parsePass + '"}';
+    var json = '{"user": "' + parseUser + '","cpf": "' + cpf + '","newPass": "' + parsePass + '"}';
 
     console.log(JSON.parse(json))
 
@@ -59,17 +59,18 @@ function updatePass() {
     xhttp.send(json);
 
     xhttp.addEventListener('loadend', () => {
+      console.log(xhttp.status)
       if(xhttp.status == 200) {
         if(session != null) {
           if(session.length == 50) {
-            window.location.replace("/");
+            // window.location.replace("/");
           }
           else {
-            window.location.replace("/src/pages/login.html");
+            // window.location.replace("/src/pages/login.html");
           }
         }
         else {
-          window.location.replace("/src/pages/login.html");
+          // window.location.replace("/src/pages/login.html");
         }
       }
       else {
