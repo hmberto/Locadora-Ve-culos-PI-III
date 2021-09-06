@@ -10,6 +10,7 @@ if(session != null) {
     ifLogged(session);
   }
 }
+
 function trueR(number) {
   if(number == 1) {
     return "Sim";
@@ -28,13 +29,29 @@ document.getElementById("anocartao").value = "2029";
 document.getElementById("mescartao").value = "08";
 
 function poupA() {
-  var popup = document.getElementById("popup1");
+  var session = window.localStorage.getItem("session");
+  if(session != null && session.length == 50) {
+    var popup = document.getElementById("popup1");
 
-  if(popup.classList.contains("hidepopup")) {
-    popup.classList.remove("hidepopup");
+    if(popup.classList.contains("hidepopup")) {
+      popup.classList.remove("hidepopup");
+    }
+    else {
+      popup.classList.add("hidepopup");
+    }
   }
   else {
-    popup.classList.add("hidepopup");
+    var a12 = document.createElement("a");
+      a12.innerHTML="Clique para fazer login";
+      a12.classList.add("font-green");
+      a12.classList.add("outroscont2");
+      a12.addEventListener("click", () => {
+        var urlParams = new URLSearchParams(window.location.search);
+        var number = urlParams.get('u');
+
+        window.location.replace("/src/pages/login.html?u=" + number);
+      });
+      document.getElementById("showpay").appendChild(a12);
   }
 }
 
@@ -65,6 +82,7 @@ function payFor() {
       var urlParams = new URLSearchParams(window.location.search);
       var number = urlParams.get('u');
 
+      window.localStorage.setItem("x", 'hu');
       window.location.replace("/src/pages/detalhes.html?u=" + number + "&x=hu");
     }
   });
@@ -187,7 +205,7 @@ function detalhes() {
 
         var a11 = document.createElement("a");
         a11.innerHTML="Realizar pagamento";
-        a11.classList.add("font-black");
+        a11.classList.add("font-green");
         a11.classList.add("outroscont2");
         a11.addEventListener("click", () => {
           poupA();

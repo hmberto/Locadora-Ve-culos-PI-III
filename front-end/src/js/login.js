@@ -8,6 +8,9 @@ var loading = document.getElementById("lding");
 const urlParams2 = new URLSearchParams(window.location.search);
 const urlParam2 = urlParams2.get('carId');
 
+const urlParams7 = new URLSearchParams(window.location.search);
+const number7 = urlParams7.get('u');
+
 var themeColor = window.localStorage.getItem("sessionColor");
 var passimg = document.getElementById("passshow");
 if(themeColor == "dark") {
@@ -63,13 +66,11 @@ function getValue() {
 
       var xhttp2 = ifLogged(session['session'], 1);
       xhttp2.addEventListener('loadend', () => {
-        if(urlParam2 != null) {
-          if(urlParam2.length > 3) {
-            window.location.replace("/src/pages/car.html?carId=" + urlParam2);
-          }
-          else {
-            window.location.replace("/");
-          }
+        if(urlParam2 != null && urlParam2.length > 3) {
+          window.location.replace("/src/pages/car.html?carId=" + urlParam2);
+        }
+        else if(number7 != null && number7.length > 3) {
+          window.location.replace("/src/pages/detalhes.html?u=" + number7);
         }
         else {
           window.location.replace("/");
