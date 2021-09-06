@@ -8,7 +8,9 @@ inputchatbox.disabled = true;
 inputchatbox.addEventListener('keyup', function(e){
   var key = e.which || e.keyCode;
   if (key == 13) {
-    sendMensagem();
+    if(inputchatbox.value != "") {
+      sendMensagem();
+    }
   }
 });
 
@@ -179,48 +181,94 @@ closechat.addEventListener("click", () => {
 });
 
 function sendMensagem() {
-  document.querySelector(".cards").innerHTML="";
-  document.getElementById("chatcontentbox").classList.remove("margin2");
-  document.getElementById("chatcontentbox").classList.add("margin1");
-  
-  var mensagem = inputchatbox;
-  var newMsg = mensagem.value;
+  if(inputchatbox.value != "") {
+    document.querySelector(".cards").innerHTML="";
+    document.getElementById("chatcontentbox").classList.remove("margin2");
+    document.getElementById("chatcontentbox").classList.add("margin1");
+    
+    var mensagem = inputchatbox;
+    var newMsg = mensagem.value;
 
-  var horaatual = getHora();
+    var horaatual = getHora();
 
-  usermensagens(horaatual, mensagem.value);
-  document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
+    usermensagens(horaatual, mensagem.value);
+    document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
 
-  mensagem.value = "";
-  inputchatbox.focus();
-  setTimeout(function() {
-    var getWords = newMsg.toUpperCase().split(" ");
-    var ifCPF = getWords.indexOf("CPF");
-    var ifRESERVA = getWords.indexOf("RESERVA");
+    mensagem.value = "";
+    inputchatbox.focus();
+    setTimeout(function() {
+      var getWords = newMsg.toUpperCase().split(" ");
+      var ifCPF = getWords.indexOf("CPF");
+      var ifRESERVA = getWords.indexOf("RESERVA");
 
-    var ifNumber = parseInt(newMsg.split(/\D+/).join(""), 10) + "";
+      var ifNumber = parseInt(newMsg.split(/\D+/).join(""), 10) + "";
 
-    if(ifNumber.length == 11) {
-      primeirasmensagens(horaatual, "Identifiquei seu CPF. Só um minuto...");
-      document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
-      var xhttpResponse = consulta(ifNumber);
-      
-      xhttpResponse.addEventListener("loadend", () => {
-        if(xhttpResponse.status == 200) {
-          var jsonResp = JSON.parse(xhttpResponse.response);
+      if(ifNumber.length == 11) {
+        primeirasmensagens(horaatual, "Identifiquei seu CPF. Só um minuto...");
+        document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
+        var xhttpResponse = consulta(ifNumber);
+        
+        xhttpResponse.addEventListener("loadend", () => {
+          if(xhttpResponse.status == 200) {
+            var jsonResp = JSON.parse(xhttpResponse.response);
 
-          var data_locacao = jsonResp['data_locacao'].split('-');
-          var hora_locacao = jsonResp['hora_locacao'].split(":");
-          var data_retirada = jsonResp['data_retirada'].split('-');
-          var hora_retirada = jsonResp['hora_retirada'].split(":");
-          var id_locacao = jsonResp['id_locacao'];
-          var local_retirada = jsonResp['local_retirada'];
+            var data_locacao = jsonResp['data_locacao'].split('-');
+            var hora_locacao = jsonResp['hora_locacao'].split(":");
+            var data_retirada = jsonResp['data_retirada'].split('-');
+            var hora_retirada = jsonResp['hora_retirada'].split(":");
+            var id_locacao = jsonResp['id_locacao'];
+            var local_retirada = jsonResp['local_retirada'];
 
-          setTimeout(function() {
-            primeirasmensagens(horaatual, "Você possui uma reserva ativa realizada no dia <b>" + data_locacao[2] + "/" + data_locacao[1] + "/" + data_locacao[0] + "</b> às <b>" + hora_locacao[0] + ":" + hora_locacao[1] + "h</b>.");
-            document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
             setTimeout(function() {
-              primeirasmensagens(horaatual, "Número do seu pedido: <b>#" + id_locacao + "</b>");
+              primeirasmensagens(horaatual, "Você possui uma reserva ativa realizada no dia <b>" + data_locacao[2] + "/" + data_locacao[1] + "/" + data_locacao[0] + "</b> às <b>" + hora_locacao[0] + ":" + hora_locacao[1] + "h</b>.");
+              document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
+              setTimeout(function() {
+                primeirasmensagens(horaatual, "Número do seu pedido: <b>#" + id_locacao + "</b>");
+                document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
+                setTimeout(function() {
+                  primeirasmensagens(horaatual, "Você escolheu retirar o veículo na agência <b>" + local_retirada + "</b> às <b>" + hora_retirada[0] + ":" + hora_retirada[1] + "h</b> nesta data: <b> " + data_retirada[2] + "/" + data_retirada[1] + "/" + data_retirada[0] + ".");
+                  document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
+                  setTimeout(function() {
+                    primeirasmensagens(horaatual, "Clique <a href='/src/pages/detalhes.html?u=" + btoa(jsonResp['cpf_locatario']) + "'>aqui</a> para ver mais detalhes.");
+                    document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
+                  }, 500);
+                }, 500);
+              }, 500);
+            }, 300);
+          }
+          else {
+            setTimeout(function() {
+              primeirasmensagens(horaatual, "Não consegui encontar nenhuma reserva no sistema.");
+              document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
+              setTimeout(function() {
+                primeirasmensagens(horaatual, "Clique <a href='#'>aqui</a> para realizar uma.");
+                document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
+              }, 500);
+            }, 500);
+          }
+        });
+      }
+      else if(ifNumber.length == 17) {
+        var num = ifNumber.slice(0,15) + "-01";
+
+        primeirasmensagens(horaatual, "Identifiquei o número da sua reserva. Só um minuto...");
+        document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
+        
+        var xhttpResponse = consulta(num);
+        
+        xhttpResponse.addEventListener("loadend", () => {
+          if(xhttpResponse.status == 200) {
+            var jsonResp = JSON.parse(xhttpResponse.response);
+
+            var data_locacao = jsonResp['data_locacao'].split('-');
+            var hora_locacao = jsonResp['hora_locacao'].split(":");
+            var data_retirada = jsonResp['data_retirada'].split('-');
+            var hora_retirada = jsonResp['hora_retirada'].split(":");
+            var id_locacao = jsonResp['id_locacao'];
+            var local_retirada = jsonResp['local_retirada'];
+
+            setTimeout(function() {
+              primeirasmensagens(horaatual, "Você possui uma reserva ativa realizada no dia <b>" + data_locacao[2] + "/" + data_locacao[1] + "/" + data_locacao[0] + "</b> às <b>" + hora_locacao[0] + ":" + hora_locacao[1] + "h</b>.");
               document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
               setTimeout(function() {
                 primeirasmensagens(horaatual, "Você escolheu retirar o veículo na agência <b>" + local_retirada + "</b> às <b>" + hora_retirada[0] + ":" + hora_retirada[1] + "h</b> nesta data: <b> " + data_retirada[2] + "/" + data_retirada[1] + "/" + data_retirada[0] + ".");
@@ -230,76 +278,32 @@ function sendMensagem() {
                   document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
                 }, 500);
               }, 500);
-            }, 500);
-          }, 300);
-        }
-        else {
-          setTimeout(function() {
-            primeirasmensagens(horaatual, "Não consegui encontar nenhuma reserva no sistema.");
-            document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
+            }, 300);
+          }
+          else {
             setTimeout(function() {
-              primeirasmensagens(horaatual, "Clique <a href='#'>aqui</a> para realizar uma.");
-              document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
-            }, 500);
-          }, 500);
-        }
-      });
-    }
-    else if(ifNumber.length == 17) {
-      var num = ifNumber.slice(0,15) + "-01";
-
-      primeirasmensagens(horaatual, "Identifiquei o número da sua reserva. Só um minuto...");
-      document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
-      
-      var xhttpResponse = consulta(num);
-      
-      xhttpResponse.addEventListener("loadend", () => {
-        if(xhttpResponse.status == 200) {
-          var jsonResp = JSON.parse(xhttpResponse.response);
-
-          var data_locacao = jsonResp['data_locacao'].split('-');
-          var hora_locacao = jsonResp['hora_locacao'].split(":");
-          var data_retirada = jsonResp['data_retirada'].split('-');
-          var hora_retirada = jsonResp['hora_retirada'].split(":");
-          var id_locacao = jsonResp['id_locacao'];
-          var local_retirada = jsonResp['local_retirada'];
-
-          setTimeout(function() {
-            primeirasmensagens(horaatual, "Você possui uma reserva ativa realizada no dia <b>" + data_locacao[2] + "/" + data_locacao[1] + "/" + data_locacao[0] + "</b> às <b>" + hora_locacao[0] + ":" + hora_locacao[1] + "h</b>.");
-            document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
-            setTimeout(function() {
-              primeirasmensagens(horaatual, "Você escolheu retirar o veículo na agência <b>" + local_retirada + "</b> às <b>" + hora_retirada[0] + ":" + hora_retirada[1] + "h</b> nesta data: <b> " + data_retirada[2] + "/" + data_retirada[1] + "/" + data_retirada[0] + ".");
+              primeirasmensagens(horaatual, "Não consegui encontar nenhuma reserva no sistema.");
               document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
               setTimeout(function() {
-                primeirasmensagens(horaatual, "Clique <a href='/src/pages/detalhes.html?u=" + btoa(jsonResp['cpf_locatario']) + "'>aqui</a> para ver mais detalhes.");
+                primeirasmensagens(horaatual, "Clique <a href='#'>aqui</a> para realizar uma.");
                 document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
               }, 500);
             }, 500);
-          }, 300);
-        }
-        else {
-          setTimeout(function() {
-            primeirasmensagens(horaatual, "Não consegui encontar nenhuma reserva no sistema.");
-            document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
-            setTimeout(function() {
-              primeirasmensagens(horaatual, "Clique <a href='#'>aqui</a> para realizar uma.");
-              document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
-            }, 500);
-          }, 500);
-        }
-      });
-    }
-    else if(newMsg.toUpperCase() == "CPF" || ifCPF >= 0) {
-      primeirasmensagens(horaatual, "Tudo bem. Digita seu CPF que eu já verifico pra você.");
-      document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
-    }
-    else if(newMsg.toUpperCase() == "RESERVA" || ifRESERVA >= 0) {
-      primeirasmensagens(horaatual, "Tudo bem. Digita o número da sua reserva que eu já verifico pra você.");
-      document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
-    }
-    else {
-      primeirasmensagens(horaatual, "Desculpe, não consegui entender...");
-      document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
-    }
-  }, 1000);
+          }
+        });
+      }
+      else if(newMsg.toUpperCase() == "CPF" || ifCPF >= 0) {
+        primeirasmensagens(horaatual, "Tudo bem. Digita seu CPF que eu já verifico pra você.");
+        document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
+      }
+      else if(newMsg.toUpperCase() == "RESERVA" || ifRESERVA >= 0) {
+        primeirasmensagens(horaatual, "Tudo bem. Digita o número da sua reserva que eu já verifico pra você.");
+        document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
+      }
+      else {
+        primeirasmensagens(horaatual, "Desculpe, não consegui entender...");
+        document.getElementById("chatcontentbox").scrollTop = document.getElementById("chatcontentbox").scrollHeight;
+      }
+    }, 1000);
+  }
 }
