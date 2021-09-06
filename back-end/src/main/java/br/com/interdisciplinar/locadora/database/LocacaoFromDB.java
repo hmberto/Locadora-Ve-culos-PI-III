@@ -269,8 +269,8 @@ public class LocacaoFromDB {
 	public boolean updateLocation(UpdateLocacao location) {
 		LOG.entering(NAME, "updateLocation");
 		
-		String sql1 = EnvVariables.getEnvVariable("DATABASE_UPDATE_LOCATION_1");
-		String sql2 = EnvVariables.getEnvVariable("DATABASE_UPDATE_LOCATION_2");
+		String sql1 = EnvVariables.getEnvVariable("DATABASE_UPDATE_LOCATION_4");
+		String sql2 = EnvVariables.getEnvVariable("DATABASE_UPDATE_LOCATION_5");
 		
 		boolean check = false;
 		
