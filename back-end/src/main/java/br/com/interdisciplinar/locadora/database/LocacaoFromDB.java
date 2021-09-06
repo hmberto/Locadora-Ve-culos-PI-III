@@ -286,7 +286,7 @@ public class LocacaoFromDB {
 			
 			PreparedStatement statement1 = Database.connect().prepareStatement(sql2);
 			statement1.setString(1, location.getCartao_pagamento());
-			statement1.setString(1, location.getCpf_locatario());
+			statement1.setString(2, location.getCpf_locatario());
 			
 			statement.execute();
 			statement.close();
