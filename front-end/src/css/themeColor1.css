@@ -1,9 +1,9 @@
 .white-color-bg {
-  background-color: #1a2329;
+  background-color: #1b1b1b;
 }
 
 .grey-color-bg {
-  background-color: #0d1418;
+  background-color: #000000;
 }
 
 .azul {
@@ -19,7 +19,7 @@
 }
 
 .black-green-color-bg  {
-  background-color: #006463;
+  background-color: #747474;
 }
 
 .font-white {
@@ -31,7 +31,7 @@
 }
 
 .font-green {
-  color: #006463;
+  color: #d4d4d4;
 }
 
 .font-blue {
@@ -67,4 +67,8 @@
 
 .font-black1 {
   color: #000;
+}
+
+.font-green2 {
+  color: #000000;
 }
