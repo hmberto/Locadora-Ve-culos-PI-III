@@ -37,6 +37,10 @@ function searchCarMarca() {
         var div = document.createElement("div");
         div.classList.add("showcar");
         div.classList.add("white-color-bg");
+
+        var div1 = document.createElement("div");
+        div1.classList.add("showcar1");
+        div.appendChild(div1);
     
         var name = "car" + i;
         var data = json['data'][name];
@@ -44,7 +48,7 @@ function searchCarMarca() {
         var img = document.createElement("img");
         img.classList.add("car");
         img.setAttribute('src', data['imgPath']);
-        div.appendChild(img);
+        div1.appendChild(img);
     
         var span = document.createElement("span");
         span.classList.add("titlecar");

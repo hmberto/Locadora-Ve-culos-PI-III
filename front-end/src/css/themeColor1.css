@@ -53,7 +53,8 @@
 }
 
 .locar button:disabled {
-  background-color: #00a769;
+  background-color: #747474;
+  color: rgb(78, 78, 78);
 }
 
 /* Dont Change */
