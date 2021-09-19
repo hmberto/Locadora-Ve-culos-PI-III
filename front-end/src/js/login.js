@@ -11,6 +11,17 @@ const urlParam2 = urlParams2.get('carId');
 const urlParams7 = new URLSearchParams(window.location.search);
 const number7 = urlParams7.get('u');
 
+const urlParams = new URLSearchParams(window.location.search);
+const emailConfirmed = urlParams.get('e');
+
+if(emailConfirmed == "false") {
+  erro.classList.remove("azul");
+  erro.classList.add("vermelho");
+  erro.classList.remove("verde");
+
+  textoerro.textContent="Confirme seu e-mail.";
+}
+
 var themeColor = window.localStorage.getItem("sessionColor");
 var passimg = document.getElementById("passshow");
 if(themeColor == "dark") {
@@ -67,14 +78,44 @@ function getValue() {
 
       var xhttp2 = ifLogged(session['session'], 1);
       xhttp2.addEventListener('loadend', () => {
-        if(urlParam2 != null && urlParam2.length > 3) {
-          window.location.replace("/src/pages/car.html?carId=" + urlParam2);
+        var confirm = JSON.parse(xhttp2.response);
+        var email = confirm['emailConfirmado'];
+
+        if(email == 1) {
+          if(urlParam2 != null && urlParam2.length > 3) {
+            window.location.replace("/src/pages/car.html?carId=" + urlParam2);
+          }
+          else if(number7 != null && number7.length > 3) {
+            window.location.replace("/src/pages/detalhes.html?u=" + number7);
+          }
+          else {
+            window.location.replace("/");
+          }
         }
-        else if(number7 != null && number7.length > 3) {
-          window.location.replace("/src/pages/detalhes.html?u=" + number7);
-        }
-        else {
-          window.location.replace("/");
+        if(email == 0) {
+          erro.classList.remove("azul");
+          erro.classList.add("vermelho");
+          erro.classList.remove("verde");
+
+          textoerro.textContent="Confirme seu e-mail.";
+
+          var url2 = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/clientes/logout";
+          var json2 = '{"session": "' + session['session'] + '"}';
+
+          var xhttp5 = new XMLHttpRequest();
+          xhttp5.open("POST", url2, true);
+          xhttp5.setRequestHeader("Content-Type", "application/json");
+
+          xhttp5.send(json2);
+
+          xhttp5.addEventListener('loadend', () => {
+            if(xhttp5.status == 200) {
+              window.localStorage.setItem("session", null);
+              window.localStorage.setItem("fName", null);
+
+              window.location.replace("/src/pages/login.html?e=false");
+            }
+          });
         }
       });
     }
