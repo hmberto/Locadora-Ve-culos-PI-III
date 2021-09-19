@@ -228,6 +228,12 @@ input {
   color: #fff;  
 }
 
+.footer3 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 @media(max-width: 1050px) {
   #senha {
     width: 83%;

@@ -194,6 +194,8 @@ function getValue() {
 
       document.getElementById("redirect").classList.remove("hide");
       document.getElementById("redirect").classList.add("show");
+
+      document.getElementById("footer").classList.add("footer3");
     }
     else {
       document.getElementById("form").classList.remove("hide");

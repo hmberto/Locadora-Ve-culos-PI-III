@@ -7,6 +7,7 @@ import java.util.logging.Logger;
 
 import br.com.interdisciplinar.locadora.clients.CreateUser;
 import br.com.interdisciplinar.locadora.dt.EnvVariables;
+import br.com.interdisciplinar.locadora.mail.EmailConfirmation;
 
 public class SendUserToDB {
 	public static String NAME = LoginUserFromDB.class.getSimpleName();
@@ -16,6 +17,14 @@ public class SendUserToDB {
 		LOG.entering(NAME, "CreateUserDB");
 		
 		String sql = EnvVariables.getEnvVariable("DATABASE_INSERT");
+		
+		String alphaNumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		String emailSession = "";
+		for(int i = 0; i < 50; i++) {
+			int myindex = (int)(alphaNumeric.length() * Math.random());
+			
+			emailSession = emailSession + alphaNumeric.charAt(myindex);
+		}
 		
 		try {
 			PreparedStatement statement = Database.connect().prepareStatement(sql);
@@ -42,12 +51,32 @@ public class SendUserToDB {
 			statement.setString(20, user.getValidadeCnh());
 			statement.setString(21, user.getCategoriaCnh());
 			statement.setBoolean(22, false);
+			statement.setBoolean(23, false);
+			statement.setString(24, emailSession);
 						
 			statement.execute();
 
 			LOG.log(Level.INFO, "User created on database. Login: " + user.getLogin());
 			
 			statement.close();
+			
+			String welcome = "";
+			if (user.getSexo().equals("2")) {
+				welcome = "Bem vindo, ";
+			} else if (user.getSexo().equals("3")) {
+				welcome = "Bem vinda, ";
+			} else {
+				welcome = "Bem vindx, ";
+			}
+			
+			String messageSubject = "Locadora de Veículos BH - Confirme seu e-mail";
+			
+			String messageText = welcome + user.getNome() + "! \n\nClique no link a seguir para confirmar seu endereço de e-mail. \n\n"
+					+ "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com/src/pages/confirmation.html?" + "e=" + user.getEmail() + "&t=" + emailSession 
+					+ "\n\nSe você não é " + user.getNome() + ", desconsidere este e-mail.";
+			
+			EmailConfirmation sendEmail = new EmailConfirmation();
+			sendEmail.confirmation(user.getEmail(), messageSubject, messageText);
 			
 			LOG.exiting(NAME, "CreateUserDB");
 			return true;

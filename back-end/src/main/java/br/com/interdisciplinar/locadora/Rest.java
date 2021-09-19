@@ -12,6 +12,7 @@ import br.com.interdisciplinar.locadora.clients.AuthChangePass;
 import br.com.interdisciplinar.locadora.clients.AuthUser;
 import br.com.interdisciplinar.locadora.clients.CheckData;
 import br.com.interdisciplinar.locadora.clients.CreateUser;
+import br.com.interdisciplinar.locadora.clients.EmailConfirmationAuth;
 import br.com.interdisciplinar.locadora.clients.GenerateClients;
 import br.com.interdisciplinar.locadora.clients.GenerateClientsA;
 import br.com.interdisciplinar.locadora.clients.LogoutUser;
@@ -19,6 +20,7 @@ import br.com.interdisciplinar.locadora.clients.SexoVerify;
 import br.com.interdisciplinar.locadora.cupom.CreateCupom;
 import br.com.interdisciplinar.locadora.cupom.GenerateCupom;
 import br.com.interdisciplinar.locadora.database.LocacaoFromDB;
+import br.com.interdisciplinar.locadora.database.EmailConfirmationDB;
 import br.com.interdisciplinar.locadora.database.GetCarFromDB;
 import br.com.interdisciplinar.locadora.database.GetCupomFromDB;
 import br.com.interdisciplinar.locadora.database.GetUserFromDB;
@@ -381,6 +383,29 @@ public class Rest {
 			}
 		}
 		catch(Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
+	@POST
+	@Path("/email/confirm")
+	public Response emailConfirmation(EmailConfirmationAuth email) {
+		try {
+			if(email.getEmailToken().length() == 50) {
+				EmailConfirmationDB emailConfirm = new EmailConfirmationDB();				
+				boolean confirm = emailConfirm.confirmation(email);
+				
+				if(confirm) {
+					return Response.status(Response.Status.OK).build();
+				}
+				else {
+					return Response.status(Response.Status.BAD_REQUEST).build();
+				}
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		} catch (Exception e) {
 			return Response.status(Response.Status.BAD_REQUEST).build();
 		}
 	}
