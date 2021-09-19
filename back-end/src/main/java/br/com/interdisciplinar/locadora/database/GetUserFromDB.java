@@ -29,7 +29,7 @@ public class GetUserFromDB {
 			ResultSet f = statement.executeQuery();
 			
 			while(f.next()) {
-				for(int i = 1; i < 23; i++) {
+				for(int i = 1; i < 26; i++) {
 					user.put(i, f.getString(i));
 				}
 				

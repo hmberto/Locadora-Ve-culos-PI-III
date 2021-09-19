@@ -138,6 +138,18 @@ public class GenerateClientsA {
 	public void setLocatarioAtivo(String locatarioAtivo) {
 		this.locatarioAtivo = locatarioAtivo;
 	}
+	public String getEmailConfirmado() {
+		return emailConfirmado;
+	}
+	public void setEmailConfirmado(String emailConfirmado) {
+		this.emailConfirmado = emailConfirmado;
+	}
+	public String getEmailConfirmacao() {
+		return emailConfirmacao;
+	}
+	public void setEmailConfirmacao(String emailConfirmacao) {
+		this.emailConfirmacao = emailConfirmacao;
+	}
 	
 	String nome;
 	String cpf;
@@ -161,6 +173,8 @@ public class GenerateClientsA {
 	String validadeCnh;
 	String categoriaCnh;
 	String locatarioAtivo;
+	String emailConfirmado;
+	String emailConfirmacao;
 		
 	public GenerateClientsA(Map<Integer, String> user) {
 		super();
@@ -186,5 +200,7 @@ public class GenerateClientsA {
 		this.validadeCnh = user.get(20);
 		this.categoriaCnh = user.get(21);
 		this.locatarioAtivo = user.get(22);
+		this.emailConfirmado = user.get(24);
+		this.emailConfirmacao = user.get(25);
 	}
 }

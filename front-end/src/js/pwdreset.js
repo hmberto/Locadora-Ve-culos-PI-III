@@ -1,5 +1,7 @@
 var loading = document.getElementById("lding");
 
+loading.classList.add("hideloading");
+
 var session = window.localStorage.getItem("session");
 if(session != null) {
   if(session.length == 50) {
