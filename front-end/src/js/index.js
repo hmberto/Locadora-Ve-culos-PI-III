@@ -131,43 +131,54 @@ function getCars() {
       var json = JSON.parse(xhttp.response);
       var tamanho = Object.keys(json['data']).length;
       
-      for(i = 0; i < tamanho; i++) {
-        var div = document.createElement("div");
-        div.classList.add("showcar");
-        div.classList.add("white-color-bg");
+      var i = 0;
+      var array = [];
+      while(i < tamanho) {
+        min = Math.ceil(0);
+        max = Math.floor(tamanho);
+        var aleatorio = Math.floor(Math.random() * (max - min)) + min;
 
-        var name = "car" + i;
-        var data = json['data'][name];
+        if(!array.includes(aleatorio)) {
+          array.push(aleatorio);
+          var div = document.createElement("div");
+          div.classList.add("showcar");
+          div.classList.add("white-color-bg");
 
-        var img = document.createElement("img");
-        img.classList.add("car");
-        img.setAttribute('src', data['imgPath']);
-        div.appendChild(img);
+          var name = "car" + aleatorio;
+          var data = json['data'][name];
 
-        var span = document.createElement("span");
-        span.classList.add("titlecar");
-        span.classList.add("font-green");
-        span.textContent=data['modelo'];
-        div.appendChild(span);
+          var img = document.createElement("img");
+          img.classList.add("car");
+          img.setAttribute('src', data['imgPath']);
+          div.appendChild(img);
 
-        var p = document.createElement("p");
-        p.classList.add("subcar");
-        p.classList.add("font-black");
-        p.innerHTML=data['subtitles'];
-        div.appendChild(p);
+          var span = document.createElement("span");
+          span.classList.add("titlecar");
+          span.classList.add("font-green");
+          span.textContent=data['modelo'];
+          div.appendChild(span);
 
-        var a = document.createElement("a");
-        a.classList.add("detalhes");
-        a.classList.add("font-white1");
-        a.classList.add("black-green-color-bg");
-        a.textContent="DETALHES"
-        a.setAttribute('href', "/src/pages/car.html?carId=" + data['idCarro'])
-        div.appendChild(a);
+          var p = document.createElement("p");
+          p.classList.add("subcar");
+          p.classList.add("font-black");
+          p.innerHTML=data['subtitles'];
+          div.appendChild(p);
 
-        root.appendChild(div)
+          var a = document.createElement("a");
+          a.classList.add("detalhes");
+          a.classList.add("font-white1");
+          a.classList.add("black-green-color-bg");
+          a.textContent="DETALHES"
+          a.setAttribute('href', "/src/pages/car.html?carId=" + data['idCarro'])
+          div.appendChild(a);
 
-        if(i+1 == tamanho) { return; }
+          root.appendChild(div)
+
+          i = i + 1;
+          // if(i+1 == tamanho) { return; }
+        }
       }
+      console.log(array)
     }
     else {
       document.getElementById("erro").classList.remove("esconde-erro")
