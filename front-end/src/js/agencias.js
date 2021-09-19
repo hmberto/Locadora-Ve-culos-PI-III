@@ -10,8 +10,7 @@ function searchAgencias() {
   
   loading.classList.remove("hideloading");
   var text = document.querySelector(".txt");
-  var txt = "Agências encontradas";
-  text.innerHTML=txt;
+  
   var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/veiculos/agencias";
   
   var agencias = new XMLHttpRequest();
@@ -24,7 +23,9 @@ function searchAgencias() {
     if (agencias.status == 200) {
       var json = JSON.parse(agencias.response);
       var tamanho = Object.keys(Object.keys(json['data'])).length;
-      
+
+      text.innerHTML="Pesquise por agências próximas: " + tamanho + " agências encontradas";
+            
       for(i = 0; i < tamanho; i++) {
         var agencia = json['data']['agencia' + i]['agencia'];
 

@@ -25,7 +25,29 @@
 }
 
 @media(max-width: 500px) {
-  .not {
+  /* .not {
     display: none;
+  } */
+
+  #nitification {
+    position: fixed;
+    display: block;
+    bottom:  0px;
+    left: 0px;
+    width: 100%;
+    height: auto;
+    border-radius: 0px;
+    border: none;
+    border-top: 2px solid #fff;
+  }
+
+  .notification {
+    padding: 15px 110px 15px 30px;
+  }
+}
+
+@media(max-width: 400px) {
+  .notification {
+    padding: 15px 80px 15px 30px;
   }
 }

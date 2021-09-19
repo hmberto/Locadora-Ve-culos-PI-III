@@ -28,6 +28,7 @@ if(session != null) {
   }
 }
 
+loading.classList.add("hideloading");
 user.focus();
 
 function getValue() {

@@ -62,12 +62,15 @@ function createReserva(y) {
         xhttp2.addEventListener('loadend', () => {
           loading.classList.remove("hideloading");
           if(xhttp2.status == 201) {
-            window.location.assign("/src/pages/detalhes.html?u=" + parseCpf);
+            window.location.replace("/src/pages/detalhes.html?u=" + parseCpf);
+          }
+          else {
+            window.location.assign("/src/pages/login.html?carId=" + urlParam);
           }
         });
       }
       else {
-        loading.classList.remove("hideloading");
+        window.location.assign("/src/pages/login.html?carId=" + urlParam);
       }
     });
   }

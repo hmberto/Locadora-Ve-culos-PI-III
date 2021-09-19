@@ -16,8 +16,15 @@ if(localRetiradaCar != null && localRetiradaCar.length > 1) {
   if(moment(window.localStorage.getItem("dataRetirada")).isAfter(dataRetirada.value)) {
     dataRetirada.value = window.localStorage.getItem("dataRetirada");
   }
+  else {
+    window.localStorage.setItem("dataRetirada", dataRetirada.value);
+  }
+
   if(moment(window.localStorage.getItem("dataDevolucao")).isAfter(dataDevolucao.value)) {
     dataDevolucao.value = window.localStorage.getItem("dataDevolucao");
+  }
+  else {
+    window.localStorage.setItem("dataDevolucao", dataDevolucao.value);
   }
 }
 

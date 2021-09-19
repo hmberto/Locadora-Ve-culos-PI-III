@@ -16,8 +16,7 @@ function searchCar() {
   var param = JSON.parse(parseBack);
 
   var text = document.querySelector(".txt");
-  var txt = "Carros encontrados para o local de retirada: " + param['localRetirada'];
-  text.innerHTML=txt;
+  
   document.title = param['localRetirada'] + ' - Carros encontrados';
 
   var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/veiculos/disponibilidade";
@@ -33,6 +32,9 @@ function searchCar() {
       var root = document.getElementById("cars");
       var json = JSON.parse(consulta.response);
       var tamanho = Object.keys(json['data']).length;
+
+      var txt = tamanho + " carros encontrados para retirada na agência " + param['localRetirada'];
+      text.innerHTML=txt;
       
       for(i = 0; i < tamanho; i++) {
         var div = document.createElement("div");

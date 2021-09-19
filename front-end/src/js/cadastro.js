@@ -85,6 +85,7 @@ if(session != null) {
   }
 }
 
+loading.classList.add("hideloading");
 nome.focus();
 
 function buscarCep() {

@@ -21,6 +21,7 @@ if(session != null) {
   }
 }
 
+loading.classList.add("hideloading");
 numreserva.focus();
 
 function getValue() {

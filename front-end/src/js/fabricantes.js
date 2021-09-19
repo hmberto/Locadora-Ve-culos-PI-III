@@ -10,8 +10,7 @@ function searchFabricantes() {
   
   loading.classList.remove("hideloading");
   var text = document.querySelector(".txt");
-  var txt = "Fabricantes encontradas: ";
-  text.innerHTML=txt;
+
   var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/veiculos/marcas";
   
   var marcas = new XMLHttpRequest();
@@ -24,6 +23,8 @@ function searchFabricantes() {
     if (marcas.status == 200) {
       var json = JSON.parse(marcas.response);
       var tamanho = Object.keys(Object.keys(json['data'])).length;
+
+      text.innerHTML="Pesquise pelo fabricante do carro: " + tamanho + " fabricantes encontradas";
       
       for(i = 0; i < tamanho; i++) {
         var marca = json['data']['marca' + i]['marca'];

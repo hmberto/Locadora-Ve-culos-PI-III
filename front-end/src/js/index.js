@@ -182,7 +182,6 @@ function getCars() {
           // if(i+1 == tamanho) { return; }
         }
       }
-      console.log(array)
     }
     else {
       document.getElementById("erro").classList.remove("esconde-erro")
