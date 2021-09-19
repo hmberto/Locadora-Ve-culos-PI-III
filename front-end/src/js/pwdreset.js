@@ -7,6 +7,8 @@ if(session != null) {
   }
 }
 
+user.focus();
+
 function updatePass() {
   loading.classList.remove("hideloading");
 

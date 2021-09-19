@@ -12,8 +12,8 @@ function getUser() {
     var xhttp = ifLogged(session, 1);
     
     xhttp.addEventListener('loadend', () => {
+      loading.classList.add("hideloading");
       if(xhttp.status == 200) {
-        loading.classList.add("hideloading");
         var usrJson = JSON.parse(document.getElementById("userInfoInpt").value);
 
         var xhttpResponse = consulta(usrJson['cpf']);
@@ -101,6 +101,9 @@ function getUser() {
         document.querySelector(".sexo").innerHTML=sexo;
         document.querySelector(".telefone").innerHTML=newTelefoneFormat;
         document.querySelector(".validadeCnh").innerHTML=newValidadeCnh;
+      }
+      else {
+        window.location.replace("/src/pages/login.html");
       }
     });
   }

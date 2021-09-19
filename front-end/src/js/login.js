@@ -90,3 +90,22 @@ function getValue() {
   user.value = "";
   pass.value = "";
 }
+
+user.addEventListener('keyup', function(e){
+  var key = e.which || e.keyCode;
+  if (key == 13) {
+    pass.focus();
+  }
+});
+
+pass.addEventListener('keyup', function(e){
+  var key = e.which || e.keyCode;
+  if (key == 13) {
+    getValue();
+  }
+});
+
+var eyes = document.getElementById("passshow");
+eyes.addEventListener("click", function(event) {
+  pass.focus();
+});

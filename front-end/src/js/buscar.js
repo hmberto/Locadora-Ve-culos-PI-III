@@ -52,7 +52,7 @@ function getValue() {
 
           textoerro.textContent="Reserva encontrada!";
 
-          window.location.replace("/src/pages/detalhes.html?u=" + btoa(jsonResp['cpf_locatario']));
+          window.location.assign("/src/pages/detalhes.html?u=" + btoa(jsonResp['cpf_locatario']));
         }
         else {
           erro.classList.remove("azul");

@@ -108,6 +108,19 @@ input {
   margin-left: 0px;
 }
 
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+@media(max-height: 650px) {
+  #footer {
+    position: unset;
+    margin-top: 70px;
+  }
+}
+
 @media(max-width: 550px) {
   #login {
     padding-top: 100px;

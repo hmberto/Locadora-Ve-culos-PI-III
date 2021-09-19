@@ -1,5 +1,7 @@
 var loading = document.getElementById("lding");
 
+var popup = document.getElementById("popup");
+
 var session = window.localStorage.getItem("session");
 if(session == null || session.length != 50) {
     window.location.replace("/");
@@ -112,7 +114,13 @@ else {
   checkvalor1.checked = true;
   valor1.classList.add("verde");
   valor1.classList.add("font-white");
+  eventListenerC();
 }
+
+document.querySelector(".datavalue5").addEventListener("click", () => {
+  popup.classList.remove("hidepopup");
+  document.querySelector(".new-date-input").value = window.localStorage.getItem("dataDevolucao");
+});
 
 document.querySelector(".diariasLocacao").innerHTML=diffDays + " Dias";
 
@@ -172,4 +180,108 @@ function eventListenerB() {
       validaCupom(2);
     }
   });
+}
+
+function calcData() {
+  var dataRetirada = window.localStorage.getItem("dataRetirada");
+  var dataDevolucao = window.localStorage.getItem("dataDevolucao");
+
+  var dataAtaul = new Date();
+  var mesAtual = String(dataAtaul.getMonth() + 1). padStart(2, '0');
+  var anoAtual = dataAtaul.getFullYear();
+
+  var dias3meses = new Date(anoAtual, mesAtual, 0).getDate() + new Date(anoAtual, mesAtual + 1, 0).getDate() + new Date(anoAtual, mesAtual + 2, 0).getDate();
+
+  var newDate1 = new Date(dataRetirada);
+  var newDate2 = new Date(dataDevolucao);
+  
+  var timeDiff = Math.abs(newDate1.getTime() - newDate2.getTime());
+  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+
+  window.localStorage.setItem("dias3meses", dias3meses);
+  window.localStorage.setItem("diffDays", diffDays);
+
+  console.log(dias3meses);
+  console.log(diffDays);
+}
+
+function eventListenerC() {
+  valor2.addEventListener("click", () => {
+    popup.classList.remove("hidepopup");
+    document.querySelector(".new-date-input").value = window.localStorage.getItem("dataDevolucao");
+  });
+}
+
+function sair() {
+  popup.classList.add("hidepopup");
+}
+
+function alterar() {
+  var novaData = document.querySelector(".new-date-input");
+  var dataRetirada = window.localStorage.getItem("dataRetirada");
+  
+  var data = new Date();
+
+  var dia = String(data.getDate()).padStart(2, '0');
+  var mes = String(data.getMonth() + 1).padStart(2, '0');
+  var ano = data.getFullYear();
+
+  var date = ano + "-" + mes + "-" + dia;
+
+  data.setDate(data.getDate() + 1);
+  var diatresdias = String(data.getDate()).padStart(2, '0');
+  var mestresdias = String(data.getMonth() + 1).padStart(2, '0');
+  var anotresdias = data.getFullYear();
+
+  var datetresdias = anotresdias + "-" + mestresdias + "-" + diatresdias;
+
+  data.setDate(data.getDate() + 3);
+  var diatresdias1 = String(data.getDate()).padStart(2, '0');
+  var mestresdias1 = String(data.getMonth() + 1).padStart(2, '0');
+  var anotresdias1 = data.getFullYear();
+
+  var datetresdias1 = anotresdias1 + "-" + mestresdias1 + "-" + diatresdias1;
+
+  var nData = new Date(dataRetirada.value);
+
+  nData.setDate(nData.getDate() + 4);
+  var diatresdias2 = String(nData.getDate()).padStart(2, '0');
+  var mestresdias2 = String(nData.getMonth() + 1).padStart(2, '0');
+  var anotresdias2 = nData.getFullYear();
+
+  var dataFrente = anotresdias2 + "-" + mestresdias2 + "-" + diatresdias2;
+
+  if(moment(date).isAfter(novaData.value)) {
+    document.querySelector(".showerr").innerHTML="* Data já passou";
+    document.querySelector(".showerr").classList.remove("hideerr");
+  }
+  else if(moment(datetresdias1).isAfter(novaData.value)) {
+    document.querySelector(".showerr").innerHTML="* Mínimo três diárias";
+    document.querySelector(".showerr").classList.remove("hideerr");
+  }
+  else if(moment(dataRetirada).isAfter(novaData.value)) {
+    document.querySelector(".showerr").innerHTML="* Mínimo três diárias";
+    document.querySelector(".showerr").classList.remove("hideerr");
+  }
+  else if(moment(dataFrente).isAfter(novaData.value)) {
+    document.querySelector(".showerr").innerHTML="* Mínimo três diárias";
+    document.querySelector(".showerr").classList.remove("hideerr");
+  }
+  else if(dataRetirada == novaData.value) {
+    document.querySelector(".showerr").innerHTML="* Mínimo três diárias";
+    document.querySelector(".showerr").classList.remove("hideerr");
+  }
+  else {
+    window.localStorage.setItem("dataDevolucao", novaData.value);
+
+    var urlParams = new URLSearchParams(window.location.search);
+    var urlParam = urlParams.get('carId');
+
+    calcData();
+
+    window.location.replace("/src/pages/reserva.html?carId=" + urlParam + "&j=dw");
+    window.localStorage.setItem("j", 'dw');
+
+    popup.classList.add("hidepopup");
+  }
 }

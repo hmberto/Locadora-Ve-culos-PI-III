@@ -55,6 +55,10 @@ function ifLogged(session, t) {
 
         validateLogin(fName, session, name, logout);
       }
+      else if (xhttp.status == 400) {
+        window.localStorage.setItem("session", null);
+        window.localStorage.setItem("fName", null);
+      }
       var t = document.getElementById("userInfoInpt");
       if(t != null) {
         t.value=xhttp.response;

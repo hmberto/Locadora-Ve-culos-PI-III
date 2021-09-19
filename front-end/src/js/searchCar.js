@@ -57,8 +57,8 @@ horaRetirada.addEventListener("change", () => {
 });
 
 function calcData() {
-  var dataretirada = document.getElementById("dataretirada");
-  var dataentrega = document.getElementById("dataentrega");
+  var dataRetirada = document.getElementById("dataretirada");
+  var dataDevolucao = document.getElementById("dataentrega");
 
   var dataAtaul = new Date();
   var mesAtual = String(dataAtaul. getMonth() + 1). padStart(2, '0');
@@ -170,3 +170,17 @@ function searchCar() {
     document.querySelector(".showerr").classList.remove("hideerr");
   }
 }
+
+localRetirada.addEventListener('keyup', function(e){
+  var key = e.which || e.keyCode;
+  if (key == 13) {
+    localDevolucao.focus();
+  }
+});
+
+localDevolucao.addEventListener('keyup', function(e){
+  var key = e.which || e.keyCode;
+  if (key == 13) {
+    searchCar();
+  }
+});

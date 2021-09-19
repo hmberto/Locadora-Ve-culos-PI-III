@@ -49,7 +49,7 @@ function poupA() {
         var urlParams = new URLSearchParams(window.location.search);
         var number = urlParams.get('u');
 
-        window.location.replace("/src/pages/login.html?u=" + number);
+        window.location.assign("/src/pages/login.html?u=" + number);
       });
       document.getElementById("showpay").appendChild(a12);
   }

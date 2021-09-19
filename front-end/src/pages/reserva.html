@@ -13,6 +13,7 @@
   <link id="changeTheme" rel="stylesheet" href="/src/css/themeColor.css">
   <link rel="stylesheet" href="/src/css/change-theme.css">
   <link rel="stylesheet" href="/src/css/chatbox.css">
+  <link rel="stylesheet" href="/src/css/notification.css">
   <title>Locadora de Veículos</title>
 </head>
 <body class="grey-color-bg">
@@ -342,21 +343,53 @@
     </div>
   </div>
 
+  <div>
+    <div id="popup" class="hidepopup">
+      <div class="popup black-green-color-bg">
+        <span class="font-white1 ask">Altere sua reserva</span>
+        <div>
+          <div>
+            <span class="new-date font-white1">Nova data de devolução:</span>
+            <input class="new-date-input" type="date">
+          </div>
+        </div>
+        <div>
+          <span class="showerr hideerr font-white1">* Preencha corretamente</span>
+          <div class="div-btn">
+            <button class="btn-p btn-cancelar" onclick="sair()">CANCELAR</button>
+            <BUtton class="btn-p btn-alterar" onclick="alterar()">ALTERAR</BUtton>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <input id="checkvalor1" type="checkbox">
   <input id="checkvalor2" type="checkbox">
 
   <div>
     <div id="footer" class="black-green-color-bg">
-      <div>
-        <span>© Copyright 2021 Locadora de Veículos BH S.A.</span>
-      </div>
-      <div class="names">
-        <a target="blank_" href="https://www.linkedin.com/in/humbertoo/">Humberto</a>
-        <a href="">Barbara</a>
+      <div id="footer1">
+        <div>
+          <span>© Copyright 2021 Locadora de Veículos BH S.A.</span>
+        </div>
+        <div class="names font-black1">
+          <a target="blank_" href="https://www.linkedin.com/in/humbertoo/">Humberto</a>
+          <a href="">Barbara</a>
+        </div>
       </div>
     </div>
   </div>
 
+  <div class="not notificationhide">
+    <div id="nitification" class="black-green-color-bg font-white1">
+      <div class="notification">
+        <span class="spncont"></span>
+      </div>
+    </div>
+  </div>
+
+  <script src='http://momentjs.com/downloads/moment.min.js'></script>
   <script src="/src/js/pagamento.js"></script>
   <script src="/src/js/validarCupom.js"></script>
   <script src="/src/js/ifLogged.js"></script>
@@ -365,5 +398,6 @@
   <script src="/src/js/changeTheme.js"></script>
   <script src="/src/js/chatbox.js"></script>
   <script src="/src/js/createReserva.js"></script>
+  <script src="/src/js/notification.js"></script>
 </body>
 </html>
