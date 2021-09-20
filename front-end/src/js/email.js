@@ -16,7 +16,9 @@ function email() {
     document.querySelector(".changeemailbtn1").classList.remove("changeemailc1");
     document.querySelector(".changeemailbtn2").classList.remove("changeemailc1");
     document.querySelector(".showemail").classList.add("changeemailc1");
+    document.querySelector(".confirmps").classList.add("changeemailc1");
     document.querySelector(".changeemailc").value = window.localStorage.getItem("email");
+    document.querySelector(".changeemailc").focus();
   });
 }
 
@@ -35,6 +37,8 @@ function salvar() {
   document.querySelector(".showemail").classList.remove("changeemailc1");
   window.localStorage.setItem("email", document.querySelector(".changeemailc").value);
   document.querySelector(".showemail").innerHTML=window.localStorage.getItem("email") + "<br>alterar";
+
+  sendEmail()
 }
 
 function sendEmail() {
@@ -42,6 +46,7 @@ function sendEmail() {
     document.querySelector(".confirmps").classList.remove("changeemailc1");
   }
   else {
+    loading.classList.remove("hideloading");
     const getUrlParams = new URLSearchParams(window.location.search);
     const email = window.localStorage.getItem("email");
     const login = getUrlParams.get('l');
@@ -62,9 +67,14 @@ function sendEmail() {
 
     xhttp.addEventListener('loadend', () => {
       window.localStorage.setItem("email", null);
+      loading.classList.add("hideloading");
       if(xhttp.status == 200) {
         window.location.replace("/src/pages/login.html?s=my");
         window.localStorage.setItem("s", 'my');
+      }
+      else {
+        window.location.replace("/src/pages/login.html?b=gk");
+        window.localStorage.setItem("b", 'gk');
       }
     });
   }

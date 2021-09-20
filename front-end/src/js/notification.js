@@ -6,6 +6,7 @@ const urlParam15 = urlParams9.get('j');
 const urlParam16 = urlParams9.get('d');
 const urlParam17 = urlParams9.get('g');
 const urlParam18 = urlParams9.get('s');
+const urlParam19 = urlParams9.get('b');
 
 if(urlParam9 == "pu" && window.localStorage.getItem("p") == "pu") {
   setTimeout(function() {
@@ -90,6 +91,19 @@ if(urlParam18 == "my" && window.localStorage.getItem("s") == "my") {
     document.querySelector(".not").classList.remove("notificationhide");
     document.querySelector(".spncont").innerHTML="E-mail atualizado com sucesso!";
     window.localStorage.setItem("s", '');
+
+    setTimeout(function() {
+      document.querySelector(".not").classList.add("notificationhide");
+      document.querySelector(".spncont").innerHTML="";
+    }, 5000);
+  }, 1000);
+}
+
+if(urlParam19 == "gk" && window.localStorage.getItem("b") == "gk") {
+  setTimeout(function() {
+    document.querySelector(".not").classList.remove("notificationhide");
+    document.querySelector(".spncont").innerHTML="Erro ao atualizar seu e-mail!";
+    window.localStorage.setItem("b", '');
 
     setTimeout(function() {
       document.querySelector(".not").classList.add("notificationhide");
