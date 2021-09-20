@@ -12,7 +12,6 @@ import br.com.interdisciplinar.locadora.clients.AuthChangePass;
 import br.com.interdisciplinar.locadora.clients.AuthUser;
 import br.com.interdisciplinar.locadora.clients.CheckData;
 import br.com.interdisciplinar.locadora.clients.CreateUser;
-import br.com.interdisciplinar.locadora.clients.EmailConfirmationAuth;
 import br.com.interdisciplinar.locadora.clients.GenerateClients;
 import br.com.interdisciplinar.locadora.clients.GenerateClientsA;
 import br.com.interdisciplinar.locadora.clients.LogoutUser;
@@ -33,6 +32,8 @@ import br.com.interdisciplinar.locadora.locacao.CreateLocacao;
 import br.com.interdisciplinar.locadora.locacao.DeleteLocacao;
 import br.com.interdisciplinar.locadora.locacao.GenerateConsult;
 import br.com.interdisciplinar.locadora.locacao.UpdateLocacao;
+import br.com.interdisciplinar.locadora.mail.EmailConfirmationAuth;
+import br.com.interdisciplinar.locadora.mail.EmailUpdateAuth;
 import br.com.interdisciplinar.locadora.veiculos.AvailableCars;
 import br.com.interdisciplinar.locadora.veiculos.CreateModels;
 import br.com.interdisciplinar.locadora.veiculos.CreateVehicle;
@@ -394,6 +395,29 @@ public class Rest {
 			if(email.getEmailToken().length() == 50) {
 				EmailConfirmationDB emailConfirm = new EmailConfirmationDB();				
 				boolean confirm = emailConfirm.confirmation(email);
+				
+				if(confirm) {
+					return Response.status(Response.Status.OK).build();
+				}
+				else {
+					return Response.status(Response.Status.BAD_REQUEST).build();
+				}
+			}
+			else {
+				return Response.status(Response.Status.BAD_REQUEST).build();
+			}
+		} catch (Exception e) {
+			return Response.status(Response.Status.BAD_REQUEST).build();
+		}
+	}
+	
+	@POST
+	@Path("/email/update")
+	public Response emailUpdate(EmailUpdateAuth email) {
+		try {
+			if(email.getNewEmail().length() > 2 && email.getLogin().length() > 2 && email.getPass().length() > 2) {
+				EmailConfirmationDB emailConfirm = new EmailConfirmationDB();				
+				boolean confirm = emailConfirm.update(email);
 				
 				if(confirm) {
 					return Response.status(Response.Status.OK).build();

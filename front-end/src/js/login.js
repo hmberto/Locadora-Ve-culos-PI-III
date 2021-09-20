@@ -20,6 +20,17 @@ if(emailConfirmed == "false") {
   erro.classList.remove("verde");
 
   textoerro.textContent="Confirme seu e-mail.";
+
+  const getUrlParams = new URLSearchParams(window.location.search);
+  const n = urlParams.get('n');
+  const e = urlParams.get('em');
+  const l = urlParams.get('l');
+
+  var changeEmail = "?n=" + n + "&em=" + e + "&l=" + l;
+
+  document.querySelector(".resetemail").setAttribute("href", "/src/pages/email.html" + changeEmail);
+
+  document.querySelector(".esqueceuemail").classList.remove("esqueceuemailhide");
 }
 
 var themeColor = window.localStorage.getItem("sessionColor");
@@ -110,10 +121,12 @@ function getValue() {
 
           xhttp5.addEventListener('loadend', () => {
             if(xhttp5.status == 200) {
+              var newUrlParams = "&n=" + window.localStorage.getItem("fName") + "&em=" + confirm['email'] + "&l=" + confirm['login']
               window.localStorage.setItem("session", null);
               window.localStorage.setItem("fName", null);
 
-              window.location.replace("/src/pages/login.html?e=false");
+
+              window.location.replace("/src/pages/login.html?e=false" + newUrlParams);
             }
           });
         }

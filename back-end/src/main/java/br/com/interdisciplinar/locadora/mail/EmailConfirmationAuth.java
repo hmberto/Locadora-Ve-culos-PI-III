@@ -1,4 +1,4 @@
-package br.com.interdisciplinar.locadora.clients;
+package br.com.interdisciplinar.locadora.mail;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

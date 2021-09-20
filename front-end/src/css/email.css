@@ -1,0 +1,82 @@
+#email {
+  padding-top: 120px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 50px;
+}
+
+.email {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 26px;
+  display: block;
+  padding: 50px 0;
+}
+
+.title2 {
+  font-size: 16px;
+  width: 60%;
+  margin: auto;
+}
+
+.showemail1 {
+  font-weight: bold;
+  display: block;
+  margin: 50px 0;
+  line-height: 22px;
+}
+
+.showemail {
+  cursor: pointer;
+}
+
+.changeemailc, .confirmpass {
+  display: block;
+  margin: auto;
+  height: 40px;
+  width: 250px;
+  font-size: 18px;
+  padding-left: 5px;
+  background-color: none;
+  border-radius: 5px;
+}
+
+.confirmps {
+  display: block;
+  margin-bottom: 50px;
+}
+
+.changeemailc1 {
+  display: none;
+}
+
+.divbtn {
+  margin-top: 10px;
+}
+
+.changeemailbtn1, .changeemailbtn2 {
+  padding: 5px 15px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.buttonsend {
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50px;
+  margin-bottom: 50px;
+}
+
+@media(max-width: 550px) {
+  #email {
+    padding-top: 100px;
+  }
+}

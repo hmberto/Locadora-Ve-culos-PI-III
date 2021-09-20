@@ -6,7 +6,6 @@
   <link rel="shortcut icon" href="/src/img/favicon.ico" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <link rel="stylesheet" href="/src/css/index.css">
-  <link rel="stylesheet" href="/src/css/login.css">
   <link rel="stylesheet" href="/src/css/loading.css">
   <link rel="stylesheet" href="/src/css/menu.css">
   <link id="changeTheme" rel="stylesheet" href="/src/css/themeColor.css">
@@ -14,7 +13,8 @@
   <link rel="stylesheet" href="/src/css/chatbox.css">
   <link rel="stylesheet" href="/src/css/notification.css">
   <link rel="stylesheet" href="/src/css/footer.css">
-  <title>Login - Locadora de Veículos</title>
+  <link rel="stylesheet" href="/src/css/email.css">
+  <title>Confirmação de e-mail - Locadora de Veículos</title>
 </head>
 <body class="grey-color-bg">
   
@@ -100,36 +100,23 @@
   </div>
 
   <div>
-    <div id="login">
-      <div class="inputs white-color-bg">
-        <div>
-          <span class="loginText font-black">LOGIN</span>
-          <div id="erro" class="azul">
-            <span id="textoerro">Faça seu login</span>
+    <div id="email">
+      <div class="email white-color-bg font-black">
+        <span class="title font-black">Verifique seu endereço de e-mail</span>
+        <span class="title2 font-black">Para continuar usando sua conta, você precisa clicar no link enviado para o e-mail cadastrado para confirmar sua conta</span>
+        <div class="showemail1">
+          <span class="showemail font-black"></span>
+          <input class="changeemailc changeemailc1" placeholder="Seu e-mail" type="text">
+          <div class="divbtn">
+            <button class="changeemailbtn1 changeemailc1" onclick="salvar()">SALVAR</button>
+            <button class="changeemailbtn2 changeemailc1" onclick="cancelar()">CANCELAR</button>
           </div>
         </div>
-        <div class="log">
-          <div class="txt"><span class="t1 font-black">Usuário</span><span class="legenda legenda1 font-black">(Letras e números)</span></div>
-          <input id="user" class="inptuser inpt-light" placeholder="Login" type="text">
-          <div class="esqueceuemail esqueceuemailhide">
-            <a class="resetemail font-black" href="#">Seu e-mail mudou?</a>
-          </div>
-          <div>
-            <div id="passinput">
-              <div class="txt1 font-black"><span class="t1">Senha</span><span class="legenda legenda2">(aA9!@#_-.)</span></div>
-              <input id="senha" class="inptpass inpt-light" placeholder="Senha" type="password">
-            </div>
-            <div id="passimg">
-              <img id="passshow" class="pass-png" src="/src/img/pass.png" alt="">
-            </div>
-          </div>
+        <div class="confirmps changeemailc1">
+          <span class="confirmpss">Digite sua senha: </span>
+          <input class="confirmpass" placeholder="Senha" type="password">
         </div>
-        <div class="esqueceusenha">
-          <a class="resetpwd font-black" href="/src/pages/pwdreset.html">Esqueceu a senha?</a>
-        </div>
-        <div class="botao">
-          <button id="button" class="azul" onclick="getValue()">LOGIN</button>
-        </div>
+        <button class="buttonsend black-green-color-bg font-white1" onclick="sendEmail()">ENVIAR LINK DE CONFIRMAÇÃO</button>
       </div>
     </div>
   </div>
@@ -149,11 +136,10 @@
   </div>
 
   <script src="/src/js/ifLogged.js"></script>
-  <script src="/src/js/login.js"></script>
-  <script src="/src/js/showPass.js"></script>
   <script src="/src/js/openMenu.js"></script>
   <script src="/src/js/changeTheme.js"></script>
   <script src="/src/js/chatbox.js"></script>
   <script src="/src/js/notification.js"></script>
+  <script src="/src/js/email.js"></script>
 </body>
 </html>

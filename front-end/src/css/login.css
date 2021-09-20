@@ -40,9 +40,16 @@ button {
   margin-left: 10%;
 }
 
+.txt1{
+  margin-top: 10px;
+  text-align: left;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
 input {
   height: 30px;
-  width: 80%;
+  width: 78%;
   font-size: 18px;
 }
 
@@ -51,17 +58,21 @@ input {
 }
 
 .inptpass {
-  width: 67%;
-  margin-left: 9%;
+  width: 65%;
+  margin-left: 10%;
   padding-left: 5px;
 }
 
 .inpt-light {
   border-bottom: solid 2px #000;
+  background-color: #fff;
+  color: #000;
 }
 
 .inpt-dark {
-  border-bottom: solid 2px #337ab7;
+  border-bottom: solid 2px #fff;
+  background-color: #1b1b1b;
+  color: #fff;
 }
 
 #erro{
@@ -103,9 +114,21 @@ input {
 }
 
 .esqueceusenha {
-  margin-top: 7px;
-  text-align: center;
-  margin-left: 0px;
+  margin-top: 4px;
+  text-align: left;
+  margin-left: 19px;
+  font-size: 14px;
+}
+
+.esqueceuemailhide {
+  display: none;
+}
+
+.esqueceuemail {
+  margin-top: 4px;
+  text-align: left;
+  margin-left: 19px;
+  font-size: 14px;
 }
 
 #footer {
