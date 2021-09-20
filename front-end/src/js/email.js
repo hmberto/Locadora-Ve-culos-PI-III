@@ -45,12 +45,28 @@ function sendEmail() {
     const getUrlParams = new URLSearchParams(window.location.search);
     const email = window.localStorage.getItem("email");
     const login = getUrlParams.get('l');
-    const pass = document.querySelector(".confirmpss").value;
+    var pass = document.querySelector(".confirmpass");
 
-    var parsePass = btoa(pass);
+    var parsePass = btoa(pass.value);
 
+    var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/email/update";
     var json = '{ "newEmail": "' + email + '", "login": "' + login + '", "pass": "' + parsePass + '" }';
-    window.localStorage.setItem("email", null);
+    
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", url, true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+
+    console.log(json)
+
+    xhttp.send(json);
+
+    xhttp.addEventListener('loadend', () => {
+      window.localStorage.setItem("email", null);
+      if(xhttp.status == 200) {
+        window.location.replace("/src/pages/login.html?s=my");
+        window.localStorage.setItem("s", 'my');
+      }
+    });
   }
 }
 

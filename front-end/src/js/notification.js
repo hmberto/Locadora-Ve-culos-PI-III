@@ -5,6 +5,7 @@ const urlParam12 = urlParams9.get('x');
 const urlParam15 = urlParams9.get('j');
 const urlParam16 = urlParams9.get('d');
 const urlParam17 = urlParams9.get('g');
+const urlParam18 = urlParams9.get('s');
 
 if(urlParam9 == "pu" && window.localStorage.getItem("p") == "pu") {
   setTimeout(function() {
@@ -76,6 +77,19 @@ if(urlParam17 == "zk" && window.localStorage.getItem("g") == "zk") {
     document.querySelector(".not").classList.remove("notificationhide");
     document.querySelector(".spncont").innerHTML="Erro ao confirmar seu e-mail!";
     window.localStorage.setItem("g", '');
+
+    setTimeout(function() {
+      document.querySelector(".not").classList.add("notificationhide");
+      document.querySelector(".spncont").innerHTML="";
+    }, 5000);
+  }, 1000);
+}
+
+if(urlParam18 == "my" && window.localStorage.getItem("s") == "my") {
+  setTimeout(function() {
+    document.querySelector(".not").classList.remove("notificationhide");
+    document.querySelector(".spncont").innerHTML="E-mail atualizado com sucesso!";
+    window.localStorage.setItem("s", '');
 
     setTimeout(function() {
       document.querySelector(".not").classList.add("notificationhide");
