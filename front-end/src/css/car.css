@@ -8,9 +8,9 @@
 }
 
 .info {
-  margin: 30px 7%;
+  margin: 50px 10%;
   padding: 20px;
-  border-radius: 7px;
+  border-radius: 10px;
 }
 
 .info2 {
@@ -171,5 +171,12 @@
 
   .locar span {
     padding-right: 0px;
+  }
+}
+
+@media(max-width: 450px) {
+  .info {
+    margin: 50px 0%;
+    border-radius: 0px;
   }
 }

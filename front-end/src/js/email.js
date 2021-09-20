@@ -7,19 +7,26 @@ function email() {
   const e = getUrlParams.get('em');
   const l = getUrlParams.get('l');
 
-  window.localStorage.setItem("email", e);
+  if(n != null && n != "" && n != "null" 
+      && e != null && e != "" && e != "null"
+      && l != null && l != "" && l != "null") {
+    window.localStorage.setItem("email", e);
 
-  document.querySelector(".title").innerHTML="Olá, " + n + "! <br>Verifique seu endereço de e-mail";
-  document.querySelector(".showemail").innerHTML=window.localStorage.getItem("email") + "<br>alterar";
-  document.querySelector(".showemail").addEventListener("click", () => {
-    document.querySelector(".changeemailc").classList.remove("changeemailc1");
-    document.querySelector(".changeemailbtn1").classList.remove("changeemailc1");
-    document.querySelector(".changeemailbtn2").classList.remove("changeemailc1");
-    document.querySelector(".showemail").classList.add("changeemailc1");
-    document.querySelector(".confirmps").classList.add("changeemailc1");
-    document.querySelector(".changeemailc").value = window.localStorage.getItem("email");
-    document.querySelector(".changeemailc").focus();
-  });
+    document.querySelector(".title").innerHTML="Olá, " + n + "! <br>Verifique seu endereço de e-mail";
+    document.querySelector(".showemail").innerHTML=window.localStorage.getItem("email") + "<br>alterar";
+    document.querySelector(".showemail").addEventListener("click", () => {
+      document.querySelector(".changeemailc").classList.remove("changeemailc1");
+      document.querySelector(".changeemailbtn1").classList.remove("changeemailc1");
+      document.querySelector(".changeemailbtn2").classList.remove("changeemailc1");
+      document.querySelector(".showemail").classList.add("changeemailc1");
+      document.querySelector(".confirmps").classList.add("changeemailc1");
+      document.querySelector(".changeemailc").value = window.localStorage.getItem("email");
+      document.querySelector(".changeemailc").focus();
+    });
+  }
+  else {
+    window.location.replace("/src/pages/login.html");
+  }
 }
 
 function cancelar() {

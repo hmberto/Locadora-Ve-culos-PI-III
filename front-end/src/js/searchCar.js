@@ -184,10 +184,3 @@ localRetirada.addEventListener('keyup', function(e){
     localDevolucao.focus();
   }
 });
-
-localDevolucao.addEventListener('keyup', function(e){
-  var key = e.which || e.keyCode;
-  if (key == 13) {
-    searchCar();
-  }
-});

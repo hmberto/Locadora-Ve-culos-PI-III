@@ -1,11 +1,14 @@
 #titlehoome{
   text-align: center;
   margin: 40px 0;
+  padding: 0 20px;
 }
 
 .spntitle {
   font-size: 30px;
   font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
 }
 
 #cars {
@@ -63,14 +66,35 @@
 }
 
 #home {
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 @media(max-width: 450px) {
   #cars {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
     grid-gap: 30px;
-    margin: 0 10%;
+    margin: 0 0;
+  }
+
+  .showcar {
+    border-radius: 0px;
+  }
+
+  #titlehoome{
+    text-align: center;
+    margin: 40px 0;
+    padding: 0 20px;
+  }
+  
+  .spntitle {
+    font-size: 22px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  #titlehoome p {
+    font-size: 16px;
   }
 }
