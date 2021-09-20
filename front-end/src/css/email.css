@@ -29,6 +29,7 @@
   display: block;
   margin: 50px 0;
   line-height: 22px;
+  text-align: center;
 }
 
 .showemail {
@@ -50,6 +51,7 @@
 .confirmps {
   display: block;
   margin-bottom: 50px;
+  text-align: center;
 }
 
 .changeemailc1 {
@@ -58,6 +60,7 @@
 
 .divbtn {
   margin-top: 10px;
+  text-align: center;
 }
 
 .changeemailbtn1, .changeemailbtn2 {
