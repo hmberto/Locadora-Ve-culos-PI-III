@@ -81,3 +81,25 @@
     padding-top: 100px;
   }
 }
+
+@media(max-width: 450px) {
+  #email {
+    padding-left: 0%;
+    padding-right: 0%;
+    padding-bottom: 50px;
+  }
+
+  .email {
+    border-radius: 0px;
+    text-align: left;
+  }
+
+  .title2 {
+    width: 100%;
+    margin: auto;
+  }
+
+  .ndb {
+    text-align: center;
+  }
+}
