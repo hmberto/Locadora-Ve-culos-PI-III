@@ -113,24 +113,35 @@ input {
 }
 
 .border-black {
-  border-bottom: solid 2px black;
+  border-bottom: solid 2px #000;
+  background-color: #fff;
+  color: #000;
 }
 
 .border-black1 {
-  border-bottom: solid 2px #337ab7;
+  border-bottom: solid 2px #fff;
+  background-color: #1b1b1b;
+  color: #fff;
 }
 
 .border-vermelho {
   border-bottom: solid 2px #ff6347;
 }
 
-#sexo {
+#sexo, #categoriaCnh {
   height: 32px;
   width: 100%;
   font-size: 18px;
-  padding-left: 5px;
-  box-shadow: 0 0 10px 2px #fff inset;
+  padding-left: 2px;
   transition: all .2s ease-in-out;
+}
+
+.sexocor1 {
+  box-shadow: 0 0 10px 2px #fff inset;
+}
+
+.sexocor2 {
+  box-shadow: 0 0 10px 2px #1b1b1b inset;
 }
 
 #erro{

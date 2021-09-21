@@ -82,22 +82,26 @@ function getUser() {
         var telefoneList3 = usrJson['telefone'].slice(6,10);
 
         newTelefoneFormat = "(" + telefoneList1 + ") " + telefoneList2 + "-" + telefoneList3;
+
+        document.querySelector(".cep").innerHTML=usrJson['rua'] + ", " + usrJson['numero'] + complemento + " - " + usrJson['bairro'] + "<br><br>" + usrJson['cidade'] + " - " + usrJson['estado'] + ", " + usrJson['cep'];
+
+        v="Rua honoriom 61, jardim ipe, são paulo, sp, CEP 05897-330"
         
-        document.querySelector(".bairro").innerHTML=usrJson['bairro'];
+        // document.querySelector(".bairro").innerHTML=usrJson['bairro'];
         document.querySelector(".categoriaCnh").innerHTML=usrJson['categoriaCnh'];
         document.querySelector(".celular").innerHTML=newCelularFormat;
-        document.querySelector(".cep").innerHTML=usrJson['cep'];
-        document.querySelector(".cidade").innerHTML=usrJson['cidade'];
+        // document.querySelector(".cep").innerHTML=usrJson['cep'];
+        // document.querySelector(".cidade").innerHTML=usrJson['cidade'];
         document.querySelector(".cpf").innerHTML=newCpfFormat;
         document.querySelector(".dataNascimento").innerHTML=newDataNascimento;
         document.querySelector(".email").innerHTML=usrJson['email'];
-        document.querySelector(".estado").innerHTML=usrJson['estado'];
+        // document.querySelector(".estado").innerHTML=usrJson['estado'];
         document.querySelector(".login").innerHTML=atob(usrJson['login']);
         document.querySelector(".numeroCnh").innerHTML=usrJson['numeroCnh'];
         document.querySelector(".registroCnh").innerHTML=usrJson['registroCnh'];
         document.querySelector(".rg").innerHTML=newRgFormat;
-        document.querySelector(".rua").innerHTML=usrJson['rua'];
-        document.querySelector(".casa").innerHTML=usrJson['numero'] + complemento;
+        // document.querySelector(".rua").innerHTML=usrJson['rua'];
+        // document.querySelector(".casa").innerHTML=usrJson['numero'] + complemento;
         document.querySelector(".sexo").innerHTML=sexo;
         document.querySelector(".telefone").innerHTML=newTelefoneFormat;
         document.querySelector(".validadeCnh").innerHTML=newValidadeCnh;

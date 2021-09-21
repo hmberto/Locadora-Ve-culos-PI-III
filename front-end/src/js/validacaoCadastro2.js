@@ -1,4 +1,4 @@
-function validadeA() {
+function validateA() {
   let emailRegex = email.value.match(/[0-9 a-z A-Z .]@[0-9 a-z A-Z .]/gi);  
   if(emailRegex == null) {
     erro.classList.remove("azul");

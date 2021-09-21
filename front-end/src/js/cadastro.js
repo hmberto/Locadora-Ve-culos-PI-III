@@ -25,6 +25,127 @@ var registroCnh = document.getElementById('registroCnh');
 var validadeCnh = document.getElementById('validadeCnh');
 var categoriaCnh = document.getElementById('categoriaCnh');
 
+function dataataul() {
+  var data = new Date();
+  var dia = String(data.getDate()).padStart(2, '0');
+  var mes = String(data.getMonth() + 1).padStart(2, '0');
+  var ano = data.getFullYear();
+
+  var d = ano + "-" + mes + "-" + dia;
+  return d;
+}
+
+function dezoitoanos() {
+  var dataAtaul = new Date();
+  var mesAtual = String(dataAtaul.getMonth() + 1).padStart(2, '0');
+  var anoAtual = dataAtaul.getFullYear();
+
+  var i = 0;
+  var total = 0;
+  while(i < 216) {
+    var maior = new Date(anoAtual, mesAtual - i, 0).getDate();
+    total = total + maior;
+    i = i + 1;
+  }
+  
+  var data = new Date();
+  data.setDate(data.getDate() - total);
+  var dia = String(data.getDate()).padStart(2, '0');
+  var mes = String(data.getMonth() + 1).padStart(2, '0');
+  var ano = data.getFullYear();
+
+  var d = ano + "-" + mes + "-" + dia;
+  return d;
+}
+
+function dezanos() {
+  var dataAtaul = new Date();
+  var mesAtual = String(dataAtaul.getMonth() + 1).padStart(2, '0');
+  var anoAtual = dataAtaul.getFullYear();
+
+  var i = 0;
+  var total = 0;
+  while(i < 120) {
+    var maior = new Date(anoAtual, mesAtual + i, 0).getDate();
+    total = total + maior;
+    i = i + 1;
+  }
+
+  var data = new Date();
+  data.setDate(data.getDate() + total);
+  var dia = String(data.getDate()).padStart(2, '0');
+  var mes = String(data.getMonth() + 1).padStart(2, '0');
+  var ano = data.getFullYear();
+
+  var d = ano + "-" + mes + "-" + dia;
+  
+  return d;
+}
+
+function umano() {
+  var dataAtaul = new Date();
+  var mesAtual = String(dataAtaul.getMonth() + 1).padStart(2, '0');
+  var anoAtual = dataAtaul.getFullYear();
+
+  var i = 0;
+  var total = 0;
+  while(i < 12) {
+    var maior = new Date(anoAtual, mesAtual + i, 0).getDate();
+    total = total + maior;
+    i = i + 1;
+  }
+
+  var data = new Date();
+  data.setDate(data.getDate() + total);
+  var dia = String(data.getDate()).padStart(2, '0');
+  var mes = String(data.getMonth() + 1).padStart(2, '0');
+  var ano = data.getFullYear();
+
+  var d = ano + "-" + mes + "-" + dia;
+
+  return d;
+}
+
+function maiorIdade() {
+  var dezoitoanoss = dezoitoanos();
+  dataNascimento.setAttribute("max", dezoitoanoss);
+  dataNascimento.value = dezoitoanoss;
+
+  var dataataull = dataataul();
+  var dezanoss = dezanos();
+  var umanoo = umano();
+  validadeCnh.setAttribute("min", dataataull);
+  validadeCnh.setAttribute("max", dezanoss);
+  validadeCnh.value = umanoo;
+}
+
+maiorIdade()
+
+function aleatorios(tamanho) {
+  var primeiro = true;
+  var numero = "";
+  var i = 0;
+  while(i < tamanho) {
+    min = Math.ceil(0);
+    max = Math.floor(9);
+    gen = Math.floor(Math.random() * (0 + 9)) + 0;
+    if(primeiro && gen == 0) {}
+    else {
+      primeiro = false;
+      numero = numero + gen;
+      i = i + 1;
+    }
+  }
+
+  return numero;
+}
+
+rg.value = aleatorios(9);
+cpf.value = aleatorios(11);
+celular.value = "119" + aleatorios(8);
+numeroCnh.value = aleatorios(10);
+registroCnh.value = aleatorios(11);
+
 var themeColor = window.localStorage.getItem("sessionColor");
 var passimg = document.getElementById("passshow");
 if(themeColor == "dark") {
@@ -44,6 +165,8 @@ if(themeColor == "dark") {
   dataNascimento.classList.add("border-black1");
   sexo.classList.remove("border-black");
   sexo.classList.add("border-black1");
+  sexo.classList.remove("sexocor1");
+  sexo.classList.add("sexocor2");
   email.classList.remove("border-black");
   email.classList.add("border-black1");
   telefone.classList.remove("border-black");
@@ -76,6 +199,8 @@ if(themeColor == "dark") {
   validadeCnh.classList.add("border-black1");
   categoriaCnh.classList.remove("border-black");
   categoriaCnh.classList.add("border-black1");
+  categoriaCnh.classList.remove("sexocor1");
+  categoriaCnh.classList.add("sexocor2");
 }
 
 var session = window.localStorage.getItem("session");
@@ -92,6 +217,7 @@ function buscarCep() {
   var cep = document.getElementById("cep");
 
   if(cep.value.length == 8) {
+    numero.focus();
     cep.disabled = true;
     
     var url = "https://viacep.com.br/ws/" + cep.value + "/json/";
@@ -156,17 +282,17 @@ function buscarCep() {
 
 function getValue() {
   loading.classList.remove("hideloading");
-  
+
+  if(!validate() || !validateA() || !validateB()) {
+    loading.classList.add("hideloading");
+    return;
+  }
+
   if(telefone.value == ""){
     telefone.value = "0000000000";
   }
   if(complemento.value == ""){
     complemento.value = "null";
-  }
-
-  if(!validate() || !validadeA()) {
-    loading.classList.add("hideloading");
-    return;
   }
 
   document.getElementById("form").classList.add("hide");
@@ -198,6 +324,13 @@ function getValue() {
       document.getElementById("footer").classList.add("footer3");
     }
     else {
+      if(telefone.value == "0000000000"){
+        telefone.value = "";
+      }
+      if(complemento.value == "null"){
+        complemento.value = "";
+      }
+
       document.getElementById("form").classList.remove("hide");
 
       erro.classList.remove("azul");

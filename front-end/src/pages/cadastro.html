@@ -136,11 +136,11 @@
             <div class="cont">
               <div class="log1">
                 <div class="txt"><span class="t1  font-black">Data de Nascimento</span><span class="estrela"> *</span></div>
-                <input class="border-black" id="dataNascimento" max="2005-01-01" onkeyup="validate()" min="1922-01-01" type="date">
+                <input class="border-black" id="dataNascimento" onkeyup="validate()" min="1900-01-01" type="date">
               </div>
               <div class="log2">
-                <div class="txt"><span class="t1  font-black">Sexo</span><span class="estrela"> *</span></div>
-                <select id="sexo">
+                <div class="txt"><span class="t1 font-black">Sexo</span><span class="estrela"> *</span></div>
+                <select id="sexo" class="sexocor1">
                   <option value="Não informar" selected>Não informar</option>
                   <option value="Masculino">Masculino</option>
                   <option value="Feminino">Feminino</option>
@@ -221,11 +221,17 @@
             </div>
             <div class="log1">
               <div class="txt"><span class="t1 font-black">Validade CNH</span><span class="estrela"> *</span><span class="legenda legenda1">⠀</span></div>
-              <input class="border-black" id="validadeCnh" max="2032-01-01" min="2011-01-01" type="date">
+              <input class="border-black" id="validadeCnh" type="date">
             </div>
             <div class="log2">
-              <div class="txt"><span class="t1 font-black">Categoria</span><span class="estrela"> *</span><span class="legenda legenda2  font-black">(Apenas Letra)</span></div>
-              <input autocomplete="off" class="border-black" id="categoriaCnh" placeholder="Categoria" onkeyup="validate()" maxlength="5" type="text">
+              <div class="txt"><span class="t1 font-black">Categoria</span><span class="estrela"> *</span></div>
+              <select id="categoriaCnh" class="sexocor1">
+                <option value="A">CNH categoria A</option>
+                <option value="B" selected>CNH categoria B</option>
+                <option value="C">CNH categoria C</option>
+                <option value="D">CNH categoria D</option>
+                <option value="E">CNH categoria E</option>
+              </select>
             </div>
           </div>
           <div class="botao">
@@ -259,6 +265,7 @@
     </div>
   </div>
 
+  <script src='http://momentjs.com/downloads/moment.min.js'></script>
   <script src="/src/js/cadastro.js"></script>
   <script src="/src/js/validacaoCadastro.js"></script>
   <script src="/src/js/validacaoCadastro2.js"></script>
@@ -266,5 +273,6 @@
   <script src="/src/js/openMenu.js"></script>
   <script src="/src/js/changeTheme.js"></script>
   <script src="/src/js/chatbox.js"></script>
+  <script src="/src/js/datasCadastro.js"></script>
 </body>
 </html>
