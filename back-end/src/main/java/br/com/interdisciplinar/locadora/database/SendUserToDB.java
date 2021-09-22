@@ -69,6 +69,8 @@ public class SendUserToDB {
 				welcome = "Bem vindx, ";
 			}
 			
+			String[] nomeSeparado = user.getNome().split(" ");
+			
 			String messageSubject = "Locadora de Veículos BH - Confirme seu e-mail";
 			
 			String messageText = "<!DOCTYPE html>\n"
@@ -95,7 +97,7 @@ public class SendUserToDB {
 					+ "  </div>\n"
 					+ "  <div style=\"Margin-left: 20px;Margin-right: 20px;\">\n"
 					+ "    <h1 style=\"Margin-top: 0;Margin-bottom: 20px;font-style: normal;font-weight: normal;color: #3d3b3d;font-size: 30px;line-height: 38px;text-align: center;\">\n"
-					+ "      " + welcome + user.getNome() + "! Clique no link a seguir para confirmar seu endereço de e-mail" + "\n"
+					+ "      " + welcome + nomeSeparado[0] + "! Clique no link a seguir para confirmar seu endereço de e-mail" + "\n"
 					+ "    </h1>\n"
 					+ "  </div>\n"
 					+ "  <div style=\"Margin-left: 20px;Margin-right: 20px;\">\n"

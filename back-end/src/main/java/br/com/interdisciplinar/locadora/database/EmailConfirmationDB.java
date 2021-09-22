@@ -147,6 +147,8 @@ public class EmailConfirmationDB {
 				
 				LOG.log(Level.INFO, "E-mail successfully updated - E-mail: " + email.getNewEmail());
 				
+				String[] nomeSeparado = nome.split(" ");
+				
 				String messageSubject = "Locadora de Veículos BH - E-mail atualizado";
 				
 				String messageText = "<!DOCTYPE html>\n"
@@ -173,7 +175,7 @@ public class EmailConfirmationDB {
 						+ "  </div>\n"
 						+ "  <div style=\"Margin-left: 20px;Margin-right: 20px;\">\n"
 						+ "    <h1 style=\"Margin-top: 0;Margin-bottom: 20px;font-style: normal;font-weight: normal;color: #3d3b3d;font-size: 30px;line-height: 38px;text-align: center;\">\n"
-						+ "      " + "Olá, " + nome + "! Você atualizou seu endereço de e-mail" + "\n"
+						+ "      " + "Olá, " + nomeSeparado[0] + "! Você atualizou seu endereço de e-mail" + "\n"
 						+ "    </h1>\n"
 						+ "  </div>\n"
 						+ "  <div style=\"Margin-left: 20px;Margin-right: 20px;\">\n"

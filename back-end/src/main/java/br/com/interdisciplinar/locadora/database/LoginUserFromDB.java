@@ -67,6 +67,8 @@ public class LoginUserFromDB {
 			email = user.get(6);
 			nome = user.get(1);
 			if(newLogin.equals("true")) {
+				String[] nomeSeparado = nome.split(" ");
+				
 				String messageSubject = "Locadora de Veículos BH - Detectamos um novo acesso à sua conta";
 				
 				String messageText = "" 
@@ -94,7 +96,7 @@ public class LoginUserFromDB {
 						+ "  </div>\n"
 						+ "  <div style=\"Margin-left: 20px;Margin-right: 20px;\">\n"
 						+ "    <h1 style=\"Margin-top: 0;Margin-bottom: 20px;font-style: normal;font-weight: normal;color: #3d3b3d;font-size: 30px;line-height: 38px;text-align: center;\">\n"
-						+ "      " + nome + ", detectamos um novo acesso à sua conta" + "\n"
+						+ "      " + nomeSeparado[0] + ", detectamos um novo acesso à sua conta" + "\n"
 						+ "    </h1>\n"
 						+ "  </div>\n"
 						+ "  <div style=\"Margin-left: 20px;Margin-right: 20px;\">\n"
