@@ -53,7 +53,109 @@ if(session != null) {
 loading.classList.add("hideloading");
 user.focus();
 
+var meses = [
+  "Janeiro",
+  "Fevereiro",
+  "Março",
+  "Abril",
+  "Maio",
+  "Junho",
+  "Julho",
+  "Agosto",
+  "Setembro",
+  "Outubro",
+  "Novembro",
+  "Dezembro"
+];
+
+var dias = ["domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+
+function formatarData(data) {
+  var ano = data.getFullYear();
+  var hora = data.getHours() + 1;
+  var min = data.getMinutes();
+  var mes = meses[data.getMonth()];
+  return "Em " + data.getDate() + " de " + mes + " de " + ano + " às " + newgetHora();
+}
+
+function newgetHora() {
+  var data = new Date();
+  var hora = data.getHours();
+  var min = data.getMinutes(); 
+
+  var horaatual = hora + ":" + min + "h";
+
+  if(hora == 0 || min == 0) {
+    if(hora == 0 && min == 0) {
+      var horaatual = "00" + ":" + "00" + "h";
+    }
+    if(hora == 0) {
+      var horaatual = "00" + ":" + min + "h";
+    }
+    if(min == 0) {
+      var horaatual = hora + ":" + "00" + "h";
+    }
+  }
+  else if(hora < 10 || min < 10) {
+    if(hora < 10) {
+      var horaatual = "0" + hora + ":0" + min + "h";
+    }
+    if(hora < 10) {
+      var horaatual = "0" + hora + ":" + min + "h";
+    }
+    if(min < 10) {
+      var horaatual = hora + ":0" + min + "h";
+    }
+  }
+
+  return horaatual;
+}
+
 function getValue() {
+  var txt = "";
+  var OSNome = "";
+  var OSName = "";
+  var navegador = "";
+ 
+  txt += "\n\nBrowser CodeName: " + navigator.appCodeName;
+  txt += "\n\nBrowser Name: " + navigator.appName;
+  txt += "\n\nBrowser Version: " + navigator.appVersion;
+  txt += "\n\nCookies Enabled: " + navigator.cookieEnabled;
+  txt += "\n\nBrowser Language: " + navigator.language;
+  txt += "\n\nBrowser Online: " + navigator.onLine;
+  txt += "\n\nPlatform: " + navigator.platform;
+  txt += "\n\nUser-agent header: " + navigator.userAgent;
+
+  txt = txt.toUpperCase();
+
+  if(txt.includes("CHROME")) { navegador = "Google Chrome"; }
+  else if(txt.includes("FIREFOX")) { navegador = "Firefox"; }
+  else if(txt.includes("OPERA")) { navegador = "Opera"; }
+  else if(txt.includes("MSIE")) { navegador = "Internet Explorer"; }
+  else { navegador = "Desconhecido" }
+
+  if (window.navigator.userAgent.indexOf("Windows NT 10.0") != -1) OSNome="Windows 10";
+  else if (window.navigator.userAgent.indexOf("Windows NT 6.2") != -1) OSNome="Windows 8";
+  else if (window.navigator.userAgent.indexOf("Windows NT 6.1") != -1) OSNome="Windows 7";
+  else if (window.navigator.userAgent.indexOf("Windows NT 6.0") != -1) OSNome="Windows Vista";
+  else if (window.navigator.userAgent.indexOf("Windows NT 5.1") != -1) OSNome="Windows XP";
+  else if (window.navigator.userAgent.indexOf("Windows NT 5.0") != -1) OSNome="Windows 2000";
+  else if (window.navigator.userAgent.indexOf("Android") != -1) OSNome="Android";
+  else if (window.navigator.userAgent.indexOf("webOS") != -1) OSNome="webOS";
+  else if (window.navigator.userAgent.indexOf("iPhone") != -1) OSNome="iPhone";
+  else if (window.navigator.userAgent.indexOf("iPad") != -1) OSNome="iPad";
+  else if (window.navigator.userAgent.indexOf("iPod") != -1) OSNome="iPod";
+  else if (window.navigator.userAgent.indexOf("BlackBerry") != -1) OSNome="BlackBerry";
+  else if (window.navigator.userAgent.indexOf("Windows Phone") != -1) OSNome="Windows Phone";
+  else if (window.navigator.userAgent.indexOf("Mac") != -1) OSNome="Mac/iOS";
+  else if (window.navigator.userAgent.indexOf("X11") != -1) OSNome="UNIX";
+  else if (window.navigator.userAgent.indexOf("Linux") != -1) OSNome="Linux";
+  else { OSNome="Desconhecido" }
+
+  var data = new Date();
+
+  OSName = OSNome + " - " + navegador + "<br><br>" + formatarData(data) + "<br>Sem localização";
+  
   loading.classList.remove("hideloading");
   
   var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/clientes/login";
@@ -64,12 +166,18 @@ function getValue() {
   var usuario = parseUser;
   var senha = parsePass;
 
-  var json = '{"user":"' + usuario + '","pass":"' + senha + '"}'
+  var newLogin = true;
+
+  if(window.localStorage.getItem("newLogin") == "false") {
+    newLogin = false;
+  }
+
+  var json = '{ "user":"' + usuario + '", "pass":"' + senha + '", "newLogin":"' + newLogin + '", "loginInfo":"' + OSName + '" }';
 
   var xhttp = new XMLHttpRequest();
   xhttp.open("POST", url, true);
   xhttp.setRequestHeader("Content-Type", "application/json");
-
+  
   xhttp.send(json);
 
   xhttp.addEventListener('loadend', () => {
@@ -86,6 +194,7 @@ function getValue() {
       var session = JSON.parse(xhttp.response);
 
       window.localStorage.setItem("session", session['session']);
+      window.localStorage.setItem("newLogin", false);
 
       var xhttp2 = ifLogged(session['session'], 1);
       xhttp2.addEventListener('loadend', () => {
@@ -124,7 +233,6 @@ function getValue() {
               var newUrlParams = "&n=" + window.localStorage.getItem("fName") + "&em=" + confirm['email'] + "&l=" + confirm['login']
               window.localStorage.setItem("session", null);
               window.localStorage.setItem("fName", null);
-
 
               window.location.replace("/src/pages/login.html?e=false" + newUrlParams);
             }
