@@ -97,7 +97,7 @@ function newgetHora() {
     }
   }
   else if(hora < 10 || min < 10) {
-    if(hora < 10) {
+    if(hora < 10 && min < 10) {
       var horaatual = "0" + hora + ":0" + min + "h";
     }
     if(hora < 10) {
