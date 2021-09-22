@@ -111,6 +111,45 @@ function newgetHora() {
   return horaatual;
 }
 
+function geoIp() {
+  button.disabled = true;
+  if(window.localStorage.getItem("ip") != null 
+  && window.localStorage.getItem("ip") != "null"
+  && window.localStorage.getItem("ip") != "") {}
+  else {
+    var urlIp = "https://ipapi.co/json/";
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("POST", urlIp, true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    
+    xhttp.send();
+
+    xhttp.addEventListener('loadend', () => {
+      button.disabled = false;
+      
+      if(xhttp.status == 200) {
+        var location = JSON.parse(xhttp.response);
+
+        var ip = location['ip'];
+        var city = location['city'];
+        var region = location['region_code'];
+        var country = location['country_code'];
+
+        if(country == "BR") {
+          country = "Brasil";
+        }
+
+        var loc = city + " - " + region;
+
+        window.localStorage.setItem("ip", ip);
+        window.localStorage.setItem("location", loc);
+      }
+    });
+  }
+}
+
+geoIp();
+
 function getValue() {
   var txt = "";
   var OSNome = "";
@@ -154,7 +193,15 @@ function getValue() {
 
   var data = new Date();
 
-  OSName = OSNome + " - " + navegador + "<br><br>" + formatarData(data) + "<br>Sem localização";
+  var userLocation = "Sem localização";
+
+  if(window.localStorage.getItem("location") != null 
+  && window.localStorage.getItem("location") != "null"
+  && window.localStorage.getItem("location") != "") {
+    userLocation = window.localStorage.getItem("location");
+  }
+
+  OSName = OSNome + " - " + navegador + "<br><br>" + formatarData(data) + "<br>" + userLocation;
   
   loading.classList.remove("hideloading");
   

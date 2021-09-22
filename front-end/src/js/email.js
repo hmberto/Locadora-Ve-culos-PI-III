@@ -45,46 +45,57 @@ function salvar() {
   window.localStorage.setItem("email", document.querySelector(".changeemailc").value);
   document.querySelector(".showemail").innerHTML=window.localStorage.getItem("email") + "<br>alterar";
 
-  sendEmail()
+  sendEmail();
 }
 
 function sendEmail() {
   if(document.querySelector(".confirmps").classList.contains("changeemailc1")) {
     document.querySelector(".confirmps").classList.remove("changeemailc1");
+    document.querySelector(".confirmpass").focus();
   }
   else {
-    loading.classList.remove("hideloading");
-    const getUrlParams = new URLSearchParams(window.location.search);
-    const email = window.localStorage.getItem("email");
-    const login = getUrlParams.get('l');
-    var pass = document.querySelector(".confirmpass");
+    if(document.querySelector(".confirmpass").value != "") {
+      loading.classList.remove("hideloading");
+      const getUrlParams = new URLSearchParams(window.location.search);
+      const email = window.localStorage.getItem("email");
+      const login = getUrlParams.get('l');
+      var pass = document.querySelector(".confirmpass");
 
-    var parsePass = btoa(pass.value);
+      var parsePass = btoa(pass.value);
 
-    var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/email/update";
-    var json = '{ "newEmail": "' + email + '", "login": "' + login + '", "pass": "' + parsePass + '" }';
-    
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", url, true);
-    xhttp.setRequestHeader("Content-Type", "application/json");
+      var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/email/update";
+      var json = '{ "newEmail": "' + email + '", "login": "' + login + '", "pass": "' + parsePass + '" }';
+      
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("POST", url, true);
+      xhttp.setRequestHeader("Content-Type", "application/json");
 
-    console.log(json)
+      xhttp.send(json);
 
-    xhttp.send(json);
-
-    xhttp.addEventListener('loadend', () => {
-      window.localStorage.setItem("email", null);
-      loading.classList.add("hideloading");
-      if(xhttp.status == 200) {
-        window.location.replace("/src/pages/login.html?s=my");
-        window.localStorage.setItem("s", 'my');
-      }
-      else {
-        window.location.replace("/src/pages/login.html?b=gk");
-        window.localStorage.setItem("b", 'gk');
-      }
-    });
+      xhttp.addEventListener('loadend', () => {
+        window.localStorage.setItem("email", null);
+        loading.classList.add("hideloading");
+        if(xhttp.status == 200) {
+          window.location.replace("/src/pages/login.html?s=my");
+          window.localStorage.setItem("s", 'my');
+        }
+        else {
+          window.location.replace("/src/pages/login.html?b=gk");
+          window.localStorage.setItem("b", 'gk');
+        }
+      });
+    }
+    else {
+      document.querySelector(".confirmpass").focus();
+    }
   }
 }
 
 email();
+
+document.querySelector(".confirmpass").addEventListener('keyup', function(e){
+  var key = e.which || e.keyCode;
+  if (key == 13) {
+    sendEmail();
+  }
+});
