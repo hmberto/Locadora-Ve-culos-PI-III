@@ -32,7 +32,7 @@ function getHora() {
       var horaatual = hora + ":" + "00" + "h";
     }
   }
-  else if(hora < 10 || min < 10) {
+  if(hora < 10 || min < 10) {
     if(hora < 10 && min < 10) {
       var horaatual = "0" + hora + ":0" + min + "h";
     }
