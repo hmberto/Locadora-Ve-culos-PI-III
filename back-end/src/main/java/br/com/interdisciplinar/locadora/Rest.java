@@ -73,7 +73,7 @@ public class Rest {
 		try {
 			if(login.getUser().length() > 1 && login.getPass().length() > 1) {
 				LoginUserFromDB userFromDb = new LoginUserFromDB();				
-				Map<Integer, String> session = userFromDb.LoginUser(login.getUser(), login.getPass());
+				Map<Integer, String> session = userFromDb.LoginUser(login.getUser(), login.getPass(), login.getNewLogin(), login.getLoginInfo());
 				
 				if(session.get(1).length() == 50) {
 					return Response.ok(new GenerateClients(session)).build();
