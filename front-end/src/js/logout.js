@@ -12,7 +12,7 @@ function logoutlink() {
 
     xhttp.send(json);
 
-    xhttp2.addEventListener('loadend', () => {
+    xhttp.addEventListener('loadend', () => {
       if(xhttp.status == 200) {
         window.localStorage.setItem("session", null);
         window.localStorage.setItem("fName", null);
