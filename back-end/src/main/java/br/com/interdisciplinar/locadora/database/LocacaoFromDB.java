@@ -11,6 +11,8 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.apache.commons.codec.binary.Base64;
+
 import br.com.interdisciplinar.locadora.dt.EnvVariables;
 import br.com.interdisciplinar.locadora.dt.GenerateID;
 import br.com.interdisciplinar.locadora.locacao.CreateConsult;
@@ -148,6 +150,9 @@ public class LocacaoFromDB {
 				
 				String messageSubject = "Locadora de Veículos BH - " + modelo + " - Reserva confirmada";
 				
+				Base64 b = new Base64();
+	            String encoding = b.encodeAsString(locacao.getCpf_locatario().getBytes());
+				
 				String messageText = "<!DOCTYPE html>\n"
 						+ "<html lang=\"pt-br\">\n"
 						+ "<head>\n"
@@ -182,7 +187,7 @@ public class LocacaoFromDB {
 						+ "  </div>\n"
 						+ "  <div style=\"Margin-left: 20px;Margin-right: 20px;\">\n"
 						+ "    <div class=\"btn btn--flat btn--large\" style=\"Margin-bottom: 20px;text-align: center;\">\n"
-						+ "      <a style=\"border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #ffffff !important;background-color: #337ab7;font-family: sans-serif;\" href=\"http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com/src/pages/detalhes.html?u=" + locacao.getCpf_locatario() + "\" target=\"_blank\">\n"
+						+ "      <a style=\"border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #ffffff !important;background-color: #337ab7;font-family: sans-serif;\" href=\"http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com/src/pages/detalhes.html?u=" + encoding + "\" target=\"_blank\">\n"
 						+ "        Ver detalhes\n"
 						+ "      </a>\n"
 						+ "  </div>\n"
