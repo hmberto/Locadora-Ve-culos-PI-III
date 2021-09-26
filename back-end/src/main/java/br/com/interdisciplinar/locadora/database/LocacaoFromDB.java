@@ -17,6 +17,7 @@ import br.com.interdisciplinar.locadora.locacao.CreateConsult;
 import br.com.interdisciplinar.locadora.locacao.CreateLocacao;
 import br.com.interdisciplinar.locadora.locacao.DeleteLocacao;
 import br.com.interdisciplinar.locadora.locacao.UpdateLocacao;
+import br.com.interdisciplinar.locadora.mail.EmailConfirmation;
 
 public class LocacaoFromDB {
 	public static String NAME = LocacaoFromDB.class.getSimpleName();
@@ -33,6 +34,10 @@ public class LocacaoFromDB {
 		String sql3 = EnvVariables.getEnvVariable("DATABASE_UPDATE_LOCATION_3");
 		
 		boolean check = false;
+		String email = "";
+		String nome = ""; 
+		String modelo = "";
+		String texto = "Você ainda não pagou pela reserva! Acesse sua reserva e faça o pagamento pelo site ou compareça a uma agência e realize o pagamento para manter sua reserva ativa. ";
 		
 		try {
 			PreparedStatement CHECK_LOCATARIO_ACTIVE = Database.connect().prepareStatement(CHECK_LOCATARIO);
@@ -52,12 +57,15 @@ public class LocacaoFromDB {
 			while(f1.next()) {
 				if(f1.getString(15).equals("1")) {
 					valid1 = true;
+					modelo = f1.getString(6);
 				}
 			}
 			
 			while(f2.next()) {
 				if(f2.getString(22).equals("0")) {
 					valid2 = true;
+					nome = f2.getString(1);
+					email = f2.getString(6);
 				}
 			}
 			
@@ -88,6 +96,7 @@ public class LocacaoFromDB {
 				
 				if(locacao.getPagamento_no_site().equals("true")) {
 					pagamento_no_site = true;
+					texto = "Você já pagou pela reserva! ";
 				}
 				
 				LOG.log(Level.INFO, cadeirinha + "");
@@ -133,6 +142,55 @@ public class LocacaoFromDB {
 				
 				check = true;
 				LOG.log(Level.INFO, "Location created on the database - user CPF: " + locacao.getCpf_locatario() + " - Car ID: " + locacao.getId_veiculo());
+				
+				String[] nomeSeparado = nome.split(" ");
+				String[] dataSeparada = locacao.getData_retirada().split("-");
+				
+				String messageSubject = "Locadora de Veículos BH - " + modelo + " - Reserva confirmada";
+				
+				String messageText = "<!DOCTYPE html>\n"
+						+ "<html lang=\"pt-br\">\n"
+						+ "<head>\n"
+						+ "  <meta charset=\"UTF-8\">\n"
+						+ "  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n"
+						+ "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+						+ "  <title>" + messageSubject + "</title>\n"
+						+ "</head>\n"
+						+ "<body>\n"
+						+ "  <div role=\"banner\">\n"
+						+ "    <div class=\"header\" style=\"Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);\" id=\"emb-email-header-container\">\n"
+						+ "      <div class=\"logo emb-logo-margin-box\" style=\"font-size: 26px;line-height: 32px;Margin-top: 16px;Margin-bottom: 32px;color: #41637e;font-family: sans-serif;Margin-left: 20px;Margin-right: 20px;\" align=\"center\">\n"
+						+ "        <div class=\"logo-center\" align=\"center\" id=\"emb-email-header\"><img style=\"display: block;height: auto;width: 100%;border: 0;max-width: 141px;\" src=\"http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com/src/img/favicon.png\" alt width=\"141\"></div>\n"
+						+ "      </div>\n"
+						+ "    </div>\n"
+						+ "  </div>\n"
+						+ "  <div>\n"
+						+ "    <div class=\"layout one-col fixed-width stack\" style=\"Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;\">\n"
+						+ "    <div class=\"layout__inner\" style=\"border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;\">\n"
+						+ "    <div class=\"column\" style=\"text-align: left;color: #717a8a;font-size: 16px;line-height: 24px;font-family: sans-serif;\">\n"
+						+ "    <div style=\"Margin-left: 20px;Margin-right: 20px;Margin-top: 24px;\">\n"
+						+ "  </div>\n"
+						+ "  <div style=\"Margin-left: 20px;Margin-right: 20px;\">\n"
+						+ "    <h1 style=\"Margin-top: 0;Margin-bottom: 20px;font-style: normal;font-weight: normal;color: #3d3b3d;font-size: 30px;line-height: 38px;text-align: center;\">\n"
+						+ "      " + "Olá, " + nomeSeparado[0] + "! Você concluiu sua reserva pelo site! Confira os detalhes" + "\n"
+						+ "    </h1>\n"
+						+ "  </div>\n"
+						+ "  <div style=\"Margin-left: 20px;Margin-right: 20px;\">\n"
+						+ "    <h2 class=\"size-24\" style=\"Margin-top: 0;Margin-bottom: 16px;font-style: normal;font-weight: normal;color: #3d3b3d;font-size: 20px;line-height: 28px;text-align: center;\" lang=\"x-size-24\">\n"
+						+ "      " + texto + "Seu veículo estará te esperando na agência " + locacao.getLocal_retirada() + " nesta data: " + dataSeparada[2] + "/" + dataSeparada[1] + "/" + dataSeparada[0] + "<br><br>\n"
+						+ "    </h2>\n"
+						+ "  </div>\n"
+						+ "  <div style=\"Margin-left: 20px;Margin-right: 20px;\">\n"
+						+ "    <div class=\"btn btn--flat btn--large\" style=\"Margin-bottom: 20px;text-align: center;\">\n"
+						+ "      <a style=\"border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #ffffff !important;background-color: #337ab7;font-family: sans-serif;\" href=\"http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com/src/pages/confirmation.html?e=" + "\" target=\"_blank\">\n"
+						+ "        Ver detalhes\n"
+						+ "      </a>\n"
+						+ "  </div>\n"
+						+ "</body>\n"
+						+ "</html>";
+				
+				EmailConfirmation sendEmail = new EmailConfirmation();
+				sendEmail.confirmation(email, messageSubject, messageText);
 			}
 		}
 		catch (SQLException e) {

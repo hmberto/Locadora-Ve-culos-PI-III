@@ -171,6 +171,7 @@ function getValue() {
   else if(txt.includes("FIREFOX")) { navegador = "Firefox"; }
   else if(txt.includes("OPERA")) { navegador = "Opera"; }
   else if(txt.includes("MSIE")) { navegador = "Internet Explorer"; }
+  else if(txt.includes("SAFARI")) { navegador = "Safari"; }
   else { navegador = "Desconhecido" }
 
   if (window.navigator.userAgent.indexOf("Windows NT 10.0") != -1) OSNome="Windows 10";
