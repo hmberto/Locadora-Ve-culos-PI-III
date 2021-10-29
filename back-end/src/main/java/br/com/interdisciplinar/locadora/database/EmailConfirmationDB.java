@@ -133,7 +133,7 @@ public class EmailConfirmationDB {
 					validate = true;
 					cpf = f.getString(2);
 					nome = f.getString(1);
-					token = f.getString(25);
+					token = f.getString(24);
 				}
 			}
 						
