@@ -249,9 +249,6 @@ function getValue() {
         var confirm = JSON.parse(xhttp2.response);
         var email = confirm['emailConfirmado'];
 
-        console.log(confirm);
-        console.log(confirm['emailConfirmado']);
-
         if(email == 1) {
           if(urlParam2 != null && urlParam2.length > 3) {
             window.location.replace("/src/pages/car.html?carId=" + urlParam2);

@@ -1,0 +1,43 @@
+#home {
+  padding-top: 81px;
+}
+
+#marcas {
+  margin: 0 10%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#marcas li {
+  font-size: 22px;
+  padding-top: 15px;
+}
+
+#marcas a {
+  font-size: 18px;
+  padding-bottom: 15px;
+  display: block;
+  margin-left: 20px;
+}
+
+@media(max-width: 550px) {
+  #home {
+    padding-top: 60px;
+  }
+
+  #marcas li {
+    font-size: 16px;
+  }
+
+  #marcas a {
+    font-size: 16px;
+    margin-left: 22px;
+  }
+}
+
+@media(max-width: 450px) {
+  #marcas {
+    margin: 0 0%;
+    border-radius: 0px;
+  }
+}
