@@ -29,7 +29,7 @@ public class EmailConfirmationDB {
 			
 			boolean validate = false;
 			while(f.next()) {
-				if(f.getBoolean(24) == false && f.getString(25).equals(email.getEmailToken())) {
+				if(f.getBoolean(23) == false && f.getString(24).equals(email.getEmailToken())) {
 					validate = true;
 				}
 			}
