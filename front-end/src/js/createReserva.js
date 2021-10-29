@@ -49,7 +49,7 @@ function createReserva(y) {
           var cartao_pagamento = document.querySelector(".card1").textContent;
         }
 
-        var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/location/create";
+        var url = "http://3.144.171.211:8186/LocadoraVeiculos/location/create";
         var json = '{"cpf_locatario": "' + resp['cpf'] + '","id_veiculo": "' + urlParam + '","data_retirada": "' + dataRetirada + '","hora_retirada": "' + horaRetirada + '","data_devolucao": "' + dataDevolucao + '","hora_devolucao": "' + horaDevolucao + '","tempo_locacao": "' + diffDays + '","id_funcionario": "111111","valor_total_locacao": "' + A + '","cupom_aplicado": "' + D + '","valor_descontos": "' + B + '","valor_total_a_pagar": "' + C + '","local_retirada": "' + localRetirada + '","local_devolucao": "' + localDevolucao + '","cadeirinha": "' + E + '","capa_cinto_animais": "' + F + '","pagamento_no_site": "' + pagamento_no_site + '","cartao_pagamento": "' + cartao_pagamento + '"}';
 
         var xhttp2 = new XMLHttpRequest();

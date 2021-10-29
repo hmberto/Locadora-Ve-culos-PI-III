@@ -24,7 +24,7 @@ function validaCupom(t) {
   if(cupom != "") {
     loading.classList.remove("hideloading");
 
-    var urlCupom = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/cupons/validate";
+    var urlCupom = "http://3.144.171.211:8186/LocadoraVeiculos/cupons/validate";
     
     var jsonCupom = '{"cupom": "' + cupom + '"}'
 

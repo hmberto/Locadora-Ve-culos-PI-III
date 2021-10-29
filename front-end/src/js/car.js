@@ -34,7 +34,7 @@ function getCars() {
   
   loading.classList.remove("hideloading");
 
-  var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/veiculos/consulta";
+  var url = "http://3.144.171.211:8186/LocadoraVeiculos/veiculos/consulta";
   var jsonCar = '{ "carId": \"' + urlParam + '\" }';
 
   var xhttp = new XMLHttpRequest();

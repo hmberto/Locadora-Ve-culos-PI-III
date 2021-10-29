@@ -63,7 +63,7 @@ function sendEmail() {
 
       var parsePass = btoa(pass.value);
 
-      var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/email/update";
+      var url = "http://3.144.171.211:8186/LocadoraVeiculos/email/update";
       var json = '{ "newEmail": "' + email + '", "login": "' + login + '", "pass": "' + parsePass + '" }';
       
       var xhttp = new XMLHttpRequest();

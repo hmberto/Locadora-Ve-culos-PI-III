@@ -68,7 +68,7 @@ function payFor() {
   cartao_pagamento = lastfour;
   cpf_locatario = newCpfLocatario;
 
-  var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/location/update";
+  var url = "http://3.144.171.211:8186/LocadoraVeiculos/location/update";
   var json = '{"pagamento_no_site":"' + pagamento_no_site + '","cartao_pagamento":"' + cartao_pagamento + '","cpf_locatario":"' + cpf_locatario + '"}';
 
   var xhttp = new XMLHttpRequest();
@@ -215,7 +215,7 @@ function detalhes() {
 
       outros.appendChild(div1);
 
-      var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/veiculos/consulta";
+      var url = "http://3.144.171.211:8186/LocadoraVeiculos/veiculos/consulta";
       var jsonCar = '{ "carId": \"' + idVeiculo + '\" }';
 
       var xhttp5 = new XMLHttpRequest();

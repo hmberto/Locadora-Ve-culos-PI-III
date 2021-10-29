@@ -200,7 +200,7 @@ public class GenerateClientsA {
 		this.validadeCnh = user.get(20);
 		this.categoriaCnh = user.get(21);
 		this.locatarioAtivo = user.get(22);
-		this.emailConfirmado = user.get(24);
-		this.emailConfirmacao = user.get(25);
+		this.emailConfirmado = user.get(23);
+		this.emailConfirmacao = user.get(24);
 	}
 }

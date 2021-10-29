@@ -19,7 +19,7 @@ function searchCarMarca() {
   var text = document.querySelector(".txt");
   var txt = "Carros encontrados para a fabricante " + urlParamCars;
   text.innerHTML=txt;
-  var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/veiculos/modelos";
+  var url = "http://3.144.171.211:8186/LocadoraVeiculos/veiculos/modelos";
   
   var consulta = new XMLHttpRequest();
   consulta.open("POST", url, true);

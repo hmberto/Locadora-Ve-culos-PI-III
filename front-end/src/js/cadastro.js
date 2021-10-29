@@ -297,7 +297,7 @@ function getValue() {
 
   document.getElementById("form").classList.add("hide");
 
-  var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/clientes/cadastro";
+  var url = "http://3.144.171.211:8186/LocadoraVeiculos/clientes/cadastro";
 
   var parseUser = btoa(login.value);
   var parsePass = btoa(senha.value);

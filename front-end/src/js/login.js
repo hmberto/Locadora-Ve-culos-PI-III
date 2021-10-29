@@ -206,7 +206,7 @@ function getValue() {
   
   loading.classList.remove("hideloading");
   
-  var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/clientes/login";
+  var url = "http://3.144.171.211:8186/LocadoraVeiculos/clientes/login";
   
   var parseUser = btoa(user.value);
   var parsePass = btoa(pass.value);
@@ -249,6 +249,9 @@ function getValue() {
         var confirm = JSON.parse(xhttp2.response);
         var email = confirm['emailConfirmado'];
 
+        console.log(confirm);
+        console.log(confirm['emailConfirmado']);
+
         if(email == 1) {
           if(urlParam2 != null && urlParam2.length > 3) {
             window.location.replace("/src/pages/car.html?carId=" + urlParam2);
@@ -267,7 +270,7 @@ function getValue() {
 
           textoerro.textContent="Confirme seu e-mail.";
 
-          var url2 = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/clientes/logout";
+          var url2 = "http://3.144.171.211:8186/LocadoraVeiculos/clientes/logout";
           var json2 = '{"session": "' + session['session'] + '"}';
 
           var xhttp5 = new XMLHttpRequest();

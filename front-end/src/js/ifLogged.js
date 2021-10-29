@@ -8,7 +8,7 @@ function validateLogin(fName, session, name, logout) {
   logout.setAttribute("href", "#");
 
   logout.addEventListener("click", () => {
-    var url2 = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/clientes/logout";
+    var url2 = "http://3.144.171.211:8186/LocadoraVeiculos/clientes/logout";
     var json2 = '{"session": "' + session + '"}';
 
     var xhttp2 = new XMLHttpRequest();
@@ -35,7 +35,7 @@ function ifLogged(session, t) {
   var name = document.querySelector(".btn1");
   var logout = document.querySelector(".btn2");
 
-  var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/clientes/user";
+  var url = "http://3.144.171.211:8186/LocadoraVeiculos/clientes/user";
   var json = '{"session": "' + session + '"}';
 
   var jsonRes = "";

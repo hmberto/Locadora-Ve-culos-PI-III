@@ -55,7 +55,7 @@ function updatePass() {
     var parseUser = btoa(user.value);
     var parsePass = btoa(senha1.value);
 
-    var url = "http://ec2-18-119-13-255.us-east-2.compute.amazonaws.com:8186/LocadoraVeiculos/clientes/pwdReset";
+    var url = "http://3.144.171.211:8186/LocadoraVeiculos/clientes/pwdReset";
     var json = '{"user": "' + parseUser + '","cpf": "' + cpf + '","newPass": "' + parsePass + '"}';
 
     console.log(JSON.parse(json))
