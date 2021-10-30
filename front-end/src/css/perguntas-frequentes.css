@@ -8,30 +8,46 @@
   border-radius: 10px;
 }
 
-#marcas li {
-  font-size: 22px;
-  padding-top: 15px;
+.question-box {
+  cursor: pointer;
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-#marcas a {
-  font-size: 18px;
-  padding-bottom: 15px;
+.hide-txt {
+  display: none;
+}
+
+.show-txt {
   display: block;
-  margin-left: 20px;
+}
+
+.img-seta {
+  width: 27px;
+  float: left;
+}
+
+.prolado {
+  transform: rotate(-90deg);
+  transition-duration: 0.2s;
+}
+
+.txt-qst {
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.txt-qst-1 {
+  font-size: 18px;
+  margin-top: 15px;
+  margin-left: 0px;
 }
 
 @media(max-width: 550px) {
   #home {
     padding-top: 60px;
-  }
-
-  #marcas li {
-    font-size: 16px;
-  }
-
-  #marcas a {
-    font-size: 16px;
-    margin-left: 22px;
   }
 }
 
