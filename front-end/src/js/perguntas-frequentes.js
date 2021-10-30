@@ -3,6 +3,21 @@ var seta = document.querySelectorAll(".img-seta");
 var showTxt = document.querySelectorAll(".txt-qst-1");
 var questionBox = document.querySelectorAll(".question-box");
 
+function darkTheme() {
+  var themeColor = window.localStorage.getItem("sessionColor");
+
+  if(themeColor != "dark") {
+    var allSetas = document.querySelectorAll(".img-seta");
+
+    console.log(allSetas.length);
+    for(i=0; i < allSetas.length; i++) {
+      allSetas[i].setAttribute("src", "/src/img/seta-dark.png")
+    }
+  }
+}
+
+darkTheme();
+
 function perguntasFrequentes() {
   loading.classList.add("hideloading");
   var session = window.localStorage.getItem("session");
